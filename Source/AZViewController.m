@@ -16,7 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    label.text = @"MAMA";
+    label.backgroundColor = [UIColor greenColor];
+    
+    self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+    self.view.frame = CGRectMake(0, 0, 200, 200);
+    
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning {

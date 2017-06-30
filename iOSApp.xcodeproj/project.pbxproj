@@ -14,6 +14,7 @@
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
 		1D5B4A721F05B0EA00E14BEA /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A6F1F05B0EA00E14BEA /* AZAppDelegate.m */; };
 		1D5B4A731F05B0EA00E14BEA /* AZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A711F05B0EA00E14BEA /* AZViewController.m */; };
+		1D732D6E1F0710B2008C5464 /* AZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D732D6C1F0710B2008C5464 /* AZViewController.xib */; };
 		6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		1D5B4A6F1F05B0EA00E14BEA /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
 		1D5B4A701F05B0EA00E14BEA /* AZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZViewController.h; sourceTree = "<group>"; };
 		1D5B4A711F05B0EA00E14BEA /* AZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZViewController.m; sourceTree = "<group>"; };
+		1D732D6C1F0710B2008C5464 /* AZViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZViewController.xib; sourceTree = "<group>"; };
 		4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4E0CAB0C936997215356FC /* Pods-iOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				1D5B4A6F1F05B0EA00E14BEA /* AZAppDelegate.m */,
 				1D5B4A701F05B0EA00E14BEA /* AZViewController.h */,
 				1D5B4A711F05B0EA00E14BEA /* AZViewController.m */,
+				1D732D6C1F0710B2008C5464 /* AZViewController.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D732D6E1F0710B2008C5464 /* AZViewController.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
 				1D5B4A621F05B0D700E14BEA /* Info.plist in Resources */,
