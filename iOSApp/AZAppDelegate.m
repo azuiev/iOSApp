@@ -7,7 +7,7 @@
 //
 
 #import "AZAppDelegate.h"
-#import "AZViewController.h"
+#import "AZSquareViewController.h"
 
 @interface AZAppDelegate ()
 
@@ -21,11 +21,11 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [[AZViewController alloc] init];
+    window.rootViewController = [AZSquareViewController new];
     window.backgroundColor = [UIColor purpleColor];
    
     [window makeKeyAndVisible];
-    window.rootViewController.view.frame = CGRectMake(0, 0, 200,200);
+    //window.rootViewController.view.frame = CGRectMake(0, 0, 200,200);
     
     return YES;
 }
