@@ -38,6 +38,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIButton *button = self.squareView.buttonNext;
+    CALayer *layer = button.layer;
+    layer.borderWidth = 1;
+    layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning {
