@@ -1,36 +1,28 @@
 //
-//  AZDquareViewController.m
+//  AZRootViewController.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 30/06/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZSquareViewController.h"
+#import "AZRootViewController.h"
 
-#import "AZSquareView.h"
+#import "AZRootView.h"
 
-@interface AZSquareViewController ()
-@property (nonatomic, strong) AZSquareView  *squareView;
+@interface AZRootViewController ()
+@property (nonatomic, strong) AZRootView    *rootView;
 
 @end
 
-@implementation AZSquareViewController
+@implementation AZRootViewController
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquare:(AZSquare *)square {
-    if (_square != square) {
-        _square = square;
-    }
-    
-    self.squareView.square = square;
-}
-
-- (AZSquareView *)squareView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[AZSquareView class]]) {
-        return (AZSquareView *)self.view;
+- (AZRootView *)AZRootView {
+    if ([self isViewLoaded] && [self.view isKindOfClass:[AZRootView class]]) {
+        return (AZRootView *)self.view;
     }
     
     return nil;
@@ -38,10 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *button = self.squareView.buttonNext;
-    CALayer *layer = button.layer;
-    layer.borderWidth = 1;
-    layer.cornerRadius = 10;
+
 }
 
 - (void)didReceiveMemoryWarning {

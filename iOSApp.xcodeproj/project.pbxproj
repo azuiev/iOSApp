@@ -7,35 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D5B4A621F05B0D700E14BEA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A601F05B0D700E14BEA /* Info.plist */; };
+		1D583CF61F100F07001B8732 /* AZRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D583CEE1F100F07001B8732 /* AZRootView.m */; };
+		1D583CF71F100F07001B8732 /* AZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D583CF01F100F07001B8732 /* AZRootViewController.m */; };
+		1D583CF81F100F07001B8732 /* AZRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D583CF11F100F07001B8732 /* AZRootViewController.xib */; };
+		1D583D011F10122F001B8732 /* AZButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D583D001F10122F001B8732 /* AZButtonView.m */; };
+		1D583D041F101429001B8732 /* AZButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D583D031F101429001B8732 /* AZButtonViewController.m */; };
+		1D583D061F1029FE001B8732 /* AZButonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D583D051F1029FE001B8732 /* AZButonViewController.xib */; };
 		1D5B4A631F05B0D700E14BEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A611F05B0D700E14BEA /* main.m */; };
 		1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A651F05B0E200E14BEA /* Assets.xcassets */; };
 		1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */; };
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
-		1D5B4A731F05B0EA00E14BEA /* AZSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A711F05B0EA00E14BEA /* AZSquareViewController.m */; };
-		1D732D6E1F0710B2008C5464 /* AZSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D732D6C1F0710B2008C5464 /* AZSquareViewController.xib */; };
-		1D8307061F0C306600409B09 /* AZSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307051F0C306600409B09 /* AZSquareView.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
-		1D83070C1F0C313C00409B09 /* AZSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83070B1F0C313C00409B09 /* AZSquare.m */; };
 		6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D583CED1F100F07001B8732 /* AZRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRootView.h; sourceTree = "<group>"; };
+		1D583CEE1F100F07001B8732 /* AZRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRootView.m; sourceTree = "<group>"; };
+		1D583CEF1F100F07001B8732 /* AZRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRootViewController.h; sourceTree = "<group>"; };
+		1D583CF01F100F07001B8732 /* AZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRootViewController.m; sourceTree = "<group>"; };
+		1D583CF11F100F07001B8732 /* AZRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZRootViewController.xib; sourceTree = "<group>"; };
+		1D583CFF1F10122F001B8732 /* AZButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZButtonView.h; path = ButtonController/AZButtonView.h; sourceTree = "<group>"; };
+		1D583D001F10122F001B8732 /* AZButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZButtonView.m; path = ButtonController/AZButtonView.m; sourceTree = "<group>"; };
+		1D583D021F101429001B8732 /* AZButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZButtonViewController.h; path = ButtonController/AZButtonViewController.h; sourceTree = "<group>"; };
+		1D583D031F101429001B8732 /* AZButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZButtonViewController.m; path = ButtonController/AZButtonViewController.m; sourceTree = "<group>"; };
+		1D583D051F1029FE001B8732 /* AZButonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZButonViewController.xib; path = ButtonController/AZButonViewController.xib; sourceTree = "<group>"; };
 		1D5B4A421F05A93800E14BEA /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5B4A601F05B0D700E14BEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D5B4A611F05B0D700E14BEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D5B4A651F05B0E200E14BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D5B4A671F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1D5B4A701F05B0EA00E14BEA /* AZSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZSquareViewController.h; sourceTree = "<group>"; };
-		1D5B4A711F05B0EA00E14BEA /* AZSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSquareViewController.m; sourceTree = "<group>"; };
-		1D732D6C1F0710B2008C5464 /* AZSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZSquareViewController.xib; sourceTree = "<group>"; };
-		1D8307041F0C306600409B09 /* AZSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZSquareView.h; sourceTree = "<group>"; };
-		1D8307051F0C306600409B09 /* AZSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSquareView.m; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
-		1D83070A1F0C313C00409B09 /* AZSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZSquare.h; sourceTree = "<group>"; };
-		1D83070B1F0C313C00409B09 /* AZSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSquare.m; sourceTree = "<group>"; };
 		4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4E0CAB0C936997215356FC /* Pods-iOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,10 +57,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D583CEA1F100F07001B8732 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1D583CEB1F100F07001B8732 /* Controllers */,
+				1D583CF21F100F07001B8732 /* Models */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1D583CEB1F100F07001B8732 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D583CFB1F101164001B8732 /* ButtonController */,
+				1D583CEC1F100F07001B8732 /* RootController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1D583CEC1F100F07001B8732 /* RootController */ = {
+			isa = PBXGroup;
+			children = (
+				1D583CED1F100F07001B8732 /* AZRootView.h */,
+				1D583CEE1F100F07001B8732 /* AZRootView.m */,
+				1D583CEF1F100F07001B8732 /* AZRootViewController.h */,
+				1D583CF01F100F07001B8732 /* AZRootViewController.m */,
+				1D583CF11F100F07001B8732 /* AZRootViewController.xib */,
+			);
+			name = RootController;
+			path = SquareController;
+			sourceTree = "<group>";
+		};
+		1D583CF21F100F07001B8732 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D583CFB1F101164001B8732 /* ButtonController */ = {
+			isa = PBXGroup;
+			children = (
+				1D583CFF1F10122F001B8732 /* AZButtonView.h */,
+				1D583D001F10122F001B8732 /* AZButtonView.m */,
+				1D583D021F101429001B8732 /* AZButtonViewController.h */,
+				1D583D031F101429001B8732 /* AZButtonViewController.m */,
+				1D583D051F1029FE001B8732 /* AZButonViewController.xib */,
+			);
+			name = ButtonController;
+			sourceTree = "<group>";
+		};
 		1D5B4A391F05A93800E14BEA = {
 			isa = PBXGroup;
 			children = (
-				1D5B4A6D1F05B0EA00E14BEA /* Source */,
+				1D583CEA1F100F07001B8732 /* Source */,
 				1D5B4A641F05B0E200E14BEA /* Resources */,
 				1D5B4A5F1F05B0D700E14BEA /* iOSApp */,
 				1D5B4A431F05A93800E14BEA /* Products */,
@@ -92,20 +146,6 @@
 				1D5B4A681F05B0E200E14BEA /* Main.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		1D5B4A6D1F05B0EA00E14BEA /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				1D5B4A701F05B0EA00E14BEA /* AZSquareViewController.h */,
-				1D5B4A711F05B0EA00E14BEA /* AZSquareViewController.m */,
-				1D732D6C1F0710B2008C5464 /* AZSquareViewController.xib */,
-				1D8307041F0C306600409B09 /* AZSquareView.h */,
-				1D8307051F0C306600409B09 /* AZSquareView.m */,
-				1D83070A1F0C313C00409B09 /* AZSquare.h */,
-				1D83070B1F0C313C00409B09 /* AZSquare.m */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 		6FF4CD2DD1003B7DA0220BA6 /* Pods */ = {
@@ -187,11 +227,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D732D6E1F0710B2008C5464 /* AZSquareViewController.xib in Resources */,
+				1D583CF81F100F07001B8732 /* AZRootViewController.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
-				1D5B4A621F05B0D700E14BEA /* Info.plist in Resources */,
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
+				1D583D061F1029FE001B8732 /* AZButonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,11 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D8307061F0C306600409B09 /* AZSquareView.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
-				1D83070C1F0C313C00409B09 /* AZSquare.m in Sources */,
+				1D583D041F101429001B8732 /* AZButtonViewController.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,
-				1D5B4A731F05B0EA00E14BEA /* AZSquareViewController.m in Sources */,
+				1D583CF71F100F07001B8732 /* AZRootViewController.m in Sources */,
+				1D583D011F10122F001B8732 /* AZButtonView.m in Sources */,
+				1D583CF61F100F07001B8732 /* AZRootView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
