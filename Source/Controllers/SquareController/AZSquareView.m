@@ -1,40 +1,29 @@
 //
-//  AZRootView.m
+//  AZSquareView.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 04/07/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZRootView.h"
+#import "AZSquareView.h"
 
-static NSUInteger AZMaxEnumValue        = 3;
+#import "AZRandomNumber.h"
+
 static NSUInteger AZAnimationDuration   = 2;
 
-
-@interface AZRootView ()
-@property (nonatomic, unsafe_unretained) BOOL squareMoving;
+@interface AZSquareView ()
+@property (nonatomic, assign, getter=isSquareMoving) BOOL  squareMoving;
 @end
 
-@implementation AZRootView
-
-#pragma mark -
-#pragma mark Initialization and Deallocation
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.squareMoving = false;
-    }
-    
-    return self;
-}
+@implementation AZSquareView
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquareView:(UIView *)squareView {
-    if (_squareView != squareView) {
-        _squareView = squareView;
+- (void)setSquareView:(UIView *)movingSquareView {
+    if (_movingSquareView != movingSquareView) {
+        _movingSquareView = movingSquareView;
     
         self.squarePosition = AZUpperLeft;
     }
@@ -53,55 +42,51 @@ static NSUInteger AZAnimationDuration   = 2;
 #pragma mark -
 #pragma mark Public
 
-- (IBAction)startStopMoving:(id)sender {
+- (void)startStopMoving {
     self.squareMoving = !self.squareMoving;
 }
 
 - (void)setSquarePosition:(AZSquarePosition)squarePosition {
-    [self setSquarePosition:squarePosition animated:YES completionHandler:^(BOOL finished) {
-        _squarePosition = squarePosition;
-    }];
+    [self setSquarePosition:squarePosition animated:YES];
 }
 
 - (void)setSquarePosition:(AZSquarePosition)squarePosition
                  animated:(BOOL)animated
 {
-    [self setSquarePosition:squarePosition animated:YES completionHandler:^(BOOL finished) {
-        _squarePosition = squarePosition;
-    }];
+    [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
 }
 
 - (void)setSquarePosition:(AZSquarePosition)squarePosition
                  animated:(BOOL)animated
         completionHandler:(void(^)(BOOL))completionHandler
 {
-    CGPoint location = [self calculateNewLocation:squarePosition];
-    UIView *squareView = self.squareView;
-    CGRect frame = squareView.frame;
-    frame.origin = location;
+    NSTimeInterval interval = animated ? AZAnimationDuration : 0.0;
     
-    if (!animated) {
-        squareView.frame = frame;
-        completionHandler(true);
-    } else {
-        [UIView animateWithDuration:AZAnimationDuration
-                              delay:0.0
-                            options:UIViewAnimationOptionBeginFromCurrentState
-                         animations: ^{
-                             squareView.frame = frame;
+    [UIView animateWithDuration:interval
+                          delay:0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.movingSquareView.frame = [self frameForPosition:squarePosition];
+                     }
+                     completion:^(BOOL finished) {
+                         if (completionHandler) {
+                             completionHandler(true);
                          }
-                         completion:completionHandler];
-    }
+                         
+                         if (_squarePosition != squarePosition) {
+                             _squarePosition = squarePosition;
+                         }
+                     }];
 }
 
 #pragma mark -
 #pragma mark Button handlers
 
-- (IBAction)moveToNextCorner:(id)sender {
+- (void)moveToNextPosition {
     [self setSquarePosition:[self nextPosition] animated:YES];
 }
 
-- (IBAction)moveToRandomCorner:(id)sender {
+- (void)moveToRandomPosition {
     [self setSquarePosition:[self randomPosition] animated:YES];
 }
 
@@ -113,7 +98,7 @@ static NSUInteger AZAnimationDuration   = 2;
     dispatch_async(queue, ^ {
         if (self.squareMoving) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self moveToNextCorner:nil];
+                [self moveToNextPosition];
             });
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(AZAnimationDuration * NSEC_PER_SEC)),
@@ -125,22 +110,25 @@ static NSUInteger AZAnimationDuration   = 2;
 }
 
 - (AZSquarePosition)nextPosition {
-    AZSquarePosition position = self.squarePosition;
-    position += 1;
-    if (position > AZMaxEnumValue) {
-        position = AZUpperLeft;
-    }
-    
-    return position;
+    AZSquarePosition position = self.squarePosition + 1;
+   
+    return position >= AZPositionCount ? AZUpperLeft : position;
 }
 
 - (AZSquarePosition)randomPosition {
-    return arc4random_uniform((uint32_t)AZMaxEnumValue);
+    return AZRandomNumberWithMaxValue(AZPositionCount);
 }
 
-- (CGPoint)calculateNewLocation:(AZSquarePosition)position {
+- (CGRect)frameForPosition:(AZSquarePosition)squarePosition {
+    CGRect frame = self.movingSquareView.frame;
+    frame.origin = [self locationForPosition:squarePosition];
+    
+    return frame;
+
+}
+- (CGPoint)locationForPosition:(AZSquarePosition)position {
     CGSize parentSize = self.frame.size;
-    CGSize size = self.squareView.frame.size;
+    CGSize size = self.movingSquareView.frame.size;
     
     switch (position) {
         case AZUpperLeft:
@@ -154,6 +142,7 @@ static NSUInteger AZAnimationDuration   = 2;
         default:
             return CGPointMake(0, 0);
     }
+    
 }
 
 - (void)awakeFromNib {
@@ -167,13 +156,5 @@ static NSUInteger AZAnimationDuration   = 2;
         layer.cornerRadius = 10;
     }
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

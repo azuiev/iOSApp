@@ -7,7 +7,7 @@
 //
 
 #import "AZAppDelegate.h"
-#import "AZRootViewController.h"
+#import "AZSquareViewController.h"
 
 @interface AZAppDelegate ()
 
@@ -21,15 +21,13 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [AZRootViewController new];
+    window.rootViewController = [AZSquareViewController new];
     window.backgroundColor = [UIColor purpleColor];
    
     [window makeKeyAndVisible];
-    //window.rootViewController.view.frame = CGRectMake(0, 0, 200,200);
     
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
