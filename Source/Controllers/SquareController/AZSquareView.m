@@ -13,7 +13,8 @@
 static NSUInteger AZAnimationDuration   = 2;
 
 @interface AZSquareView ()
-@property (nonatomic, assign, getter=isSquareMoving) BOOL  squareMoving;
+@property (nonatomic, assign, getter=isSquareMoving)    BOOL  squareMoving;
+@property (nonatomic, assign)   NSUInteger    buttonPressedCount;
 @end
 
 @implementation AZSquareView
@@ -33,9 +34,12 @@ static NSUInteger AZAnimationDuration   = 2;
     if (_squareMoving != squareMoving) {
         _squareMoving = squareMoving;
         
+        self.buttonPressedCount += 1;
+        
         if (squareMoving) {
-            [self startMoving];
+            [self moveSquare];
         }
+        
     }
 }
 
@@ -83,31 +87,33 @@ static NSUInteger AZAnimationDuration   = 2;
 #pragma mark Button handlers
 
 - (void)moveToNextPosition {
-    [self setSquarePosition:[self nextPosition] animated:YES];
-}
+    if (!self.squareMoving) {
+        [self setSquarePosition:[self nextPosition] animated:YES];
+    }}
 
 - (void)moveToRandomPosition {
-    [self setSquarePosition:[self randomPosition] animated:YES];
+    if (!self.squareMoving) {
+        [self setSquarePosition:[self randomPosition] animated:YES];
+    }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)startMoving {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-    dispatch_async(queue, ^ {
-        if (self.squareMoving) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self moveToNextPosition];
-            });
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(AZAnimationDuration * NSEC_PER_SEC)),
-                           queue,  ^{
-                               [self startMoving];
-                           });
-        }
-    });
+- (void)moveSquare {
+    if (self.buttonPressedCount > 1) {
+        return;
+    }
+    [self setSquarePosition:[self nextPosition]
+                   animated:YES
+          completionHandler:^(BOOL finished) {
+              self.buttonPressedCount = 0;
+              if (self.squareMoving) {
+                  [self moveSquare];
+              }
+          }];
 }
+
 
 - (AZSquarePosition)nextPosition {
     AZSquarePosition position = self.squarePosition + 1;
