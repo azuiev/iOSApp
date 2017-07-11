@@ -40,6 +40,7 @@
 		1D5B4A651F05B0E200E14BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D5B4A671F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
 		1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRandomNumber.m; path = Utils/AZRandomNumber.m; sourceTree = "<group>"; };
 		1D77AF4F1F142BF70069E27F /* AZRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRange.h; path = Utils/AZRange.h; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 				1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */,
 				1D77AF4F1F142BF70069E27F /* AZRange.h */,
 				1D77AF501F142BF70069E27F /* AZRange.m */,
+				1D63569F1F154C3800EFDA40 /* AZMacros.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

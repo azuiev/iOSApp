@@ -10,25 +10,11 @@
 
 #import "AZSquareView.h"
 
-@interface AZSquareViewController ()
-@property (nonatomic, strong) AZSquareView    *squareView;
+#import "AZMacros.h"
 
-@end
+AZBaseViewControllerWithProperty(AZSquareViewController, squareView, AZSquareView);
 
 @implementation AZSquareViewController
-
-@dynamic squareView;
-
-#pragma mark -
-#pragma mark Accessors
-
-- (AZSquareView *)squareView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[AZSquareView class]]) {
-        return (AZSquareView *)self.view;
-    }
-    
-    return nil;
-}
 
 #pragma mark -
 #pragma mark UI handlers
