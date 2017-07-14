@@ -17,11 +17,15 @@
 		1D6356A61F156C7A00EFDA40 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356A41F156C7A00EFDA40 /* AZUsersViewController.m */; };
 		1D6356A71F156C7A00EFDA40 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6356A51F156C7A00EFDA40 /* AZUsersViewController.xib */; };
 		1D6356AA1F156D6D00EFDA40 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356A91F156D6D00EFDA40 /* AZUsersView.m */; };
-		1D6356B11F1572CB00EFDA40 /* AZUsersViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356AF1F1572CB00EFDA40 /* AZUsersViewCell.m */; };
-		1D6356B21F1572CB00EFDA40 /* AZUsersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6356B01F1572CB00EFDA40 /* AZUsersViewCell.xib */; };
+		1D6356B11F1572CB00EFDA40 /* AZUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356AF1F1572CB00EFDA40 /* AZUserCell.m */; };
+		1D6356B21F1572CB00EFDA40 /* AZUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6356B01F1572CB00EFDA40 /* AZUserCell.xib */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
+		1D96AC8D1F19385400294A68 /* AZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC8C1F19385400294A68 /* AZUser.m */; };
+		1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC931F193C3600294A68 /* AZTableViewCell.m */; };
+		1D96AC981F19496100294A68 /* NSString+AZRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC971F19496100294A68 /* NSString+AZRandomName.m */; };
+		1D96AC9B1F1949F300294A68 /* NSString+AZRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC9A1F1949F300294A68 /* NSString+AZRandomString.m */; };
 		6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */; };
 /* End PBXBuildFile section */
 
@@ -43,15 +47,23 @@
 		1D6356A51F156C7A00EFDA40 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
 		1D6356A81F156D6D00EFDA40 /* AZUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersView.h; sourceTree = "<group>"; };
 		1D6356A91F156D6D00EFDA40 /* AZUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersView.m; sourceTree = "<group>"; };
-		1D6356AE1F1572CB00EFDA40 /* AZUsersViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewCell.h; sourceTree = "<group>"; };
-		1D6356AF1F1572CB00EFDA40 /* AZUsersViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewCell.m; sourceTree = "<group>"; };
-		1D6356B01F1572CB00EFDA40 /* AZUsersViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewCell.xib; sourceTree = "<group>"; };
+		1D6356AE1F1572CB00EFDA40 /* AZUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUserCell.h; sourceTree = "<group>"; };
+		1D6356AF1F1572CB00EFDA40 /* AZUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUserCell.m; sourceTree = "<group>"; };
+		1D6356B01F1572CB00EFDA40 /* AZUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUserCell.xib; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
 		1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRandomNumber.m; path = Utils/AZRandomNumber.m; sourceTree = "<group>"; };
 		1D77AF4F1F142BF70069E27F /* AZRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRange.h; path = Utils/AZRange.h; sourceTree = "<group>"; };
 		1D77AF501F142BF70069E27F /* AZRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRange.m; path = Utils/AZRange.m; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
+		1D96AC8B1F19385400294A68 /* AZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUser.h; path = User/AZUser.h; sourceTree = "<group>"; };
+		1D96AC8C1F19385400294A68 /* AZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUser.m; path = User/AZUser.m; sourceTree = "<group>"; };
+		1D96AC921F193C3600294A68 /* AZTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZTableViewCell.h; sourceTree = "<group>"; };
+		1D96AC931F193C3600294A68 /* AZTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZTableViewCell.m; sourceTree = "<group>"; };
+		1D96AC961F19496100294A68 /* NSString+AZRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AZRandomName.h"; sourceTree = "<group>"; };
+		1D96AC971F19496100294A68 /* NSString+AZRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AZRandomName.m"; sourceTree = "<group>"; };
+		1D96AC991F1949F300294A68 /* NSString+AZRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AZRandomString.h"; sourceTree = "<group>"; };
+		1D96AC9A1F1949F300294A68 /* NSString+AZRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AZRandomString.m"; sourceTree = "<group>"; };
 		4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4E0CAB0C936997215356FC /* Pods-iOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +115,7 @@
 		1D583CF21F100F07001B8732 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D96AC8E1F19385A00294A68 /* User */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,9 +169,9 @@
 				1D6356A51F156C7A00EFDA40 /* AZUsersViewController.xib */,
 				1D6356A81F156D6D00EFDA40 /* AZUsersView.h */,
 				1D6356A91F156D6D00EFDA40 /* AZUsersView.m */,
-				1D6356AE1F1572CB00EFDA40 /* AZUsersViewCell.h */,
-				1D6356AF1F1572CB00EFDA40 /* AZUsersViewCell.m */,
-				1D6356B01F1572CB00EFDA40 /* AZUsersViewCell.xib */,
+				1D6356AE1F1572CB00EFDA40 /* AZUserCell.h */,
+				1D6356AF1F1572CB00EFDA40 /* AZUserCell.m */,
+				1D6356B01F1572CB00EFDA40 /* AZUserCell.xib */,
 			);
 			path = UsersController;
 			sourceTree = "<group>";
@@ -166,6 +179,8 @@
 		1D77AF491F1423EC0069E27F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1D96AC951F19496100294A68 /* Categories */,
+				1D96AC901F193BB900294A68 /* Classes */,
 				1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */,
 				1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */,
 				1D77AF4F1F142BF70069E27F /* AZRange.h */,
@@ -173,6 +188,45 @@
 				1D63569F1F154C3800EFDA40 /* AZMacros.h */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		1D96AC8E1F19385A00294A68 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				1D96AC8B1F19385400294A68 /* AZUser.h */,
+				1D96AC8C1F19385400294A68 /* AZUser.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		1D96AC901F193BB900294A68 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D96AC911F193BDB00294A68 /* TableViewCell */,
+			);
+			name = Classes;
+			path = Utils/Classes;
+			sourceTree = "<group>";
+		};
+		1D96AC911F193BDB00294A68 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D96AC921F193C3600294A68 /* AZTableViewCell.h */,
+				1D96AC931F193C3600294A68 /* AZTableViewCell.m */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		1D96AC951F19496100294A68 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1D96AC991F1949F300294A68 /* NSString+AZRandomString.h */,
+				1D96AC9A1F1949F300294A68 /* NSString+AZRandomString.m */,
+				1D96AC961F19496100294A68 /* NSString+AZRandomName.h */,
+				1D96AC971F19496100294A68 /* NSString+AZRandomName.m */,
+			);
+			name = Categories;
+			path = Utils/Categories;
 			sourceTree = "<group>";
 		};
 		6FF4CD2DD1003B7DA0220BA6 /* Pods */ = {
@@ -256,7 +310,7 @@
 			files = (
 				1D6356A71F156C7A00EFDA40 /* AZUsersViewController.xib in Resources */,
 				1D583CF81F100F07001B8732 /* AZSquareViewController.xib in Resources */,
-				1D6356B21F1572CB00EFDA40 /* AZUsersViewCell.xib in Resources */,
+				1D6356B21F1572CB00EFDA40 /* AZUserCell.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
@@ -318,15 +372,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */,
 				1D6356AA1F156D6D00EFDA40 /* AZUsersView.m in Sources */,
 				1D6356A61F156C7A00EFDA40 /* AZUsersViewController.m in Sources */,
+				1D96AC9B1F1949F300294A68 /* NSString+AZRandomString.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
 				1D583CF71F100F07001B8732 /* AZSquareViewController.m in Sources */,
-				1D6356B11F1572CB00EFDA40 /* AZUsersViewCell.m in Sources */,
+				1D6356B11F1572CB00EFDA40 /* AZUserCell.m in Sources */,
 				1D583CF61F100F07001B8732 /* AZSquareView.m in Sources */,
+				1D96AC981F19496100294A68 /* NSString+AZRandomName.m in Sources */,
+				1D96AC8D1F19385400294A68 /* AZUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

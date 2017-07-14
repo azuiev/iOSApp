@@ -22,7 +22,11 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [AZUsersViewController new];
+    AZUsersViewController *controller = [AZUsersViewController new];
+    AZUser *user = [AZUser new];
+    [controller setUser:user];
+    
+    window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
    
     [window makeKeyAndVisible];

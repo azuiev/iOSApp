@@ -9,7 +9,7 @@
 #import "AZUsersViewController.h"
 
 #import "AZUsersView.h"
-#import "AZUsersViewCell.h"
+#import "AZUserCell.h"
 
 #import "AZMacros.h"
 
@@ -29,20 +29,21 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 2000;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString * const AZReuseIdentifier = @"AZReuseIdentifier";
+    NSString *cellClass = NSStringFromClass([AZUserCell class]);
     
-    AZUsersViewCell *cell = [[AZUsersViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                   reuseIdentifier:AZReuseIdentifier];
+    AZUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
+    if (!cell) {
+        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
+        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
+        cell = [cells firstObject];
+    }
     
-    cell.textLabel.text = @"Test";
-    
+    cell.user = self.user;
     return cell;
 }
-
-
 
 @end

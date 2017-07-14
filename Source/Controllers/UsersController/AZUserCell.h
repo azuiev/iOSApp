@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZUsersViewCell : UITableViewCell
+#import "AZTableViewCell.h"
+#import "AZUser.h"
+
+@interface AZUserCell : AZTableViewCell
 @property (nonatomic, strong) IBOutlet UIImageView  *userImageView;
 @property (nonatomic, strong) IBOutlet UILabel      *fullNameLabel;
 
+@property (nonatomic, strong) AZUser    *user;
+
+- (void)fillWithModel:(AZUser *)user;
 @end

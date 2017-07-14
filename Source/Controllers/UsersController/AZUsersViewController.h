@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AZUser.h"
+
 @interface AZUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) AZUser    *user;
+
 
 @end
