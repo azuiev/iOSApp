@@ -42,7 +42,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
         cell = [nib cellWithClass:clazz];
     }
     
-    cell.user = self.user;
+    cell.user = [AZUser new];
     return cell;
 }
 

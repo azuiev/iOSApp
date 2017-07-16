@@ -11,7 +11,7 @@
 @interface AZUser : NSObject
 @property (nonatomic, copy) NSString    *name;
 @property (nonatomic, copy) NSString    *surName;
-@property (nonatomic, copy) NSString    *fullName;
-@property (nonatomic, copy) UIImage     *image;
+@property (nonatomic, readonly) NSString    *fullName;
+@property (nonatomic, readonly) UIImage     *image;
 
 @end

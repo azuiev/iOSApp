@@ -15,6 +15,7 @@
 		1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */; };
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
 		1D5D49AC1F1B8860003AEA36 /* UINib+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D49AB1F1B8860003AEA36 /* UINib+AZExtension.m */; };
+		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
 		1D6356A61F156C7A00EFDA40 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356A41F156C7A00EFDA40 /* AZUsersViewController.m */; };
 		1D6356A71F156C7A00EFDA40 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6356A51F156C7A00EFDA40 /* AZUsersViewController.xib */; };
 		1D6356AA1F156D6D00EFDA40 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356A91F156D6D00EFDA40 /* AZUsersView.m */; };
@@ -44,6 +45,7 @@
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D5D49AA1F1B8860003AEA36 /* UINib+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+AZExtension.h"; sourceTree = "<group>"; };
 		1D5D49AB1F1B8860003AEA36 /* UINib+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+AZExtension.m"; sourceTree = "<group>"; };
+		1D5D49B21F1BA001003AEA36 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
 		1D6356A31F156C7A00EFDA40 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D6356A41F156C7A00EFDA40 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
@@ -157,11 +159,20 @@
 		1D5B4A641F05B0E200E14BEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1D5D49B11F1BA001003AEA36 /* Images */,
 				1D5B4A651F05B0E200E14BEA /* Assets.xcassets */,
 				1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */,
 				1D5B4A681F05B0E200E14BEA /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1D5D49B11F1BA001003AEA36 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1D5D49B21F1BA001003AEA36 /* Image.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		1D6356A21F156C2C00EFDA40 /* UsersController */ = {
@@ -317,6 +328,7 @@
 				1D583CF81F100F07001B8732 /* AZSquareViewController.xib in Resources */,
 				1D6356B21F1572CB00EFDA40 /* AZUserCell.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
+				1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */,
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
 			);

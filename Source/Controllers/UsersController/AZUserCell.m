@@ -10,6 +10,14 @@
 
 @implementation AZUserCell
 
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+}
 #pragma mark -
 #pragma mark Accessors
 
@@ -22,7 +30,8 @@
 }
 
 - (void)fillWithModel:(AZUser *)user {
-    self.fullNameLabel.text = self.user.fullName;
+    self.fullNameLabel.text = user.fullName;
+    self.userImageView.image = user.image;
 }
 
 @end
