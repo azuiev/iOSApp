@@ -12,6 +12,7 @@
 #import "AZUserCell.h"
 
 #import "AZMacros.h"
+#import "UINib+AZExtension.h"
 
 AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 @interface AZUsersViewController ()
@@ -33,13 +34,12 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellClass = NSStringFromClass([AZUserCell class]);
+    Class clazz = [AZUserCell class];
     
-    AZUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
+    AZUserCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
     if (!cell) {
-        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
-        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
-        cell = [cells firstObject];
+        UINib *nib = [UINib nibWithClass:clazz];
+        cell = [nib cellWithClass:clazz];
     }
     
     cell.user = self.user;

@@ -14,6 +14,7 @@
 		1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A651F05B0E200E14BEA /* Assets.xcassets */; };
 		1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */; };
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
+		1D5D49AC1F1B8860003AEA36 /* UINib+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D49AB1F1B8860003AEA36 /* UINib+AZExtension.m */; };
 		1D6356A61F156C7A00EFDA40 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356A41F156C7A00EFDA40 /* AZUsersViewController.m */; };
 		1D6356A71F156C7A00EFDA40 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6356A51F156C7A00EFDA40 /* AZUsersViewController.xib */; };
 		1D6356AA1F156D6D00EFDA40 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6356A91F156D6D00EFDA40 /* AZUsersView.m */; };
@@ -41,6 +42,8 @@
 		1D5B4A651F05B0E200E14BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D5B4A671F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D5D49AA1F1B8860003AEA36 /* UINib+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+AZExtension.h"; sourceTree = "<group>"; };
+		1D5D49AB1F1B8860003AEA36 /* UINib+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+AZExtension.m"; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
 		1D6356A31F156C7A00EFDA40 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D6356A41F156C7A00EFDA40 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				1D96AC9A1F1949F300294A68 /* NSString+AZRandomString.m */,
 				1D96AC961F19496100294A68 /* NSString+AZRandomName.h */,
 				1D96AC971F19496100294A68 /* NSString+AZRandomName.m */,
+				1D5D49AA1F1B8860003AEA36 /* UINib+AZExtension.h */,
+				1D5D49AB1F1B8860003AEA36 /* UINib+AZExtension.m */,
 			);
 			name = Categories;
 			path = Utils/Categories;
@@ -378,6 +383,7 @@
 				1D96AC9B1F1949F300294A68 /* NSString+AZRandomString.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
+				1D5D49AC1F1B8860003AEA36 /* UINib+AZExtension.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
 				1D583CF71F100F07001B8732 /* AZSquareViewController.m in Sources */,
