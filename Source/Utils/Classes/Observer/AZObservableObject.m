@@ -90,6 +90,13 @@
     return NULL;
 }
 
+- (void)notifyOfState:(NSUInteger)state {
+    return [self notifyOfStateWithSelector:[self selectorForState:state]];
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
 - (void)notifyOfStateWithSelector:(SEL)selector {
     NSMutableSet *observers = self.mutableObservers;
     for (AZAssignReference *reference in observers) {

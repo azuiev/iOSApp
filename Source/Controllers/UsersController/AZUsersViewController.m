@@ -23,7 +23,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 #pragma mark -
@@ -43,6 +42,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
     }
     
     cell.user = [AZUser new];
+    
     return cell;
 }
 

@@ -104,12 +104,15 @@ static NSUInteger AZAnimationDuration   = 2;
     if (self.buttonPressedCount > 1) {
         return;
     }
+    
+    __weak AZSquareView *weakSelf = self;
     [self setSquarePosition:[self nextPosition]
                    animated:YES
           completionHandler:^(BOOL finished) {
-              self.buttonPressedCount = 0;
-              if (self.squareMoving) {
-                  [self moveSquare];
+              __strong AZSquareView *strongSelf = weakSelf;
+              strongSelf.buttonPressedCount = 0;
+              if (strongSelf.squareMoving) {
+                  [strongSelf moveSquare];
               }
           }];
 }

@@ -22,6 +22,7 @@
 - (void)notifyOfStateWithSelector:(SEL)selector;
 
 //this method is intended for subclassing. Never call it directly
+- (void)notifyOfState:(NSUInteger)state;
 - (SEL)selectorForState:(NSUInteger)state;
 
 @end

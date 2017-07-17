@@ -10,7 +10,7 @@
 
 @interface AZAssignRererenceWithSelector ()
 @property (nonatomic, assign) SEL   selector;
-@property (nonatomic, assign) id    target;
+@property (nonatomic, weak) id      target;
 
 @end
 
@@ -40,6 +40,9 @@
 
 #pragma mark -
 #pragma mark Public
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
 - (void)performSelectorWithTarget {
     [self.target performSelector:self.selector];

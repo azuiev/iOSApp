@@ -10,11 +10,28 @@
 
 #import "AZObservableObject.h"
 
+@class AZImageModel;
+
+typedef NS_ENUM(NSUInteger, AZImageModelState) {
+    AZImageModelUnloaded,
+    AZImageModelLoading,
+    AZImageModelLoaded,
+    AZImageModelFailedLoading
+};
+
+@protocol AZImageModelObserver <NSObject>
+
+@optional
+- (void)imageModelDidBecameUnloaded:(AZImageModel *)imageModel;
+- (void)imageModelDidBecameLoading:(AZImageModel *)imageModel;
+- (void)imageModelDidBecameLoaded:(AZImageModel *)imageModel;
+- (void)imageModelDidBecameFailedLoading:(AZImageModel *)imageModel;
+
+@end
+
 @interface AZImageModel : AZObservableObject
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) NSURL   *url;
-
-@property (nonatomic, readonly, getter=isLoaded) BOOL loaded;
 
 + (instancetype)imageWithUrl:(NSURL *)url;
 
