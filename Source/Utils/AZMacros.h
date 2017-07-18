@@ -30,3 +30,7 @@
     AZViewGetterSintesize(propertyName, viewClass); \
     \
     @end\
+
+#define AZPragmaClangDiagnosticPush _Pragma ("clang diagnostic push");
+#define AZPragmaClangDiagnosticPop _Pragma ("clang diagnostic pop");
+#define AZPragmaClangDiagnosticIgnored(key) ("clang diagnostic ignored \"-W" key "\"");

@@ -71,6 +71,7 @@
         
         if (AZImageModelLoaded == state) {
             [self notifyOfState:state];
+            
             return;
         }
     
@@ -94,7 +95,6 @@
     __weak AZImageModel *weakSelf = self;
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         __strong AZImageModel *strongSelf = weakSelf;
-        strongSelf.state = AZImageModelLoading;
         strongSelf.image = [UIImage imageWithContentsOfFile:[self.url absoluteString]];
     }];
     

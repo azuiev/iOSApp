@@ -8,6 +8,8 @@
 
 #import "AZAssignRererenceWithSelector.h"
 
+#import "AZMacros.h"
+
 @interface AZAssignRererenceWithSelector ()
 @property (nonatomic, assign) SEL   selector;
 @property (nonatomic, weak) id      target;
@@ -41,11 +43,11 @@
 #pragma mark -
 #pragma mark Public
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-
 - (void)performSelectorWithTarget {
+    AZPragmaClangDiagnosticPush;
+    //AZPragmaClangDiagnosticIgnored("arc-performSelector-leaks");
     [self.target performSelector:self.selector];
+    AZPragmaClangDiagnosticPop;
 }
 
 @end
