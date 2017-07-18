@@ -44,8 +44,7 @@
 #pragma mark Public
 
 - (void)performSelectorWithTarget {
-    AZPragmaClangDiagnosticPush;
-    //AZPragmaClangDiagnosticIgnored("arc-performSelector-leaks");
+    AZPragmaClangPushExpression("clang diagnostic ignored \"-Warc-performSelector-leaks\"");
     [self.target performSelector:self.selector];
     AZPragmaClangDiagnosticPop;
 }

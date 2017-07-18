@@ -10,6 +10,8 @@
 
 #import "AZImageModelDispatcher.h"
 
+#import "AZMacros.h"
+
 @interface AZImageModel ()
 @property (nonatomic, strong) UIImage       *image;
 @property (nonatomic, strong) NSURL         *url;
@@ -92,15 +94,15 @@
 #pragma mark Private
 
 - (NSOperation *)imageLoadingOperation {
-    __weak AZImageModel *weakSelf = self;
+    AZWeakify(self);
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-        __strong AZImageModel *strongSelf = weakSelf;
-        strongSelf.image = [UIImage imageWithContentsOfFile:[self.url absoluteString]];
+        AZStrongify(self);
+        self.image = [UIImage imageWithContentsOfFile:[self.url absoluteString]];
     }];
     
     operation.completionBlock = ^{
-        __strong AZImageModel *strongSelf = weakSelf;
-        strongSelf.state = strongSelf.image ? AZImageModelLoaded : AZImageModelFailedLoading;
+        AZStrongify(self);
+        self.state = self.image ? AZImageModelLoaded : AZImageModelFailedLoading;
     };
     
     return operation;
