@@ -46,5 +46,14 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
     return cell;
 }
 
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (void)    tableView:(UITableView *)tableView
+ didEndDisplayingCell:(AZUserCell *)cell
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.user = nil;
+}
 
 @end

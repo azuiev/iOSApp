@@ -101,7 +101,7 @@
     }];
     
     operation.completionBlock = ^{
-        AZStrongify(self);
+        AZStrongifyAndReturnIfNil(self);
         self.state = self.image ? AZImageModelLoaded : AZImageModelFailedLoading;
     };
     

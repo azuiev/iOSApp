@@ -8,6 +8,8 @@
 
 #import "AZImageView.h"
 
+#import "AZMacros.h"
+
 @implementation AZImageView
 
 #pragma mark -
@@ -68,11 +70,21 @@
 
 - (void)setImageModel:(AZImageModel *)imageModel {
     if (_imageModel != imageModel) {
+        [_imageModel dump];
         [_imageModel removeObserver:self];
         
         _imageModel = imageModel;
         [_imageModel addObserver:self];
-        [imageModel load];
+        
+        AZWeakify(self);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+                                     (int64_t)(0.25 * NSEC_PER_SEC)),
+                       dispatch_get_main_queue(), ^{
+                           AZStrongifyAndReturnIfNil(self);
+                           if (self.imageModel == imageModel) {
+                               [imageModel load];
+                           }
+        });
     }
 }
 
@@ -80,8 +92,7 @@
 #pragma mark Image Model Observer
 
 - (void)imageModelDidBecameUnloaded:(AZImageModel *)imageModel {
-    self.imageModel = imageModel;
-    self.contentImageView.image = imageModel.image;
+    [self loadImageFromImageModel:imageModel];
 }
 
 - (void)imageModelDidBecameLoading:(AZImageModel *)imageModel {
@@ -89,12 +100,28 @@
 }
 
 - (void)imageModelDidBecameLoaded:(AZImageModel *)imageModel {
-    self.imageModel = imageModel;
-    self.contentImageView.image = imageModel.image;
+    [self loadImageFromImageModel:imageModel];
 }
 
 - (void)imageModelDidBecameFailedLoading:(AZImageModel *)imageModel {
     [self.imageModel load];
 }
 
+#pragma mark -
+#pragma mark Private
+
+- (void)loadImageFromImageModel:(AZImageModel *)imageModel {
+    AZWeakify(self);
+    void(^block)(void) = ^{
+        AZStrongify(self);
+        self.imageModel = imageModel;
+        self.contentImageView.image = imageModel.image;
+    };
+    
+    if ([NSThread isMainThread]){
+        block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
 @end

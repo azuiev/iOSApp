@@ -274,17 +274,18 @@
 		1D7BF2261F21140A00305FB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1D7BF2271F21140A00305FB2 /* ImageModelView */,
+				1D7BF2271F21140A00305FB2 /* ImageView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1D7BF2271F21140A00305FB2 /* ImageModelView */ = {
+		1D7BF2271F21140A00305FB2 /* ImageView */ = {
 			isa = PBXGroup;
 			children = (
 				1D7BF2301F21145C00305FB2 /* AZImageView.h */,
 				1D7BF2311F21145C00305FB2 /* AZImageView.m */,
 			);
+			name = ImageView;
 			path = ImageModelView;
 			sourceTree = "<group>";
 		};

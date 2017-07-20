@@ -6,6 +6,7 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
+
 #define AZBaseViewProperty(propertyName, viewClass) \
     @property (nonatomic, strong) viewClass    *propertyName;
 
@@ -32,10 +33,25 @@
     @end\
 
 #define AZWeakify(object) __weak __typeof(object) AZWeakified_##object = object
+
 #define AZStrongify(object) \
     AZPragmaClangPushExpression("clang diagnostic ignored \"-Wshadow\"") \
     __strong __typeof(object) object = AZWeakified_##object \
     AZPragmaClangDiagnosticPop
+
+#define AZEmptyProperty
+
+#define AZStrongifyAndReturnIfNil(object) \
+    AZStrongifyAndReturnValueIfNil(object, AZEmptyProperty);
+
+#define AZStrongifyAndReturnNilIfNil(object) \
+    AZStrongifyAndReturnValueIfNil(object, nil);
+
+#define AZStrongifyAndReturnValueIfNil(object, returnValue) \
+    if (!object) { \
+        return returnValue; \
+    } \
+    AZStrongify(object)
 
 #define AZPragmaClangDiagnosticPush _Pragma ("clang diagnostic push");
 #define AZPragmaClangDiagnosticPop _Pragma ("clang diagnostic pop");
