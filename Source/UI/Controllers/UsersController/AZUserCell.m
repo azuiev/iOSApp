@@ -31,7 +31,7 @@
 
 - (void)fillWithModel:(AZUser *)user {
     self.fullNameLabel.text = user.fullName;
-    self.userImageView.image = user.image;
+    self.userImageView.imageModel = user.imageModel;
 }
 
 @end

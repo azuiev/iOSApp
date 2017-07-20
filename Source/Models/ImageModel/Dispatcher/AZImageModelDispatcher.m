@@ -40,7 +40,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+        [self initQueue];
     }
     
     return self;

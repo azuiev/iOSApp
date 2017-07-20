@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "AZTableViewCell.h"
+#import "AZImageView.h"
 #import "AZUser.h"
 
 @interface AZUserCell : AZTableViewCell
-@property (nonatomic, strong) IBOutlet UIImageView  *userImageView;
-@property (nonatomic, strong) IBOutlet UILabel      *fullNameLabel;
+@property (nonatomic, strong) IBOutlet AZImageView      *userImageView;
+@property (nonatomic, strong) IBOutlet UILabel          *fullNameLabel;
 
 @property (nonatomic, strong) AZUser    *user;
 

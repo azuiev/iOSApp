@@ -13,7 +13,7 @@
 @implementation AZUser
 
 @dynamic fullName;
-@dynamic image;
+@dynamic imageModel;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -35,9 +35,9 @@
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surName];
 }
 
-- (UIImage *)image {
-    NSString *path = [[NSBundle mainBundle ]pathForResource:@"Image" ofType:@"jpg"];
-    return [UIImage imageWithContentsOfFile:path];
+- (AZImageModel *)imageModel {
+    NSURL *url = [[NSBundle mainBundle ]URLForResource:@"Image" withExtension:@"jpg"];
+    return [AZImageModel imageWithUrl:url];
 }
 
 @end
