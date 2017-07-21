@@ -55,5 +55,21 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 {
     cell.user = nil;
 }
+- (IBAction)enableEditMode:(id)sender {
+    [self.usersView setEditing:YES animated:YES];
+}
+
+- (void)    tableView:(UITableView *)tableView
+   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //TODO
+    NSLog(@"%@", indexPath);
+}
+
+- (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
+              withRowAnimation:(UITableViewRowAnimation)animation {
+    	AZUser *user = [self.usersView getUserByIndexPath:indexPaths[0]];
+}
 
 @end

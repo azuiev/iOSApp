@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZUsersView : UIView
-@property (nonatomic, strong) IBOutlet UITableView    *usersView;
+#import "AZUser.h"
 
+@interface AZUsersView : UIView
+@property (nonatomic, strong) IBOutlet UITableView    *tableView;
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+
+- (AZUser *)getUserByIndexPath:(NSIndexPath *)indexPath;
 @end

@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yWC-Eh-K2v">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="673"/>
+                    <rect key="frame" x="0.0" y="40" width="375" height="633"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -28,10 +28,18 @@
                         <outlet property="delegate" destination="-1" id="pWf-fa-A4G"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKO-Nh-kGj">
+                    <rect key="frame" x="290" y="2" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Edit"/>
+                    <connections>
+                        <action selector="enableEditMode:" destination="-1" eventType="touchUpInside" id="Npk-U4-Prx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
-                <outlet property="usersView" destination="yWC-Eh-K2v" id="yS7-qo-xrD"/>
+                <outlet property="tableView" destination="yWC-Eh-K2v" id="V8N-Yo-Gbb"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>

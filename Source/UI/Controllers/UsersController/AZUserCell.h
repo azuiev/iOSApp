@@ -19,4 +19,5 @@
 @property (nonatomic, strong) AZUser    *user;
 
 - (void)fillWithModel:(AZUser *)user;
+
 @end

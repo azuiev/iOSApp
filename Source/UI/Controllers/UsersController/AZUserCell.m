@@ -16,8 +16,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
 }
+
 #pragma mark -
 #pragma mark Accessors
 

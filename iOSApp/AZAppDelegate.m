@@ -9,6 +9,7 @@
 #import "AZAppDelegate.h"
 #import "AZSquareViewController.h"
 #import "AZUsersViewController.h"
+#import "AZArrayModel.h"
 
 @interface AZAppDelegate ()
 
@@ -23,12 +24,13 @@
     self.window = window;
     
     AZUsersViewController *controller = [AZUsersViewController new];
-    AZUser *user = [AZUser new];
-    [controller setUser:user];
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
    
+    AZArrayModel *array = [AZArrayModel new];
+    array[0] = [AZUser new];
+    
     [window makeKeyAndVisible];
     
     return YES;

@@ -11,6 +11,6 @@
 #import "AZUser.h"
 
 @interface AZUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) AZUser    *user;
+@property (nonatomic, strong) NSArray   *users;
 
 @end
