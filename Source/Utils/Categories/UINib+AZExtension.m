@@ -19,24 +19,24 @@
                           bundle:bundle];
 }
 
-- (id)cellWithClass:(Class)cls {
-    return [self cellWithClass:cls owner:nil options:nil];
+- (id)objectWithClass:(Class)cls {
+    return [self objectWithClass:cls owner:nil options:nil];
 }
 
-- (UITableViewCell *)cellWithClass:(Class)cls owner:(id)owner {
-    return [self cellWithClass:cls owner:owner options:nil];
+- (id)objectWithClass:(Class)cls owner:(id)owner {
+    return [self objectWithClass:cls owner:owner options:nil];
 }
 
-- (UITableViewCell *)cellWithClass:(Class)cls options:(NSDictionary *)options {
-    return [self cellWithClass:cls owner:nil options:options];
+- (id)objectWithClass:(Class)cls options:(NSDictionary *)options {
+    return [self objectWithClass:cls owner:nil options:options];
 }
 
-- (UITableViewCell *)cellWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
-    NSArray *cells = [self instantiateWithOwner:owner options:options];
+- (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
+    NSArray *objects = [self instantiateWithOwner:owner options:options];
     
-    for (id cell in cells) {
-        if ([cell isMemberOfClass:cls]) {
-            return cell;
+    for (id object in objects) {
+        if ([object isMemberOfClass:cls]) {
+            return object;
         }
     }
     

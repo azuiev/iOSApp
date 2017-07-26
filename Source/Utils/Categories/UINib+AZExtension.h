@@ -13,9 +13,9 @@
 + (UINib *)nibWithClass:(Class)cls;
 + (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundle;
 
-- (id)cellWithClass:(Class)cls;
-- (id)cellWithClass:(Class)cls owner:(id)owner;
-- (id)cellWithClass:(Class)cls options:(NSDictionary *)options;
-- (id)cellWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options;
+- (id)objectWithClass:(Class)cls;
+- (id)objectWithClass:(Class)cls owner:(id)owner;
+- (id)objectWithClass:(Class)cls options:(NSDictionary *)options;
+- (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options;
 
 @end

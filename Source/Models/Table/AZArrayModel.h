@@ -12,10 +12,17 @@
 #import "AZObservableObject.h"
 
 @interface AZArrayModel : AZObservableObject
-@property (nonatomic, readonly) NSArray *array;
+@property (nonatomic, readonly) NSUInteger  count;
+
++ (instancetype)modelWithObjects:(NSArray *)objects;
+
+- (instancetype)initWithArray:(NSArray *)array;
 
 - (void)addObject:(NSObject *)object;
 - (void)removeObject:(NSObject *)object;
+
+- (void)insertObject:(id)obj atIndex:(NSUInteger)index;
+- (void)removeObjectAtIndex:(NSUInteger)index;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (void)setObject:(id)obj atIndex:(NSUInteger)index;

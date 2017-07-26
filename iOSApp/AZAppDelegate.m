@@ -25,8 +25,8 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    //AZUsersViewController *controller = [AZUsersViewController new];
-    AZSquareViewController *controller = [AZSquareViewController new];
+    AZUsersViewController *controller = [AZUsersViewController new];
+    //AZSquareViewController *controller = [AZSquareViewController new];
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];

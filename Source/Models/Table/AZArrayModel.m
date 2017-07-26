@@ -14,7 +14,14 @@
 @end
 
 @implementation AZArrayModel
-@dynamic array;
+@dynamic count;
+
+#pragma mark -
+#pragma mark Initialization and deallocation
+
++ (instancetype)modelWithObjects:(NSArray *)objects {
+    return [[self alloc] initWithArray:objects];
+}
 
 #pragma mark -
 #pragma mark Initialization and deallocation
@@ -32,6 +39,16 @@
     return self;
 }
 
+- (instancetype)initWithArray:(NSArray *)array {
+    self = [self init];
+    if (self) {
+        [self.mutableArray addObjectsFromArray:array];
+    }
+    
+    return self;
+}
+
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -43,11 +60,37 @@
 #pragma mark Public Methods
 
 - (void)addObject:(NSObject *)object {
+    if (!object) {
+        return;
+    }
+    
     [self.mutableArray addObject:object];
 }
 
 - (void)removeObject:(NSObject *)object {
     [self.mutableArray removeObject:object];
+}
+
+- (void)insertObject:(id)object atIndex:(NSUInteger)index {
+    if (!object) {
+        return;
+    }
+    
+    NSMutableArray *array = self.mutableArray;
+    if (array.count <= index) {
+        return;
+    }
+    
+    [self.mutableArray insertObject:object atIndex:index];
+}
+
+- (void)removeObjectAtIndex:(NSUInteger)index {
+    NSMutableArray *array = self.mutableArray;
+    if (array.count <= index) {
+        return;
+    }
+    
+    [array removeObjectAtIndex:index];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
@@ -59,26 +102,28 @@
     return [array objectAtIndex:index];
 }
 
-- (void)setObject:(id)obj atIndex:(NSUInteger)index {
-    
-}
-
-- (id)objectAtIndexedSubscript:(NSUInteger)index NS_AVAILABLE(10_8, 6_0) {
-    NSMutableArray *array = self.mutableArray;
-    if (array.count <= index) {
-        return nil;
+- (void)setObject:(id)object atIndex:(NSUInteger)index {
+    if (!object) {
+        return;
     }
     
-    return [array objectAtIndexedSubscript:index];
-}
-
-- (void)setObject: (id)obj atIndexedSubscript: (NSUInteger)index {
     NSMutableArray *array = self.mutableArray;
     if (array.count <= index) {
         return;
     }
     
-    [array setObject:obj atIndexedSubscript:index];
+    [self.mutableArray setObject:object atIndexedSubscript:index];
+}
+
+#pragma mark -
+#pragma mark Subscripts
+
+- (id)objectAtIndexedSubscript:(NSUInteger)index NS_AVAILABLE(10_8, 6_0) {
+    return [self objectAtIndex:index];
+}
+
+- (void)setObject: (id)obj atIndexedSubscript: (NSUInteger)index {
+    return [self setObject:obj atIndex:index];
 }
 
 @end

@@ -12,10 +12,10 @@
 #import "AZUserCell.h"
 
 #import "AZMacros.h"
-#import "UINib+AZExtension.h"
+#import "UITableView+AZExtension.h"
 
 AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
-@interface AZUsersViewController ()
+@interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -35,11 +35,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Class clazz = [AZUserCell class];
     
-    AZUserCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
-    if (!cell) {
-        UINib *nib = [UINib nibWithClass:clazz];
-        cell = [nib cellWithClass:clazz];
-    }
+    AZUserCell *cell = [tableView cellWithClass:clazz];
     
     cell.user = [AZUser new];
     
@@ -55,6 +51,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 {
     cell.user = nil;
 }
+
 - (IBAction)enableEditMode:(id)sender {
     [self.usersView setEditing:YES animated:YES];
 }
@@ -63,13 +60,10 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO
-    NSLog(@"%@", indexPath);
-}
-
-- (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
-              withRowAnimation:(UITableViewRowAnimation)animation {
-    	AZUser *user = [self.usersView getUserByIndexPath:indexPaths[0]];
+    if (UITableViewCellEditingStyleDelete == editingStyle) {
+        [self.users removeObjectAtIndex:indexPath.row];
+        [self.usersView setEditing:NO animated:YES];
+    }
 }
 
 @end

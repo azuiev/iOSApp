@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "AZUser.h"
+#import "AZArrayModel.h"
 
-@interface AZUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) NSArray   *users;
+@interface AZUsersViewController : UIViewController
+@property (nonatomic, strong) AZArrayModel  *users;
 
 @end
