@@ -11,6 +11,8 @@
 #import "AZUsersViewController.h"
 #import "AZArrayModel.h"
 
+#import "UIWindow+AZExtension.h"
+
 @interface AZAppDelegate ()
 
 @end
@@ -20,10 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIWindow *window = [UIWindow window];
     self.window = window;
     
-    AZUsersViewController *controller = [AZUsersViewController new];
+    //AZUsersViewController *controller = [AZUsersViewController new];
+    AZSquareViewController *controller = [AZSquareViewController new];
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];

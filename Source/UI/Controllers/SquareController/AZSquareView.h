@@ -26,9 +26,17 @@ typedef NS_ENUM(NSUInteger, AZSquarePosition) {
 @property (nonatomic, strong) IBOutlet UIButton         *randomButton;
 @property (nonatomic, strong) IBOutlet UIButton         *startStopButton;
 
+- (void)setSquarePosition:(AZSquarePosition)squarePosition;
+
+- (void)setSquarePosition:(AZSquarePosition)squarePosition
+                 animated:(BOOL)animated;
+
+- (void)setSquarePosition:(AZSquarePosition)squarePosition
+                 animated:(BOOL)animated
+        completionHandler:(void(^)(BOOL))completionHandler;
+
 - (void)moveToNextPosition;
 - (void)moveToRandomPosition;
 - (void)startStopMoving;
-
 
 @end

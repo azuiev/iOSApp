@@ -10,11 +10,19 @@
 
 #import "AZRandomNumber.h"
 
-static NSUInteger AZAnimationDuration   = 2;
+static double AZAnimationDuration   = 2.0;
 
 @interface AZSquareView ()
-@property (nonatomic, assign, getter=isSquareMoving)    BOOL  squareMoving;
-@property (nonatomic, assign)   NSUInteger    buttonPressedCount;
+@property (nonatomic, assign, getter=isSquareMoving)    BOOL    squareMoving;
+@property (nonatomic, assign, getter=isSquareCycling)   BOOL    squareCycling;
+
+@property (nonatomic, assign) BOOL  shouldStopMoving;
+
+- (void)moveSquare;
+- (AZSquarePosition)nextPosition;
+- (AZSquarePosition)randomPosition;
+- (CGRect)frameForPosition:(AZSquarePosition)squarePosition;
+
 @end
 
 @implementation AZSquareView
@@ -30,16 +38,13 @@ static NSUInteger AZAnimationDuration   = 2;
     }
 }
 
-- (void)setSquareMoving:(BOOL)squareMoving {
-    if (_squareMoving != squareMoving) {
-        _squareMoving = squareMoving;
+- (void)setSquareCycling:(BOOL)squareCycling {
+    if (_squareCycling != squareCycling) {
+        _squareCycling = squareCycling;
         
-        self.buttonPressedCount += 1;
-        
-        if (squareMoving) {
+        if (squareCycling) {
             [self moveSquare];
         }
-        
     }
 }
 
@@ -47,7 +52,15 @@ static NSUInteger AZAnimationDuration   = 2;
 #pragma mark Public
 
 - (void)startStopMoving {
-    self.squareMoving = !self.squareMoving;
+    if (!self.squareCycling) {
+        if (self.squareMoving) {
+            return;
+        }
+        
+        self.squareCycling = YES;
+    } else {
+        self.shouldStopMoving = !self.shouldStopMoving;
+    }
 }
 
 - (void)setSquarePosition:(AZSquarePosition)squarePosition {
@@ -64,9 +77,9 @@ static NSUInteger AZAnimationDuration   = 2;
                  animated:(BOOL)animated
         completionHandler:(void(^)(BOOL))completionHandler
 {
-    NSTimeInterval interval = animated ? AZAnimationDuration : 0.0;
+    self.squareMoving = YES;
     
-    [UIView animateWithDuration:interval
+    [UIView animateWithDuration:animated ? AZAnimationDuration : 0.0
                           delay:0.0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
@@ -80,6 +93,10 @@ static NSUInteger AZAnimationDuration   = 2;
                          if (_squarePosition != squarePosition) {
                              _squarePosition = squarePosition;
                          }
+                         
+                         if (!self.squareCycling) {
+                             self.squareMoving = NO;
+                         }
                      }];
 }
 
@@ -87,12 +104,13 @@ static NSUInteger AZAnimationDuration   = 2;
 #pragma mark Button handlers
 
 - (void)moveToNextPosition {
-    if (!self.squareMoving) {
+    if (!self.squareCycling) {
         [self setSquarePosition:[self nextPosition] animated:YES];
-    }}
+    }
+}
 
 - (void)moveToRandomPosition {
-    if (!self.squareMoving) {
+    if (!self.squareCycling) {
         [self setSquarePosition:[self randomPosition] animated:YES];
     }
 }
@@ -101,58 +119,68 @@ static NSUInteger AZAnimationDuration   = 2;
 #pragma mark Private
 
 - (void)moveSquare {
-    if (self.buttonPressedCount > 1) {
-        return;
-    }
-    
     __weak AZSquareView *weakSelf = self;
     [self setSquarePosition:[self nextPosition]
                    animated:YES
           completionHandler:^(BOOL finished) {
               __strong AZSquareView *strongSelf = weakSelf;
-              strongSelf.buttonPressedCount = 0;
-              if (strongSelf.squareMoving) {
+              if (strongSelf.squareCycling && !strongSelf.shouldStopMoving) {
                   [strongSelf moveSquare];
+              } else {
+                  strongSelf.shouldStopMoving = NO;
+                  strongSelf.squareCycling = NO;
               }
           }];
 }
 
-
 - (AZSquarePosition)nextPosition {
-    AZSquarePosition position = self.squarePosition + 1;
-   
-    return position >= AZPositionCount ? AZUpperLeft : position;
+    return self.squarePosition + 1 % AZPositionCount;
 }
 
 - (AZSquarePosition)randomPosition {
-    return AZRandomNumberWithMaxValue(AZPositionCount);
+    AZSquarePosition position = (AZSquarePosition)AZRandomNumberWithMaxValue(AZPositionCount - 1);
+    if (!self.squareMoving) {
+        while (self.squarePosition == position) {
+            position = AZRandomNumberWithMaxValue(AZPositionCount - 1);
+        }
+    }
+
+    return position;
 }
 
 - (CGRect)frameForPosition:(AZSquarePosition)squarePosition {
     CGRect frame = self.movingSquareView.frame;
-    frame.origin = [self locationForPosition:squarePosition];
-    
-    return frame;
-
-}
-- (CGPoint)locationForPosition:(AZSquarePosition)position {
+    CGSize size = frame.size;
     CGSize parentSize = self.frame.size;
-    CGSize size = self.movingSquareView.frame.size;
     
-    switch (position) {
+    float distanceX = parentSize.width - size.width;
+    float distanceY = parentSize.height - size.width;
+    
+    CGPoint point = CGPointZero;
+    
+    switch (squarePosition) {
         case AZUpperLeft:
-            return CGPointMake(0, 0);
+            break;
         case AZUpperRight:
-            return CGPointMake(parentSize.width - size.width, 0);
+            point.x += distanceX;
+            break;
         case AZDownLeft:
-            return CGPointMake(0, parentSize.height - size.height);
+            point.y += distanceY;
+            break;
         case AZDownRight:
-            return CGPointMake(parentSize.width - size.width, parentSize.height - size.height);
+            point.x += distanceX;
+            point.y += distanceY;
         default:
-            return CGPointMake(0, 0);
+            break;
     }
     
+    frame.origin = point;
+    
+    return frame;
 }
+
+#pragma mark -
+#pragma mark View Lifecycle
 
 - (void)awakeFromNib {
     [super awakeFromNib];

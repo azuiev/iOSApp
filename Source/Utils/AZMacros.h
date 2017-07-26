@@ -8,7 +8,7 @@
 
 
 #define AZBaseViewProperty(propertyName, viewClass) \
-    @property (nonatomic, strong) viewClass    *propertyName;
+    @property (nonatomic, readonly) viewClass    *propertyName;
 
 #define AZViewGetterSintesize(selector, viewClass) \
     - (viewClass *)selector { \

@@ -30,6 +30,7 @@
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
 		1D7BF2321F21145C00305FB2 /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2311F21145C00305FB2 /* AZImageView.m */; };
+		1D81295B1F29169D00B169BA /* UIWindow+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81295A1F29169D00B169BA /* UIWindow+AZExtension.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
 		1D96AC8D1F19385400294A68 /* AZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC8C1F19385400294A68 /* AZUser.m */; };
 		1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC931F193C3600294A68 /* AZTableViewCell.m */; };
@@ -80,6 +81,8 @@
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
 		1D7BF2301F21145C00305FB2 /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
 		1D7BF2311F21145C00305FB2 /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
+		1D8129591F29169D00B169BA /* UIWindow+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+AZExtension.h"; sourceTree = "<group>"; };
+		1D81295A1F29169D00B169BA /* UIWindow+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AZExtension.m"; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
 		1D96AC8B1F19385400294A68 /* AZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUser.h; path = User/AZUser.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				1D96AC971F19496100294A68 /* NSString+AZRandomName.m */,
 				1D5D49AA1F1B8860003AEA36 /* UINib+AZExtension.h */,
 				1D5D49AB1F1B8860003AEA36 /* UINib+AZExtension.m */,
+				1D8129591F29169D00B169BA /* UIWindow+AZExtension.h */,
+				1D81295A1F29169D00B169BA /* UIWindow+AZExtension.m */,
 			);
 			name = Categories;
 			path = Utils/Categories;
@@ -501,6 +506,7 @@
 				1D5D49AC1F1B8860003AEA36 /* UINib+AZExtension.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,
 				1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */,
+				1D81295B1F29169D00B169BA /* UIWindow+AZExtension.m in Sources */,
 				1D55A19A1F1D49F200507424 /* AZImageModelDispatcher.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,
