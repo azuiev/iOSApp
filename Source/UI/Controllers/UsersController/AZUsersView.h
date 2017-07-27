@@ -15,5 +15,4 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 
-- (AZUser *)getUserByIndexPath:(NSIndexPath *)indexPath;
 @end

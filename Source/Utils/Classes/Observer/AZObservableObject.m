@@ -54,6 +54,14 @@
     }
 }
 
+- (void)setState:(NSUInteger)state withParameter:(id)parameter {
+    if (state != _state) {
+        _state = state;
+    }
+    
+    [self notifyOfStateWithSelector:[self selectorForState:state] withParameter:(id)parameter];
+}
+
 #pragma mark -
 #pragma mark Public
 
@@ -103,6 +111,16 @@
         id target = reference.target;
         if ([target respondsToSelector:selector]) {
             [target performSelector:selector withObject:self];
+        }
+    }
+}
+
+- (void)notifyOfStateWithSelector:(SEL)selector withParameter:(id)parameter {
+    NSMutableSet *observers = self.mutableObservers;
+    for (AZAssignReference *reference in observers) {
+        id target = reference.target;
+        if ([target respondsToSelector:selector]) {
+            [target performSelector:selector withObject:self withObject:parameter];
         }
     }
 }

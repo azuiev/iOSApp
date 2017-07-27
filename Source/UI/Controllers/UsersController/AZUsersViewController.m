@@ -26,10 +26,22 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 }
 
 #pragma mark -
+#pragma mark Accessors 
+
+- (void)setUsers:(AZArrayModel *)users {
+    if  (_users != users) {
+        [_users removeObserver:self];
+        
+        _users = users;
+        [_users addObserver:self];
+    }
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2000;
+    return [self.users count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,7 +49,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
     
     AZUserCell *cell = [tableView cellWithClass:clazz];
     
-    cell.user = [AZUser new];
+    cell.user = self.users[indexPath.row];
     
     return cell;
 }
@@ -62,8 +74,17 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 {
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [self.users removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation: UITableViewRowAnimationFade];
         [self.usersView setEditing:NO animated:YES];
     }
+}
+
+#pragma mark -
+#pragma mark AZArrayModelObserver
+
+- (void)arrayModelObjectRemoved:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options {
+    //[self.usersView.tableView reloadData];
 }
 
 @end

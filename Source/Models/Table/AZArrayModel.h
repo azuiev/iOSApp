@@ -10,6 +10,23 @@
 #import <UIKit/UIKit.h>
 
 #import "AZObservableObject.h"
+#import "AZArrayModelOptions.h"
+
+@class AZArrayModel;
+@class AZArrayModelOptions;
+
+typedef NS_ENUM(NSUInteger, AZArrayModelState) {
+    AZArrayModelObjectAdded,
+    AZArrayModelObjectRemoved
+};
+
+@protocol AZArrayModelObserver <NSObject>
+
+@optional
+- (void)arrayModelObjectAdded:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options;
+- (void)arrayModelObjectRemoved:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options;
+
+@end
 
 @interface AZArrayModel : AZObservableObject
 @property (nonatomic, readonly) NSUInteger  count;

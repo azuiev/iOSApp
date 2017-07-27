@@ -12,6 +12,7 @@
 #import "AZArrayModel.h"
 
 #import "UIWindow+AZExtension.h"
+#import "NSArray+AZExtension.h"
 
 @interface AZAppDelegate ()
 
@@ -31,9 +32,13 @@
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
    
-    AZArrayModel *array = [AZArrayModel new];
-    array[0] = [AZUser new];
+    NSArray *array = [NSArray objectsWithCount:25 block: ^{
+        return [AZUser new];
+    }];
+    AZArrayModel *models = [AZArrayModel modelWithObjects:array];
+   
     
+    [controller setUsers:models];
     [window makeKeyAndVisible];
     
     return YES;

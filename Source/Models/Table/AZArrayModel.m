@@ -8,8 +8,10 @@
 
 #import "AZArrayModel.h"
 
+#import "AZArrayModelOptions.h"
+
 @interface AZArrayModel ()
-@property (nonatomic, copy) NSMutableArray    *mutableArray;
+@property (nonatomic, strong) NSMutableArray    *mutableArray;
 
 @end
 
@@ -56,6 +58,10 @@
     return [self.mutableArray copy];
 }
 
+- (NSUInteger)count {
+    return self.mutableArray.count;
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -91,6 +97,10 @@
     }
     
     [array removeObjectAtIndex:index];
+    
+    NSArray *indexes = [NSArray arrayWithObject:[NSNumber numberWithInteger:index]];
+    [self setState:AZArrayModelObjectRemoved
+     withParameter:[AZArrayModelOptions arrayModelRemoveWithIndexes:indexes]];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
@@ -124,6 +134,21 @@
 
 - (void)setObject: (id)obj atIndexedSubscript: (NSUInteger)index {
     return [self setObject:obj atIndex:index];
+}
+
+#pragma mark -
+#pragma mark Observable Object
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case AZArrayModelObjectAdded:
+            return @selector(arrayModelObjectAdded:options:);
+        case AZArrayModelObjectRemoved:
+            return @selector(arrayModelObjectRemoved:options:);
+            
+        default:
+            return nil;
+    }
 }
 
 @end

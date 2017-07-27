@@ -12,6 +12,7 @@
 
 @interface AZObservableObject : NSObject
 @property (nonatomic, assign)   NSUInteger  state;
+
 @property (nonatomic, readonly) NSSet       *observers;
 
 - (void)addObserver:(id)observer;
@@ -20,6 +21,8 @@
 - (void)removeObservers:(NSArray *)observers;
 - (BOOL)isObservedByObject:(id)object;
 - (void)notifyOfStateWithSelector:(SEL)selector;
+
+- (void)setState:(NSUInteger)state withParameter:(id)parameter;
 
 //this method is intended for subclassing. Never call it directly
 - (void)notifyOfState:(NSUInteger)state;
