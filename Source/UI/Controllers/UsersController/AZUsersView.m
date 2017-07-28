@@ -12,8 +12,9 @@
 
 @implementation AZUsersView
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [self.tableView setEditing:editing animated:animated];
+- (void)changeEditMode {
+    UITableView *view = self.tableView;
+    [view setEditing:![view isEditing] animated:YES];
 }
 
 - (AZUser *)getUserByIndexPath:(NSIndexPath *)indexPath {

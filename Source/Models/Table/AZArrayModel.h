@@ -47,4 +47,7 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)index;
 
+- (void)moveRowWithoutNotificationFromIndex:(NSUInteger)sourceIndex
+                                    toIndex:(NSUInteger)destinationIndex;
+
 @end

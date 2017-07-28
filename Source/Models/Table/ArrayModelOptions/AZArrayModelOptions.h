@@ -11,6 +11,7 @@
 @interface AZArrayModelOptions : NSObject
 
 + (instancetype)arrayModelRemoveWithIndexes:(NSArray *)indexes;
++ (instancetype)arrayModelAddWithIndexes:(NSArray *)indexes;
 
 //method to override in children classes. Do not call this method directly
 - (id)modelOptions;

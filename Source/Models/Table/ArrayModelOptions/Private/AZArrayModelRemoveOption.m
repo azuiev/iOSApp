@@ -36,4 +36,5 @@
 - (id)modelOptions {
     return [self.indexes copy];
 }
+
 @end

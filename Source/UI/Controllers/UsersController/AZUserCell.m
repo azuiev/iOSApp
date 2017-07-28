@@ -12,7 +12,7 @@
 
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Initialization
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -32,6 +32,15 @@
 - (void)fillWithModel:(AZUser *)user {
     self.fullNameLabel.text = user.fullName;
     self.userImageView.imageModel = user.imageModel;
+}
+
+#pragma mark -
+#pragma mark Override
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    self.user = nil;
 }
 
 @end

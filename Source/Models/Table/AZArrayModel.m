@@ -83,11 +83,15 @@
     }
     
     NSMutableArray *array = self.mutableArray;
-    if (array.count <= index) {
+    if (array.count < index) {
         return;
     }
     
     [self.mutableArray insertObject:object atIndex:index];
+    
+    NSArray *indexes = [NSArray arrayWithObject:[NSNumber numberWithInteger:index]];
+    [self setState:AZArrayModelObjectAdded
+     withParameter:[AZArrayModelOptions arrayModelAddWithIndexes:indexes]];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
@@ -123,6 +127,19 @@
     }
     
     [self.mutableArray setObject:object atIndexedSubscript:index];
+}
+
+- (void)moveRowWithoutNotificationFromIndex:(NSUInteger)sourceIndex
+                                    toIndex:(NSUInteger)destinationIndex
+{
+    if (sourceIndex == destinationIndex) {
+        return;
+    }
+    
+    NSMutableArray *array = self.mutableArray;
+    id object = array[sourceIndex];
+    [array removeObjectAtIndex:sourceIndex];
+    [array insertObject:object atIndex:destinationIndex];
 }
 
 #pragma mark -

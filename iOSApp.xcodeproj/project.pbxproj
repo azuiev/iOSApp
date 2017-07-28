@@ -11,6 +11,9 @@
 		1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1498491F1BD0B100906749 /* AZAssignReference.m */; };
 		1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D14984B1F1BD0B100906749 /* AZAssignRererenceWithSelector.m */; };
 		1D1498541F1BD31800906749 /* AZImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1498531F1BD31800906749 /* AZImageModel.m */; };
+		1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3831F2B971800DA241D /* AZGCD.m */; };
+		1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA38D1F2B9C4500DA241D /* AZImageView.m */; };
+		1D2FA3911F2B9C5E00DA241D /* AZStatefulImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3901F2B9C5E00DA241D /* AZStatefulImageView.m */; };
 		1D54C5081F22928E00D7D3B7 /* AZArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */; };
 		1D55A19A1F1D49F200507424 /* AZImageModelDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A1991F1D49F200507424 /* AZImageModelDispatcher.m */; };
 		1D5B4A631F05B0D700E14BEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A611F05B0D700E14BEA /* main.m */; };
@@ -32,7 +35,6 @@
 		1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2221F21140A00305FB2 /* AZUsersView.m */; };
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
-		1D7BF2321F21145C00305FB2 /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2311F21145C00305FB2 /* AZImageView.m */; };
 		1D81295B1F29169D00B169BA /* UIWindow+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81295A1F29169D00B169BA /* UIWindow+AZExtension.m */; };
 		1D81295E1F293F0500B169BA /* UITableView+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81295D1F293F0500B169BA /* UITableView+AZExtension.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
@@ -52,6 +54,12 @@
 		1D14984B1F1BD0B100906749 /* AZAssignRererenceWithSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAssignRererenceWithSelector.m; sourceTree = "<group>"; };
 		1D1498521F1BD31800906749 /* AZImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageModel.h; sourceTree = "<group>"; };
 		1D1498531F1BD31800906749 /* AZImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageModel.m; sourceTree = "<group>"; };
+		1D2FA3821F2B971800DA241D /* AZGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZGCD.h; sourceTree = "<group>"; };
+		1D2FA3831F2B971800DA241D /* AZGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZGCD.m; sourceTree = "<group>"; };
+		1D2FA38C1F2B9C4500DA241D /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
+		1D2FA38D1F2B9C4500DA241D /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
+		1D2FA38F1F2B9C5E00DA241D /* AZStatefulImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZStatefulImageView.h; sourceTree = "<group>"; };
+		1D2FA3901F2B9C5E00DA241D /* AZStatefulImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZStatefulImageView.m; sourceTree = "<group>"; };
 		1D54C5061F22928E00D7D3B7 /* AZArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModel.h; sourceTree = "<group>"; };
 		1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModel.m; sourceTree = "<group>"; };
 		1D55A1981F1D49F200507424 /* AZImageModelDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageModelDispatcher.h; sourceTree = "<group>"; };
@@ -89,8 +97,6 @@
 		1D7BF2231F21140A00305FB2 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
-		1D7BF2301F21145C00305FB2 /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
-		1D7BF2311F21145C00305FB2 /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
 		1D8129591F29169D00B169BA /* UIWindow+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+AZExtension.h"; sourceTree = "<group>"; };
 		1D81295A1F29169D00B169BA /* UIWindow+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AZExtension.m"; sourceTree = "<group>"; };
 		1D81295C1F293F0500B169BA /* UITableView+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+AZExtension.h"; sourceTree = "<group>"; };
@@ -150,6 +156,26 @@
 				1D1498531F1BD31800906749 /* AZImageModel.m */,
 			);
 			path = ImageModel;
+			sourceTree = "<group>";
+		};
+		1D2FA3811F2B971800DA241D /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				1D2FA3821F2B971800DA241D /* AZGCD.h */,
+				1D2FA3831F2B971800DA241D /* AZGCD.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		1D2FA38B1F2B9C4500DA241D /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				1D2FA38C1F2B9C4500DA241D /* AZImageView.h */,
+				1D2FA38D1F2B9C4500DA241D /* AZImageView.m */,
+				1D2FA38F1F2B9C5E00DA241D /* AZStatefulImageView.h */,
+				1D2FA3901F2B9C5E00DA241D /* AZStatefulImageView.m */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 		1D54C5051F22922B00D7D3B7 /* ArrayModel */ = {
@@ -323,19 +349,9 @@
 		1D7BF2261F21140A00305FB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1D7BF2271F21140A00305FB2 /* ImageView */,
+				1D2FA38B1F2B9C4500DA241D /* ImageView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1D7BF2271F21140A00305FB2 /* ImageView */ = {
-			isa = PBXGroup;
-			children = (
-				1D7BF2301F21145C00305FB2 /* AZImageView.h */,
-				1D7BF2311F21145C00305FB2 /* AZImageView.m */,
-			);
-			name = ImageView;
-			path = ImageModelView;
 			sourceTree = "<group>";
 		};
 		1D96AC8E1F19385A00294A68 /* User */ = {
@@ -350,6 +366,7 @@
 		1D96AC901F193BB900294A68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D2FA3811F2B971800DA241D /* GCD */,
 				1D1498471F1BD0B100906749 /* ReferenceWrapper */,
 				1D1498431F1BCFEA00906749 /* Observer */,
 				1D96AC911F193BDB00294A68 /* TableViewCell */,
@@ -537,12 +554,14 @@
 				1D7BF22B1F21140A00305FB2 /* AZUserCell.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
+				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
 				1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */,
-				1D7BF2321F21145C00305FB2 /* AZImageView.m in Sources */,
 				1D1498461F1BCFEA00906749 /* AZObservableObject.m in Sources */,
+				1D2FA3911F2B9C5E00DA241D /* AZStatefulImageView.m in Sources */,
 				1D5F9A1C1F2A709800B5B135 /* AZArrayModelRemoveOption.m in Sources */,
 				1D5D49AC1F1B8860003AEA36 /* UINib+AZExtension.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,
+				1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */,
 				1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */,
 				1D81295B1F29169D00B169BA /* UIWindow+AZExtension.m in Sources */,
 				1D55A19A1F1D49F200507424 /* AZImageModelDispatcher.m in Sources */,

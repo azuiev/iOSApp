@@ -28,12 +28,44 @@
                         <outlet property="delegate" destination="-1" id="pWf-fa-A4G"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0a-yx-Tep">
+                    <rect key="frame" x="10" y="2" width="61" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Add"/>
+                    <connections>
+                        <action selector="insertUser:" destination="-1" eventType="touchUpInside" id="u7b-mF-q1K"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjT-2z-V4F">
+                    <rect key="frame" x="236" y="2" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Insert"/>
+                    <connections>
+                        <action selector="changeEditMode:" destination="-1" eventType="touchUpInside" id="APc-a9-ZT7"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKO-Nh-kGj">
                     <rect key="frame" x="290" y="2" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Edit"/>
+                    <state key="normal" title="Delete"/>
                     <connections>
-                        <action selector="enableEditMode:" destination="-1" eventType="touchUpInside" id="Npk-U4-Prx"/>
+                        <action selector="changeDeleteMode:" destination="-1" eventType="touchUpInside" id="Vqx-Fc-3TA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIG-Tl-oId">
+                    <rect key="frame" x="189" y="2" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Move"/>
+                    <connections>
+                        <action selector="changeMoveMode:" destination="-1" eventType="touchUpInside" id="OSH-CQ-S47"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q33-ZH-439">
+                    <rect key="frame" x="64" y="2" width="74" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Remove"/>
+                    <connections>
+                        <action selector="removeUser:" destination="-1" eventType="touchUpInside" id="ENi-1I-KPa"/>
                     </connections>
                 </button>
             </subviews>
@@ -41,7 +73,7 @@
             <connections>
                 <outlet property="tableView" destination="yWC-Eh-K2v" id="V8N-Yo-Gbb"/>
             </connections>
-            <point key="canvasLocation" x="25.5" y="51.5"/>
+            <point key="canvasLocation" x="-20.5" y="58.5"/>
         </view>
     </objects>
 </document>

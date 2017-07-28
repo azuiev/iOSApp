@@ -16,6 +16,10 @@
     return [[AZArrayModelRemoveOption alloc] initWithIndexes:indexes];
 }
 
++ (instancetype)arrayModelAddWithIndexes:(NSArray *)indexes {
+    return [[AZArrayModelRemoveOption alloc] initWithIndexes:indexes];
+}
+
 - (id)modelOptions {
     return nil;
 }

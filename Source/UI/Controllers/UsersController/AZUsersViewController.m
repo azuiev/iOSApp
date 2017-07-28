@@ -14,8 +14,11 @@
 #import "AZMacros.h"
 #import "UITableView+AZExtension.h"
 
+#import "AZRandomNumber.h"
+
 AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, assign) UITableViewCellEditingStyle   editingStyle;
 
 @end
 
@@ -54,18 +57,47 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+      toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [self.users moveRowWithoutNotificationFromIndex:sourceIndexPath.row
+                                            toIndex:destinationIndexPath.row];
+    
+}
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (void)    tableView:(UITableView *)tableView
- didEndDisplayingCell:(AZUserCell *)cell
-    forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.user = nil;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.editingStyle;
 }
 
-- (IBAction)enableEditMode:(id)sender {
-    [self.usersView setEditing:YES animated:YES];
+- (IBAction)insertUser:(id)sender {
+    AZArrayModel *model = self.users;
+    [model insertObject:[AZUser new] atIndex:AZRandomNumberWithMaxValue(model.count)];
+}
+
+- (IBAction)removeUser:(id)sender {
+    AZArrayModel *model = self.users;
+    [model removeObjectAtIndex:AZRandomNumberWithMaxValue(model.count - 1)];
+}
+
+- (IBAction)changeMoveMode:(id)sender {
+    self.editingStyle = UITableViewCellEditingStyleNone;
+    [self.usersView changeEditMode];
+}
+
+- (IBAction)changeEditMode:(id)sender {
+    self.editingStyle = UITableViewCellEditingStyleInsert;
+    [self.usersView changeEditMode];
+}
+
+- (IBAction)changeDeleteMode:(id)sender {
+    self.editingStyle = UITableViewCellEditingStyleDelete;
+    [self.usersView changeEditMode];
 }
 
 - (void)    tableView:(UITableView *)tableView
@@ -74,9 +106,13 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 {
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [self.users removeObjectAtIndex:indexPath.row];
-        
-        [self.usersView setEditing:NO animated:YES];
     }
+    
+    if (UITableViewCellEditingStyleInsert == editingStyle) {
+        [self.users insertObject:[AZUser new] atIndex:indexPath.row];
+    }
+    
+    [self.usersView changeEditMode];
 }
 
 #pragma mark -
@@ -86,7 +122,14 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
     NSNumber *row = [[options modelOptions] firstObject];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[row intValue] inSection:0];
     [self.usersView.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                     withRowAnimation: UITableViewRowAnimationFade];
+                                    withRowAnimation: UITableViewRowAnimationFade];
+}
+
+- (void)arrayModelObjectAdded:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options {
+    NSNumber *row = [[options modelOptions] firstObject];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[row intValue] inSection:0];
+    [self.usersView.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                    withRowAnimation: UITableViewRowAnimationFade];
 }
 
 @end

@@ -13,6 +13,6 @@
 @interface AZUsersView : UIView
 @property (nonatomic, strong) IBOutlet UITableView    *tableView;
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+- (void)changeEditMode;
 
 @end

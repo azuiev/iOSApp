@@ -32,7 +32,7 @@
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
    
-    NSArray *array = [NSArray objectsWithCount:25 block: ^{
+    NSArray *array = [NSArray objectsWithCount:1 block: ^{
         return [AZUser new];
     }];
     AZArrayModel *models = [AZArrayModel modelWithObjects:array];
