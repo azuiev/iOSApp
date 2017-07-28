@@ -74,8 +74,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 {
     if (UITableViewCellEditingStyleDelete == editingStyle) {
         [self.users removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation: UITableViewRowAnimationFade];
+        
         [self.usersView setEditing:NO animated:YES];
     }
 }
@@ -84,7 +83,10 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 #pragma mark AZArrayModelObserver
 
 - (void)arrayModelObjectRemoved:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options {
-    //[self.usersView.tableView reloadData];
+    NSNumber *row = [[options modelOptions] firstObject];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[row intValue] inSection:0];
+    [self.usersView.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                     withRowAnimation: UITableViewRowAnimationFade];
 }
 
 @end
