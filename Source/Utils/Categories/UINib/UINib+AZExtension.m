@@ -19,6 +19,10 @@
                           bundle:bundle];
 }
 
++ (id)objectWithClass:(Class)cls {
+    return [[self nibWithClass:cls] objectWithClass:cls];
+}
+
 - (id)objectWithClass:(Class)cls {
     return [self objectWithClass:cls owner:nil options:nil];
 }

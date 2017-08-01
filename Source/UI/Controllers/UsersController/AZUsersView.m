@@ -17,10 +17,4 @@
     [view setEditing:![view isEditing] animated:YES];
 }
 
-- (AZUser *)getUserByIndexPath:(NSIndexPath *)indexPath {
-    AZUserCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    return cell.user;
-}
-
 @end

@@ -10,14 +10,6 @@
 
 @implementation AZUserCell
 
-
-#pragma mark -
-#pragma mark Initialization
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 #pragma mark -
 #pragma mark Accessors
 

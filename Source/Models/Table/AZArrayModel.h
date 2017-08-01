@@ -10,21 +10,22 @@
 #import <UIKit/UIKit.h>
 
 #import "AZObservableObject.h"
-#import "AZArrayModelOptions.h"
+#import "AZArrayModelChange.h"
 
 @class AZArrayModel;
 @class AZArrayModelOptions;
 
 typedef NS_ENUM(NSUInteger, AZArrayModelState) {
     AZArrayModelObjectAdded,
-    AZArrayModelObjectRemoved
+    AZArrayModelObjectRemoved,
+    AZArrayModelObjectMoved,
+    AZArrayModelObjectChanged
 };
 
 @protocol AZArrayModelObserver <NSObject>
 
 @optional
-- (void)arrayModelObjectAdded:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options;
-- (void)arrayModelObjectRemoved:(AZArrayModel *)arrayModel options:(AZArrayModelOptions *)options;
+- (void)arrayModelObjectChanged:(AZArrayModel *)arrayModel modelChange:(AZArrayModelOptions *)modelChange;
 
 @end
 
@@ -47,7 +48,7 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)index;
 
-- (void)moveRowWithoutNotificationFromIndex:(NSUInteger)sourceIndex
-                                    toIndex:(NSUInteger)destinationIndex;
+- (void)moveFromIndex:(NSUInteger)sourceIndex
+              toIndex:(NSUInteger)destinationIndex;
 
 @end

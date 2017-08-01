@@ -8,7 +8,8 @@
 
 #import "AZArrayModel.h"
 
-#import "AZArrayModelOptions.h"
+#import "AZArrayModelChange.h"
+#import "NSMutableArray+AZExtension.h"
 
 @interface AZArrayModel ()
 @property (nonatomic, strong) NSMutableArray    *mutableArray;
@@ -66,11 +67,7 @@
 #pragma mark Public Methods
 
 - (void)addObject:(NSObject *)object {
-    if (!object) {
-        return;
-    }
-    
-    [self.mutableArray addObject:object];
+    [self insertObject:object atIndex:self.count];
 }
 
 - (void)removeObject:(NSObject *)object {
@@ -89,9 +86,8 @@
     
     [self.mutableArray insertObject:object atIndex:index];
     
-    NSArray *indexes = [NSArray arrayWithObject:[NSNumber numberWithInteger:index]];
     [self setState:AZArrayModelObjectAdded
-     withParameter:[AZArrayModelOptions arrayModelAddWithIndexes:indexes]];
+     withParameter:[AZArrayModelChange arrayModelAddChange:index]];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
@@ -102,9 +98,8 @@
     
     [array removeObjectAtIndex:index];
     
-    NSArray *indexes = [NSArray arrayWithObject:[NSNumber numberWithInteger:index]];
     [self setState:AZArrayModelObjectRemoved
-     withParameter:[AZArrayModelOptions arrayModelRemoveWithIndexes:indexes]];
+     withParameter:[AZArrayModelChange arrayModelRemoveChange:index]];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
@@ -129,17 +124,21 @@
     [self.mutableArray setObject:object atIndexedSubscript:index];
 }
 
-- (void)moveRowWithoutNotificationFromIndex:(NSUInteger)sourceIndex
-                                    toIndex:(NSUInteger)destinationIndex
+- (void)moveFromIndex:(NSUInteger)sourceIndex
+              toIndex:(NSUInteger)destinationIndex
 {
     if (sourceIndex == destinationIndex) {
         return;
     }
     
     NSMutableArray *array = self.mutableArray;
-    id object = array[sourceIndex];
-    [array removeObjectAtIndex:sourceIndex];
-    [array insertObject:object atIndex:destinationIndex];
+    
+    [array moveFromIndex:sourceIndex toIndex:destinationIndex];
+    
+    [self setState:AZArrayModelObjectMoved
+     withParameter:[AZArrayModelChange
+                    arrayModelMoveChange:sourceIndex
+                    destinationIndex:destinationIndex]];
 }
 
 #pragma mark -
@@ -157,15 +156,7 @@
 #pragma mark Observable Object
 
 - (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case AZArrayModelObjectAdded:
-            return @selector(arrayModelObjectAdded:options:);
-        case AZArrayModelObjectRemoved:
-            return @selector(arrayModelObjectRemoved:options:);
-            
-        default:
-            return nil;
-    }
+    return @selector(arrayModelObjectChanged:modelChange:);
 }
 
 @end

@@ -15,11 +15,11 @@
 - (UITableViewCell *)cellWithClass:(Class)clazz {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
     if (!cell) {
-        UINib *nib = [UINib nibWithClass:clazz];
-        cell = [nib objectWithClass:clazz];
+        cell = [UINib objectWithClass:clazz];
     }
     
     return cell;
 }
 
 @end
+

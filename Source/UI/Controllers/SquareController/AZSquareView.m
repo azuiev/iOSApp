@@ -10,6 +10,8 @@
 
 #import "AZRandomNumber.h"
 
+#import "AZMacros.h"
+
 static double AZAnimationDuration   = 2.0;
 
 @interface AZSquareView ()
@@ -119,16 +121,16 @@ static double AZAnimationDuration   = 2.0;
 #pragma mark Private
 
 - (void)moveSquare {
-    __weak AZSquareView *weakSelf = self;
+    AZWeakify(self);
     [self setSquarePosition:[self nextPosition]
                    animated:YES
           completionHandler:^(BOOL finished) {
-              __strong AZSquareView *strongSelf = weakSelf;
-              if (strongSelf.squareCycling && !strongSelf.shouldStopMoving) {
-                  [strongSelf moveSquare];
+              AZStrongify(self);
+              if (self.squareCycling && !self.shouldStopMoving) {
+                  [self moveSquare];
               } else {
-                  strongSelf.shouldStopMoving = NO;
-                  strongSelf.squareCycling = NO;
+                  self.shouldStopMoving = NO;
+                  self.squareCycling = NO;
               }
           }];
 }
