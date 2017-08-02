@@ -10,6 +10,7 @@
 
 #import "AZGCD.h"
 #import "AZMacros.h"
+#import "AZViewConstants.h"
 
 static const double AZImageLoadDelay = 0.5;
 
@@ -50,12 +51,7 @@ static const double AZImageLoadDelay = 0.5;
 
 - (void)initSubviews {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin
-                                | UIViewAutoresizingFlexibleWidth
-                                | UIViewAutoresizingFlexibleRightMargin
-                                | UIViewAutoresizingFlexibleTopMargin
-                                | UIViewAutoresizingFlexibleHeight
-                                | UIViewAutoresizingFlexibleBottomMargin;
+    imageView.autoresizingMask = AZViewResizableWithFixedPosition;
     
     self.contentImageView = imageView;
 }
@@ -132,4 +128,5 @@ static const double AZImageLoadDelay = 0.5;
 - (void)loadImageFromImageModel:(AZImageModel *)imageModel {
     [self modelDidLoad:imageModel];
 }
+
 @end

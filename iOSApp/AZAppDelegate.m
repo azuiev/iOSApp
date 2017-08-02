@@ -26,20 +26,19 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
+    NSArray *array = [NSArray objectsWithCount:1 block: ^{
+        return [AZUser new];
+    }];
+    AZArrayModel *models = [AZArrayModel modelWithObjects:array];
+      
     AZUsersViewController *controller = [AZUsersViewController new];
+    [controller setUsers:models];
     //AZSquareViewController *controller = [AZSquareViewController new];
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
    
-    NSArray *array = [NSArray objectsWithCount:1 block: ^{
-        return [AZUser new];
-    }];
-    AZArrayModel *models = [AZArrayModel modelWithObjects:array];
-   
-    
-    [controller setUsers:models];
-    [window makeKeyAndVisible];
+       [window makeKeyAndVisible];
     
     return YES;
 }

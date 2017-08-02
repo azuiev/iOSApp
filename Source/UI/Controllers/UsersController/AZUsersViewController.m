@@ -31,6 +31,8 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.usersView.tableView reloadData];
 }
 
 #pragma mark -
@@ -49,7 +51,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.users count];
+    return self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,10 +66,10 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-      toIndexPath:(NSIndexPath *)destinationIndexPath {
+      toIndexPath:(NSIndexPath *)destinationIndexPath
+{
     [self.users moveFromIndex:sourceIndexPath.row
                       toIndex:destinationIndexPath.row];
-    
 }
 
 #pragma mark -
