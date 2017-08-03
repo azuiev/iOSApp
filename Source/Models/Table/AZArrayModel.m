@@ -11,6 +11,8 @@
 #import "AZArrayModelChange.h"
 #import "NSMutableArray+AZExtension.h"
 
+
+
 @interface AZArrayModel ()
 @property (nonatomic, strong) NSMutableArray    *mutableArray;
 
@@ -139,6 +141,33 @@
      withParameter:[AZArrayModelChange
                     arrayModelMoveChange:sourceIndex
                     destinationIndex:destinationIndex]];
+}
+
+#pragma mark -
+#pragma mark AZModel
+
+- (void)save {
+    
+}
+
+- (void)load {
+    
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (self) {
+        self.mutableArray = [coder decodeObjectForKey:NSStringFromClass([self class])];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.mutableArray forKey:NSStringFromClass([self class])];
 }
 
 #pragma mark -

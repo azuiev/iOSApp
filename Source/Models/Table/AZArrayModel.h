@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "AZObservableObject.h"
+#import "AZModel.h"
 #import "AZArrayModelChange.h"
 
 @class AZArrayModel;
@@ -29,7 +29,7 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 
 @end
 
-@interface AZArrayModel : AZObservableObject
+@interface AZArrayModel : AZModel
 @property (nonatomic, readonly) NSUInteger  count;
 
 + (instancetype)modelWithObjects:(NSArray *)objects;

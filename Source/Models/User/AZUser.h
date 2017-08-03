@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AZModel.h"
 #import "AZImageModel.h"
 
-@interface AZUser : NSObject
+@interface AZUser : AZModel
 @property (nonatomic, copy) NSString            *name;
 @property (nonatomic, copy) NSString            *surName;
 @property (nonatomic, readonly) NSString        *fullName;

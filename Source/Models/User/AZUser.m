@@ -10,10 +10,19 @@
 
 #import "NSString+AZRandomName.h"
 
+static NSString   *kName        = @"kName";
+static NSString   *kSurName     = @"kSurName";
+
+@interface AZUser ()
+@property (nonatomic, strong) NSURL *imageURL;
+
+@end
+
 @implementation AZUser
 
 @dynamic fullName;
 @dynamic imageModel;
+@dynamic imageURL;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -36,8 +45,29 @@
 }
 
 - (AZImageModel *)imageModel {
-    NSURL *url = [[NSBundle mainBundle ]URLForResource:@"Image" withExtension:@"jpg"];
-    return [AZImageModel imageWithUrl:url];
+    return [AZImageModel imageWithUrl:[self imageURL]];
+}
+
+- (NSURL *)imageURL {
+    return [[NSBundle mainBundle ] URLForResource:@"Image" withExtension:@"jpg"];
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (self) {
+        self.name = [coder decodeObjectForKey:kName];
+        self.surName = [coder decodeObjectForKey:kSurName];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.name forKey:kName];
+    [coder encodeObject:self.surName forKey:kSurName];
 }
 
 @end

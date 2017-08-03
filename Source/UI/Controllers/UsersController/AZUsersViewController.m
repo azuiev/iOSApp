@@ -21,9 +21,13 @@
 #import "AZArrayModelRemoveChange.h"
 #import "AZArrayModelMoveChange.h"
 
+static NSString *AZPlistName = @"/app.plist";
+
 AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) UITableViewCellEditingStyle   editingStyle;
+
+- (NSString *)plistName;
 
 @end
 
@@ -32,6 +36,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self load];
     [self.usersView.tableView reloadData];
 }
 
@@ -45,6 +50,34 @@ AZBaseViewControllerWithProperty(AZUsersViewController, usersView, AZUsersView);
         _users = users;
         [_users addObserver:self];
     }
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self.users toFile:[self plistName]];
+    
+    self.users = nil;
+}
+
+- (void)load {
+    self.users = [NSKeyedUnarchiver unarchiveObjectWithFile:[self plistName]];
+    if (!self.users) {
+        self.users = [AZArrayModel new];
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (NSString *)plistName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *result = [paths firstObject];
+    
+    result = [result stringByAppendingString:AZPlistName];
+    
+    return result;
 }
 
 #pragma mark -
