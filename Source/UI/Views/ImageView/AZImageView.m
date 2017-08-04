@@ -93,7 +93,7 @@ static const double AZImageLoadDelay = 0.5;
     void(^block)(void) = ^{
         AZStrongify(self);
         self.imageModel = model;
-        self.contentImageView.image = model.image;
+        self.contentImageView.image = model.object;
     };
     
     if ([NSThread isMainThread]){
@@ -104,21 +104,21 @@ static const double AZImageLoadDelay = 0.5;
 }
 
 #pragma mark -
-#pragma mark Image Model Observer
+#pragma mark Loading Model Observer
 
-- (void)imageModelDidBecameUnloaded:(AZImageModel *)imageModel {
-    [self loadImageFromImageModel:imageModel];
+- (void)modelDidBecameUnloaded:(AZLoadingModel *)model {
+    [self loadImageFromImageModel:model];
 }
 
-- (void)imageModelDidBecameLoading:(AZImageModel *)imageModel {
+- (void)modelDidBecameLoading:(AZLoadingModel *)model {
     
 }
 
-- (void)imageModelDidBecameLoaded:(AZImageModel *)imageModel {
-    [self loadImageFromImageModel:imageModel];
+- (void)modelDidBecameLoaded:(AZLoadingModel *)model {
+    [self loadImageFromImageModel:(AZImageModel *)model];
 }
 
-- (void)imageModelDidBecameFailedLoading:(AZImageModel *)imageModel {
+- (void)modelDidBecameFailedLoading:(AZLoadingModel *)model {
     [self.imageModel load];
 }
 

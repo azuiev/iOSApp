@@ -10,14 +10,14 @@
 
 #import "AZTableViewCell.h"
 #import "AZStatefulImageView.h"
-#import "AZUser.h"
+#import "AZUserModel.h"
 
 @interface AZUserCell : AZTableViewCell
 @property (nonatomic, strong) IBOutlet AZStatefulImageView      *userImageView;
 @property (nonatomic, strong) IBOutlet UILabel                  *fullNameLabel;
 
-@property (nonatomic, strong) AZUser    *user;
+@property (nonatomic, strong) AZUserModel    *user;
 
-- (void)fillWithModel:(AZUser *)user;
+- (void)fillWithModel:(AZUserModel *)user;
 
 @end

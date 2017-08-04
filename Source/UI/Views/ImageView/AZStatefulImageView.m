@@ -21,6 +21,6 @@
 - (void)modelDidLoad:(AZImageModel *)model {
     [self.activityIndicator stopAnimating];
     [super modelDidLoad:model];
-    
 }
+
 @end

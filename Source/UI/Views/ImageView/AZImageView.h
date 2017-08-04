@@ -10,7 +10,7 @@
 
 #import "AZImageModel.h"
 
-@interface AZImageView : UIView <AZImageModelObserver>
+@interface AZImageView : UIView <AZLoadingModelObserver>
 @property (nonatomic, strong) IBOutlet  UIImageView     *contentImageView;
 @property (nonatomic, strong) AZImageModel              *imageModel;
 

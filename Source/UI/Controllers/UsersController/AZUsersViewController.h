@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "AZUser.h"
+#import "AZUserModel.h"
 #import "AZArrayModel.h"
 
 @interface AZUsersViewController : UIViewController

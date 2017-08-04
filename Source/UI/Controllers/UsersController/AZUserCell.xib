@@ -35,7 +35,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="activityIndicator" destination="uW0-gW-pg6" id="1h3-cA-aIl"/>
-                            <outlet property="contentImageView" destination="0uQ-TE-SGK" id="HJm-R5-2MI"/>
+                            <outlet property="contentImageView" destination="0uQ-TE-SGK" id="SYV-gl-iwP"/>
                         </connections>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4Q-Yr-T13">

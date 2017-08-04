@@ -13,7 +13,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUser:(AZUser *)user {
+- (void)setUser:(AZUserModel *)user {
     if (_user != user) {
         _user = user;
         
@@ -21,7 +21,7 @@
     }
 }
 
-- (void)fillWithModel:(AZUser *)user {
+- (void)fillWithModel:(AZUserModel *)user {
     self.fullNameLabel.text = user.fullName;
     self.userImageView.imageModel = user.imageModel;
 }

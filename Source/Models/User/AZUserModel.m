@@ -1,24 +1,24 @@
 //
-//  AZUser.m
+//  AZUserModel.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 14/07/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZUser.h"
+#import "AZUserModel.h"
 
 #import "NSString+AZRandomName.h"
 
 static NSString   *kName        = @"kName";
 static NSString   *kSurName     = @"kSurName";
 
-@interface AZUser ()
+@interface AZUserModel ()
 @property (nonatomic, strong) NSURL *imageURL;
 
 @end
 
-@implementation AZUser
+@implementation AZUserModel
 
 @dynamic fullName;
 @dynamic imageModel;
@@ -45,7 +45,7 @@ static NSString   *kSurName     = @"kSurName";
 }
 
 - (AZImageModel *)imageModel {
-    return [AZImageModel imageWithUrl:[self imageURL]];
+    return [AZImageModel modelWithURL:[self imageURL]];
 }
 
 - (NSURL *)imageURL {

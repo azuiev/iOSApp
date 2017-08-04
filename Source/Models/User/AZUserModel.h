@@ -1,5 +1,5 @@
 //
-//  AZUser.h
+//  AZUserModel.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 14/07/2017.
@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AZModel.h"
 #import "AZImageModel.h"
 
-@interface AZUser : AZModel
+@interface AZUserModel : NSObject
 @property (nonatomic, copy) NSString            *name;
 @property (nonatomic, copy) NSString            *surName;
 @property (nonatomic, readonly) NSString        *fullName;

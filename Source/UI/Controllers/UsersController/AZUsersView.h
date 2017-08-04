@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AZUser.h"
-
 @interface AZUsersView : UIView
-@property (nonatomic, strong) IBOutlet UITableView    *tableView;
+@property (nonatomic, strong) IBOutlet UITableView              *tableView;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView  *activityIndicator;
 
 - (void)changeEditMode;
 
