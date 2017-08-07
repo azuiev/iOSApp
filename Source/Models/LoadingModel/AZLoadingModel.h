@@ -37,6 +37,6 @@ typedef NS_ENUM(NSUInteger, AZLoadingModelState) {
 - (void)dump;
 
 //methods for subclassing purposes
-- (void)performLoading;
+- (id)performLoading;
 
 @end

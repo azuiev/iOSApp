@@ -12,6 +12,7 @@
 
 static NSString   *kName        = @"kName";
 static NSString   *kSurName     = @"kSurName";
+static NSString   *kImageModel  = @"kImageModel";
 
 @interface AZUserModel ()
 @property (nonatomic, strong) AZImageModel  *imageModel;
@@ -30,7 +31,7 @@ static NSString   *kSurName     = @"kSurName";
     if (self) {
         self.name = [NSString randomName];
         self.surName = [NSString randomName];
-        self.imageModel = [[AZImageModel alloc] initWithName:@"Image.name"];
+        self.imageModel = [[AZImageModel alloc] initWithName:@"Image.jpg"];
     }
     
     return self;
@@ -51,6 +52,7 @@ static NSString   *kSurName     = @"kSurName";
     if (self) {
         self.name = [coder decodeObjectForKey:kName];
         self.surName = [coder decodeObjectForKey:kSurName];
+        self.imageModel = [coder decodeObjectForKey:kImageModel];
     }
     
     return self;
@@ -59,6 +61,7 @@ static NSString   *kSurName     = @"kSurName";
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.name forKey:kName];
     [coder encodeObject:self.surName forKey:kSurName];
+    [coder encodeObject:self.imageModel forKey:kImageModel];
 }
 
 @end

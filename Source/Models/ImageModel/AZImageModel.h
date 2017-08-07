@@ -12,7 +12,8 @@
 
 @interface AZImageModel : AZLoadingModel 
 @property (nonatomic, readonly) UIImage     *image;
+@property (nonatomic, readonly) NSString    *imageName;
 
-- (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)imageName;
 
 @end

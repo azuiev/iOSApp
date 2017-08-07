@@ -10,11 +10,22 @@
 
 #import "AZLoadingModelDispatcher.h"
 
+#import "AZGCD.h"
 #import "AZMacros.h"
 
 @implementation AZLoadingModel
 
+#pragma mark -
+#pragma mark Initialization and deallocations
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.state = AZModelDidUnload;
+    }
+    
+    return self;
+}
 #pragma mark -
 #pragma mark Public methods
 
@@ -34,7 +45,16 @@
         self.state = AZModelWillLoad;
     }
     
-    [self performLoading];
+    [self loadObject];
+}
+
+- (void)loadObject {
+    AZWeakify(self);
+    [AZGCD dispatchAsyncOnBackground:^ {
+        AZStrongify(self);
+        id object = [self performLoading];
+        self.state = object ? AZModelDidLoad : AZModelDidFailLoad;
+    }];
 }
 
 - (void)dump {
@@ -44,8 +64,8 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)performLoading {
-
+- (id)performLoading {
+    return nil;
 }
 
 #pragma mark -
