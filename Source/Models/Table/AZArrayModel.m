@@ -135,7 +135,7 @@
     
     NSMutableArray *array = self.mutableArray;
     
-    [array moveFromIndex:sourceIndex toIndex:destinationIndex];
+    [array moveRowAtIndex:sourceIndex toIndex:destinationIndex];
     
     [self setState:AZArrayModelObjectMoved
      withParameter:[AZArrayModelChange

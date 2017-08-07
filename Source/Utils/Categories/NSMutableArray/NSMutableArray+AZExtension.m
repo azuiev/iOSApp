@@ -10,7 +10,7 @@
 
 @implementation NSMutableArray (AZExtension)
 
-- (void)moveFromIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
+- (void)moveRowAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     id object = [self objectAtIndex:sourceIndex];
     [self removeObjectAtIndex:sourceIndex];
     [self insertObject:object atIndex:destinationIndex];

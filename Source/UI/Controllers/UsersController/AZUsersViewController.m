@@ -57,9 +57,9 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 #pragma mark Public
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self.users toFile:[self plistName]];
+    //[NSKeyedArchiver archiveRootObject:self.users toFile:[self plistName]];
     
-    self.users = nil;
+    //self.users = nil;
 }
 
 - (void)load {

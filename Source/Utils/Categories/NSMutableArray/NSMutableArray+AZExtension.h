@@ -10,6 +10,6 @@
 
 @interface NSMutableArray (AZExtension)
 
-- (void)moveFromIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
+- (void)moveRowAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
 
 @end

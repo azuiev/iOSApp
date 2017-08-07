@@ -12,54 +12,8 @@
 
 #import "AZMacros.h"
 
-@interface AZLoadingModel ()
-@property (nonatomic, strong)   id          object;
-@property (nonatomic, strong)   NSURL       *url;
-@property (nonatomic, strong)   NSOperation *operation;
-@end
-
 @implementation AZLoadingModel
 
-#pragma mark -
-#pragma mark Class methods
-
-+ (instancetype)modelWithURL:(NSURL *)url {
-    return [[self alloc] initWithURL:url];
-}
-
-#pragma mark -
-#pragma mark Initialization and Deallocation
-
-- (void)dealloc {
-    self.operation = nil;
-    self.object = nil;
-    self.url = nil;
-}
-
-- (instancetype)initWithURL:(NSURL *)url {
-    self = [super init];
-    if (self) {
-        self.url = url;
-    }
-    
-    return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setOperation:(NSOperation *)operation {
-    if (_operation != operation) {
-        [_operation cancel];
-        
-        _operation = operation;
-        
-        if (operation) {
-            AZLoadingModelDispatcher *dispatcher = [AZLoadingModelDispatcher sharedDispatcher];
-            [dispatcher.queue addOperation:operation];
-        }
-    }
-}
 
 #pragma mark -
 #pragma mark Public methods
@@ -67,53 +21,31 @@
 - (void)load {
     @synchronized (self) {
         NSUInteger state = self.state;
-        if (AZModelLoading == state) {
+        if (AZModelWillLoad == state) {
             return;
         }
         
-        if (AZModelLoaded == state) {
+        if (AZModelDidLoad == state) {
             [self notifyOfState:state];
             
             return;
         }
         
-        self.state = AZModelLoading;
+        self.state = AZModelWillLoad;
     }
     
-    self.operation = [self loadingOperation];
-    
-}
-
-- (void)saveToURL:(NSURL *)url {
-    
-}
-
-- (id)modelWithURL:(NSURL *)url {
-    return nil;
+    [self performLoading];
 }
 
 - (void)dump {
-    self.operation = nil;
-    self.object = nil;
-    self.state = AZModelUnloaded;
+    self.state = AZModelDidUnload;
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (NSOperation *)loadingOperation {
-    AZWeakify(self);
-    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-        AZStrongify(self);
-        self.object = [self modelWithURL:self.url];
-    }];
-    
-    operation.completionBlock = ^{
-        AZStrongifyAndReturnIfNil(self);
-        self.state = self.object ? AZModelLoaded : AZModelFailedLoading;
-    };
-    
-    return operation;
+- (void)performLoading {
+
 }
 
 #pragma mark -
@@ -121,16 +53,16 @@
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case AZModelUnloaded:
-            return @selector(modelDidBecameUnloaded:);
-            
-        case AZModelLoading:
-            return @selector(modelDidBecameLoading:);
-            
-        case AZModelLoaded:
+        case AZModelDidLoad:
             return @selector(modelDidBecameLoaded:);
-            
-        case AZModelFailedLoading:
+        
+        case AZModelWillLoad:
+            return @selector(modelDidBecameLoading:);
+        
+        case AZModelDidUnload:
+            return @selector(modelDidBecameUnloaded:);
+           
+        case AZModelDidFailLoad:
             return @selector(modelDidBecameFailedLoading:);
             
         default:

@@ -14,15 +14,13 @@ static NSString   *kName        = @"kName";
 static NSString   *kSurName     = @"kSurName";
 
 @interface AZUserModel ()
-@property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) AZImageModel  *imageModel;
 
 @end
 
 @implementation AZUserModel
 
 @dynamic fullName;
-@dynamic imageModel;
-@dynamic imageURL;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -32,6 +30,7 @@ static NSString   *kSurName     = @"kSurName";
     if (self) {
         self.name = [NSString randomName];
         self.surName = [NSString randomName];
+        self.imageModel = [[AZImageModel alloc] initWithName:@"Image.name"];
     }
     
     return self;
@@ -42,14 +41,6 @@ static NSString   *kSurName     = @"kSurName";
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surName];
-}
-
-- (AZImageModel *)imageModel {
-    return [AZImageModel modelWithURL:[self imageURL]];
-}
-
-- (NSURL *)imageURL {
-    return [[NSBundle mainBundle ] URLForResource:@"Image" withExtension:@"jpg"];
 }
 
 #pragma mark -

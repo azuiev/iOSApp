@@ -10,6 +10,9 @@
 
 #import "AZLoadingModel.h"
 
-@interface AZImageModel : AZLoadingModel
+@interface AZImageModel : AZLoadingModel 
+@property (nonatomic, readonly) UIImage     *image;
+
+- (instancetype)initWithName:(NSString *)name;
 
 @end

@@ -93,7 +93,7 @@ static const double AZImageLoadDelay = 0.5;
     void(^block)(void) = ^{
         AZStrongify(self);
         self.imageModel = model;
-        self.contentImageView.image = model.object;
+        self.contentImageView.image = model.image;
     };
     
     if ([NSThread isMainThread]){
