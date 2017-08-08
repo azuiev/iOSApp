@@ -88,7 +88,7 @@
     
     [self.mutableArray insertObject:object atIndex:index];
     
-    [self setState:AZArrayModelObjectAdded
+    [self setState:AZArrayModelChanged
      withParameter:[AZArrayModelChange arrayModelAddChange:index]];
 }
 
@@ -100,7 +100,7 @@
     
     [array removeObjectAtIndex:index];
     
-    [self setState:AZArrayModelObjectRemoved
+    [self setState:AZArrayModelChanged
      withParameter:[AZArrayModelChange arrayModelRemoveChange:index]];
 }
 
@@ -137,7 +137,7 @@
     
     [array moveRowAtIndex:sourceIndex toIndex:destinationIndex];
     
-    [self setState:AZArrayModelObjectMoved
+    [self setState:AZArrayModelChanged
      withParameter:[AZArrayModelChange
                     arrayModelMoveChange:sourceIndex
                     destinationIndex:destinationIndex]];
@@ -185,7 +185,11 @@
 #pragma mark Observable Object
 
 - (SEL)selectorForState:(NSUInteger)state {
-    return @selector(arrayModelObjectChanged:modelChange:);
+    if (AZArrayModelChanged == state) {
+        return @selector(arrayModelObjectChanged:modelChange:);
+    } else {
+        return [super selectorForState:state];
+    }
 }
 
 @end

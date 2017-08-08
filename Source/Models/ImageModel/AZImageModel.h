@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AZLoadingModel.h"
+#import "AZModel.h"
 
-@interface AZImageModel : AZLoadingModel 
+@interface AZImageModel : AZModel 
 @property (nonatomic, readonly) UIImage     *image;
 @property (nonatomic, readonly) NSString    *imageName;
 

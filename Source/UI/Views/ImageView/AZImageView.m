@@ -106,19 +106,19 @@ static const double AZImageLoadDelay = 0.5;
 #pragma mark -
 #pragma mark Loading Model Observer
 
-- (void)modelDidBecameUnloaded:(AZLoadingModel *)model {
+- (void)modelDidBecameUnloaded:(AZImageModel *)model {
     [self loadImageFromImageModel:model];
 }
 
-- (void)modelDidBecameLoading:(AZLoadingModel *)model {
+- (void)modelDidBecameLoading:(AZImageModel *)model {
     
 }
 
-- (void)modelDidBecameLoaded:(AZLoadingModel *)model {
+- (void)modelDidBecameLoaded:(AZImageModel *)model {
     [self loadImageFromImageModel:(AZImageModel *)model];
 }
 
-- (void)modelDidBecameFailedLoading:(AZLoadingModel *)model {
+- (void)modelDidBecameFailedLoading:(AZImageModel *)model {
     [self.imageModel load];
 }
 

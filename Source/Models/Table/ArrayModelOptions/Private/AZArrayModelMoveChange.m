@@ -29,14 +29,14 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Override methods
 
-- (NSUInteger)firstOption {
-    return self.sourceIndex;
+- (void)applyChangeToTalbeView:(UITableView *)tableView {
+    NSIndexPath *sourceIndexPath = [self indexPathWithIndex:self.sourceIndex];
+    NSIndexPath *destinationIndexPath = [self indexPathWithIndex:self.destinationIndex];
+    
+    [tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
 }
 
-- (NSUInteger)secondOption {
-    return self.destinationIndex;
-}
 
 @end

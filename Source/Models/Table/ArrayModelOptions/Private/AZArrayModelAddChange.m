@@ -28,10 +28,13 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Override methods
 
-- (NSUInteger)firstOption {
-    return self.index;
+- (void)applyChangeToTalbeView:(UITableView *)tableView {
+    NSIndexPath *indexPath = [self indexPathWithIndex:self.index];
+    
+    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                     withRowAnimation: UITableViewRowAnimationFade];
 }
 
 @end

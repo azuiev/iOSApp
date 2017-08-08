@@ -12,10 +12,10 @@
 
 @implementation UITableView (AZExtension)
 
-- (UITableViewCell *)cellWithClass:(Class)clazz {
-    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
+- (UITableViewCell *)reusableCellWithClass:(Class)cls {
+    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(cls)];
     if (!cell) {
-        cell = [UINib objectWithClass:clazz];
+        cell = [UINib objectWithClass:cls];
     }
     
     return cell;

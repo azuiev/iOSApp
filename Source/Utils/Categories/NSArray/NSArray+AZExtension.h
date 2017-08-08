@@ -15,4 +15,6 @@
 - (instancetype)objectsWithClass:(Class)cls;
 - (instancetype)objectsWithBlock:(BOOL(^)(id obj))block;
 
+- (id)firstObjectWithClass:(Class)cls;
+
 @end

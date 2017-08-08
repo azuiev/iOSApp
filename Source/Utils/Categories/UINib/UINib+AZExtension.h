@@ -12,7 +12,9 @@
 
 + (UINib *)nibWithClass:(Class)cls;
 + (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundle;
+
 + (id)objectWithClass:(Class)cls;
++ (id)objectWithClass:(Class)cls bundle:(NSBundle *)bundle;
 
 - (id)objectWithClass:(Class)cls;
 - (id)objectWithClass:(Class)cls owner:(id)owner;

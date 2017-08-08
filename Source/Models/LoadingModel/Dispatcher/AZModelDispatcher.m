@@ -1,21 +1,21 @@
 //
-//  AZLoadingModelDispatcher.m
+//  AZModelDispatcher.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 17/07/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZLoadingModelDispatcher.h"
+#import "AZModelDispatcher.h"
 
-@interface AZLoadingModelDispatcher ()
+@interface AZModelDispatcher ()
 @property (nonatomic, strong) NSOperationQueue    *queue;
 
 - (void)initQueue;
 
 @end
 
-@implementation AZLoadingModelDispatcher
+@implementation AZModelDispatcher
 
 #pragma mark -
 #pragma mark Class methods

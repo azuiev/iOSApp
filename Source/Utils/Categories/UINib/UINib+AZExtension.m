@@ -7,8 +7,12 @@
 //
 
 #import "UINib+AZExtension.h"
+#import "NSArray+AZExtension.h"
 
 @implementation UINib (AZExtension)
+
+#pragma mark -
+#pragma mark Class methods
 
 + (UINib *)nibWithClass:(Class)cls {
     return [self nibWithClass:cls bundle:nil];
@@ -20,8 +24,15 @@
 }
 
 + (id)objectWithClass:(Class)cls {
-    return [[self nibWithClass:cls] objectWithClass:cls];
+    return [self objectWithClass:cls bundle:nil];
 }
+
++ (id)objectWithClass:(Class)cls bundle:(NSBundle *)bundle {
+    return [[self nibWithClass:cls bundle:bundle] objectWithClass:cls];
+}
+
+#pragma mark -
+#pragma mark ObjectWithClass
 
 - (id)objectWithClass:(Class)cls {
     return [self objectWithClass:cls owner:nil options:nil];
@@ -38,13 +49,7 @@
 - (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
     NSArray *objects = [self instantiateWithOwner:owner options:options];
     
-    for (id object in objects) {
-        if ([object isMemberOfClass:cls]) {
-            return object;
-        }
-    }
-    
-    return nil;
+    return [objects firstObjectWithClass:cls];
 }
 
 @end

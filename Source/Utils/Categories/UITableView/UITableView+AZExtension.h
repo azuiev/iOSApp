@@ -10,6 +10,6 @@
 
 @interface UITableView (AZExtension)
 
-- (id)cellWithClass:(Class)clazz;
+- (id)reusableCellWithClass:(Class)cls;
 
 @end

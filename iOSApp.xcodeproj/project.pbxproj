@@ -31,8 +31,8 @@
 		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
 		1D5F9A181F2A701A00B5B135 /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F9A171F2A701A00B5B135 /* AZArrayModelChange.m */; };
 		1D5F9A1C1F2A709800B5B135 /* AZArrayModelRemoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */; };
-		1D6C79021F3504EE00233F35 /* AZLoadingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79011F3504EE00233F35 /* AZLoadingModel.m */; };
-		1D6C79061F35053700233F35 /* AZLoadingModelDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79051F35053700233F35 /* AZLoadingModelDispatcher.m */; };
+		1D6C79021F3504EE00233F35 /* AZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79011F3504EE00233F35 /* AZModel.m */; };
+		1D6C79061F35053700233F35 /* AZModelDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79051F35053700233F35 /* AZModelDispatcher.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
 		1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2191F21140A00305FB2 /* AZSquareView.m */; };
@@ -97,10 +97,10 @@
 		1D5F9A1A1F2A709800B5B135 /* AZArrayModelRemoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelRemoveChange.h; sourceTree = "<group>"; };
 		1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelRemoveChange.m; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
-		1D6C79001F3504EE00233F35 /* AZLoadingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoadingModel.h; sourceTree = "<group>"; };
-		1D6C79011F3504EE00233F35 /* AZLoadingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoadingModel.m; sourceTree = "<group>"; };
-		1D6C79041F35053700233F35 /* AZLoadingModelDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoadingModelDispatcher.h; sourceTree = "<group>"; };
-		1D6C79051F35053700233F35 /* AZLoadingModelDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoadingModelDispatcher.m; sourceTree = "<group>"; };
+		1D6C79001F3504EE00233F35 /* AZModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModel.h; sourceTree = "<group>"; };
+		1D6C79011F3504EE00233F35 /* AZModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModel.m; sourceTree = "<group>"; };
+		1D6C79041F35053700233F35 /* AZModelDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModelDispatcher.h; sourceTree = "<group>"; };
+		1D6C79051F35053700233F35 /* AZModelDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModelDispatcher.m; sourceTree = "<group>"; };
 		1D70A08F1F325D7F00DBA6AD /* AZViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZViewConstants.h; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
 		1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRandomNumber.m; path = Utils/AZRandomNumber.m; sourceTree = "<group>"; };
@@ -382,8 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				1D6C79031F35053700233F35 /* Dispatcher */,
-				1D6C79001F3504EE00233F35 /* AZLoadingModel.h */,
-				1D6C79011F3504EE00233F35 /* AZLoadingModel.m */,
+				1D6C79001F3504EE00233F35 /* AZModel.h */,
+				1D6C79011F3504EE00233F35 /* AZModel.m */,
 			);
 			path = LoadingModel;
 			sourceTree = "<group>";
@@ -391,8 +391,8 @@
 		1D6C79031F35053700233F35 /* Dispatcher */ = {
 			isa = PBXGroup;
 			children = (
-				1D6C79041F35053700233F35 /* AZLoadingModelDispatcher.h */,
-				1D6C79051F35053700233F35 /* AZLoadingModelDispatcher.m */,
+				1D6C79041F35053700233F35 /* AZModelDispatcher.h */,
+				1D6C79051F35053700233F35 /* AZModelDispatcher.m */,
 			);
 			path = Dispatcher;
 			sourceTree = "<group>";
@@ -667,11 +667,11 @@
 				1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */,
 				1D54C5081F22928E00D7D3B7 /* AZArrayModel.m in Sources */,
 				1D7BF2291F21140A00305FB2 /* AZSquareViewController.m in Sources */,
-				1D6C79061F35053700233F35 /* AZLoadingModelDispatcher.m in Sources */,
+				1D6C79061F35053700233F35 /* AZModelDispatcher.m in Sources */,
 				1D2BD6831F3124FA00641E23 /* NSString+AZRandomString.m in Sources */,
 				1D96AC8D1F19385400294A68 /* AZUserModel.m in Sources */,
 				1D5F9A181F2A701A00B5B135 /* AZArrayModelChange.m in Sources */,
-				1D6C79021F3504EE00233F35 /* AZLoadingModel.m in Sources */,
+				1D6C79021F3504EE00233F35 /* AZModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

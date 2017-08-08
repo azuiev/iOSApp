@@ -1,19 +1,19 @@
 //
-//  AZLoadingModel.m
+//  AZModel.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 03/08/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZLoadingModel.h"
+#import "AZModel.h"
 
-#import "AZLoadingModelDispatcher.h"
+#import "AZModelDispatcher.h"
 
 #import "AZGCD.h"
 #import "AZMacros.h"
 
-@implementation AZLoadingModel
+@implementation AZModel
 
 #pragma mark -
 #pragma mark Initialization and deallocations
@@ -88,6 +88,17 @@
         default:
             return nil;
     }
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return nil;
 }
 
 @end

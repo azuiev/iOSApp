@@ -10,6 +10,9 @@
 
 @implementation NSArray (AZExtension)
 
+#pragma mark -
+#pragma mark Class methods
+
 + (NSArray *)objectsWithCount:(NSUInteger)count block:(id(^)())block {
     if (!block) {
         return nil;
@@ -23,6 +26,9 @@
     return [NSArray arrayWithArray:result];
 }
 
+#pragma mark -
+#pragma mark Initialization 
+
 - (instancetype)objectsWithBlock:(BOOL(^)(id obj))block {
     if (!block) {
         return nil;
@@ -35,6 +41,9 @@
     return [self filteredArrayUsingPredicate:predicate];
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (instancetype)objectsWithClass:(Class)cls {
     NSPredicate *predicate = [NSPredicate predicateWithBlock: ^BOOL(id obj, NSDictionary *bind) {
         return [obj isMemberOfClass:cls];
@@ -43,7 +52,14 @@
     return [self filteredArrayUsingPredicate:predicate];
 }
 
-
-
+- (id)firstObjectWithClass:(Class)cls {
+    for (id object in self) {
+        if ([object isMemberOfClass:cls]) {
+            return object;
+        }
+    }
+    
+    return nil;
+}
 
 @end

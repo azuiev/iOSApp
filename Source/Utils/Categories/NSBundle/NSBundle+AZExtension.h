@@ -10,9 +10,9 @@
 
 @interface NSBundle (AZExtension)
 
-- (UINib *)nibByClass:(Class)cls;
-- (UINib *)nibByClass:(Class)cls owner:(id)owner;
-- (UINib *)nibByClass:(Class)cls options:(NSDictionary *)options;
-- (UINib *)nibByClass:(Class)cls owner:(id)owner options:(NSDictionary *)options;
+- (id)objectWithClass:(Class)cls;
+- (id)objectWithClass:(Class)cls owner:(id)owner;
+- (id)objectWithClass:(Class)cls options:(NSDictionary *)options;
+- (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options;
 
 @end

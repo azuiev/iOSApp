@@ -14,12 +14,13 @@
 #import "UIWindow+AZExtension.h"
 #import "NSArray+AZExtension.h"
 
+static NSString *AZPlistName = @"app.plist";
+
 @interface AZAppDelegate ()
 
 @end
 
 @implementation AZAppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
@@ -30,8 +31,10 @@
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
-   
-       [window makeKeyAndVisible];
+    
+    [self load];
+    
+    [window makeKeyAndVisible];
     
     return YES;
 }
@@ -43,13 +46,12 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [(AZUsersViewController *)self.window.rootViewController save];
+    [self save];
     
 }
 
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [(AZUsersViewController *)self.window.rootViewController load];
+    [self load];
 }
 
 
@@ -57,10 +59,40 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-   // [(AZUsersViewController *)self.window.rootViewController save];
+    [self save];
 }
 
+#pragma mark -
+#pragma mark Public
+
+- (void)save {
+    AZUsersViewController *controller = (AZUsersViewController *)self.window.rootViewController;
+    
+    [NSKeyedArchiver archiveRootObject:controller.users toFile:[self plistName]];
+}
+
+- (void)load {
+    AZUsersViewController *controller = (AZUsersViewController *)self.window.rootViewController;
+    
+    AZArrayModel *users = [NSKeyedUnarchiver unarchiveObjectWithFile:[self plistName]];
+    if (!users) {
+        users = [AZArrayModel new];
+    }
+    
+    [controller setUsers:users];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (NSString *)plistName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *result = [paths firstObject];
+    
+    result = [result stringByAppendingPathComponent:AZPlistName];
+    
+    return result;
+}
 
 @end

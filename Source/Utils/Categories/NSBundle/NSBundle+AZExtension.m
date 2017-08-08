@@ -10,19 +10,19 @@
 
 @implementation NSBundle (AZExtension)
 
-- (UINib *)nibByClass:(Class)clazz {
-    return [self nibByClass:clazz owner:nil options:nil];
+- (id)objectWithClass:(Class)clazz {
+    return [self objectWithClass:clazz owner:nil options:nil];
 }
 
-- (UINib *)nibByClass:(Class)clazz owner:(id)owner {
-    return [self nibByClass:clazz owner:owner options:nil];
+- (id)objectWithClass:(Class)clazz owner:(id)owner {
+    return [self objectWithClass:clazz owner:owner options:nil];
 }
 
-- (UINib *)nibByClass:(Class)clazz options:(NSDictionary *)options {
-    return [self nibByClass:clazz owner:nil options:options];
+- (id)objectWithClass:(Class)clazz options:(NSDictionary *)options {
+    return [self objectWithClass:clazz owner:nil options:options];
 }
 
-- (UINib *)nibByClass:(Class)clazz owner:(id)owner options:(NSDictionary *)options {
+- (id)objectWithClass:(Class)clazz owner:(id)owner options:(NSDictionary *)options {
     return [[self loadNibNamed:NSStringFromClass(clazz)
                          owner:owner
                        options:options] firstObject];

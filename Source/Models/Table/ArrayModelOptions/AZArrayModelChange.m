@@ -33,12 +33,12 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (NSUInteger)firstOption {
-    return 0;
+- (NSIndexPath *)indexPathWithIndex:(NSUInteger)index {
+    return [NSIndexPath indexPathForRow:index inSection:0];
 }
 
-- (NSUInteger)secondOption {
-    return 0;
+- (void)applyChangeToTalbeView:(UITableView *)tableView {
+    
 }
 
 @end

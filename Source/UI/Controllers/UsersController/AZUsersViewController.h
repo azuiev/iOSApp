@@ -15,7 +15,4 @@
 @interface AZUsersViewController : UIViewController
 @property (nonatomic, strong) AZArrayModel  *users;
 
-- (void)save;
-- (void)load;
-
 @end

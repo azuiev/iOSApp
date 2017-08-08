@@ -21,8 +21,6 @@
 #import "AZArrayModelRemoveChange.h"
 #import "AZArrayModelMoveChange.h"
 
-static NSString *AZPlistName = @"/app.plist";
-
 AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) UITableViewCellEditingStyle       editingStyle;
@@ -37,7 +35,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self load];
     [self.mainView.tableView reloadData];
 }
 
@@ -54,34 +51,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 }
 
 #pragma mark -
-#pragma mark Public
-
-- (void)save {
-    [NSKeyedArchiver archiveRootObject:self.users toFile:[self plistName]];
-    
-    self.users = nil;
-}
-
-- (void)load {
-    self.users = [NSKeyedUnarchiver unarchiveObjectWithFile:[self plistName]];
-    if (!self.users) {
-        self.users = [AZArrayModel new];
-    }
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (NSString *)plistName {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *result = [paths firstObject];
-    
-    result = [result stringByAppendingString:AZPlistName];
-    
-    return result;
-}
-
-#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -89,7 +58,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AZUserCell *cell = [tableView cellWithClass:[AZUserCell class]];
+    AZUserCell *cell = [tableView reusableCellWithClass:[AZUserCell class]];
     cell.user = self.users[indexPath.row];
     
     return cell;
@@ -160,24 +129,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 #pragma mark AZArrayModelObserver
 
 - (void)arrayModelObjectChanged:(AZArrayModel *)arrayModel modelChange:(AZArrayModelChange *)modelChange {
-    NSUInteger index = [modelChange firstOption];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-
-    if ([modelChange isMemberOfClass:[AZArrayModelAddChange class]]) {
-        [self.mainView.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                        withRowAnimation: UITableViewRowAnimationFade];
-    }
-    
-    if ([modelChange isMemberOfClass:[AZArrayModelRemoveChange class]]) {
-        [self.mainView.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                        withRowAnimation: UITableViewRowAnimationFade];
-    }
-
-    if ([modelChange isMemberOfClass:[AZArrayModelMoveChange class]]) {
-        NSIndexPath *destinationIndexPath = [NSIndexPath indexPathForRow:[modelChange secondOption] inSection:0];
-        [self.mainView.tableView moveRowAtIndexPath:indexPath
-                                         toIndexPath:destinationIndexPath];
-    }
+    [modelChange applyChangeToTalbeView:self.mainView.tableView];
 }
 
 @end

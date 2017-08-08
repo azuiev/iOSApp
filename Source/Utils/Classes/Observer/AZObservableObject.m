@@ -49,9 +49,9 @@
 - (void)setState:(NSUInteger)state {
     if (state != _state) {
         _state = state;
-        
-        [self notifyOfStateWithSelector:[self selectorForState:state]];
     }
+    
+    [self notifyOfStateWithSelector:[self selectorForState:state]];
 }
 
 - (void)setState:(NSUInteger)state withParameter:(id)parameter {
