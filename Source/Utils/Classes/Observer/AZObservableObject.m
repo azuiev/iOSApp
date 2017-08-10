@@ -54,12 +54,12 @@
     [self notifyOfStateWithSelector:[self selectorForState:state]];
 }
 
-- (void)setState:(NSUInteger)state withParameter:(id)parameter {
+- (void)setState:(NSUInteger)state withObject:(id)object {
     if (state != _state) {
         _state = state;
     }
     
-    [self notifyOfStateWithSelector:[self selectorForState:state] withParameter:(id)parameter];
+    [self notifyOfStateWithSelector:[self selectorForState:state] withObject:(id)object];
 }
 
 #pragma mark -
@@ -115,12 +115,12 @@
     }
 }
 
-- (void)notifyOfStateWithSelector:(SEL)selector withParameter:(id)parameter {
+- (void)notifyOfStateWithSelector:(SEL)selector withObject:(id)object {
     NSMutableSet *observers = self.mutableObservers;
     for (AZAssignReference *reference in observers) {
         id target = reference.target;
         if ([target respondsToSelector:selector]) {
-            [target performSelector:selector withObject:self withObject:parameter];
+            [target performSelector:selector withObject:self withObject:object];
         }
     }
 }

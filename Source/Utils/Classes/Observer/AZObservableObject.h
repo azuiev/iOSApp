@@ -22,7 +22,7 @@
 - (BOOL)isObservedByObject:(id)object;
 - (void)notifyOfStateWithSelector:(SEL)selector;
 
-- (void)setState:(NSUInteger)state withParameter:(id)parameter;
+- (void)setState:(NSUInteger)state withObject:(id)object;
 
 //this method is intended for subclassing. Never call it directly
 - (void)notifyOfState:(NSUInteger)state;

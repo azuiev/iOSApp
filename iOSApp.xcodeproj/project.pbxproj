@@ -22,7 +22,6 @@
 		1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD67E1F3124FA00641E23 /* UIWindow+AZExtension.m */; };
 		1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3831F2B971800DA241D /* AZGCD.m */; };
 		1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA38D1F2B9C4500DA241D /* AZImageView.m */; };
-		1D2FA3911F2B9C5E00DA241D /* AZStatefulImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3901F2B9C5E00DA241D /* AZStatefulImageView.m */; };
 		1D54C5081F22928E00D7D3B7 /* AZArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */; };
 		1D5B4A631F05B0D700E14BEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A611F05B0D700E14BEA /* main.m */; };
 		1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A651F05B0E200E14BEA /* Assets.xcassets */; };
@@ -31,6 +30,8 @@
 		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
 		1D5F9A181F2A701A00B5B135 /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F9A171F2A701A00B5B135 /* AZArrayModelChange.m */; };
 		1D5F9A1C1F2A709800B5B135 /* AZArrayModelRemoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */; };
+		1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */; };
+		1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */; };
 		1D6C79021F3504EE00233F35 /* AZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79011F3504EE00233F35 /* AZModel.m */; };
 		1D6C79061F35053700233F35 /* AZModelDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79051F35053700233F35 /* AZModelDispatcher.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
@@ -81,8 +82,6 @@
 		1D2FA3831F2B971800DA241D /* AZGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZGCD.m; sourceTree = "<group>"; };
 		1D2FA38C1F2B9C4500DA241D /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
 		1D2FA38D1F2B9C4500DA241D /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
-		1D2FA38F1F2B9C5E00DA241D /* AZStatefulImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZStatefulImageView.h; sourceTree = "<group>"; };
-		1D2FA3901F2B9C5E00DA241D /* AZStatefulImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZStatefulImageView.m; sourceTree = "<group>"; };
 		1D54C5061F22928E00D7D3B7 /* AZArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModel.h; sourceTree = "<group>"; };
 		1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModel.m; sourceTree = "<group>"; };
 		1D5B4A421F05A93800E14BEA /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +96,9 @@
 		1D5F9A1A1F2A709800B5B135 /* AZArrayModelRemoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelRemoveChange.h; sourceTree = "<group>"; };
 		1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelRemoveChange.m; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
+		1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZLoadingView.xib; sourceTree = "<group>"; };
+		1D69C3DC1F3CED2700DDBC63 /* AZLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoadingView.h; sourceTree = "<group>"; };
+		1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoadingView.m; sourceTree = "<group>"; };
 		1D6C79001F3504EE00233F35 /* AZModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModel.h; sourceTree = "<group>"; };
 		1D6C79011F3504EE00233F35 /* AZModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModel.m; sourceTree = "<group>"; };
 		1D6C79041F35053700233F35 /* AZModelDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModelDispatcher.h; sourceTree = "<group>"; };
@@ -267,8 +269,6 @@
 			children = (
 				1D2FA38C1F2B9C4500DA241D /* AZImageView.h */,
 				1D2FA38D1F2B9C4500DA241D /* AZImageView.m */,
-				1D2FA38F1F2B9C5E00DA241D /* AZStatefulImageView.h */,
-				1D2FA3901F2B9C5E00DA241D /* AZStatefulImageView.m */,
 			);
 			path = ImageView;
 			sourceTree = "<group>";
@@ -378,6 +378,16 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		1D69C3D91F3CEC7700DDBC63 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				1D69C3DC1F3CED2700DDBC63 /* AZLoadingView.h */,
+				1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */,
+				1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 		1D6C78FF1F3504EE00233F35 /* LoadingModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +470,7 @@
 		1D7BF2261F21140A00305FB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D69C3D91F3CEC7700DDBC63 /* LoadingView */,
 				1D2FA38B1F2B9C4500DA241D /* ImageView */,
 			);
 			path = Views;
@@ -575,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7BF22A1F21140A00305FB2 /* AZSquareViewController.xib in Resources */,
+				1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
 				1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */,
 				1D7BF22C1F21140A00305FB2 /* AZUserCell.xib in Resources */,
@@ -651,9 +663,9 @@
 				1D2BD6601F3117D000641E23 /* AZArrayModelMoveChange.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
 				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
+				1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */,
 				1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */,
 				1D1498461F1BCFEA00906749 /* AZObservableObject.m in Sources */,
-				1D2FA3911F2B9C5E00DA241D /* AZStatefulImageView.m in Sources */,
 				1D5F9A1C1F2A709800B5B135 /* AZArrayModelRemoveChange.m in Sources */,
 				1D2BD6801F3124FA00641E23 /* NSBundle+AZExtension.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,

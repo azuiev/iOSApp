@@ -89,7 +89,7 @@
     [self.mutableArray insertObject:object atIndex:index];
     
     [self setState:AZArrayModelChanged
-     withParameter:[AZArrayModelChange arrayModelAddChange:index]];
+     withObject:[AZArrayModelChange arrayModelAddChangeWithIndex:index]];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
@@ -101,7 +101,7 @@
     [array removeObjectAtIndex:index];
     
     [self setState:AZArrayModelChanged
-     withParameter:[AZArrayModelChange arrayModelRemoveChange:index]];
+     withObject:[AZArrayModelChange arrayModelRemoveChangeWithIndex:index]];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
@@ -138,20 +138,9 @@
     [array moveRowAtIndex:sourceIndex toIndex:destinationIndex];
     
     [self setState:AZArrayModelChanged
-     withParameter:[AZArrayModelChange
-                    arrayModelMoveChange:sourceIndex
-                    destinationIndex:destinationIndex]];
-}
-
-#pragma mark -
-#pragma mark AZModel
-
-- (void)save {
-    
-}
-
-- (void)load {
-    
+     withObject:[AZArrayModelChange
+                 arrayModelMoveChangeFromIndex:sourceIndex
+                 toIndex:destinationIndex]];
 }
 
 #pragma mark -

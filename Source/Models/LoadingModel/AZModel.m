@@ -13,6 +13,8 @@
 #import "AZGCD.h"
 #import "AZMacros.h"
 
+double AZDefaultLoadingDelay = 1.0;
+
 @implementation AZModel
 
 #pragma mark -
@@ -50,12 +52,15 @@
 
 - (void)loadObject {
     AZWeakify(self);
-    [AZGCD dispatchAsyncOnBackground:^ {
+    [AZGCD dispatchAfterDelay:AZDefaultLoadingDelay block:^ {
         AZStrongify(self);
         id object = [self performLoading];
-        self.state = object ? AZModelDidLoad : AZModelDidFailLoad;
+        [AZGCD dispatchSyncOnMainQueue:^ {
+            self.state = object ? AZModelDidLoad : AZModelDidFailLoad;
+        }];
     }];
 }
+
 
 - (void)dump {
     self.state = AZModelDidUnload;

@@ -10,9 +10,10 @@
 
 @interface AZArrayModelChange : NSObject
 
-+ (instancetype)arrayModelAddChange:(NSUInteger)index;
-+ (instancetype)arrayModelRemoveChange:(NSUInteger)index;
-+ (instancetype)arrayModelMoveChange:(NSUInteger)sourceIndex destinationIndex:(NSUInteger)destinationIndex;
++ (instancetype)arrayModelAddChangeWithIndex:(NSUInteger)index;
++ (instancetype)arrayModelRemoveChangeWithIndex:(NSUInteger)index;
++ (instancetype)arrayModelMoveChangeFromIndex:(NSUInteger)sourceIndex
+                                      toIndex:(NSUInteger)destinationIndex;
 
 //method to override in children classes. Do not call this method directly
 - (void)applyChangeToTalbeView:(UITableView *)tableView;

@@ -13,7 +13,7 @@
 static NSString   *kImageName        = @"kImageName";
 
 @interface AZImageModel ()
-@property (nonatomic, strong) UIImage  *image;
+@property (nonatomic, strong) UIImage   *image;
 @property (nonatomic, strong) NSString  *imageName;
 
 @end

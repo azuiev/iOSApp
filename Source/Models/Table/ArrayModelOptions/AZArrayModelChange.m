@@ -17,15 +17,15 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)arrayModelRemoveChange:(NSUInteger)index {
++ (instancetype)arrayModelRemoveChangeWithIndex:(NSUInteger)index {
     return [[AZArrayModelRemoveChange alloc] initWithIndex:index];
 }
 
-+ (instancetype)arrayModelAddChange:(NSUInteger)index {
++ (instancetype)arrayModelAddChangeWithIndex:(NSUInteger)index {
     return [[AZArrayModelAddChange alloc] initWithIndex:index];
 }
 
-+ (instancetype)arrayModelMoveChange:(NSUInteger)sourceIndex destinationIndex:(NSUInteger)destinationIndex {
++ (instancetype)arrayModelMoveChangeFromIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     return [[AZArrayModelMoveChange alloc] initWithSourceIndex:sourceIndex
                                              destinationIndex:destinationIndex];
 }

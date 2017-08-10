@@ -23,15 +23,6 @@ static const double AZImageLoadDelay = 0.5;
     self.contentImageView = nil;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    
-    return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -63,43 +54,8 @@ static const double AZImageLoadDelay = 0.5;
     if (_contentImageView != contentImageView) {
         [_contentImageView removeFromSuperview];
         _contentImageView = contentImageView;
+        
         [self addSubview:contentImageView];
-    }
-}
-
-- (void)setImageModel:(AZImageModel *)imageModel {
-    if (_imageModel != imageModel) {
-        [_imageModel dump];
-        [_imageModel removeObserver:self];
-        
-        _imageModel = imageModel;
-        [_imageModel addObserver:self];
-        
-        AZWeakify(self);
-        [AZGCD dispatchAfterDelay:AZImageLoadDelay block:^{
-            AZStrongifyAndReturnIfNil(self);
-            if (self.imageModel == imageModel) {
-                [imageModel load];
-            }
-        }];
-    }
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)modelDidLoad:(AZImageModel *)model {
-    AZWeakify(self);
-    void(^block)(void) = ^{
-        AZStrongify(self);
-        self.imageModel = model;
-        self.contentImageView.image = model.image;
-    };
-    
-    if ([NSThread isMainThread]){
-        block();
-    } else {
-        [AZGCD dispatchSyncOnMainQueue:block];
     }
 }
 
@@ -107,7 +63,9 @@ static const double AZImageLoadDelay = 0.5;
 #pragma mark Loading Model Observer
 
 - (void)modelDidBecameUnloaded:(AZImageModel *)model {
-    [self loadImageFromImageModel:model];
+    [super modelDidBecameUnloaded:model];
+    
+    self.contentImageView.image = nil;
 }
 
 - (void)modelDidBecameLoading:(AZImageModel *)model {
@@ -115,18 +73,14 @@ static const double AZImageLoadDelay = 0.5;
 }
 
 - (void)modelDidBecameLoaded:(AZImageModel *)model {
-    [self loadImageFromImageModel:(AZImageModel *)model];
+    [super modelDidBecameLoaded:model];
+    
+    self.model = model;
+    self.contentImageView.image = model.image;
 }
 
 - (void)modelDidBecameFailedLoading:(AZImageModel *)model {
-    [self.imageModel load];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)loadImageFromImageModel:(AZImageModel *)imageModel {
-    [self modelDidLoad:imageModel];
+    [self.model load];
 }
 
 @end

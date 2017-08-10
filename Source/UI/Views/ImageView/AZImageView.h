@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AZLoadingView.h"
 #import "AZImageModel.h"
 
-@interface AZImageView : UIView <AZModelObserver>
+@interface AZImageView : AZLoadingView
 @property (nonatomic, strong) IBOutlet  UIImageView     *contentImageView;
-@property (nonatomic, strong) AZImageModel              *imageModel;
-
-//this is only methods for subclasses. Don not call it directly
-- (void)modelDidLoad:(AZImageModel *)model;
 
 @end
