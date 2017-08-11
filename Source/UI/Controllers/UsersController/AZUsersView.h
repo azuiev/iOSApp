@@ -10,7 +10,7 @@
 
 #import "AZLoadingView.h"
 
-@interface AZUsersView : AZLoadingView
+@interface AZUsersView : UIView
 @property (nonatomic, strong) IBOutlet UITableView              *tableView;
 
 - (void)changeEditMode;

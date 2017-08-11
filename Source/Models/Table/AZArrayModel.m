@@ -11,8 +11,6 @@
 #import "AZArrayModelChange.h"
 #import "NSMutableArray+AZExtension.h"
 
-
-
 @interface AZArrayModel ()
 @property (nonatomic, strong) NSMutableArray    *mutableArray;
 

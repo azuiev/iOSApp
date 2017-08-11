@@ -21,7 +21,7 @@
 - (instancetype)initWithView:(UIView *)view{
     self = [super initWithFrame:view.frame];
     if (self) {
-        [self initIndicator];
+        [self initSubviews];
         
         [view addSubview:self];
     }
@@ -36,16 +36,17 @@
     [super awakeFromNib];
     
     if (!self.activityIndicator) {
-        [self initIndicator];
+        [self initSubviews];
     }
 }
 
-- (void)initIndicator {
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:self.frame];
+- (void)initSubviews {
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
+                                                  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     activityIndicator.alpha = 1.0;
     
     [activityIndicator startAnimating];
-    
+        
     self.activityIndicator = activityIndicator;
 }
 
