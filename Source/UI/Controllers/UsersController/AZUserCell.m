@@ -23,7 +23,7 @@
 
 - (void)fillWithModel:(AZUserModel *)user {
     self.fullNameLabel.text = user.fullName;
-    self.userImageView.model = user.imageModel;
+    self.userImageView.imageModel = user.imageModel;
 }
 
 #pragma mark -

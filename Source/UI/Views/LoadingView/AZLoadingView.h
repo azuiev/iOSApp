@@ -13,6 +13,9 @@
 @interface AZLoadingView : UIView <AZModelObserver>
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView   *activityIndicator;
 
-@property (nonatomic, strong) AZModel   *model;
+@property (nonatomic, strong)   AZModel     *model;
+@property (nonatomic, readonly) UIView      *parentView;
+
++ (instancetype)initWithView:(UIView *)view;
 
 @end

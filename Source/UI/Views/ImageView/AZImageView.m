@@ -12,8 +12,6 @@
 #import "AZMacros.h"
 #import "AZViewConstants.h"
 
-static const double AZImageLoadDelay = 0.5;
-
 @implementation AZImageView
 
 #pragma mark -
@@ -50,6 +48,20 @@ static const double AZImageLoadDelay = 0.5;
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setImageModel:(AZImageModel *)imageModel {
+    if (_imageModel != imageModel) {
+        [_imageModel dump];
+        [_imageModel removeObserver:self];
+        
+        _imageModel = imageModel;
+        [_imageModel addObserver:self];
+        
+        if (self.imageModel == _imageModel) {
+            [_imageModel load];
+        }
+    }
+}
+
 - (void)setContentImageView:(UIImageView *)contentImageView {
     if (_contentImageView != contentImageView) {
         [_contentImageView removeFromSuperview];
@@ -62,25 +74,21 @@ static const double AZImageLoadDelay = 0.5;
 #pragma mark -
 #pragma mark Loading Model Observer
 
-- (void)modelDidBecameUnloaded:(AZImageModel *)model {
-    [super modelDidBecameUnloaded:model];
-    
+- (void)modelDidBecameUnloaded:(AZImageModel *)imageModel {
     self.contentImageView.image = nil;
 }
 
-- (void)modelDidBecameLoading:(AZImageModel *)model {
+- (void)modelDidBecameLoading:(AZImageModel *)imageModel {
     
 }
 
-- (void)modelDidBecameLoaded:(AZImageModel *)model {
-    [super modelDidBecameLoaded:model];
-    
-    self.model = model;
-    self.contentImageView.image = model.image;
+- (void)modelDidBecameLoaded:(AZImageModel *)imageModel {
+    self.imageModel = imageModel;
+    self.contentImageView.image = imageModel.image;
 }
 
-- (void)modelDidBecameFailedLoading:(AZImageModel *)model {
-    [self.model load];
+- (void)modelDidBecameFailedLoading:(AZImageModel *)imageModel {
+    [self.imageModel load];
 }
 
 @end

@@ -13,8 +13,8 @@
 #import "AZUserModel.h"
 
 @interface AZUserCell : AZTableViewCell
-@property (nonatomic, strong) IBOutlet AZImageView  *userImageView;
-@property (nonatomic, strong) IBOutlet UILabel      *fullNameLabel;
+@property (nonatomic, strong) IBOutlet AZImageView      *userImageView;
+@property (nonatomic, strong) IBOutlet UILabel          *fullNameLabel;
 
 @property (nonatomic, strong) AZUserModel    *user;
 

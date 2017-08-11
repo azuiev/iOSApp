@@ -15,11 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4Q-Yr-T13">
-                        <rect key="frame" x="78" y="0.0" width="242" height="40"/>
+                        <rect key="frame" x="78" y="1" width="242" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -33,8 +33,8 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="fullNameLabel" destination="U4Q-Yr-T13" id="6BB-J2-DbK"/>
-                <outlet property="userImageView" destination="lEh-eb-XSk" id="goS-Kn-oJy"/>
+                <outlet property="fullNameLabel" destination="U4Q-Yr-T13" id="d7Y-UV-tGm"/>
+                <outlet property="userImageView" destination="lEh-eb-XSk" id="Gr5-cv-dac"/>
             </connections>
         </tableViewCell>
     </objects>

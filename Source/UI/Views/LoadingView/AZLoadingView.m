@@ -10,6 +10,21 @@
 
 @implementation AZLoadingView
 
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)initWithView:(UIView *)view {
+    return [[self alloc] initWithView:view];
+}
+
+- (instancetype)initWithView:(UIView *)view {
+    self = [super initWithFrame:view.frame];
+    if (self) {
+        
+    }
+    
+    return self;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -27,19 +42,14 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Observer
 
 - (void)setModel:(AZModel *)model {
     if (_model != model) {
-        [_model dump];
         [_model removeObserver:self];
         
         _model = model;
         [_model addObserver:self];
-        
-        if (self.model == model) {
-            [model load];
-        }
     }
 }
 
