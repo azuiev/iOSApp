@@ -7,24 +7,30 @@
 //
 
 #import "AZLoadingView.h"
+#import "AZImageModel.h"
 
 @implementation AZLoadingView
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)initWithView:(UIView *)view {
-    return [[self alloc] initWithView:view];
++ (instancetype)initWithView:(UIView *)view{
+   return [[self alloc] initWithView:view];
 }
 
-- (instancetype)initWithView:(UIView *)view {
+- (instancetype)initWithView:(UIView *)view{
     self = [super initWithFrame:view.frame];
     if (self) {
+        [self initIndicator];
         
+        [view addSubview:self];
     }
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Initialization and Deadllocation
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -36,13 +42,15 @@
 
 - (void)initIndicator {
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:self.frame];
-    self.activityIndicator = activityIndicator;
-    [activityIndicator setAlpha:1.0];
+    activityIndicator.alpha = 1.0;
+    
     [activityIndicator startAnimating];
+    
+    self.activityIndicator = activityIndicator;
 }
 
 #pragma mark -
-#pragma mark Observer
+#pragma mark Accessors
 
 - (void)setModel:(AZModel *)model {
     if (_model != model) {
@@ -54,21 +62,21 @@
 }
 
 #pragma mark -
-#pragma mark Observer
+#pragma mark Model Observer
 
-- (void)modelDidBecameLoaded:(AZModel *)loadingModel {
+- (void)modelDidBecameLoaded:(AZModel *)model {
     self.activityIndicator.alpha = 0;
 }
 
-- (void)modelDidBecameLoading:(AZModel *)loadingModel {
+- (void)modelDidBecameLoading:(AZModel *)model {
     
 }
 
-- (void)modelDidBecameUnloaded:(AZModel *)loadingModel {
+- (void)modelDidBecameUnloaded:(AZModel *)model {
     self.activityIndicator.alpha = 1.0;
 }
 
-- (void)modelDidBecameFailedLoading:(AZModel *)loadingModel {
+- (void)modelDidBecameFailedLoading:(AZModel *)model {
     
 }
 

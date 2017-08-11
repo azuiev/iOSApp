@@ -43,21 +43,26 @@
     imageView.autoresizingMask = AZViewResizableWithFixedPosition;
     
     self.contentImageView = imageView;
+    self.loadingView = [AZLoadingView initWithView:self];
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setImageModel:(AZImageModel *)imageModel {
-    if (_imageModel != imageModel) {
-        [_imageModel dump];
-        [_imageModel removeObserver:self];
+- (void)setModel:(AZImageModel *)model {
+    if (_model != model) {
+        [_model dump];
         
-        _imageModel = imageModel;
-        [_imageModel addObserver:self];
+        [self.loadingView setModel:model];
         
-        if (self.imageModel == _imageModel) {
-            [_imageModel load];
+        [_model removeObserver:self];
+        
+        _model = model;
+
+        [_model addObserver:self];
+        
+        if (self.model == model) {
+            [model load];
         }
     }
 }
@@ -83,12 +88,12 @@
 }
 
 - (void)modelDidBecameLoaded:(AZImageModel *)imageModel {
-    self.imageModel = imageModel;
+    self.model = imageModel;
     self.contentImageView.image = imageModel.image;
 }
 
 - (void)modelDidBecameFailedLoading:(AZImageModel *)imageModel {
-    [self.imageModel load];
+    [self.model load];
 }
 
 @end
