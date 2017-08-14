@@ -13,8 +13,12 @@
 @interface AZLoadingView : UIView <AZModelObserver>
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView   *activityIndicator;
 
-@property (nonatomic, strong)   AZModel     *model;
-
 + (instancetype)initWithView:(UIView *)view;
++ (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds;
+
+- (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds;
+
+- (void)startAnimating;
+- (void)stopAnimating;
 
 @end

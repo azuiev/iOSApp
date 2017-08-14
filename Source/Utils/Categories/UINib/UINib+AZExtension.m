@@ -24,11 +24,26 @@
 }
 
 + (id)objectWithClass:(Class)cls {
-    return [self objectWithClass:cls bundle:nil];
+    return [self objectWithClass:cls bundle:nil owner:nil options:nil];
 }
 
 + (id)objectWithClass:(Class)cls bundle:(NSBundle *)bundle {
-    return [[self nibWithClass:cls bundle:bundle] objectWithClass:cls];
+    return [self objectWithClass:cls bundle:bundle owner:nil options:nil];
+}
+
++ (id)objectWithClass:(Class)cls bundle:(NSBundle *)bundle owner:(id)owner {
+    return [self objectWithClass:cls bundle:bundle owner:owner options:nil];
+}
+
++ (id)objectWithClass:(Class)cls
+               bundle:(NSBundle *)bundle
+                owner:(id)owner
+              options:(NSDictionary *)options
+{
+    return [[self nibWithClass:cls bundle:bundle]
+            objectWithClass:cls
+            owner:owner
+            options:options];
 }
 
 #pragma mark -
@@ -40,10 +55,6 @@
 
 - (id)objectWithClass:(Class)cls owner:(id)owner {
     return [self objectWithClass:cls owner:owner options:nil];
-}
-
-- (id)objectWithClass:(Class)cls options:(NSDictionary *)options {
-    return [self objectWithClass:cls owner:nil options:options];
 }
 
 - (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {

@@ -15,14 +15,17 @@
 #pragma mark Class Methods
 
 + (instancetype)initWithView:(UIView *)view{
-   return [[self alloc] initWithView:view];
+    return [[self alloc] initWithView:view bounds:view.bounds];
 }
 
-- (instancetype)initWithView:(UIView *)view{
-    self = [super initWithFrame:view.frame];
++ (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds {
+    return [[self alloc] initWithView:view bounds:bounds];
+}
+
+- (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds {
+    self = [super initWithFrame:bounds];
     if (self) {
-        [self initSubviews];
-        
+        self.frame = bounds;
         [view addSubview:self];
     }
     
@@ -35,50 +38,25 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    if (!self.activityIndicator) {
-        [self initSubviews];
-    }
-}
-
-- (void)initSubviews {
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
-                                                  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    activityIndicator.alpha = 1.0;
-    
-    [activityIndicator startAnimating];
-        
-    self.activityIndicator = activityIndicator;
+    [self.activityIndicator startAnimating];
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
-- (void)setModel:(AZModel *)model {
-    if (_model != model) {
-        [_model removeObserver:self];
-        
-        _model = model;
-        [_model addObserver:self];
-    }
+- (void)startAnimating {
+    [self.activityIndicator startAnimating];
+    [UIView animateWithDuration:1.0 animations: ^ {
+        self.alpha = 0.0;
+        self.alpha = 1.0;
+    }];
 }
 
-#pragma mark -
-#pragma mark Model Observer
-
-- (void)modelDidBecameLoaded:(AZModel *)model {
-    self.activityIndicator.alpha = 0;
-}
-
-- (void)modelDidBecameLoading:(AZModel *)model {
-    
-}
-
-- (void)modelDidBecameUnloaded:(AZModel *)model {
-    self.activityIndicator.alpha = 1.0;
-}
-
-- (void)modelDidBecameFailedLoading:(AZModel *)model {
-    
+- (void)stopAnimating {
+    [UIView animateWithDuration:1.0 animations: ^ {
+        self.alpha = 1.0;
+        self.alpha = 0.0;
+    }];
 }
 
 @end

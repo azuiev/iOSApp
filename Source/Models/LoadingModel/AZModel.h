@@ -12,10 +12,16 @@
 
 @class AZModel;
 
+@protocol AZSave <NSObject>
+
+- (void)save;
+
+@end
+
 typedef NS_ENUM(NSUInteger, AZModelState) {
-    AZModelDidLoad,
-    AZModelWillLoad,
     AZModelDidUnload,
+    AZModelWillLoad,
+    AZModelDidLoad,
     AZModelDidFailLoad,
     AZModelStateCount
 };
@@ -23,21 +29,18 @@ typedef NS_ENUM(NSUInteger, AZModelState) {
 @protocol AZModelObserver <NSObject>
 
 @optional
-- (void)modelDidBecameLoaded:(AZModel *)loadingModel;
-- (void)modelDidBecameLoading:(AZModel *)loadingModel;
-- (void)modelDidBecameUnloaded:(AZModel *)loadingModel;
-- (void)modelDidBecameFailedLoading:(AZModel *)loadingModel;
+- (void)modelDidLoad:(AZModel *)model;
+- (void)modelWillLoad:(AZModel *)model;
+- (void)modelDidUnload:(AZModel *)model;
+- (void)modelDidFailLoad:(AZModel *)model;
 
 @end
 
-@interface AZModel : AZObservableObject <NSCoding>
-@property (nonatomic, readonly) id  object;
+@interface AZModel : AZObservableObject
 
 - (void)load;
-- (void)save;
-- (void)dump;
 
 //methods for subclassing purposes
-- (id)performLoading;
+- (void)performLoading;
 
 @end

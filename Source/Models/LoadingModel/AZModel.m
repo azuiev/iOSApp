@@ -18,23 +18,14 @@ double AZDefaultLoadingDelay = 1.0;
 @implementation AZModel
 
 #pragma mark -
-#pragma mark Initialization and deallocations
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.state = AZModelDidUnload;
-    }
-    
-    return self;
-}
-#pragma mark -
 #pragma mark Public methods
 
 - (void)load {
     @synchronized (self) {
         NSUInteger state = self.state;
         if (AZModelWillLoad == state) {
+            [self notifyOfState:state];
+            
             return;
         }
         
@@ -52,25 +43,17 @@ double AZDefaultLoadingDelay = 1.0;
 
 - (void)loadObject {
     AZWeakify(self);
-    [AZGCD dispatchAfterDelay:AZDefaultLoadingDelay block:^ {
+    [AZGCD dispatchSyncOnBackground:^ {
         AZStrongify(self);
-        id object = [self performLoading];
-        [AZGCD dispatchSyncOnMainQueue:^ {
-            self.state = object ? AZModelDidLoad : AZModelDidFailLoad;
-        }];
+        [self performLoading];
     }];
-}
-
-
-- (void)dump {
-    self.state = AZModelDidUnload;
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (id)performLoading {
-    return nil;
+- (void)performLoading {
+    
 }
 
 #pragma mark -
@@ -79,31 +62,20 @@ double AZDefaultLoadingDelay = 1.0;
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case AZModelDidLoad:
-            return @selector(modelDidBecameLoaded:);
+            return @selector(modelDidLoad:);
         
         case AZModelWillLoad:
-            return @selector(modelDidBecameLoading:);
+            return @selector(modelWillLoad:);
         
         case AZModelDidUnload:
-            return @selector(modelDidBecameUnloaded:);
+            return @selector(modelDidUnload:);
            
         case AZModelDidFailLoad:
-            return @selector(modelDidBecameFailedLoading:);
+            return @selector(modelDidFailLoad:);
             
         default:
             return nil;
     }
-}
-
-#pragma mark -
-#pragma mark NSCoding
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    return nil;
 }
 
 @end

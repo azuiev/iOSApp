@@ -8,6 +8,7 @@
 
 #import "AZImageModel.h"
 
+#import "AZGCD.h"
 #import "AZMacros.h"
 
 static NSString   *kImageName        = @"kImageName";
@@ -32,11 +33,16 @@ static NSString   *kImageName        = @"kImageName";
 #pragma mark -
 #pragma mark LoadingModel
 
-- (id)performLoading {
-    UIImage * image = [UIImage imageNamed:self.imageName];
-    self.image = image;
-    
-    return image;
+- (void)performLoading {
+    [AZGCD dispatchAfterDelay:1.0 block:^ {
+        UIImage * image = [UIImage imageNamed:self.imageName];
+
+        self.image = image;
+        
+        [AZGCD dispatchAsyncOnMainQueue: ^ {
+            self.state = image ? AZModelDidLoad : AZModelDidFailLoad;
+        }];
+    }];
 }
 
 #pragma mark -

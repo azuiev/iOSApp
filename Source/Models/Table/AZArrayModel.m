@@ -34,23 +34,17 @@
 }
 
 - (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.mutableArray = [NSMutableArray array];
-    }
-    
-    return self;
+    return [self initWithArray:nil];
 }
 
 - (instancetype)initWithArray:(NSArray *)array {
-    self = [self init];
+    self = [super init];
     if (self) {
         [self.mutableArray addObjectsFromArray:array];
     }
     
     return self;
 }
-
 
 #pragma mark -
 #pragma mark Accessors
@@ -67,78 +61,68 @@
 #pragma mark Public Methods
 
 - (void)addObject:(NSObject *)object {
-    [self insertObject:object atIndex:self.count];
+    @synchronized(self) {
+        [self insertObject:object atIndex:self.count];
+    }
 }
 
 - (void)removeObject:(NSObject *)object {
-    [self.mutableArray removeObject:object];
+    @synchronized(self) {
+        [self.mutableArray removeObject:object];
+    }
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
-    if (!object) {
-        return;
+    @synchronized (self) {
+        if (object && self.count >= index) {
+            [self.mutableArray insertObject:object atIndex:index];
+            
+            [self setState:AZArrayModelChanged
+                withObject:[AZArrayModelChange arrayModelAddChangeWithIndex:index]];
+        }
     }
-    
-    NSMutableArray *array = self.mutableArray;
-    if (array.count < index) {
-        return;
-    }
-    
-    [self.mutableArray insertObject:object atIndex:index];
-    
-    [self setState:AZArrayModelChanged
-     withObject:[AZArrayModelChange arrayModelAddChangeWithIndex:index]];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-    NSMutableArray *array = self.mutableArray;
-    if (array.count <= index) {
-        return;
+    @synchronized (self) {
+        if (self.count > index) {
+            [self.mutableArray removeObjectAtIndex:index];
+            
+            [self setState:AZArrayModelChanged
+                withObject:[AZArrayModelChange arrayModelRemoveChangeWithIndex:index]];
+        }
     }
-    
-    [array removeObjectAtIndex:index];
-    
-    [self setState:AZArrayModelChanged
-     withObject:[AZArrayModelChange arrayModelRemoveChangeWithIndex:index]];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
-    NSMutableArray *array = self.mutableArray;
-    if (array.count <= index) {
-        return nil;
+    if (self.count > index) {
+        return [self.mutableArray objectAtIndex:index];
     }
     
-    return [array objectAtIndex:index];
+    return nil;
 }
 
 - (void)setObject:(id)object atIndex:(NSUInteger)index {
-    if (!object) {
-        return;
+    @synchronized (self) {
+        if (object && self.count > index) {
+            [self.mutableArray setObject:object atIndexedSubscript:index];
+        }
     }
-    
-    NSMutableArray *array = self.mutableArray;
-    if (array.count <= index) {
-        return;
-    }
-    
-    [self.mutableArray setObject:object atIndexedSubscript:index];
 }
 
 - (void)moveFromIndex:(NSUInteger)sourceIndex
               toIndex:(NSUInteger)destinationIndex
 {
-    if (sourceIndex == destinationIndex) {
-        return;
+    @synchronized (self) {
+        if (sourceIndex != destinationIndex) {
+            [self.mutableArray moveRowAtIndex:sourceIndex toIndex:destinationIndex];
+            
+            [self setState:AZArrayModelChanged
+                withObject:[AZArrayModelChange
+                            arrayModelMoveChangeFromIndex:sourceIndex
+                            toIndex:destinationIndex]];
+        }
     }
-    
-    NSMutableArray *array = self.mutableArray;
-    
-    [array moveRowAtIndex:sourceIndex toIndex:destinationIndex];
-    
-    [self setState:AZArrayModelChanged
-     withObject:[AZArrayModelChange
-                 arrayModelMoveChangeFromIndex:sourceIndex
-                 toIndex:destinationIndex]];
 }
 
 #pragma mark -
@@ -173,7 +157,7 @@
 
 - (SEL)selectorForState:(NSUInteger)state {
     if (AZArrayModelChanged == state) {
-        return @selector(arrayModelObjectChanged:modelChange:);
+        return @selector(arrayModelDidChange:withObject:);
     } else {
         return [super selectorForState:state];
     }

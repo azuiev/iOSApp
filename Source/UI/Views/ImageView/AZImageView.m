@@ -12,6 +12,8 @@
 #import "AZMacros.h"
 #import "AZViewConstants.h"
 
+#import "UINib+AZExtension.h"
+
 @implementation AZImageView
 
 #pragma mark -
@@ -43,17 +45,26 @@
     imageView.autoresizingMask = AZViewResizableWithFixedPosition;
     
     self.contentImageView = imageView;
-    self.loadingView = [AZLoadingView initWithView:self];
+    AZLoadingView * view = [UINib objectWithClass:[AZLoadingView class]];
+    view = [view initWithView:self bounds:self.contentImageView.bounds];
+    
+    self.loadingView = view;
 }
 
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setLoadingView:(AZLoadingView *)loadingView {
+    if (_loadingView != loadingView) {
+        _loadingView = loadingView;
+        
+        [_loadingView startAnimating];
+    }
+}
+
 - (void)setModel:(AZImageModel *)model {
     if (_model != model) {
-        [_model dump];
-        
-        [self.loadingView setModel:model];
+        [_model setState:AZModelDidUnload];
         
         [_model removeObserver:self];
         
@@ -79,20 +90,23 @@
 #pragma mark -
 #pragma mark Loading Model Observer
 
-- (void)modelDidBecameUnloaded:(AZImageModel *)imageModel {
+- (void)modelDidUnload:(AZImageModel *)imageModel {
+    [self.loadingView startAnimating];
+    
     self.contentImageView.image = nil;
 }
 
-- (void)modelDidBecameLoading:(AZImageModel *)imageModel {
+- (void)modelWillLoad:(AZImageModel *)imageModel {
     
 }
 
-- (void)modelDidBecameLoaded:(AZImageModel *)imageModel {
-    self.model = imageModel;
+- (void)modelDidLoad:(AZImageModel *)imageModel {
+    [self.loadingView stopAnimating];
+    
     self.contentImageView.image = imageModel.image;
 }
 
-- (void)modelDidBecameFailedLoading:(AZImageModel *)imageModel {
+- (void)modelDidFailLoad:(AZImageModel *)imageModel {
     [self.model load];
 }
 

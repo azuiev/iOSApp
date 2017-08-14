@@ -15,15 +15,14 @@
 @class AZArrayModel;
 @class AZArrayModelOptions;
 
-
 typedef NS_ENUM(NSUInteger, AZArrayModelState) {
-    AZArrayModelChanged = AZModelStateCount + 1
+    AZArrayModelChanged = AZModelStateCount
 };
 
 @protocol AZArrayModelObserver <NSObject>
 
 @optional
-- (void)arrayModelObjectChanged:(AZArrayModel *)arrayModel modelChange:(AZArrayModelOptions *)modelChange;
+- (void)arrayModelDidChange:(AZArrayModel *)arrayModel withObject:(AZArrayModelOptions *)object;
 
 @end
 
