@@ -35,7 +35,10 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.mainView.tableView reloadData];
+    AZUsersView *mainView = self.mainView;
+    
+    [mainView.loadingView initWithView:mainView];
+    [mainView.tableView reloadData];
 }
 
 #pragma mark -
@@ -126,10 +129,29 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 }
 
 #pragma mark -
+#pragma mark AZModelObserver
+
+- (void)modelDidLoad:(AZModel *)model {
+    
+}
+
+- (void)modelWillLoad:(AZModel *)model {
+    
+}
+
+- (void)modelDidUnload:(AZModel *)model {
+    
+}
+
+- (void)modelDidFailLoad:(AZModel *)model {
+    
+}
+
+#pragma mark -
 #pragma mark AZArrayModelObserver
 
-- (void)arrayModelObjectChanged:(AZArrayModel *)arrayModel modelChange:(AZArrayModelChange *)modelChange {
-    [modelChange applyChangeToTalbeView:self.mainView.tableView];
+- (void)arrayModelDidChange:(AZArrayModel *)arrayModel withObject:(AZArrayModelChange *)object {
+    [self.mainView.tableView applyChangesWithObject:object];
 }
 
 @end

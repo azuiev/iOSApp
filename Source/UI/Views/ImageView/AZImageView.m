@@ -45,8 +45,8 @@
     imageView.autoresizingMask = AZViewResizableWithFixedPosition;
     
     self.contentImageView = imageView;
-    AZLoadingView * view = [UINib objectWithClass:[AZLoadingView class]];
-    view = [view initWithView:self bounds:self.contentImageView.bounds];
+    AZLoadingView *view = [UINib objectWithClass:[AZLoadingView class]];
+    [view addAsSubiew:self bounds:self.contentImageView.bounds];
     
     self.loadingView = view;
 }

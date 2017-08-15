@@ -44,6 +44,8 @@
 		1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2221F21140A00305FB2 /* AZUsersView.m */; };
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
+		1D7D0C971F43994A0053487B /* AZArrayModelMultipleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D0C961F43994A0053487B /* AZArrayModelMultipleChange.m */; };
+		1D7D0C9A1F43A83C0053487B /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D0C991F43A83C0053487B /* AZArrayModelEditChange.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
 		1D96AC8D1F19385400294A68 /* AZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC8C1F19385400294A68 /* AZUserModel.m */; };
 		1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC931F193C3600294A68 /* AZTableViewCell.m */; };
@@ -121,6 +123,10 @@
 		1D7BF2231F21140A00305FB2 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
+		1D7D0C951F43994A0053487B /* AZArrayModelMultipleChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMultipleChange.h; sourceTree = "<group>"; };
+		1D7D0C961F43994A0053487B /* AZArrayModelMultipleChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMultipleChange.m; sourceTree = "<group>"; };
+		1D7D0C981F43A83C0053487B /* AZArrayModelEditChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelEditChange.h; sourceTree = "<group>"; };
+		1D7D0C991F43A83C0053487B /* AZArrayModelEditChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelEditChange.m; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
 		1D96AC8B1F19385400294A68 /* AZUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserModel.h; path = User/AZUserModel.h; sourceTree = "<group>"; };
@@ -374,6 +380,10 @@
 				1DBDF3DF1F31089B0001D262 /* AZArrayModelAddChange.m */,
 				1D2BD65E1F3117D000641E23 /* AZArrayModelMoveChange.h */,
 				1D2BD65F1F3117D000641E23 /* AZArrayModelMoveChange.m */,
+				1D7D0C951F43994A0053487B /* AZArrayModelMultipleChange.h */,
+				1D7D0C961F43994A0053487B /* AZArrayModelMultipleChange.m */,
+				1D7D0C981F43A83C0053487B /* AZArrayModelEditChange.h */,
+				1D7D0C991F43A83C0053487B /* AZArrayModelEditChange.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -663,6 +673,8 @@
 				1D2BD6601F3117D000641E23 /* AZArrayModelMoveChange.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
 				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
+				1D7D0C9A1F43A83C0053487B /* AZArrayModelEditChange.m in Sources */,
+				1D7D0C971F43994A0053487B /* AZArrayModelMultipleChange.m in Sources */,
 				1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */,
 				1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */,
 				1D1498461F1BCFEA00906749 /* AZObservableObject.m in Sources */,

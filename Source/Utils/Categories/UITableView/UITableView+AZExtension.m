@@ -21,5 +21,9 @@
     return cell;
 }
 
+- (void)applyChangesWithObject:(AZArrayModelChange *)object {
+    [object applyChangeToTableView:self];
+}
+
 @end
 

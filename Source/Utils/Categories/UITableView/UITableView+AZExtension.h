@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AZArrayModelChange.h"
 
 @interface UITableView (AZExtension)
 
 - (id)reusableCellWithClass:(Class)cls;
+
+- (void)applyChangesWithObject:(AZArrayModelChange *)object;
 
 @end

@@ -11,6 +11,8 @@
 #import "AZArrayModelAddChange.h"
 #import "AZArrayModelRemoveChange.h"
 #import "AZArrayModelMoveChange.h"
+#import "AZArrayModelEditChange.h"
+#import "AZArrayModelMultipleChange.h"
 
 @implementation AZArrayModelChange
 
@@ -25,19 +27,57 @@
     return [[AZArrayModelAddChange alloc] initWithIndex:index];
 }
 
++ (instancetype)arrayModelEditChangeWithIndex:(NSUInteger)index {
+    return [[AZArrayModelEditChange alloc] initWithIndex:index];
+}
+
 + (instancetype)arrayModelMoveChangeFromIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     return [[AZArrayModelMoveChange alloc] initWithSourceIndex:sourceIndex
                                              destinationIndex:destinationIndex];
 }
 
++ (instancetype)arrayModelMultipleChange {
+    return [AZArrayModelMultipleChange new];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
-- (NSIndexPath *)indexPathWithIndex:(NSUInteger)index {
-    return [NSIndexPath indexPathForRow:index inSection:0];
+- (NSIndexPath *)indexPathWithIndex:(NSUInteger)index section:(NSUInteger)section {
+    return [NSIndexPath indexPathForRow:index inSection:section];
 }
 
-- (void)applyChangeToTalbeView:(UITableView *)tableView {
+- (void)applyChangeToTableView:(UITableView *)tableView {
+    [self applyChangeToTableView:tableView
+                   withAnimation:UITableViewRowAnimationAutomatic
+                       inSection:0];
+}
+
+- (void)applyChangeToTableView:(UITableView *)tableView
+                 withAnimation:(UITableViewRowAnimation)animation
+{
+    [self applyChangeToTableView:tableView
+                   withAnimation:animation
+                       inSection:0];
+}
+
+- (void)applyChangeToTableView:(UITableView *)tableView
+                 withAnimation:(UITableViewRowAnimation)animation
+                     inSection:(NSUInteger)section
+{
+    [tableView beginUpdates];
+    
+    [self changeTableView:tableView
+            withAnimation:animation
+                inSection:section];
+ 
+    [tableView endUpdates];
+}
+
+- (void)changeTableView:(UITableView *)tableView
+          withAnimation:(UITableViewRowAnimation)animation
+              inSection:(NSUInteger)section
+{
     
 }
 

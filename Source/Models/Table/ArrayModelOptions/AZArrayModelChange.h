@@ -12,13 +12,26 @@
 
 + (instancetype)arrayModelAddChangeWithIndex:(NSUInteger)index;
 + (instancetype)arrayModelRemoveChangeWithIndex:(NSUInteger)index;
++ (instancetype)arrayModelEditChangeWithIndex:(NSUInteger)index;
 + (instancetype)arrayModelMoveChangeFromIndex:(NSUInteger)sourceIndex
                                       toIndex:(NSUInteger)destinationIndex;
++ (instancetype)arrayModelMultipleChange;
+
+- (void)applyChangeToTableView:(UITableView *)tableView;
+
+- (void)applyChangeToTableView:(UITableView *)tableView
+                 withAnimation:(UITableViewRowAnimation)animation;
+
+- (void)applyChangeToTableView:(UITableView *)tableView
+                 withAnimation:(UITableViewRowAnimation)animation
+                     inSection:(NSUInteger)section;
 
 //method to override in children classes. Do not call this method directly
-- (void)applyChangeToTalbeView:(UITableView *)tableView;
+- (void)changeTableView:(UITableView *)tableView
+          withAnimation:(UITableViewRowAnimation)animation
+              inSection:(NSUInteger)section;
 
 //methods for chidren purposes
-- (NSIndexPath *)indexPathWithIndex:(NSUInteger)index;
+- (NSIndexPath *)indexPathWithIndex:(NSUInteger)index section:(NSUInteger)section;
 
 @end

@@ -29,11 +29,14 @@
 #pragma mark -
 #pragma mark Override methods
 
-- (void)applyChangeToTalbeView:(UITableView *)tableView {
-    NSIndexPath *indexPath = [self indexPathWithIndex:self.index];
+- (void)changeTableView:(UITableView *)tableView
+          withAnimation:(UITableViewRowAnimation)animation
+              inSection:(NSUInteger)section
+{
+    NSIndexPath *indexPath = [self indexPathWithIndex:self.index section:section];
     
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                     withRowAnimation:UITableViewRowAnimationFade];
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
+                     withRowAnimation:animation];
 }
 
 @end

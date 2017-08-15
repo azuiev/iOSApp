@@ -31,9 +31,12 @@
 #pragma mark -
 #pragma mark Override methods
 
-- (void)applyChangeToTalbeView:(UITableView *)tableView {
-    NSIndexPath *sourceIndexPath = [self indexPathWithIndex:self.sourceIndex];
-    NSIndexPath *destinationIndexPath = [self indexPathWithIndex:self.destinationIndex];
+- (void)changeTableView:(UITableView *)tableView
+          withAnimation:(UITableViewRowAnimation)animation
+              inSection:(NSUInteger)section
+{
+    NSIndexPath *sourceIndexPath = [self indexPathWithIndex:self.sourceIndex section:section];
+    NSIndexPath *destinationIndexPath = [self indexPathWithIndex:self.destinationIndex section:section];
     
     [tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
 }

@@ -1,19 +1,18 @@
 //
-//  AZArrayModelAddChange.m
+//  AZArrayModelEditChange.m
 //  iOSApp
 //
-//  Created by Aleksey Zuiev on 01/08/2017.
+//  Created by Aleksey Zuiev on 16/08/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZArrayModelAddChange.h"
+#import "AZArrayModelEditChange.h"
 
-@interface AZArrayModelAddChange ()
+@interface AZArrayModelEditChange ()
 @property (nonatomic, assign) NSUInteger    index;
-
 @end
 
-@implementation AZArrayModelAddChange
+@implementation AZArrayModelEditChange
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -36,7 +35,7 @@
 {
     NSIndexPath *indexPath = [self indexPathWithIndex:self.index section:section];
     
-    [tableView insertRowsAtIndexPaths:@[indexPath]
+    [tableView reloadRowsAtIndexPaths:@[indexPath]
                      withRowAnimation:animation];
 }
 

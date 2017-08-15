@@ -36,6 +36,9 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 - (void)addObject:(NSObject *)object;
 - (void)removeObject:(NSObject *)object;
 
+- (void)addObjects:(NSArray *)objects;
+- (void)removeObjects:(NSArray *)objects;
+
 - (void)insertObject:(id)obj atIndex:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 

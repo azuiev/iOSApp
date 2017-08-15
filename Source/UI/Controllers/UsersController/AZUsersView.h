@@ -12,6 +12,7 @@
 
 @interface AZUsersView : UIView
 @property (nonatomic, strong) IBOutlet UITableView              *tableView;
+@property (nonatomic, strong) AZLoadingView   *loadingView;
 
 - (void)changeEditMode;
 
