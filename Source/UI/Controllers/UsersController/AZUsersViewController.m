@@ -25,7 +25,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) UITableViewCellEditingStyle       editingStyle;
 
-
 - (NSString *)plistName;
 
 @end
@@ -37,14 +36,15 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
     
     AZUsersView *mainView = self.mainView;
     
-    [mainView.loadingView initWithView:mainView];
+    [mainView.loadingView addAsSubiew:mainView];
     [mainView.tableView reloadData];
+    [mainView.loadingView stopAnimating];
 }
 
 #pragma mark -
 #pragma mark Accessors 
 
-- (void)setUsers:(AZArrayModel *)users {
+- (void)setUsers:(AZUsersModel *)users {
     if  (_users != users) {
         [_users removeObserver:self];
         
@@ -104,12 +104,12 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 #pragma mark Buttons Actions
 
 - (IBAction)insertUser:(id)sender {
-    AZArrayModel *model = self.users;
+    AZUsersModel *model = self.users;
     [model insertObject:[AZUserModel new] atIndex:AZRandomNumberWithMaxValue(model.count)];
 }
 
 - (IBAction)removeUser:(id)sender {
-    AZArrayModel *model = self.users;
+    AZUsersModel *model = self.users;
     [model removeObjectAtIndex:AZRandomNumberWithMaxValue(model.count - 1)];
 }
 
@@ -129,18 +129,34 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (void)save {
+    [self.users save];
+}
+
+- (void)load {
+    AZUsersModel *users = self.users;
+    users = users ? users : [AZUsersModel new];
+    
+    self.users = users;
+    
+    [users load];
+}
+
+#pragma mark -
 #pragma mark AZModelObserver
 
 - (void)modelDidLoad:(AZModel *)model {
-    
+    [self.mainView.loadingView stopAnimating];
 }
 
 - (void)modelWillLoad:(AZModel *)model {
-    
+    [self.mainView.loadingView startAnimating];
 }
 
 - (void)modelDidUnload:(AZModel *)model {
-    
+    [self.mainView.loadingView stopAnimating];
 }
 
 - (void)modelDidFailLoad:(AZModel *)model {

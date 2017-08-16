@@ -18,6 +18,7 @@
 
 @implementation AZArrayModel
 @dynamic count;
+@dynamic array;
 
 #pragma mark -
 #pragma mark Initialization and deallocation
@@ -40,6 +41,8 @@
 - (instancetype)initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
+        self.mutableArray = [NSMutableArray array];
+        
         [self addObjects:array];
     }
     
@@ -127,7 +130,7 @@
 #pragma mark Private Methods
 
 - (void)addObject:(NSObject *)object withNotification:(BOOL)notify {
-    [self insertObject:object atIndex:self.mutableArray.count withNotification:YES];
+    [self insertObject:object atIndex:self.mutableArray.count withNotification:notify];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index withNotification:(BOOL)notify {
@@ -170,22 +173,6 @@
     
     [self setState:AZArrayModelChanged
         withObject:[AZArrayModelChange arrayModelMultipleChange]];
-}
-
-#pragma mark -
-#pragma mark NSCoding
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super init];
-    if (self) {
-        self.mutableArray = [coder decodeObjectForKey:NSStringFromClass([self class])];
-    }
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.mutableArray forKey:NSStringFromClass([self class])];
 }
 
 #pragma mark -

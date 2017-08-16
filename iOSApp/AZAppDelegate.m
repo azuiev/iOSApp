@@ -14,8 +14,6 @@
 #import "UIWindow+AZExtension.h"
 #import "NSArray+AZExtension.h"
 
-static NSString *AZPlistName = @"app.plist";
-
 @interface AZAppDelegate ()
 
 @end
@@ -29,10 +27,20 @@ static NSString *AZPlistName = @"app.plist";
     AZUsersViewController *controller = [AZUsersViewController new];
     //AZSquareViewController *controller = [AZSquareViewController new];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:controller
+                                             selector:@selector(save)
+                                                 name:@"AZSaveNotification"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:controller
+                                             selector:@selector(load)
+                                                 name:@"AZLoadNotification"
+                                               object:nil];
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
     
-    [self load];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AZLoadNotification" object:nil];
     
     [window makeKeyAndVisible];
     
@@ -46,12 +54,12 @@ static NSString *AZPlistName = @"app.plist";
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self save];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AZSaveNotification" object:self];
     
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [self load];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AZLoadNotification" object:self];
 }
 
 
@@ -60,39 +68,7 @@ static NSString *AZPlistName = @"app.plist";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self save];
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)save {
-    AZUsersViewController *controller = (AZUsersViewController *)self.window.rootViewController;
-    
-    [NSKeyedArchiver archiveRootObject:controller.users toFile:[self plistName]];
-}
-
-- (void)load {
-    AZUsersViewController *controller = (AZUsersViewController *)self.window.rootViewController;
-    
-    AZArrayModel *users = [NSKeyedUnarchiver unarchiveObjectWithFile:[self plistName]];
-    if (!users) {
-        users = [AZArrayModel new];
-    }
-    
-    [controller setUsers:users];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (NSString *)plistName {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *result = [paths firstObject];
-    
-    result = [result stringByAppendingPathComponent:AZPlistName];
-    
-    return result;
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"AZSaveNotification" object:self];
 }
 
 @end

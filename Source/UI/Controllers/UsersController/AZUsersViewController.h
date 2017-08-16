@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 
 #import "AZUserModel.h"
-#import "AZArrayModel.h"
+#import "AZUsersModel.h"
 
-@interface AZUsersViewController : UIViewController
-@property (nonatomic, strong) AZArrayModel  *users;
+@interface AZUsersViewController : UIViewController <AZModelObserver>
+@property (nonatomic, strong) AZUsersModel  *users;
 
 @end

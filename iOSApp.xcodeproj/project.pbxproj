@@ -10,8 +10,6 @@
 		1D1498461F1BCFEA00906749 /* AZObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1498451F1BCFEA00906749 /* AZObservableObject.m */; };
 		1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1498491F1BD0B100906749 /* AZAssignReference.m */; };
 		1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D14984B1F1BD0B100906749 /* AZAssignRererenceWithSelector.m */; };
-		1D1498541F1BD31800906749 /* AZImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1498531F1BD31800906749 /* AZImageModel.m */; };
-		1D2BD6601F3117D000641E23 /* AZArrayModelMoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD65F1F3117D000641E23 /* AZArrayModelMoveChange.m */; };
 		1D2BD67F1F3124FA00641E23 /* NSArray+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD66A1F3124FA00641E23 /* NSArray+AZExtension.m */; };
 		1D2BD6801F3124FA00641E23 /* NSBundle+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD66D1F3124FA00641E23 /* NSBundle+AZExtension.m */; };
 		1D2BD6811F3124FA00641E23 /* NSMutableArray+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD6701F3124FA00641E23 /* NSMutableArray+AZExtension.m */; };
@@ -22,18 +20,25 @@
 		1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD67E1F3124FA00641E23 /* UIWindow+AZExtension.m */; };
 		1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3831F2B971800DA241D /* AZGCD.m */; };
 		1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA38D1F2B9C4500DA241D /* AZImageView.m */; };
-		1D54C5081F22928E00D7D3B7 /* AZArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */; };
+		1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */; };
+		1D5AEE6F1F44C7000035BC4F /* AZArrayModelAddChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */; };
+		1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */; };
+		1D5AEE711F44C7000035BC4F /* AZArrayModelMoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE5A1F44C7000035BC4F /* AZArrayModelMoveChange.m */; };
+		1D5AEE721F44C7000035BC4F /* AZArrayModelMultipleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE5C1F44C7000035BC4F /* AZArrayModelMultipleChange.m */; };
+		1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE5E1F44C7000035BC4F /* AZArrayModelRemoveChange.m */; };
+		1D5AEE741F44C7000035BC4F /* AZArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE601F44C7000035BC4F /* AZArrayModel.m */; };
+		1D5AEE751F44C7000035BC4F /* AZImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE631F44C7000035BC4F /* AZImageModel.m */; };
+		1D5AEE761F44C7000035BC4F /* AZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE661F44C7000035BC4F /* AZModel.m */; };
+		1D5AEE771F44C7000035BC4F /* AZModelDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE691F44C7000035BC4F /* AZModelDispatcher.m */; };
+		1D5AEE781F44C7000035BC4F /* AZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE6C1F44C7000035BC4F /* AZUserModel.m */; };
+		1D5AEE7B1F44C7760035BC4F /* AZUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE7A1F44C7760035BC4F /* AZUsersModel.m */; };
 		1D5B4A631F05B0D700E14BEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A611F05B0D700E14BEA /* main.m */; };
 		1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A651F05B0E200E14BEA /* Assets.xcassets */; };
 		1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */; };
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
 		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
-		1D5F9A181F2A701A00B5B135 /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F9A171F2A701A00B5B135 /* AZArrayModelChange.m */; };
-		1D5F9A1C1F2A709800B5B135 /* AZArrayModelRemoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */; };
 		1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */; };
 		1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */; };
-		1D6C79021F3504EE00233F35 /* AZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79011F3504EE00233F35 /* AZModel.m */; };
-		1D6C79061F35053700233F35 /* AZModelDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C79051F35053700233F35 /* AZModelDispatcher.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
 		1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2191F21140A00305FB2 /* AZSquareView.m */; };
@@ -44,12 +49,8 @@
 		1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2221F21140A00305FB2 /* AZUsersView.m */; };
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
-		1D7D0C971F43994A0053487B /* AZArrayModelMultipleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D0C961F43994A0053487B /* AZArrayModelMultipleChange.m */; };
-		1D7D0C9A1F43A83C0053487B /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7D0C991F43A83C0053487B /* AZArrayModelEditChange.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
-		1D96AC8D1F19385400294A68 /* AZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC8C1F19385400294A68 /* AZUserModel.m */; };
 		1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC931F193C3600294A68 /* AZTableViewCell.m */; };
-		1DBDF3E01F31089B0001D262 /* AZArrayModelAddChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDF3DF1F31089B0001D262 /* AZArrayModelAddChange.m */; };
 		6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */; };
 /* End PBXBuildFile section */
 
@@ -60,10 +61,6 @@
 		1D1498491F1BD0B100906749 /* AZAssignReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAssignReference.m; sourceTree = "<group>"; };
 		1D14984A1F1BD0B100906749 /* AZAssignRererenceWithSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAssignRererenceWithSelector.h; sourceTree = "<group>"; };
 		1D14984B1F1BD0B100906749 /* AZAssignRererenceWithSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAssignRererenceWithSelector.m; sourceTree = "<group>"; };
-		1D1498521F1BD31800906749 /* AZImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageModel.h; sourceTree = "<group>"; };
-		1D1498531F1BD31800906749 /* AZImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageModel.m; sourceTree = "<group>"; };
-		1D2BD65E1F3117D000641E23 /* AZArrayModelMoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMoveChange.h; sourceTree = "<group>"; };
-		1D2BD65F1F3117D000641E23 /* AZArrayModelMoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMoveChange.m; sourceTree = "<group>"; };
 		1D2BD6691F3124FA00641E23 /* NSArray+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AZExtension.h"; sourceTree = "<group>"; };
 		1D2BD66A1F3124FA00641E23 /* NSArray+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AZExtension.m"; sourceTree = "<group>"; };
 		1D2BD66C1F3124FA00641E23 /* NSBundle+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+AZExtension.h"; sourceTree = "<group>"; };
@@ -84,8 +81,30 @@
 		1D2FA3831F2B971800DA241D /* AZGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZGCD.m; sourceTree = "<group>"; };
 		1D2FA38C1F2B9C4500DA241D /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
 		1D2FA38D1F2B9C4500DA241D /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
-		1D54C5061F22928E00D7D3B7 /* AZArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModel.h; sourceTree = "<group>"; };
-		1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModel.m; sourceTree = "<group>"; };
+		1D5AEE521F44C7000035BC4F /* AZArrayModelChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelChange.h; sourceTree = "<group>"; };
+		1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelChange.m; sourceTree = "<group>"; };
+		1D5AEE551F44C7000035BC4F /* AZArrayModelAddChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelAddChange.h; sourceTree = "<group>"; };
+		1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelAddChange.m; sourceTree = "<group>"; };
+		1D5AEE571F44C7000035BC4F /* AZArrayModelEditChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelEditChange.h; sourceTree = "<group>"; };
+		1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelEditChange.m; sourceTree = "<group>"; };
+		1D5AEE591F44C7000035BC4F /* AZArrayModelMoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMoveChange.h; sourceTree = "<group>"; };
+		1D5AEE5A1F44C7000035BC4F /* AZArrayModelMoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMoveChange.m; sourceTree = "<group>"; };
+		1D5AEE5B1F44C7000035BC4F /* AZArrayModelMultipleChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMultipleChange.h; sourceTree = "<group>"; };
+		1D5AEE5C1F44C7000035BC4F /* AZArrayModelMultipleChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMultipleChange.m; sourceTree = "<group>"; };
+		1D5AEE5D1F44C7000035BC4F /* AZArrayModelRemoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelRemoveChange.h; sourceTree = "<group>"; };
+		1D5AEE5E1F44C7000035BC4F /* AZArrayModelRemoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelRemoveChange.m; sourceTree = "<group>"; };
+		1D5AEE5F1F44C7000035BC4F /* AZArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModel.h; sourceTree = "<group>"; };
+		1D5AEE601F44C7000035BC4F /* AZArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModel.m; sourceTree = "<group>"; };
+		1D5AEE621F44C7000035BC4F /* AZImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageModel.h; sourceTree = "<group>"; };
+		1D5AEE631F44C7000035BC4F /* AZImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageModel.m; sourceTree = "<group>"; };
+		1D5AEE651F44C7000035BC4F /* AZModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModel.h; sourceTree = "<group>"; };
+		1D5AEE661F44C7000035BC4F /* AZModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModel.m; sourceTree = "<group>"; };
+		1D5AEE681F44C7000035BC4F /* AZModelDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModelDispatcher.h; sourceTree = "<group>"; };
+		1D5AEE691F44C7000035BC4F /* AZModelDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModelDispatcher.m; sourceTree = "<group>"; };
+		1D5AEE6B1F44C7000035BC4F /* AZUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUserModel.h; sourceTree = "<group>"; };
+		1D5AEE6C1F44C7000035BC4F /* AZUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUserModel.m; sourceTree = "<group>"; };
+		1D5AEE791F44C7760035BC4F /* AZUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersModel.h; sourceTree = "<group>"; };
+		1D5AEE7A1F44C7760035BC4F /* AZUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersModel.m; sourceTree = "<group>"; };
 		1D5B4A421F05A93800E14BEA /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5B4A601F05B0D700E14BEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D5B4A611F05B0D700E14BEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,18 +112,10 @@
 		1D5B4A671F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D5D49B21F1BA001003AEA36 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
-		1D5F9A161F2A701A00B5B135 /* AZArrayModelChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelChange.h; sourceTree = "<group>"; };
-		1D5F9A171F2A701A00B5B135 /* AZArrayModelChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelChange.m; sourceTree = "<group>"; };
-		1D5F9A1A1F2A709800B5B135 /* AZArrayModelRemoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelRemoveChange.h; sourceTree = "<group>"; };
-		1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelRemoveChange.m; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
 		1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZLoadingView.xib; sourceTree = "<group>"; };
 		1D69C3DC1F3CED2700DDBC63 /* AZLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZLoadingView.h; sourceTree = "<group>"; };
 		1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoadingView.m; sourceTree = "<group>"; };
-		1D6C79001F3504EE00233F35 /* AZModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModel.h; sourceTree = "<group>"; };
-		1D6C79011F3504EE00233F35 /* AZModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModel.m; sourceTree = "<group>"; };
-		1D6C79041F35053700233F35 /* AZModelDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZModelDispatcher.h; sourceTree = "<group>"; };
-		1D6C79051F35053700233F35 /* AZModelDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZModelDispatcher.m; sourceTree = "<group>"; };
 		1D70A08F1F325D7F00DBA6AD /* AZViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZViewConstants.h; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
 		1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRandomNumber.m; path = Utils/AZRandomNumber.m; sourceTree = "<group>"; };
@@ -123,18 +134,10 @@
 		1D7BF2231F21140A00305FB2 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
-		1D7D0C951F43994A0053487B /* AZArrayModelMultipleChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMultipleChange.h; sourceTree = "<group>"; };
-		1D7D0C961F43994A0053487B /* AZArrayModelMultipleChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMultipleChange.m; sourceTree = "<group>"; };
-		1D7D0C981F43A83C0053487B /* AZArrayModelEditChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelEditChange.h; sourceTree = "<group>"; };
-		1D7D0C991F43A83C0053487B /* AZArrayModelEditChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelEditChange.m; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
-		1D96AC8B1F19385400294A68 /* AZUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZUserModel.h; path = User/AZUserModel.h; sourceTree = "<group>"; };
-		1D96AC8C1F19385400294A68 /* AZUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZUserModel.m; path = User/AZUserModel.m; sourceTree = "<group>"; };
 		1D96AC921F193C3600294A68 /* AZTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZTableViewCell.h; sourceTree = "<group>"; };
 		1D96AC931F193C3600294A68 /* AZTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZTableViewCell.m; sourceTree = "<group>"; };
-		1DBDF3DE1F31089B0001D262 /* AZArrayModelAddChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelAddChange.h; sourceTree = "<group>"; };
-		1DBDF3DF1F31089B0001D262 /* AZArrayModelAddChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelAddChange.m; sourceTree = "<group>"; };
 		4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4E0CAB0C936997215356FC /* Pods-iOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,15 +173,6 @@
 				1D14984B1F1BD0B100906749 /* AZAssignRererenceWithSelector.m */,
 			);
 			path = ReferenceWrapper;
-			sourceTree = "<group>";
-		};
-		1D1498511F1BD31800906749 /* ImageModel */ = {
-			isa = PBXGroup;
-			children = (
-				1D1498521F1BD31800906749 /* AZImageModel.h */,
-				1D1498531F1BD31800906749 /* AZImageModel.m */,
-			);
-			path = ImageModel;
 			sourceTree = "<group>";
 		};
 		1D2BD6671F3124FA00641E23 /* Categories */ = {
@@ -279,36 +273,109 @@
 			path = ImageView;
 			sourceTree = "<group>";
 		};
-		1D54C5051F22922B00D7D3B7 /* ArrayModel */ = {
-			isa = PBXGroup;
-			children = (
-				1D5F9A151F2A700200B5B135 /* ArrayModelOptions */,
-				1D54C5061F22928E00D7D3B7 /* AZArrayModel.h */,
-				1D54C5071F22928E00D7D3B7 /* AZArrayModel.m */,
-			);
-			name = ArrayModel;
-			path = Table;
-			sourceTree = "<group>";
-		};
 		1D583CEA1F100F07001B8732 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				1D77AF491F1423EC0069E27F /* Utils */,
-				1D583CF21F100F07001B8732 /* Models */,
+				1D5AEE4F1F44C7000035BC4F /* Models */,
 				1D7BF2151F21140A00305FB2 /* UI */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		1D583CF21F100F07001B8732 /* Models */ = {
+		1D5AEE4F1F44C7000035BC4F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1D54C5051F22922B00D7D3B7 /* ArrayModel */,
-				1D1498511F1BD31800906749 /* ImageModel */,
-				1D96AC8E1F19385A00294A68 /* UserModel */,
-				1D6C78FF1F3504EE00233F35 /* LoadingModel */,
+				1D5AEE501F44C7000035BC4F /* ArrayModel */,
+				1D5AEE611F44C7000035BC4F /* ImageModel */,
+				1D5AEE641F44C7000035BC4F /* LoadingModel */,
+				1D5AEE6A1F44C7000035BC4F /* UserModel */,
+				1D5AEE6D1F44C7000035BC4F /* UsersModel */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1D5AEE501F44C7000035BC4F /* ArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE511F44C7000035BC4F /* ArrayModelOptions */,
+				1D5AEE5F1F44C7000035BC4F /* AZArrayModel.h */,
+				1D5AEE601F44C7000035BC4F /* AZArrayModel.m */,
+			);
+			path = ArrayModel;
+			sourceTree = "<group>";
+		};
+		1D5AEE511F44C7000035BC4F /* ArrayModelOptions */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE521F44C7000035BC4F /* AZArrayModelChange.h */,
+				1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */,
+				1D5AEE541F44C7000035BC4F /* Private */,
+			);
+			path = ArrayModelOptions;
+			sourceTree = "<group>";
+		};
+		1D5AEE541F44C7000035BC4F /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE551F44C7000035BC4F /* AZArrayModelAddChange.h */,
+				1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */,
+				1D5AEE571F44C7000035BC4F /* AZArrayModelEditChange.h */,
+				1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */,
+				1D5AEE591F44C7000035BC4F /* AZArrayModelMoveChange.h */,
+				1D5AEE5A1F44C7000035BC4F /* AZArrayModelMoveChange.m */,
+				1D5AEE5B1F44C7000035BC4F /* AZArrayModelMultipleChange.h */,
+				1D5AEE5C1F44C7000035BC4F /* AZArrayModelMultipleChange.m */,
+				1D5AEE5D1F44C7000035BC4F /* AZArrayModelRemoveChange.h */,
+				1D5AEE5E1F44C7000035BC4F /* AZArrayModelRemoveChange.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		1D5AEE611F44C7000035BC4F /* ImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE621F44C7000035BC4F /* AZImageModel.h */,
+				1D5AEE631F44C7000035BC4F /* AZImageModel.m */,
+			);
+			path = ImageModel;
+			sourceTree = "<group>";
+		};
+		1D5AEE641F44C7000035BC4F /* LoadingModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE651F44C7000035BC4F /* AZModel.h */,
+				1D5AEE661F44C7000035BC4F /* AZModel.m */,
+				1D5AEE671F44C7000035BC4F /* Dispatcher */,
+			);
+			path = LoadingModel;
+			sourceTree = "<group>";
+		};
+		1D5AEE671F44C7000035BC4F /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE681F44C7000035BC4F /* AZModelDispatcher.h */,
+				1D5AEE691F44C7000035BC4F /* AZModelDispatcher.m */,
+			);
+			path = Dispatcher;
+			sourceTree = "<group>";
+		};
+		1D5AEE6A1F44C7000035BC4F /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE6B1F44C7000035BC4F /* AZUserModel.h */,
+				1D5AEE6C1F44C7000035BC4F /* AZUserModel.m */,
+			);
+			path = UserModel;
+			sourceTree = "<group>";
+		};
+		1D5AEE6D1F44C7000035BC4F /* UsersModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D5AEE791F44C7760035BC4F /* AZUsersModel.h */,
+				1D5AEE7A1F44C7760035BC4F /* AZUsersModel.m */,
+			);
+			path = UsersModel;
 			sourceTree = "<group>";
 		};
 		1D5B4A391F05A93800E14BEA = {
@@ -361,33 +428,6 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		1D5F9A151F2A700200B5B135 /* ArrayModelOptions */ = {
-			isa = PBXGroup;
-			children = (
-				1D5F9A161F2A701A00B5B135 /* AZArrayModelChange.h */,
-				1D5F9A171F2A701A00B5B135 /* AZArrayModelChange.m */,
-				1D5F9A191F2A704100B5B135 /* Private */,
-			);
-			path = ArrayModelOptions;
-			sourceTree = "<group>";
-		};
-		1D5F9A191F2A704100B5B135 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				1D5F9A1A1F2A709800B5B135 /* AZArrayModelRemoveChange.h */,
-				1D5F9A1B1F2A709800B5B135 /* AZArrayModelRemoveChange.m */,
-				1DBDF3DE1F31089B0001D262 /* AZArrayModelAddChange.h */,
-				1DBDF3DF1F31089B0001D262 /* AZArrayModelAddChange.m */,
-				1D2BD65E1F3117D000641E23 /* AZArrayModelMoveChange.h */,
-				1D2BD65F1F3117D000641E23 /* AZArrayModelMoveChange.m */,
-				1D7D0C951F43994A0053487B /* AZArrayModelMultipleChange.h */,
-				1D7D0C961F43994A0053487B /* AZArrayModelMultipleChange.m */,
-				1D7D0C981F43A83C0053487B /* AZArrayModelEditChange.h */,
-				1D7D0C991F43A83C0053487B /* AZArrayModelEditChange.m */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
 		1D69C3D91F3CEC7700DDBC63 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,25 +436,6 @@
 				1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */,
 			);
 			path = LoadingView;
-			sourceTree = "<group>";
-		};
-		1D6C78FF1F3504EE00233F35 /* LoadingModel */ = {
-			isa = PBXGroup;
-			children = (
-				1D6C79031F35053700233F35 /* Dispatcher */,
-				1D6C79001F3504EE00233F35 /* AZModel.h */,
-				1D6C79011F3504EE00233F35 /* AZModel.m */,
-			);
-			path = LoadingModel;
-			sourceTree = "<group>";
-		};
-		1D6C79031F35053700233F35 /* Dispatcher */ = {
-			isa = PBXGroup;
-			children = (
-				1D6C79041F35053700233F35 /* AZModelDispatcher.h */,
-				1D6C79051F35053700233F35 /* AZModelDispatcher.m */,
-			);
-			path = Dispatcher;
 			sourceTree = "<group>";
 		};
 		1D77AF491F1423EC0069E27F /* Utils */ = {
@@ -484,15 +505,6 @@
 				1D2FA38B1F2B9C4500DA241D /* ImageView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1D96AC8E1F19385A00294A68 /* UserModel */ = {
-			isa = PBXGroup;
-			children = (
-				1D96AC8B1F19385400294A68 /* AZUserModel.h */,
-				1D96AC8C1F19385400294A68 /* AZUserModel.m */,
-			);
-			name = UserModel;
 			sourceTree = "<group>";
 		};
 		1D96AC901F193BB900294A68 /* Classes */ = {
@@ -663,39 +675,40 @@
 			files = (
 				1D2BD6851F3124FA00641E23 /* UITableView+AZExtension.m in Sources */,
 				1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */,
+				1D5AEE721F44C7000035BC4F /* AZArrayModelMultipleChange.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
 				1D2BD67F1F3124FA00641E23 /* NSArray+AZExtension.m in Sources */,
 				1D7BF22B1F21140A00305FB2 /* AZUserCell.m in Sources */,
+				1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */,
 				1D2BD6841F3124FA00641E23 /* UINib+AZExtension.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
-				1DBDF3E01F31089B0001D262 /* AZArrayModelAddChange.m in Sources */,
-				1D2BD6601F3117D000641E23 /* AZArrayModelMoveChange.m in Sources */,
+				1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */,
+				1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
 				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
-				1D7D0C9A1F43A83C0053487B /* AZArrayModelEditChange.m in Sources */,
-				1D7D0C971F43994A0053487B /* AZArrayModelMultipleChange.m in Sources */,
 				1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */,
 				1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */,
 				1D1498461F1BCFEA00906749 /* AZObservableObject.m in Sources */,
-				1D5F9A1C1F2A709800B5B135 /* AZArrayModelRemoveChange.m in Sources */,
+				1D5AEE711F44C7000035BC4F /* AZArrayModelMoveChange.m in Sources */,
+				1D5AEE6F1F44C7000035BC4F /* AZArrayModelAddChange.m in Sources */,
 				1D2BD6801F3124FA00641E23 /* NSBundle+AZExtension.m in Sources */,
 				1D5B4A631F05B0D700E14BEA /* main.m in Sources */,
+				1D5AEE761F44C7000035BC4F /* AZModel.m in Sources */,
 				1D2BD6811F3124FA00641E23 /* NSMutableArray+AZExtension.m in Sources */,
 				1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */,
 				1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */,
+				1D5AEE751F44C7000035BC4F /* AZImageModel.m in Sources */,
 				1D2BD6821F3124FA00641E23 /* NSString+AZRandomName.m in Sources */,
+				1D5AEE771F44C7000035BC4F /* AZModelDispatcher.m in Sources */,
+				1D5AEE781F44C7000035BC4F /* AZUserModel.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
+				1D5AEE741F44C7000035BC4F /* AZArrayModel.m in Sources */,
+				1D5AEE7B1F44C7760035BC4F /* AZUsersModel.m in Sources */,
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,
-				1D1498541F1BD31800906749 /* AZImageModel.m in Sources */,
 				1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */,
-				1D54C5081F22928E00D7D3B7 /* AZArrayModel.m in Sources */,
 				1D7BF2291F21140A00305FB2 /* AZSquareViewController.m in Sources */,
-				1D6C79061F35053700233F35 /* AZModelDispatcher.m in Sources */,
 				1D2BD6831F3124FA00641E23 /* NSString+AZRandomString.m in Sources */,
-				1D96AC8D1F19385400294A68 /* AZUserModel.m in Sources */,
-				1D5F9A181F2A701A00B5B135 /* AZArrayModelChange.m in Sources */,
-				1D6C79021F3504EE00233F35 /* AZModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
