@@ -15,4 +15,5 @@
 @property (nonatomic, readonly) NSURL       *url;
 
 - (instancetype)initWithURL:(NSURL *)url;
+
 @end

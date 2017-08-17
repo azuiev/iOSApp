@@ -17,6 +17,9 @@ static NSString   *kImageURL        = @"kImageURL";
 @property (nonatomic, strong) UIImage   *image;
 @property (nonatomic, strong) NSURL     *url;
 
+- (NSString *)pathToImages;
+- (NSString *)nameOfCasheFileWithURL:(NSURL *)url;
+
 @end
 
 @implementation AZImageModel
@@ -35,15 +38,48 @@ static NSString   *kImageURL        = @"kImageURL";
 
 - (void)performLoading {
     [AZGCD dispatchAfterDelay:1.0 block:^ {
-        NSData *imageData = [NSData dataWithContentsOfURL:self.url];
-
-        UIImage *image = [UIImage imageWithData:imageData];
+        UIImage *image = nil;
+        NSString *cashedFileName = [self nameOfCasheFileWithURL:self.url];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:cashedFileName]) {
+            image = [UIImage imageNamed:cashedFileName];
+        } else {
+            NSData *imageData = [NSData dataWithContentsOfURL:self.url];
+            [[NSFileManager defaultManager] createDirectoryAtPath:[self pathToImages]
+                                      withIntermediateDirectories:YES
+                                                       attributes:nil
+                                                            error:nil];
+            BOOL saved = [imageData writeToFile:cashedFileName atomically:YES];
+            if (!saved) {
+                NSLog(@"Achtung!!!");
+            }
+            
+            image = [UIImage imageWithData:imageData];
+        }
+        
+        
         self.image = image;
         
         [AZGCD dispatchAsyncOnMainQueue: ^ {
             self.state = image ? AZModelDidLoad : AZModelDidFailLoad;
         }];
     }];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (NSString *)pathToImages {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    return [[paths firstObject] stringByAppendingPathComponent:@"Images"];
+}
+
+- (NSString *)nameOfCasheFileWithURL:(NSURL *)url {
+    NSString *result = [self pathToImages];
+    result = [result stringByAppendingPathComponent:[NSString stringWithFormat:@"%lu", url.absoluteString.hash]];
+    result = [result stringByAppendingString:url.lastPathComponent];
+    
+    return result;
 }
 
 #pragma mark -
