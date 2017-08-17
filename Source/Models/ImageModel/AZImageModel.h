@@ -12,8 +12,7 @@
 
 @interface AZImageModel : AZModel 
 @property (nonatomic, readonly) UIImage     *image;
-@property (nonatomic, readonly) NSString    *imageName;
+@property (nonatomic, readonly) NSURL       *url;
 
-- (instancetype)initWithName:(NSString *)imageName;
-
+- (instancetype)initWithURL:(NSURL *)url;
 @end

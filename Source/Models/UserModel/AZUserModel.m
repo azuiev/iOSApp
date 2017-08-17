@@ -14,6 +14,8 @@ static NSString   *kName        = @"kName";
 static NSString   *kSurName     = @"kSurName";
 static NSString   *kImageModel  = @"kImageModel";
 
+static NSString *urlName    = @"https://upload.wikimedia.org/wikipedia/en/c/c6/NeoTheMatrix.jpg";
+
 @interface AZUserModel ()
 @property (nonatomic, strong) AZImageModel  *imageModel;
 
@@ -31,7 +33,7 @@ static NSString   *kImageModel  = @"kImageModel";
     if (self) {
         self.name = [NSString randomName];
         self.surName = [NSString randomName];
-        self.imageModel = [[AZImageModel alloc] initWithName:@"Image.jpg"];
+        self.imageModel = [[AZImageModel alloc] initWithURL:[NSURL URLWithString:urlName]];
     }
     
     return self;

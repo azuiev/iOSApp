@@ -11,20 +11,20 @@
 #import "AZGCD.h"
 #import "AZMacros.h"
 
-static NSString   *kImageName        = @"kImageName";
+static NSString   *kImageURL        = @"kImageURL";
 
 @interface AZImageModel ()
 @property (nonatomic, strong) UIImage   *image;
-@property (nonatomic, strong) NSString  *imageName;
+@property (nonatomic, strong) NSURL     *url;
 
 @end
 
 @implementation AZImageModel
 
-- (instancetype)initWithName:(NSString *)name {
+- (instancetype)initWithURL:(NSURL *)url {
     self = [super init];
     if (self) {
-        self.imageName = name;
+        self.url = url;
     }
     
     return self;
@@ -35,8 +35,9 @@ static NSString   *kImageName        = @"kImageName";
 
 - (void)performLoading {
     [AZGCD dispatchAfterDelay:1.0 block:^ {
-        UIImage * image = [UIImage imageNamed:self.imageName];
+        NSData *imageData = [NSData dataWithContentsOfURL:self.url];
 
+        UIImage *image = [UIImage imageWithData:imageData];
         self.image = image;
         
         [AZGCD dispatchAsyncOnMainQueue: ^ {
@@ -51,14 +52,14 @@ static NSString   *kImageName        = @"kImageName";
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-        self.imageName = [coder decodeObjectForKey:kImageName];
+        self.url = [coder decodeObjectForKey:kImageURL];
     }
     
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.imageName forKey:kImageName];
+    [coder encodeObject:self.url forKey:kImageURL];
 }
 
 @end

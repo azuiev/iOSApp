@@ -83,6 +83,8 @@
         [_contentImageView removeFromSuperview];
         _contentImageView = contentImageView;
         
+        //_contentImageView.contentMode = UIViewContentModeTopLeft;
+        
         [self addSubview:contentImageView];
     }
 }
