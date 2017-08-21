@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 @interface AZArrayModel : AZModel
 @property (nonatomic, readonly) NSUInteger  count;
 @property (nonatomic, readonly) NSArray     *array;
+
 + (instancetype)modelWithObjects:(NSArray *)objects;
 
 - (instancetype)initWithArray:(NSArray *)array;
@@ -50,5 +51,8 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 
 - (void)moveFromIndex:(NSUInteger)sourceIndex
               toIndex:(NSUInteger)destinationIndex;
+
+- (void)performBlockWithNotification:(void(^)())block;
+- (void)performBlockWithoutNotification:(void(^)())block;
 
 @end

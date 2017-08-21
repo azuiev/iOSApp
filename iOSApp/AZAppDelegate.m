@@ -9,7 +9,7 @@
 #import "AZAppDelegate.h"
 #import "AZSquareViewController.h"
 #import "AZUsersViewController.h"
-#import "AZArrayModel.h"
+#import "AZUsersModel.h"
 
 #import "UIWindow+AZExtension.h"
 #import "NSArray+AZExtension.h"
@@ -26,21 +26,12 @@
     
     AZUsersViewController *controller = [AZUsersViewController new];
     //AZSquareViewController *controller = [AZSquareViewController new];
+    AZUsersModel *users = [AZUsersModel new];
     
+    [controller setUsers:users];
     
-    [[NSNotificationCenter defaultCenter] addObserver:controller
-                                             selector:@selector(save)
-                                                 name:@"AZSaveNotification"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:controller
-                                             selector:@selector(load)
-                                                 name:@"AZLoadNotification"
-                                               object:nil];
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AZLoadNotification" object:nil];
     
     [window makeKeyAndVisible];
     

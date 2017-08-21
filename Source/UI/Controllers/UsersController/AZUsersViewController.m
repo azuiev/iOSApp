@@ -21,6 +21,8 @@
 #import "AZArrayModelRemoveChange.h"
 #import "AZArrayModelMoveChange.h"
 
+#import "AZGCD.h"
+
 AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) UITableViewCellEditingStyle       editingStyle;
@@ -50,6 +52,8 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
         
         _users = users;
         [_users addObserver:self];
+        
+        [_users load];
     }
 }
 
@@ -129,34 +133,24 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 }
 
 #pragma mark -
-#pragma mark Public
-
-- (void)save {
-    [self.users save];
-}
-
-- (void)load {
-    AZUsersModel *users = self.users;
-    users = users ? users : [AZUsersModel new];
-    
-    self.users = users;
-    
-    [users load];
-}
-
-#pragma mark -
 #pragma mark AZModelObserver
 
 - (void)modelDidLoad:(AZModel *)model {
-    [self.mainView.loadingView stopAnimating];
+    [AZGCD dispatchAsyncOnMainQueue: ^ {
+        [self.mainView.loadingView stopAnimating];
+    }];
 }
 
 - (void)modelWillLoad:(AZModel *)model {
-    [self.mainView.loadingView startAnimating];
+    [AZGCD dispatchAsyncOnMainQueue: ^ {
+        [self.mainView.loadingView startAnimating];
+    }];
 }
 
 - (void)modelDidUnload:(AZModel *)model {
-    [self.mainView.loadingView stopAnimating];
+    [AZGCD dispatchAsyncOnMainQueue: ^ {
+        [self.mainView.loadingView stopAnimating];
+    }];
 }
 
 - (void)modelDidFailLoad:(AZModel *)model {

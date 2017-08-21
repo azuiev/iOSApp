@@ -93,9 +93,11 @@
 #pragma mark Loading Model Observer
 
 - (void)modelDidUnload:(AZImageModel *)imageModel {
-    [self.loadingView startAnimating];
-    
-    self.contentImageView.image = nil;
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.loadingView startAnimating];
+        
+        self.contentImageView.image = nil;
+    }];
 }
 
 - (void)modelWillLoad:(AZImageModel *)imageModel {
@@ -103,13 +105,17 @@
 }
 
 - (void)modelDidLoad:(AZImageModel *)imageModel {
-    [self.loadingView stopAnimating];
-    
-    self.contentImageView.image = imageModel.image;
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.loadingView stopAnimating];
+        
+        self.contentImageView.image = imageModel.image;
+    }];
 }
 
 - (void)modelDidFailLoad:(AZImageModel *)imageModel {
-    [self.model load];
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.model load];
+    }];
 }
 
 @end

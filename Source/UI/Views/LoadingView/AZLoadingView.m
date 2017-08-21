@@ -57,15 +57,15 @@
 }
 
 - (void)startAnimating {
-    //[self.activityIndicator startAnimating];
-    [UIView animateWithDuration:1.0 animations: ^ {
+    [self.activityIndicator startAnimating];
+    [UIView animateWithDuration:1.0 animations:^ {
         self.alpha = 0.0;
         self.alpha = 1.0;
     }];
 }
 
 - (void)stopAnimating {
-    [UIView animateWithDuration:1.0 animations: ^ {
+    [UIView animateWithDuration:1.0 animations:^ {
         self.alpha = 1.0;
         self.alpha = 0.0;
     }];

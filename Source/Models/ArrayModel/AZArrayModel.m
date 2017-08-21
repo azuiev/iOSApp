@@ -13,6 +13,7 @@
 
 @interface AZArrayModel ()
 @property (nonatomic, strong) NSMutableArray    *mutableArray;
+@property (nonatomic, assign) BOOL              notify;
 
 @end
 
@@ -41,6 +42,7 @@
 - (instancetype)initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
+        self.notify = YES;
         self.mutableArray = [NSMutableArray array];
         
         [self addObjects:array];
@@ -53,11 +55,15 @@
 #pragma mark Accessors
 
 - (NSArray *)array {
-    return [self.mutableArray copy];
+    @synchronized (self) {
+        return [self.mutableArray copy];
+    }
 }
 
 - (NSUInteger)count {
-    return self.mutableArray.count;
+    @synchronized (self) {
+        return self.mutableArray.count;
+    }
 }
 
 #pragma mark -
@@ -65,39 +71,27 @@
 
 // object
 - (void)addObject:(NSObject *)object {
-    [self addObject:object withNotification:YES];
+    [self insertObject:object atIndex:self.count];
 }
 
 - (void)removeObject:(NSObject *)object {
-    [self removeObject:object withNotification:YES];
+    [self removeObjectAtIndex:[self.array indexOfObject:object]];
 }
 
 // objects
 - (void)addObjects:(NSArray *)objects {
-    void(^AZAddBlock)(id) = ^(id object) {
-        [self addObject:object withNotification:NO];
-    };
-    
-    [self performBlockOnArray:objects block:AZAddBlock];
+    for (id object in objects) {
+        [self addObject:object];
+    }
 }
 
 - (void)removeObjects:(NSArray *)objects {
-    void(^AZRemoveBlock)(id) = ^(id object) {
-        [self removeObject:object withNotification:NO];
-    };
-    
-    [self performBlockOnArray:objects block:AZRemoveBlock];
+    for (id object in objects) {
+        [self removeObject:object];
+    }
 }
 
 // object with index
-
-- (void)removeObjectAtIndex:(NSUInteger)index {
-    [self removeObjectAtIndex:index withNotification:YES];
-}
-
-- (void)insertObject:(id)object atIndex:(NSUInteger)index {
-    [self insertObject:object atIndex:index withNotification:YES];
-}
 
 - (id)objectAtIndex:(NSUInteger)index {
     return self.count > index ? [self.mutableArray objectAtIndex:index] : nil;
@@ -118,27 +112,37 @@
         if (sourceIndex != destinationIndex) {
             [self.mutableArray moveRowAtIndex:sourceIndex toIndex:destinationIndex];
             
-            [self setState:AZArrayModelChanged
-                withObject:[AZArrayModelChange
-                            arrayModelMoveChangeFromIndex:sourceIndex
-                            toIndex:destinationIndex]];
+            if (self.notify) {
+                [self setState:AZArrayModelChanged
+                    withObject:[AZArrayModelChange
+                                arrayModelMoveChangeFromIndex:sourceIndex
+                                toIndex:destinationIndex]];
+            }
         }
     }
+}
+
+- (void)performBlockWithNotification:(void(^)())block {
+    [self performBlock:block notification:YES];
+}
+
+- (void)performBlockWithoutNotification:(void(^)())block {
+    [self performBlock:block notification:NO];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)addObject:(NSObject *)object withNotification:(BOOL)notify {
-    [self insertObject:object atIndex:self.mutableArray.count withNotification:notify];
+- (void)performBlock:(void (^)())block notification:(BOOL)notify {
+    
 }
 
-- (void)insertObject:(id)object atIndex:(NSUInteger)index withNotification:(BOOL)notify {
+- (void)insertObject:(id)object atIndex:(NSUInteger)index {
     @synchronized (self) {
         if (object && self.count >= index) {
             [self.mutableArray insertObject:object atIndex:index];
             
-            if (notify) {
+            if (self.notify) {
                 [self setState:AZArrayModelChanged
                     withObject:[AZArrayModelChange arrayModelAddChangeWithIndex:index]];
             }
@@ -146,33 +150,17 @@
     }
 }
 
-- (void)removeObject:(NSObject *)object withNotification:(BOOL)notify {
-    @synchronized(self) {
-        NSUInteger index = [self.mutableArray indexOfObject:object];
-        [self removeObjectAtIndex:index withNotification:notify];
-    }
-}
-
-- (void)removeObjectAtIndex:(NSUInteger)index withNotification:(BOOL)notify {
+- (void)removeObjectAtIndex:(NSUInteger)index {
     @synchronized (self) {
         if (self.count > index) {
             [self.mutableArray removeObjectAtIndex:index];
             
-            if (notify) {
+            if (self.notify) {
                 [self setState:AZArrayModelChanged
                     withObject:[AZArrayModelChange arrayModelRemoveChangeWithIndex:index]];
             }
         }
     }
-}
-
-- (void)performBlockOnArray:(NSArray *)array block:(void(^)(id))block {
-    for (id object in array) {
-        block(object);
-    }
-    
-    [self setState:AZArrayModelChanged
-        withObject:[AZArrayModelChange arrayModelMultipleChange]];
 }
 
 #pragma mark -
@@ -182,7 +170,7 @@
     return [self objectAtIndex:index];
 }
 
-- (void)setObject: (id)obj atIndexedSubscript: (NSUInteger)index {
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)index {
     return [self setObject:obj atIndex:index];
 }
 
@@ -190,10 +178,14 @@
 #pragma mark Observable Object
 
 - (SEL)selectorForState:(NSUInteger)state {
-    if (AZArrayModelChanged == state) {
-        return @selector(arrayModelDidChange:withObject:);
-    } else {
-        return [super selectorForState:state];
+    switch (state) {
+        case AZArrayModelChanged:
+            return @selector(arrayModelDidChange:withObject:);
+            break;
+            
+        default:
+            return [super selectorForState:state];
+            break;
     }
 }
 

@@ -44,13 +44,13 @@
     [self dispatchAsyncOnQueue:[self dispatchGetMainQueue] block:block];
 }
 
-+ (void)dispatchSyncOnQueue:(dispatch_queue_t)queue block:(void (^)())block {
++ (void)dispatchSyncOnQueue:(dispatch_queue_t)queue block:(void(^)())block {
     if (block) {
         dispatch_sync(queue, block);
     }
 }
 
-+ (void)dispatchAsyncOnQueue:(dispatch_queue_t)queue block:(void (^)())block {
++ (void)dispatchAsyncOnQueue:(dispatch_queue_t)queue block:(void(^)())block {
     if (block) {
         dispatch_async(queue, block);
     }
