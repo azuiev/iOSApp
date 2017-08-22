@@ -33,16 +33,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 
 @implementation AZUsersViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    AZUsersView *mainView = self.mainView;
-    
-    [mainView.loadingView addAsSubiew:mainView];
-    [mainView.tableView reloadData];
-    [mainView.loadingView stopAnimating];
-}
-
 #pragma mark -
 #pragma mark Accessors 
 
@@ -137,19 +127,21 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 
 - (void)modelDidLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue: ^ {
-        [self.mainView.loadingView stopAnimating];
+        [self.mainView.loadingView setVisible:NO];
+        
+        [self.mainView.tableView reloadData];
     }];
 }
 
 - (void)modelWillLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue: ^ {
-        [self.mainView.loadingView startAnimating];
+        [self.mainView.loadingView setVisible:YES];
     }];
 }
 
 - (void)modelDidUnload:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue: ^ {
-        [self.mainView.loadingView stopAnimating];
+        [self.mainView.loadingView setVisible:NO];
     }];
 }
 

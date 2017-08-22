@@ -11,18 +11,20 @@
 #import "AZModel.h"
 
 @interface AZLoadingView : UIView <AZModelObserver>
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView   *activityIndicator;
+@property (nonatomic, strong)   IBOutlet UIActivityIndicatorView   *activityIndicator;
 
-+ (instancetype)initWithView:(UIView *)view;
-+ (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds;
+@property (nonatomic, readonly, getter=isVisible) BOOL    visible;
 
-- (instancetype)initWithView:(UIView *)view;
-- (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds;
++ (instancetype)viewWithSuperview:(UIView *)superview;
 
-- (void)addAsSubiew:(UIView *)view;
-- (void)addAsSubiew:(UIView *)view bounds:(CGRect)bounds;
+- (instancetype)initWithSuperview:(UIView *)superview;
 
-- (void)startAnimating;
-- (void)stopAnimating;
+- (void)addAsSubview:(UIView *)view;
+
+- (void)setVisible:(BOOL)visible;
+- (void)setVisible:(BOOL)visible anymated:(BOOL)anymated;
+- (void)    setVisible:(BOOL)visible
+              anymated:(BOOL)anymated
+ withCompletionHandler:(void(^)(BOOL))completionHandler;
 
 @end

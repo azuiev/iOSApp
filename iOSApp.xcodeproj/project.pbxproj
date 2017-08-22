@@ -24,7 +24,6 @@
 		1D5AEE6F1F44C7000035BC4F /* AZArrayModelAddChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */; };
 		1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */; };
 		1D5AEE711F44C7000035BC4F /* AZArrayModelMoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE5A1F44C7000035BC4F /* AZArrayModelMoveChange.m */; };
-		1D5AEE721F44C7000035BC4F /* AZArrayModelMultipleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE5C1F44C7000035BC4F /* AZArrayModelMultipleChange.m */; };
 		1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE5E1F44C7000035BC4F /* AZArrayModelRemoveChange.m */; };
 		1D5AEE741F44C7000035BC4F /* AZArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE601F44C7000035BC4F /* AZArrayModel.m */; };
 		1D5AEE751F44C7000035BC4F /* AZImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE631F44C7000035BC4F /* AZImageModel.m */; };
@@ -36,6 +35,7 @@
 		1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A651F05B0E200E14BEA /* Assets.xcassets */; };
 		1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */; };
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
+		1D5B8A281F4CCA9400B77BA1 /* AZView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B8A271F4CCA9400B77BA1 /* AZView.m */; };
 		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
 		1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */; };
 		1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */; };
@@ -90,8 +90,6 @@
 		1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelEditChange.m; sourceTree = "<group>"; };
 		1D5AEE591F44C7000035BC4F /* AZArrayModelMoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMoveChange.h; sourceTree = "<group>"; };
 		1D5AEE5A1F44C7000035BC4F /* AZArrayModelMoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMoveChange.m; sourceTree = "<group>"; };
-		1D5AEE5B1F44C7000035BC4F /* AZArrayModelMultipleChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelMultipleChange.h; sourceTree = "<group>"; };
-		1D5AEE5C1F44C7000035BC4F /* AZArrayModelMultipleChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelMultipleChange.m; sourceTree = "<group>"; };
 		1D5AEE5D1F44C7000035BC4F /* AZArrayModelRemoveChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelRemoveChange.h; sourceTree = "<group>"; };
 		1D5AEE5E1F44C7000035BC4F /* AZArrayModelRemoveChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelRemoveChange.m; sourceTree = "<group>"; };
 		1D5AEE5F1F44C7000035BC4F /* AZArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModel.h; sourceTree = "<group>"; };
@@ -112,6 +110,8 @@
 		1D5B4A651F05B0E200E14BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D5B4A671F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D5B8A261F4CCA9400B77BA1 /* AZView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZView.h; sourceTree = "<group>"; };
+		1D5B8A271F4CCA9400B77BA1 /* AZView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZView.m; sourceTree = "<group>"; };
 		1D5D49B21F1BA001003AEA36 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
 		1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZLoadingView.xib; sourceTree = "<group>"; };
@@ -327,8 +327,6 @@
 				1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */,
 				1D5AEE591F44C7000035BC4F /* AZArrayModelMoveChange.h */,
 				1D5AEE5A1F44C7000035BC4F /* AZArrayModelMoveChange.m */,
-				1D5AEE5B1F44C7000035BC4F /* AZArrayModelMultipleChange.h */,
-				1D5AEE5C1F44C7000035BC4F /* AZArrayModelMultipleChange.m */,
 				1D5AEE5D1F44C7000035BC4F /* AZArrayModelRemoveChange.h */,
 				1D5AEE5E1F44C7000035BC4F /* AZArrayModelRemoveChange.m */,
 			);
@@ -423,6 +421,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1D5B8A251F4CCA7F00B77BA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D5B8A261F4CCA9400B77BA1 /* AZView.h */,
+				1D5B8A271F4CCA9400B77BA1 /* AZView.m */,
+			);
+			name = View;
+			path = AZView;
+			sourceTree = "<group>";
+		};
 		1D5D49B11F1BA001003AEA36 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,13 +476,13 @@
 		1D7BF2161F21140A00305FB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1D7BF2171F21140A00305FB2 /* SquareController */,
-				1D7BF21D1F21140A00305FB2 /* UsersController */,
+				1D7BF2171F21140A00305FB2 /* SquareViewController */,
+				1D7BF21D1F21140A00305FB2 /* UsersViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		1D7BF2171F21140A00305FB2 /* SquareController */ = {
+		1D7BF2171F21140A00305FB2 /* SquareViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1D7BF2181F21140A00305FB2 /* AZSquareView.h */,
@@ -483,10 +491,11 @@
 				1D7BF21B1F21140A00305FB2 /* AZSquareViewController.m */,
 				1D7BF21C1F21140A00305FB2 /* AZSquareViewController.xib */,
 			);
+			name = SquareViewController;
 			path = SquareController;
 			sourceTree = "<group>";
 		};
-		1D7BF21D1F21140A00305FB2 /* UsersController */ = {
+		1D7BF21D1F21140A00305FB2 /* UsersViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1D7BF21E1F21140A00305FB2 /* AZUserCell.h */,
@@ -498,12 +507,14 @@
 				1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */,
 				1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */,
 			);
+			name = UsersViewController;
 			path = UsersController;
 			sourceTree = "<group>";
 		};
 		1D7BF2261F21140A00305FB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D5B8A251F4CCA7F00B77BA1 /* View */,
 				1D69C3D91F3CEC7700DDBC63 /* LoadingView */,
 				1D2FA38B1F2B9C4500DA241D /* ImageView */,
 			);
@@ -688,7 +699,6 @@
 			files = (
 				1D2BD6851F3124FA00641E23 /* UITableView+AZExtension.m in Sources */,
 				1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */,
-				1D5AEE721F44C7000035BC4F /* AZArrayModelMultipleChange.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
 				1D2BD67F1F3124FA00641E23 /* NSArray+AZExtension.m in Sources */,
 				1D7BF22B1F21140A00305FB2 /* AZUserCell.m in Sources */,
@@ -717,6 +727,7 @@
 				1D5AEE771F44C7000035BC4F /* AZModelDispatcher.m in Sources */,
 				1D5AEE781F44C7000035BC4F /* AZUserModel.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
+				1D5B8A281F4CCA9400B77BA1 /* AZView.m in Sources */,
 				1D5AEE741F44C7000035BC4F /* AZArrayModel.m in Sources */,
 				1D5AEE7B1F44C7760035BC4F /* AZUsersModel.m in Sources */,
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,

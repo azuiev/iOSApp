@@ -9,66 +9,72 @@
 #import "AZLoadingView.h"
 #import "AZImageModel.h"
 
+@interface AZLoadingView ()
+@property (nonatomic, assign) BOOL visible;
+
+@end
+
 @implementation AZLoadingView
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)initWithView:(UIView *)view {
-    return [[self alloc] initWithView:view bounds:view.bounds];
++ (instancetype)viewWithSuperview:(UIView *)view {
+    return [[self alloc] initWithSuperview:view];
 }
 
-+ (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds {
-    return [[self alloc] initWithView:view bounds:bounds];
-}
-
-- (instancetype)initWithView:(UIView *)view {
-    return [self initWithView:view bounds:view.bounds];
-}
-
-- (instancetype)initWithView:(UIView *)view bounds:(CGRect)bounds {
-    self = [super initWithFrame:bounds];
+- (instancetype)initWithSuperview:(UIView *)view {
+    self = [super initWithFrame:view.bounds];
     if (self) {
-        [self addAsSubiew:view bounds:bounds];
+        self.visible = YES;
+        
+        [self addAsSubview:view];
     }
     
     return self;
 }
 
 #pragma mark -
-#pragma mark Initialization and Deadllocation
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    [self.activityIndicator startAnimating];
-}
-
-#pragma mark -
 #pragma mark Public Methods
 
-- (void)addAsSubiew:(UIView *)view {
-    [self addAsSubiew:view bounds:view.bounds];
-}
-
-- (void)addAsSubiew:(UIView *)view bounds:(CGRect)bounds {
-    self.frame = bounds;
+- (void)addAsSubview:(UIView *)view {
+    self.frame = view.bounds;
     [view addSubview:self];
 }
 
-- (void)startAnimating {
-    [self.activityIndicator startAnimating];
-    [UIView animateWithDuration:1.0 animations:^ {
-        self.alpha = 0.0;
-        self.alpha = 1.0;
-    }];
+- (void)setVisible:(BOOL)visible {
+    [self setVisible:visible anymated:YES withCompletionHandler:nil];
 }
 
-- (void)stopAnimating {
-    [UIView animateWithDuration:1.0 animations:^ {
-        self.alpha = 1.0;
-        self.alpha = 0.0;
-    }];
+- (void)setVisible:(BOOL)visible anymated:(BOOL)anymated {
+     [self setVisible:visible anymated:anymated withCompletionHandler:nil];
+}
+
+- (void)    setVisible:(BOOL)visible
+              anymated:(BOOL)anymated
+ withCompletionHandler:(void(^)(BOOL))completionHandler
+{
+    if (_visible != visible) {
+        _visible = visible;
+    }
+    
+    void(^anymationBlock)() = nil;
+    if (visible) {
+        anymationBlock=^ {
+            [self.activityIndicator startAnimating];
+            self.alpha = 0.0;
+            self.alpha = 1.0;
+        };
+    } else {
+        anymationBlock=^ {
+            self.alpha = 1.0;
+            self.alpha = 0.0;
+        };
+    }
+    
+    [UIView animateWithDuration:anymated ? 1.0 : 0.0
+                     animations:anymationBlock
+                     completion:completionHandler];
 }
 
 @end

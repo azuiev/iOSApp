@@ -15,7 +15,6 @@
 + (instancetype)arrayModelEditChangeWithIndex:(NSUInteger)index;
 + (instancetype)arrayModelMoveChangeFromIndex:(NSUInteger)sourceIndex
                                       toIndex:(NSUInteger)destinationIndex;
-+ (instancetype)arrayModelMultipleChange;
 
 - (void)applyChangeToTableView:(UITableView *)tableView;
 

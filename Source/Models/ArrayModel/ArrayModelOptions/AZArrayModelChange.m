@@ -12,7 +12,6 @@
 #import "AZArrayModelRemoveChange.h"
 #import "AZArrayModelMoveChange.h"
 #import "AZArrayModelEditChange.h"
-#import "AZArrayModelMultipleChange.h"
 
 @implementation AZArrayModelChange
 
@@ -34,10 +33,6 @@
 + (instancetype)arrayModelMoveChangeFromIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     return [[AZArrayModelMoveChange alloc] initWithSourceIndex:sourceIndex
                                              destinationIndex:destinationIndex];
-}
-
-+ (instancetype)arrayModelMultipleChange {
-    return [AZArrayModelMultipleChange new];
 }
 
 #pragma mark -

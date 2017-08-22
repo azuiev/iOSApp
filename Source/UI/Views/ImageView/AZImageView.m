@@ -45,22 +45,10 @@
     imageView.autoresizingMask = AZViewResizableWithFixedPosition;
     
     self.contentImageView = imageView;
-    AZLoadingView *view = [UINib objectWithClass:[AZLoadingView class]];
-    [view addAsSubiew:self bounds:self.contentImageView.bounds];
-    
-    self.loadingView = view;
 }
 
 #pragma mark -
 #pragma mark Accessors
-
-- (void)setLoadingView:(AZLoadingView *)loadingView {
-    if (_loadingView != loadingView) {
-        _loadingView = loadingView;
-        
-        [_loadingView startAnimating];
-    }
-}
 
 - (void)setModel:(AZImageModel *)model {
     if (_model != model) {
@@ -94,7 +82,7 @@
 
 - (void)modelDidUnload:(AZImageModel *)imageModel {
     [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.loadingView startAnimating];
+        [self.loadingView setVisible:YES];
         
         self.contentImageView.image = nil;
     }];
@@ -106,7 +94,7 @@
 
 - (void)modelDidLoad:(AZImageModel *)imageModel {
     [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.loadingView stopAnimating];
+        [self.loadingView setVisible:NO];
         
         self.contentImageView.image = imageModel.image;
     }];
