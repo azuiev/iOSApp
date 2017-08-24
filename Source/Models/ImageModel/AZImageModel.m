@@ -10,15 +10,16 @@
 
 #import "AZGCD.h"
 #import "AZMacros.h"
+#import "AZImageModelCache.h"
 
 static NSString     *kImageURL          = @"kImageURL";
-static double       AZLoadImageDelay    = 1.0;
 static NSString     *AZImageDirectory   = @"Images";
+static double       AZLoadImageDelay    = 1.0;
 
 @interface AZImageModel ()
 @property (nonatomic, strong) UIImage   *image;
 @property (nonatomic, strong) NSURL     *url;
-@property (nonatomic, strong) NSString  *casheName;
+@property (nonatomic, strong) NSString  *cacheName;
 
 - (NSString *)pathToImages;
 - (NSString *)nameOfCashedFile;
@@ -28,11 +29,32 @@ static NSString     *AZImageDirectory   = @"Images";
 
 @implementation AZImageModel
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)dealloc {
+    [[AZImageModelCache sharedCache] removeObjectWithURL:self.url];
+    
+    self.image = nil;
+    self.cacheName = nil;
+    self.url = nil;
+}
+
 - (instancetype)initWithURL:(NSURL *)url {
+    AZImageModelCache *cache = [AZImageModelCache sharedCache];
+    AZImageModel *model = [cache objectWithURL:url];
+    
+    if (model) {
+        return model;
+    }
+    
     self = [super init];
     if (self) {
         self.url = url;
+        self.cacheName = [self nameOfCachedFile];
     }
+    
+    [cache addImageModel:self withURL:url];
     
     return self;
 }
@@ -44,7 +66,7 @@ static NSString     *AZImageDirectory   = @"Images";
     if (_url != url) {
         _url = url;
         
-        self.casheName = [self nameOfCashedFile];
+        self.cacheName = [self nameOfCachedFile];
     }
 }
 
@@ -66,11 +88,11 @@ static NSString     *AZImageDirectory   = @"Images";
 #pragma mark Private Methods
 
 - (UIImage *)loadImage {
-    return [self isCasheExist] ? [self imageFromCashe] : [self imageFromURL];
+    return [self isCacheExist] ? [self imageFromCache] : [self imageFromURL];
 }
 
-- (BOOL)isCasheExist {
-    return [NSFileManager.defaultManager fileExistsAtPath:self.casheName];
+- (BOOL)isCacheExist {
+    return [NSFileManager.defaultManager fileExistsAtPath:self.cacheName];
 }
 
 - (NSString *)pathToImages {
@@ -79,7 +101,7 @@ static NSString     *AZImageDirectory   = @"Images";
     return [[paths firstObject] stringByAppendingPathComponent:AZImageDirectory];
 }
 
-- (NSString *)nameOfCashedFile {
+- (NSString *)nameOfCachedFile {
     NSURL *url = self.url;
     
     NSString *result = [self pathToImages];
@@ -90,13 +112,13 @@ static NSString     *AZImageDirectory   = @"Images";
     return result;
 }
 
-- (UIImage *)imageFromCashe {
-    NSString *casheName = self.casheName;
-    UIImage *image = [UIImage imageNamed:casheName];
+- (UIImage *)imageFromCache {
+    NSString *cacheName = self.cacheName;
+    UIImage *image = [UIImage imageNamed:cacheName];
    
     if (!image) {
         NSError *error = nil;
-        [NSFileManager.defaultManager removeItemAtPath:casheName error:&error];
+        [NSFileManager.defaultManager removeItemAtPath:cacheName error:&error];
         image = [self imageFromURL];
     }
     
@@ -106,12 +128,12 @@ static NSString     *AZImageDirectory   = @"Images";
 - (UIImage *)imageFromURL {
     NSData *imageData = [NSData dataWithContentsOfURL:self.url];
     
-    [self createCasheFile:imageData];
+    [self createCacheFile:imageData];
     
     return [UIImage imageWithData:imageData];
 }
 
-- (void)createCasheFile:(NSData *)imageData {
+- (void)createCacheFile:(NSData *)imageData {
     NSString *path = [self pathToImages];
     NSFileManager *manager = NSFileManager.defaultManager;
     NSError *error = nil;
@@ -124,9 +146,9 @@ static NSString     *AZImageDirectory   = @"Images";
     }
     
     if (!error) {
-        BOOL saved = [imageData writeToFile:[self nameOfCashedFile] atomically:YES];
+        BOOL saved = [imageData writeToFile:[self nameOfCachedFile] atomically:YES];
         if (!saved) {
-            NSLog(@"Unable to save cashed image");
+            NSLog(@"Unable to save cached image");
         }
     }
 }
@@ -135,12 +157,9 @@ static NSString     *AZImageDirectory   = @"Images";
 #pragma mark NSCoding
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super init];
-    if (self) {
-        self.url = [coder decodeObjectForKey:kImageURL];
-    }
+    NSURL *url = [coder decodeObjectForKey:kImageURL];
     
-    return self;
+    return [self initWithURL:url];
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {

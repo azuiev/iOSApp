@@ -16,9 +16,10 @@
 - (void)setUser:(AZUserModel *)user {
     if (_user != user) {
         _user = user;
-        
-        [self fillWithModel:user];
     }
+    
+    [self fillWithModel:user];
+    
 }
 
 - (void)fillWithModel:(AZUserModel *)user {
@@ -32,7 +33,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
-    self.user = nil;
+    self.userImageView.model = nil;
 }
 
 @end

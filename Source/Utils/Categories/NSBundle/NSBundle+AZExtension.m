@@ -10,20 +10,20 @@
 
 @implementation NSBundle (AZExtension)
 
-- (id)objectWithClass:(Class)clazz {
-    return [self objectWithClass:clazz owner:nil options:nil];
+- (id)objectWithClass:(Class)cls {
+    return [self objectWithClass:cls owner:nil options:nil];
 }
 
-- (id)objectWithClass:(Class)clazz owner:(id)owner {
-    return [self objectWithClass:clazz owner:owner options:nil];
+- (id)objectWithClass:(Class)cls owner:(id)owner {
+    return [self objectWithClass:cls owner:owner options:nil];
 }
 
-- (id)objectWithClass:(Class)clazz options:(NSDictionary *)options {
-    return [self objectWithClass:clazz owner:nil options:options];
+- (id)objectWithClass:(Class)cls options:(NSDictionary *)options {
+    return [self objectWithClass:cls owner:nil options:options];
 }
 
-- (id)objectWithClass:(Class)clazz owner:(id)owner options:(NSDictionary *)options {
-    return [[self loadNibNamed:NSStringFromClass(clazz)
+- (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options {
+    return [[self loadNibNamed:NSStringFromClass(cls)
                          owner:owner
                        options:options] firstObject];
 }

@@ -60,9 +60,7 @@
 
         [_model addObserver:self];
         
-        if (self.model == model) {
-            [model load];
-        }
+        [model load];
     }
 }
 

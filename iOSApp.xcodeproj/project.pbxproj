@@ -50,7 +50,7 @@
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
-		1D8B89BD1F4781810079B3A5 /* AZCashe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B89BC1F4781810079B3A5 /* AZCashe.m */; };
+		1D8B89BD1F4781810079B3A5 /* AZImageModelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B89BC1F4781810079B3A5 /* AZImageModelCache.m */; };
 		1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC931F193C3600294A68 /* AZTableViewCell.m */; };
 		6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */; };
 /* End PBXBuildFile section */
@@ -137,8 +137,8 @@
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
-		1D8B89BB1F4781810079B3A5 /* AZCashe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZCashe.h; sourceTree = "<group>"; };
-		1D8B89BC1F4781810079B3A5 /* AZCashe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZCashe.m; sourceTree = "<group>"; };
+		1D8B89BB1F4781810079B3A5 /* AZImageModelCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageModelCache.h; sourceTree = "<group>"; };
+		1D8B89BC1F4781810079B3A5 /* AZImageModelCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageModelCache.m; sourceTree = "<group>"; };
 		1D96AC921F193C3600294A68 /* AZTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZTableViewCell.h; sourceTree = "<group>"; };
 		1D96AC931F193C3600294A68 /* AZTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZTableViewCell.m; sourceTree = "<group>"; };
 		4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -521,19 +521,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1D8B89BA1F47816D0079B3A5 /* Cashe */ = {
+		1D8B89BA1F47816D0079B3A5 /* ImageModelCache */ = {
 			isa = PBXGroup;
 			children = (
-				1D8B89BB1F4781810079B3A5 /* AZCashe.h */,
-				1D8B89BC1F4781810079B3A5 /* AZCashe.m */,
+				1D8B89BB1F4781810079B3A5 /* AZImageModelCache.h */,
+				1D8B89BC1F4781810079B3A5 /* AZImageModelCache.m */,
 			);
+			name = ImageModelCache;
 			path = Cashe;
 			sourceTree = "<group>";
 		};
 		1D96AC901F193BB900294A68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1D8B89BA1F47816D0079B3A5 /* Cashe */,
+				1D8B89BA1F47816D0079B3A5 /* ImageModelCache */,
 				1D2FA3811F2B971800DA241D /* GCD */,
 				1D1498471F1BD0B100906749 /* ReferenceWrapper */,
 				1D1498431F1BCFEA00906749 /* Observer */,
@@ -703,7 +704,7 @@
 				1D2BD67F1F3124FA00641E23 /* NSArray+AZExtension.m in Sources */,
 				1D7BF22B1F21140A00305FB2 /* AZUserCell.m in Sources */,
 				1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */,
-				1D8B89BD1F4781810079B3A5 /* AZCashe.m in Sources */,
+				1D8B89BD1F4781810079B3A5 /* AZImageModelCache.m in Sources */,
 				1D2BD6841F3124FA00641E23 /* UINib+AZExtension.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
