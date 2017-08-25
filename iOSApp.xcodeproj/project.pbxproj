@@ -20,6 +20,8 @@
 		1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD67E1F3124FA00641E23 /* UIWindow+AZExtension.m */; };
 		1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3831F2B971800DA241D /* AZGCD.m */; };
 		1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA38D1F2B9C4500DA241D /* AZImageView.m */; };
+		1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */; };
+		1D58A0EB1F50DE6900204782 /* AZInternetImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */; };
 		1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */; };
 		1D5AEE6F1F44C7000035BC4F /* AZArrayModelAddChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */; };
 		1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */; };
@@ -82,6 +84,10 @@
 		1D2FA3831F2B971800DA241D /* AZGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZGCD.m; sourceTree = "<group>"; };
 		1D2FA38C1F2B9C4500DA241D /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
 		1D2FA38D1F2B9C4500DA241D /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
+		1D58A0E61F50DE4700204782 /* AZFileSystemImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFileSystemImageModel.h; sourceTree = "<group>"; };
+		1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFileSystemImageModel.m; sourceTree = "<group>"; };
+		1D58A0E91F50DE6900204782 /* AZInternetImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInternetImageModel.h; sourceTree = "<group>"; };
+		1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInternetImageModel.m; sourceTree = "<group>"; };
 		1D5AEE521F44C7000035BC4F /* AZArrayModelChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelChange.h; sourceTree = "<group>"; };
 		1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelChange.m; sourceTree = "<group>"; };
 		1D5AEE551F44C7000035BC4F /* AZArrayModelAddChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelAddChange.h; sourceTree = "<group>"; };
@@ -286,6 +292,24 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		1D58A0E41F50DE2000204782 /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				1D58A0E61F50DE4700204782 /* AZFileSystemImageModel.h */,
+				1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */,
+			);
+			path = FileSystem;
+			sourceTree = "<group>";
+		};
+		1D58A0E51F50DE2000204782 /* Internet */ = {
+			isa = PBXGroup;
+			children = (
+				1D58A0E91F50DE6900204782 /* AZInternetImageModel.h */,
+				1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */,
+			);
+			path = Internet;
+			sourceTree = "<group>";
+		};
 		1D5AEE4F1F44C7000035BC4F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +362,8 @@
 			children = (
 				1D5AEE621F44C7000035BC4F /* AZImageModel.h */,
 				1D5AEE631F44C7000035BC4F /* AZImageModel.m */,
+				1D58A0E51F50DE2000204782 /* Internet */,
+				1D58A0E41F50DE2000204782 /* FileSystem */,
 			);
 			path = ImageModel;
 			sourceTree = "<group>";
@@ -709,6 +735,7 @@
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
 				1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */,
+				1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */,
 				1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
 				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
@@ -728,6 +755,7 @@
 				1D5AEE771F44C7000035BC4F /* AZModelDispatcher.m in Sources */,
 				1D5AEE781F44C7000035BC4F /* AZUserModel.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
+				1D58A0EB1F50DE6900204782 /* AZInternetImageModel.m in Sources */,
 				1D5B8A281F4CCA9400B77BA1 /* AZView.m in Sources */,
 				1D5AEE741F44C7000035BC4F /* AZArrayModel.m in Sources */,
 				1D5AEE7B1F44C7760035BC4F /* AZUsersModel.m in Sources */,

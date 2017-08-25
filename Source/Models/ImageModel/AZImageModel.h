@@ -10,10 +10,20 @@
 
 #import "AZModel.h"
 
+@class AZFileSystemImageModel;
+@class AZInternetImageModel;
+
 @interface AZImageModel : AZModel 
 @property (nonatomic, readonly) UIImage     *image;
-@property (nonatomic, readonly) NSURL       *url;
+@property (nonatomic, strong) NSURL       *url;
+
++ (instancetype)imageWithURL:(NSURL *)url;
 
 - (instancetype)initWithURL:(NSURL *)url;
+
+- (NSString *)pathToImages;
+
+//Method for children purposes. Do not call this method directly
+- (UIImage *)loadImage;
 
 @end

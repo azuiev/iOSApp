@@ -45,7 +45,7 @@ static NSString *AZPlistName = @"users.plist";
 
 - (void)performLoading {
     NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:[self plistName]];
-    
+
     if (!array) {
         array = [NSArray objectsWithCount:10 block:^ {
             return [AZUserModel new];
