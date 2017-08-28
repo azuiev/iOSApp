@@ -21,6 +21,7 @@
 
 - (void)dealloc {
     self.contentImageView = nil;
+    self.model = nil;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -52,8 +53,6 @@
 
 - (void)setModel:(AZImageModel *)model {
     if (_model != model) {
-        [_model setState:AZModelDidUnload];
-        
         [_model removeObserver:self];
         
         _model = model;
@@ -69,8 +68,6 @@
         [_contentImageView removeFromSuperview];
         _contentImageView = contentImageView;
         
-        //_contentImageView.contentMode = UIViewContentModeTopLeft;
-        
         [self addSubview:contentImageView];
     }
 }
@@ -79,15 +76,13 @@
 #pragma mark Loading Model Observer
 
 - (void)modelDidUnload:(AZImageModel *)imageModel {
-    [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.loadingView setVisible:YES];
-        
-        self.contentImageView.image = nil;
-    }];
+
 }
 
 - (void)modelWillLoad:(AZImageModel *)imageModel {
-    
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.loadingView setVisible:YES];
+    }];
 }
 
 - (void)modelDidLoad:(AZImageModel *)imageModel {

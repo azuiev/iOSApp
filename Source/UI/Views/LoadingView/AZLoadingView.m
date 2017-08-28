@@ -9,8 +9,17 @@
 #import "AZLoadingView.h"
 #import "AZImageModel.h"
 
+#import "AZMacros.h"
+
+double AZMinAlpha = 0.0;
+double AZMaxAlpha = 1.0;
+double AZMinAnimationDuration = 0.0;
+double AZMaxAnimationDuration = 1.5;
+
+
 @interface AZLoadingView ()
-@property (nonatomic, assign) BOOL visible;
+
+- (void)addToSuperview:(UIView *)superview;
 
 @end
 
@@ -23,12 +32,11 @@
     return [[self alloc] initWithSuperview:view];
 }
 
-- (instancetype)initWithSuperview:(UIView *)view {
-    self = [super initWithFrame:view.bounds];
+- (instancetype)initWithSuperview:(UIView *)superview {
     if (self) {
-        self.visible = YES;
+        self.frame = superview.bounds;
         
-        [self addAsSubview:view];
+        [self addToSuperview:superview];
     }
     
     return self;
@@ -37,44 +45,45 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addAsSubview:(UIView *)view {
-    self.frame = view.bounds;
-    [view addSubview:self];
-}
-
 - (void)setVisible:(BOOL)visible {
-    [self setVisible:visible anymated:YES withCompletionHandler:nil];
+    [self setVisible:visible animated:YES withCompletionHandler:nil];
 }
 
-- (void)setVisible:(BOOL)visible anymated:(BOOL)anymated {
-     [self setVisible:visible anymated:anymated withCompletionHandler:nil];
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated {
+     [self setVisible:visible animated:animated withCompletionHandler:nil];
 }
 
 - (void)    setVisible:(BOOL)visible
-              anymated:(BOOL)anymated
+              animated:(BOOL)animated
  withCompletionHandler:(void(^)(BOOL))completionHandler
 {
     if (_visible != visible) {
-        _visible = visible;
-    }
     
-    void(^anymationBlock)() = nil;
-    if (visible) {
-        anymationBlock=^ {
-            [self.activityIndicator startAnimating];
-            self.alpha = 0.0;
-            self.alpha = 1.0;
-        };
-    } else {
-        anymationBlock=^ {
-            self.alpha = 1.0;
-            self.alpha = 0.0;
-        };
+    AZWeakify(self);
+    [UIView animateWithDuration:animated ? AZMaxAnimationDuration : AZMinAnimationDuration
+                     animations:^ {
+                         AZStrongify(self);
+                         [self.activityIndicator startAnimating];
+                         
+                         //self.alpha = visible ? AZMinAlpha : AZMaxAlpha;
+                         self.alpha = visible ? AZMaxAlpha : AZMinAlpha;
+
+                     }
+                     completion:^(BOOL complete) {
+                          _visible = visible;
+                         
+                         if (completionHandler) {
+                             completionHandler(complete);
+                         }
+                     }];
     }
-    
-    [UIView animateWithDuration:anymated ? 1.0 : 0.0
-                     animations:anymationBlock
-                     completion:completionHandler];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)addToSuperview:(UIView *)superview {
+    [superview addSubview:self];
 }
 
 @end

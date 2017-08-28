@@ -14,7 +14,7 @@
 @class AZInternetImageModel;
 
 @interface AZImageModel : AZModel 
-@property (nonatomic, readonly) UIImage     *image;
+@property (nonatomic, strong) UIImage     *image;
 @property (nonatomic, strong) NSURL       *url;
 
 + (instancetype)imageWithURL:(NSURL *)url;

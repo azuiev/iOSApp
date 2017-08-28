@@ -28,7 +28,7 @@
     //AZSquareViewController *controller = [AZSquareViewController new];
     AZUsersModel *users = [AZUsersModel new];
     
-    [controller setUsers:users];
+    controller.users = users;
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];

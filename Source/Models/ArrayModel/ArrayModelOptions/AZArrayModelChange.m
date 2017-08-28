@@ -60,13 +60,9 @@
                  withAnimation:(UITableViewRowAnimation)animation
                      inSection:(NSUInteger)section
 {
-    [tableView beginUpdates];
-    
     [self changeTableView:tableView
             withAnimation:animation
                 inSection:section];
- 
-    [tableView endUpdates];
 }
 
 - (void)changeTableView:(UITableView *)tableView

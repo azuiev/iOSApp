@@ -129,7 +129,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
     [AZGCD dispatchAsyncOnMainQueue: ^ {
         [self.mainView.loadingView setVisible:NO];
         
-        [self.mainView.tableView reloadData];
+        //[self.mainView.tableView reloadData];
     }];
 }
 

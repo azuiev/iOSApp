@@ -13,8 +13,6 @@
 #import "AZGCD.h"
 #import "AZMacros.h"
 
-double AZDefaultLoadingDelay = 1.0;
-
 @implementation AZModel
 
 #pragma mark -

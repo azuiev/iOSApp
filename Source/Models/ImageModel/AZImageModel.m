@@ -17,10 +17,9 @@
 
 static NSString     *kImageURL          = @"kImageURL";
 static NSString     *AZImageDirectory   = @"Images";
-static double       AZLoadImageDelay    = 1.0;
+static double       AZLoadImageDelay    = 1.5;
 
 @interface AZImageModel ()
-@property (nonatomic, strong) UIImage   *image;
 
 - (NSString *)pathToImages;
 - (NSString *)nameOfCashedFile;
