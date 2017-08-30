@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UIImage     *image;
 @property (nonatomic, strong) NSURL       *url;
 
-+ (instancetype)imageWithURL:(NSURL *)url;
++ (instancetype)imageModelWithURL:(NSURL *)url;
 
 - (instancetype)initWithURL:(NSURL *)url;
 

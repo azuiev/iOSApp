@@ -10,6 +10,10 @@
 
 @interface AZFileSystemImageModel : AZImageModel
 
-+ (instancetype)imageWithURL:(NSURL *)url;
++ (instancetype)imageModelWithURL:(NSURL *)url;
+
+- (NSString *)nameInFileSystem;
+
+- (instancetype)initWithURL:(NSURL *)url;
 
 @end

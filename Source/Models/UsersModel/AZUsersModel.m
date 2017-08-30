@@ -26,15 +26,7 @@ static NSString *AZPlistName = @"users.plist";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:@"AZSaveNotification"
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(load)
-                                                     name:@"AZLoadNotification"
-                                                   object:nil];
+        [self subscribeToNotification];
     }
     
     return self;
@@ -72,4 +64,28 @@ static NSString *AZPlistName = @"users.plist";
     return result;
 }
 
+- (void)subscribeToNotification {
+    NSArray *notifications = [self notificationList];
+    
+    for (NSString *notification in notifications) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:notification
+                                                   object:nil];
+    }
+}
+
+- (void)unsubscribeToNotification {
+    NSArray *notifications = [self notificationList];
+    
+    for (NSString *notification in notifications) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:notification
+                                                      object:nil];
+    }
+}
+
+- (NSArray *)notificationList {
+    return @[@"UIApplicationDidEnterBackgroundNotification", @"UIApplicationWillTerminateNotification"];
+}
 @end

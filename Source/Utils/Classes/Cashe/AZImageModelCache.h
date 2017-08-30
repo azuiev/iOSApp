@@ -14,10 +14,9 @@
 
 + (instancetype)sharedCache;
 
-- (void)addImageModel:(AZImageModel *)object withURL:(NSURL *)url;
-- (void)removeObjectWithURL:(NSURL *)url;
+- (void)setObject:(AZImageModel *)object forKey:(NSURL *)key;
+- (void)removeObjectForKey:(NSURL *)key;
 
-- (BOOL)isCached:(NSURL *)url;
-- (id)objectWithURL:(NSURL *)url;
+- (id)objectForKey:(NSURL *)key;
 
 @end

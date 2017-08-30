@@ -27,8 +27,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) UITableViewCellEditingStyle       editingStyle;
 
-- (NSString *)plistName;
-
 @end
 
 @implementation AZUsersViewController

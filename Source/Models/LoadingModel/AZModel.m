@@ -66,7 +66,7 @@
             return @selector(modelDidFailLoad:);
             
         default:
-            return nil;
+            return [super selectorForState:state];
     }
 }
 

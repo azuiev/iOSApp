@@ -10,4 +10,28 @@
 
 @implementation AZFileSystemImageModel
 
+- (UIImage *)loadImage {
+    NSString *cacheFileName = [self nameInFileSystem];
+    
+    if ([NSFileManager.defaultManager fileExistsAtPath:cacheFileName]) {
+        UIImage *image = [UIImage imageNamed:cacheFileName];
+        
+        if (!image) {
+            NSError *error = nil;
+            [NSFileManager.defaultManager removeItemAtPath:cacheFileName error:&error];
+        }
+        
+        return image;
+    }
+    
+    return nil;
+}
+
+- (NSString *)nameInFileSystem {
+    //TODO categorie 
+    NSString *name = [self.url.path stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    
+    return [[self pathToImages] stringByAppendingPathComponent:name];
+}
+
 @end

@@ -33,39 +33,34 @@ static double       AZLoadImageDelay    = 1.5;
 #pragma mark Class methods
 
 + (instancetype)imageWithURL:(NSURL *)url {
-    if ([url isFileURL]) {
-        return [AZFileSystemImageModel imageWithURL:url];
-    } else {
-        return [AZInternetImageModel imageWithURL:url];
+    AZImageModelCache *cache = [AZImageModelCache sharedCache];
+    AZImageModel *model = [cache objectForKey:url];
+    
+    if (model) {
+        return model;
     }
     
-    return nil;
+    Class cls = [url isFileURL] ? [AZFileSystemImageModel class] : [AZInternetImageModel class];
+    model = [cls imageModelWithURL:url];
+    
+    [cache setObject:model forKey:url];
+    
+    return model;
 }
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
 - (void)dealloc {
-    [[AZImageModelCache sharedCache] removeObjectWithURL:self.url];
-    
     self.image = nil;
     self.url = nil;
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
-    AZImageModelCache *cache = [AZImageModelCache sharedCache];
-    AZImageModel *model = [cache objectWithURL:url];
-    
-    if (model) {
-        return model;
-    }
-    
     self = [super init];
     if (self) {
         self.url = url;
     }
-    
-    [cache addImageModel:self withURL:url];
     
     return self;
 }

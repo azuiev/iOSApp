@@ -22,7 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initLoadingView];
+        [self addLoadingView];
     }
     
     return self;
@@ -31,13 +31,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self initLoadingView];
+    [self addLoadingView];
 }
 
-- (void)initLoadingView {
+- (void)addLoadingView {
     if (!self.loadingView) {
         AZLoadingView *view = [UINib objectWithClass:[AZLoadingView class]];
-        self.loadingView = [view initWithSuperview:self];
+        [view addToSuperview:self];
+        self.loadingView = view;
     }
 }
 

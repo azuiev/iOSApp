@@ -45,12 +45,12 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AZSaveNotification" object:self];
+   
     
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AZLoadNotification" object:self];
+   
 }
 
 
@@ -59,7 +59,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"AZSaveNotification" object:self];
+
 }
 
 @end

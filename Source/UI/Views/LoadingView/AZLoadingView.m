@@ -34,8 +34,6 @@ double AZMaxAnimationDuration = 1.5;
 
 - (instancetype)initWithSuperview:(UIView *)superview {
     if (self) {
-        self.frame = superview.bounds;
-        
         [self addToSuperview:superview];
     }
     
@@ -44,6 +42,12 @@ double AZMaxAnimationDuration = 1.5;
 
 #pragma mark -
 #pragma mark Public Methods
+
+- (void)addToSuperview:(UIView *)superview {
+    self.frame = superview.bounds;
+    
+    [superview addSubview:self];
+}
 
 - (void)setVisible:(BOOL)visible {
     [self setVisible:visible animated:YES withCompletionHandler:nil];
@@ -65,7 +69,6 @@ double AZMaxAnimationDuration = 1.5;
                          AZStrongify(self);
                          [self.activityIndicator startAnimating];
                          
-                         //self.alpha = visible ? AZMinAlpha : AZMaxAlpha;
                          self.alpha = visible ? AZMaxAlpha : AZMinAlpha;
 
                      }
@@ -82,8 +85,6 @@ double AZMaxAnimationDuration = 1.5;
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)addToSuperview:(UIView *)superview {
-    [superview addSubview:self];
-}
+
 
 @end
