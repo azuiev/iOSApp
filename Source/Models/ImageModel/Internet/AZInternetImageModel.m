@@ -10,6 +10,7 @@
 
 @interface AZInternetImageModel ()
 @property (nonatomic, strong) NSString  *cacheName;
+@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
 
 @end
 
@@ -23,7 +24,7 @@
 }
 
 #pragma mark -
-#pragma mark Private methods 
+#pragma mark Public methods
 
 - (UIImage *)loadImage {
     UIImage *image = [super loadImage];
@@ -32,16 +33,14 @@
         return image;
     }
     
-    return [self imageFromInternet];
+    return [self performLoadingWithBlock:^(NSData *data, NSURLResponse *response, NSError *error)
+            {
+                [self createCacheFile:data];
+            }];
 }
 
-- (UIImage *)imageFromInternet {
-    NSData *imageData = [NSData dataWithContentsOfURL:self.url];
-    
-    [self createCacheFile:imageData];
-    
-    return [UIImage imageWithData:imageData];
-}
+#pragma mark -
+#pragma mark Private methods
 
 - (void)createCacheFile:(NSData *)imageData {
     NSString *path = [self pathToImages];

@@ -20,6 +20,7 @@ static NSString     *AZImageDirectory   = @"Images";
 static double       AZLoadImageDelay    = 1.5;
 
 @interface AZImageModel ()
+@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
 
 - (NSString *)pathToImages;
 - (NSString *)nameOfCashedFile;
@@ -32,7 +33,7 @@ static double       AZLoadImageDelay    = 1.5;
 #pragma mark -
 #pragma mark Class methods
 
-+ (instancetype)imageWithURL:(NSURL *)url {
++ (instancetype)imageModelWithURL:(NSURL *)url {
     AZImageModelCache *cache = [AZImageModelCache sharedCache];
     AZImageModel *model = [cache objectForKey:url];
     
@@ -74,6 +75,38 @@ static double       AZLoadImageDelay    = 1.5;
     return [[paths firstObject] stringByAppendingPathComponent:AZImageDirectory];
 }
 
+- (UIImage *)performLoadingWithBlock:(void(^)(NSData *data, NSURLResponse *response, NSError *error))block {
+    NSURLSession *session = [NSURLSession sharedSession];
+    __block UIImage *image = nil;
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:self.url
+                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                     {
+                         if (block) {
+                             block(data, response, error);
+                         }
+                         
+                         image = [UIImage imageWithData:data];
+                     }];
+    self.dataTask = dataTask;
+    
+    [dataTask resume];
+
+    return image;
+}
+
+- (void)cancel {
+    NSURLSessionDataTask *dataTask = self.dataTask;
+    switch (dataTask.state) {
+        case NSURLSessionTaskStateRunning || NSURLSessionTaskStateSuspended:
+            [dataTask cancel];
+            break;
+        
+        default:
+            self.image = nil;
+            break;
+    }
+}
+
 #pragma mark -
 #pragma mark LoadingModel
 
@@ -82,7 +115,7 @@ static double       AZLoadImageDelay    = 1.5;
         UIImage *image = [self loadImage];
         self.image = image;
         
-        [AZGCD dispatchAsyncOnMainQueue: ^ {
+        [AZGCD dispatchAsyncOnMainQueue:^ {
             self.state = image ? AZModelDidLoad : AZModelDidFailLoad;
         }];
     }];

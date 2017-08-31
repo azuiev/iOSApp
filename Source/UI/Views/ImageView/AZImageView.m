@@ -1,4 +1,4 @@
-//
+	//
 //  AZImageView.m
 //  iOSApp
 //
@@ -56,11 +56,14 @@
         [_model removeObserver:self];
         
         _model = model;
-
-        [_model addObserver:self];
         
-        [model load];
+        [_model addObserver:self];
     }
+    
+    model.state = AZModelDidUnload;
+    
+    [model load];
+    
 }
 
 - (void)setContentImageView:(UIImageView *)contentImageView {

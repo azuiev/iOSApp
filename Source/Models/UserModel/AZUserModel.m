@@ -65,6 +65,14 @@ static NSArray  *urls    = nil;
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surName];
 }
 
+- (void)setImageModel:(AZImageModel *)imageModel {
+    if (_imageModel != imageModel) {
+        _imageModel = imageModel;
+        
+        [imageModel load];
+    }
+}
+
 #pragma mark -
 #pragma mark NSCoding
 

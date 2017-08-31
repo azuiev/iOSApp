@@ -19,7 +19,6 @@
     }
     
     [self fillWithModel:user];
-    
 }
 
 - (void)fillWithModel:(AZUserModel *)user {

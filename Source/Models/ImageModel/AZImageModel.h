@@ -23,7 +23,9 @@
 
 - (NSString *)pathToImages;
 
-//Method for children purposes. Do not call this method directly
+//Methods for children purposes. Do not call this methods directly
 - (UIImage *)loadImage;
+- (UIImage *)performLoadingWithBlock:(void(^)(NSData *data, NSURLResponse *response, NSError *error))block;
+- (void)cancel;
 
 @end

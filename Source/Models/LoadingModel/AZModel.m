@@ -21,7 +21,8 @@
 - (void)load {
     @synchronized (self) {
         NSUInteger state = self.state;
-        if (AZModelWillLoad == state || AZModelDidLoad == state) {
+        //if (AZModelWillLoad == state || AZModelDidLoad == state) {
+        if (AZModelDidLoad == state) {
             [self notifyOfState:state];
             
             return;

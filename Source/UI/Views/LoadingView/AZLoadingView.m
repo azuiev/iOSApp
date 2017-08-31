@@ -68,7 +68,7 @@ double AZMaxAnimationDuration = 1.5;
                      animations:^ {
                          AZStrongify(self);
                          [self.activityIndicator startAnimating];
-                         
+
                          self.alpha = visible ? AZMaxAlpha : AZMinAlpha;
 
                      }
@@ -84,7 +84,5 @@ double AZMaxAnimationDuration = 1.5;
 
 #pragma mark -
 #pragma mark Private Methods
-
-
 
 @end
