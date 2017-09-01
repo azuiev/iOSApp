@@ -8,8 +8,6 @@
 
 #import "AZModel.h"
 
-#import "AZModelDispatcher.h"
-
 #import "AZGCD.h"
 #import "AZMacros.h"
 

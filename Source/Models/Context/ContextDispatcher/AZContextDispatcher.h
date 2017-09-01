@@ -1,5 +1,5 @@
 //
-//  AZModelDispatcher.h
+//  AZContextDispatcher.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 17/07/2017.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AZModelDispatcher : NSObject
+@interface AZContextDispatcher : NSObject
 @property (nonatomic, readonly) NSOperationQueue    *queue;
 
 + (instancetype)sharedDispatcher;
