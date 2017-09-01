@@ -32,7 +32,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
-    self.userImageView.model.image = nil;
+    self.userImageView.contentImageView.image = nil;
 }
 
 @end

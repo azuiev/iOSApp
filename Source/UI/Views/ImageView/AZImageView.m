@@ -72,6 +72,7 @@
         _contentImageView = contentImageView;
         
         [self addSubview:contentImageView];
+        [self sendSubviewToBack:contentImageView];
     }
 }
 

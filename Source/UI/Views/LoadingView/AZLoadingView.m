@@ -61,7 +61,7 @@ double AZMaxAnimationDuration = 1.5;
               animated:(BOOL)animated
  withCompletionHandler:(void(^)(BOOL))completionHandler
 {
-    if (_visible != visible) {
+    //if (_visible != visible) {
     
     AZWeakify(self);
     [UIView animateWithDuration:animated ? AZMaxAnimationDuration : AZMinAnimationDuration
@@ -79,7 +79,7 @@ double AZMaxAnimationDuration = 1.5;
                              completionHandler(complete);
                          }
                      }];
-    }
+    //}
 }
 
 #pragma mark -
