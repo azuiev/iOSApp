@@ -13,18 +13,15 @@
 @interface AZLoadingView : UIView <AZModelObserver>
 @property (nonatomic, strong)   IBOutlet UIActivityIndicatorView   *activityIndicator;
 
-@property (nonatomic, readonly, getter=isVisible) BOOL    visible;
+@property (nonatomic, assign, getter=isVisible) BOOL    visible;
 
 + (instancetype)viewWithSuperview:(UIView *)superview;
 
-- (instancetype)initWithSuperview:(UIView *)superview;
+- (void)addToSuperview:(UIView *)superview;
 
-- (void)addAsSubview:(UIView *)view;
-
-- (void)setVisible:(BOOL)visible;
-- (void)setVisible:(BOOL)visible anymated:(BOOL)anymated;
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated;
 - (void)    setVisible:(BOOL)visible
-              anymated:(BOOL)anymated
+              animated:(BOOL)animated
  withCompletionHandler:(void(^)(BOOL))completionHandler;
 
 @end

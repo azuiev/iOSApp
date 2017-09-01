@@ -13,8 +13,6 @@
 #import "AZGCD.h"
 #import "AZMacros.h"
 
-double AZDefaultLoadingDelay = 1.0;
-
 @implementation AZModel
 
 #pragma mark -
@@ -23,7 +21,8 @@ double AZDefaultLoadingDelay = 1.0;
 - (void)load {
     @synchronized (self) {
         NSUInteger state = self.state;
-        if (AZModelWillLoad == state || AZModelDidLoad == state) {
+        //if (AZModelWillLoad == state || AZModelDidLoad == state) {
+        if (AZModelDidLoad == state) {
             [self notifyOfState:state];
             
             return;
@@ -68,7 +67,7 @@ double AZDefaultLoadingDelay = 1.0;
             return @selector(modelDidFailLoad:);
             
         default:
-            return nil;
+            return [super selectorForState:state];
     }
 }
 

@@ -27,8 +27,6 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 @interface AZUsersViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) UITableViewCellEditingStyle       editingStyle;
 
-- (NSString *)plistName;
-
 @end
 
 @implementation AZUsersViewController
@@ -129,7 +127,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
     [AZGCD dispatchAsyncOnMainQueue: ^ {
         [self.mainView.loadingView setVisible:NO];
         
-        [self.mainView.tableView reloadData];
+        //[self.mainView.tableView reloadData];
     }];
 }
 

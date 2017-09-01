@@ -22,7 +22,11 @@
 }
 
 - (void)applyChangesWithObject:(AZArrayModelChange *)object {
+    [self beginUpdates];
+    
     [object applyChangeToTableView:self];
+    
+    [self endUpdates];
 }
 
 @end

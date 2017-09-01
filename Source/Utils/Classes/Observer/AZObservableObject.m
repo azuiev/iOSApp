@@ -27,6 +27,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.notify = NO;
         self.mutableObservers = [NSMutableSet set];
     }
     
@@ -91,8 +92,26 @@
     return [self.mutableObservers containsObject:[AZAssignReference referenceWithTarger:object]];
 }
 
+- (void)performBlockWithNotification:(void(^)())block {
+    [self performBlock:block notification:YES];
+}
+
+- (void)performBlockWithoutNotification:(void(^)())block {
+    [self performBlock:block notification:NO];
+}
+
 #pragma mark -
-#pragma mark Private
+#pragma mark Private Methods
+
+- (void)performBlock:(void(^)())block notification:(BOOL)notify {
+    if (block) {
+        BOOL currentValue = self.notify;
+        self.notify = notify;
+        
+        block();
+        self.notify = currentValue;
+    }
+}
 
 - (SEL)selectorForState:(NSUInteger)state {
     return NULL;
@@ -106,13 +125,7 @@
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
 - (void)notifyOfStateWithSelector:(SEL)selector {
-    NSMutableSet *observers = self.mutableObservers;
-    for (AZAssignReference *reference in observers) {
-        id target = reference.target;
-        if ([target respondsToSelector:selector]) {
-            [target performSelector:selector withObject:self];
-        }
-    }
+    [self notifyOfStateWithSelector:selector withObject:nil];
 }
 
 - (void)notifyOfStateWithSelector:(SEL)selector withObject:(id)object {

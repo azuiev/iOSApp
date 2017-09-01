@@ -39,7 +39,7 @@ static NSArray  *urls    = nil;
         
         self.name = [NSString randomName];
         self.surName = [NSString randomName];
-        self.imageModel = [AZImageModel imageWithURL:[NSURL URLWithString:urlName]];
+        self.imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
     }
     
     return self;
@@ -57,11 +57,20 @@ static NSArray  *urls    = nil;
                  @"https://i.ytimg.com/vi/8_C0E1ml5-o/hqdefault.jpg"];
     }
 }
+
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surName];
+}
+
+- (void)setImageModel:(AZImageModel *)imageModel {
+    if (_imageModel != imageModel) {
+        _imageModel = imageModel;
+        
+        [imageModel load];
+    }
 }
 
 #pragma mark -

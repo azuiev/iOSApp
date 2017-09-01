@@ -14,16 +14,18 @@
 @class AZInternetImageModel;
 
 @interface AZImageModel : AZModel 
-@property (nonatomic, readonly) UIImage     *image;
+@property (nonatomic, strong) UIImage     *image;
 @property (nonatomic, strong) NSURL       *url;
 
-+ (instancetype)imageWithURL:(NSURL *)url;
++ (instancetype)imageModelWithURL:(NSURL *)url;
 
 - (instancetype)initWithURL:(NSURL *)url;
 
 - (NSString *)pathToImages;
 
-//Method for children purposes. Do not call this method directly
+//Methods for children purposes. Do not call this methods directly
 - (UIImage *)loadImage;
+- (UIImage *)performLoadingWithBlock:(void(^)(NSData *data, NSURLResponse *response, NSError *error))block;
+- (void)cancel;
 
 @end

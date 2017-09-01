@@ -19,7 +19,6 @@
     }
     
     [self fillWithModel:user];
-    
 }
 
 - (void)fillWithModel:(AZUserModel *)user {
@@ -33,7 +32,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
-    self.userImageView.model = nil;
+    self.userImageView.contentImageView.image = nil;
 }
 
 @end

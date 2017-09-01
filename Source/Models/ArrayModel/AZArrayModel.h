@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 @property (nonatomic, readonly) NSUInteger  count;
 @property (nonatomic, readonly) NSArray     *array;
 
-+ (instancetype)modelWithObjects:(NSArray *)objects;
++ (instancetype)arrayModelWithArray:(NSArray *)array;
 
 - (instancetype)initWithArray:(NSArray *)array;
 

@@ -46,24 +46,20 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addImageModel:(AZImageModel *)imageModel withURL:(NSURL *)url {
+- (void)setObject:(AZImageModel *)object forKey:(NSURL *)key {
     @synchronized (self) {
-        [self.cache setObject:imageModel forKey:url];
+        [self.cache setObject:object forKey:key];
     }
 }
 
-- (void)removeObjectWithURL:(NSURL *)url {
+- (void)removeObjectForKey:(NSURL *)key {
     @synchronized (self) {
-        [self.cache removeObjectForKey:url];
+        [self.cache removeObjectForKey:key];
     }
 }
 
-- (BOOL)isCached:(NSURL *)url {
-    return [self objectWithURL:url] ? YES : NO;
-}
-
-- (id)objectWithURL:(NSURL *)url {
-    return [self.cache objectForKey:url];
+- (id)objectForKey:(NSURL *)key {
+    return [self.cache objectForKey:key];
 }
 
 @end

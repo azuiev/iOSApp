@@ -6,10 +6,10 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZImageModel.h"
+#import "AZFileSystemImageModel.h"
 
-@interface AZInternetImageModel : AZImageModel
+@interface AZInternetImageModel : AZFileSystemImageModel
 
-+ (instancetype)imageWithURL:(NSURL *)url;
++ (instancetype)imageModelWithURL:(NSURL *)url;
 
 @end

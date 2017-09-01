@@ -362,8 +362,8 @@
 			children = (
 				1D5AEE621F44C7000035BC4F /* AZImageModel.h */,
 				1D5AEE631F44C7000035BC4F /* AZImageModel.m */,
-				1D58A0E51F50DE2000204782 /* Internet */,
 				1D58A0E41F50DE2000204782 /* FileSystem */,
+				1D58A0E51F50DE2000204782 /* Internet */,
 			);
 			path = ImageModel;
 			sourceTree = "<group>";
