@@ -17,6 +17,7 @@
 @end
 
 @implementation AZArrayModel
+
 @dynamic count;
 @dynamic array;
 
@@ -66,7 +67,6 @@
 #pragma mark -
 #pragma mark Public Methods
 
-// object
 - (void)addObject:(NSObject *)object {
     [self insertObject:object atIndex:self.count];
 }
@@ -75,7 +75,6 @@
     [self removeObjectAtIndex:[self.array indexOfObject:object]];
 }
 
-// objects
 - (void)addObjects:(NSArray *)objects {
     for (id object in objects) {
         [self addObject:object];
@@ -88,7 +87,6 @@
     }
 }
 
-// object with index
 - (id)objectAtIndex:(NSUInteger)index {
     return self.count > index ? [self.mutableArray objectAtIndex:index] : nil;
 }
@@ -107,10 +105,8 @@
     @synchronized (self) {
         if (sourceIndex != destinationIndex) {
             [self.mutableArray moveRowAtIndex:sourceIndex toIndex:destinationIndex];
-            
-            [self notifyWithObject:[AZArrayModelChange
-                                    arrayModelMoveChangeFromIndex:sourceIndex
-                                    toIndex:destinationIndex]];
+            [self notifyWithObject:[AZArrayModelChange arrayModelMoveChangeFromIndex:sourceIndex
+                                                                             toIndex:destinationIndex]];
         }
     }
 }
@@ -137,9 +133,7 @@
 }
 
 - (void)notifyWithObject:(AZArrayModelChange *)arrayModelChange {
-    if (self.notify) {
-        [self setState:AZArrayModelChanged withObject:arrayModelChange];
-    }
+    [self setState:AZArrayModelChanged withObject:arrayModelChange];
 }
 
 #pragma mark -

@@ -50,27 +50,24 @@ double AZMaxAnimationDuration = 1.5;
 }
 
 - (void)setVisible:(BOOL)visible {
-    [self setVisible:visible animated:YES withCompletionHandler:nil];
+    [self setVisible:visible animated:YES completionHandler:nil];
 }
 
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated {
-     [self setVisible:visible animated:animated withCompletionHandler:nil];
+     [self setVisible:visible animated:animated completionHandler:nil];
 }
 
 - (void)    setVisible:(BOOL)visible
               animated:(BOOL)animated
- withCompletionHandler:(void(^)(BOOL))completionHandler
+     completionHandler:(void(^)(BOOL))completionHandler
 {
-    //if (_visible != visible) {
+    [self.activityIndicator startAnimating];
     
     AZWeakify(self);
     [UIView animateWithDuration:animated ? AZMaxAnimationDuration : AZMinAnimationDuration
                      animations:^ {
                          AZStrongify(self);
-                         [self.activityIndicator startAnimating];
-
                          self.alpha = visible ? AZMaxAlpha : AZMinAlpha;
-
                      }
                      completion:^(BOOL complete) {
                           _visible = visible;
@@ -79,7 +76,6 @@ double AZMaxAnimationDuration = 1.5;
                              completionHandler(complete);
                          }
                      }];
-    //}
 }
 
 #pragma mark -

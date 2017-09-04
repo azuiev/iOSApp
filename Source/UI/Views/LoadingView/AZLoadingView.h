@@ -22,6 +22,6 @@
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated;
 - (void)    setVisible:(BOOL)visible
               animated:(BOOL)animated
- withCompletionHandler:(void(^)(BOOL))completionHandler;
+     completionHandler:(void(^)(BOOL))completionHandler;
 
 @end

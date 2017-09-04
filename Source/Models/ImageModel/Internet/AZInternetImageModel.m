@@ -10,7 +10,7 @@
 
 @interface AZInternetImageModel ()
 @property (nonatomic, strong) NSString  *cacheName;
-@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
 @end
 
@@ -33,16 +33,54 @@
         return image;
     }
     
-    return [self performLoadingWithBlock:^(NSData *data, NSURLResponse *response, NSError *error)
-            {
-                [self createCacheFile:data];
-            }];
+    return [self performLoadingWithBlock:nil];
+}
+
+- (void)cancel {
+    NSURLSessionDownloadTask *downloadTask = self.downloadTask;
+    switch (downloadTask.state) {
+        case NSURLSessionTaskStateRunning || NSURLSessionTaskStateSuspended:
+            [downloadTask cancel];
+            break;
+            
+        default:
+            self.image = nil;
+            break;
+    }
 }
 
 #pragma mark -
 #pragma mark Private methods
 
-- (void)createCacheFile:(NSData *)imageData {
+- (UIImage *)performLoadingWithBlock:(void(^)(NSURL *location, NSURLResponse *response, NSError *error))block {
+    NSURLSession *session = [NSURLSession sharedSession];
+    __block UIImage *image = nil;
+    NSURLSessionDownloadTask *task = self.downloadTask;
+    if (!task) {
+        task = [session downloadTaskWithURL:self.url
+                          completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
+                {
+                    [self saveTemporaryFile:location];
+                    if (block) {
+                        block(location, response, error);
+                    }
+                    
+                    image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
+                }];
+    }
+    
+    if (task.state == NSURLSessionTaskStateSuspended) {
+        [task resume];
+    }
+    
+    return image;
+}
+
+- (void)saveTemporaryFile:(NSURL *)location {
+    if (!location) {
+        return;
+    }
+    
     NSString *path = [self pathToImages];
     NSFileManager *manager = NSFileManager.defaultManager;
     NSError *error = nil;
@@ -55,13 +93,18 @@
     }
     
     if (!error) {
-        NSString *name = [self nameInFileSystem];
-        NSLog(@"%@", name);
-        BOOL saved = [imageData writeToFile:name atomically:YES];
+        NSURL *url = [self fileSystemURL];
+        BOOL saved = [manager copyItemAtURL:location toURL:url error:&error];
         if (!saved) {
             NSLog(@"Unable to save image to filesystem");
+        } else {
+            NSLog(@"saved !!!");
         }
     }
+}
+
+- (NSURL *)fileSystemURL {
+    return [NSURL fileURLWithPath:[self nameInFileSystem]];
 }
 
 @end

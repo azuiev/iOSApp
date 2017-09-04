@@ -28,7 +28,7 @@
 }
 
 - (NSString *)nameInFileSystem {
-    //TODO categorie 
+    //TODO categorie
     NSString *name = [self.url.path stringByReplacingOccurrencesOfString:@"/" withString:@""];
     
     return [[self pathToImages] stringByAppendingPathComponent:name];

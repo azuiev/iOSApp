@@ -60,7 +60,9 @@
         _state = state;
     }
     
-    [self notifyOfStateWithSelector:[self selectorForState:state] withObject:(id)object];
+    if (self.notify) {
+        [self notifyOfStateWithSelector:[self selectorForState:state] withObject:(id)object];
+    }
 }
 
 #pragma mark -

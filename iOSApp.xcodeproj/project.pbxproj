@@ -319,7 +319,7 @@
 				1D6ACB611F59F490004C5167 /* Context */,
 				1D5AEE501F44C7000035BC4F /* ArrayModel */,
 				1D5AEE611F44C7000035BC4F /* ImageModel */,
-				1D5AEE641F44C7000035BC4F /* LoadingModel */,
+				1D5AEE641F44C7000035BC4F /* Model */,
 				1D5AEE6A1F44C7000035BC4F /* UserModel */,
 				1D5AEE6D1F44C7000035BC4F /* UsersModel */,
 			);
@@ -372,12 +372,13 @@
 			path = ImageModel;
 			sourceTree = "<group>";
 		};
-		1D5AEE641F44C7000035BC4F /* LoadingModel */ = {
+		1D5AEE641F44C7000035BC4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1D5AEE651F44C7000035BC4F /* AZModel.h */,
 				1D5AEE661F44C7000035BC4F /* AZModel.m */,
 			);
+			name = Model;
 			path = LoadingModel;
 			sourceTree = "<group>";
 		};
