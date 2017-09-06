@@ -37,6 +37,7 @@ static double       AZLoadImageDelay    = 1.5;
     AZImageModel *model = [cache objectForKey:url];
     
     if (model) {
+        //model.state = AZModelDidUnload;
         return model;
     }
     

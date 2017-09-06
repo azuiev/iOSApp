@@ -17,8 +17,6 @@
 
 + (instancetype)viewWithSuperview:(UIView *)superview;
 
-- (void)addToSuperview:(UIView *)superview;
-
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated;
 - (void)    setVisible:(BOOL)visible
               animated:(BOOL)animated

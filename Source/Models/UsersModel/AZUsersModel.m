@@ -7,10 +7,11 @@
 //
 
 #import "AZUsersModel.h"
-
 #import "AZUserModel.h"
+#import "AZMacros.h"
 
 #import "NSArray+AZExtension.h"
+
 
 static NSString *AZPlistName = @"users.plist";
 
@@ -20,7 +21,7 @@ static NSString *AZPlistName = @"users.plist";
 #pragma mark Initialization and deallocation
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self unsubscribeToNotification];
 }
 
 - (instancetype)init {
@@ -67,11 +68,16 @@ static NSString *AZPlistName = @"users.plist";
 - (void)subscribeToNotification {
     NSArray *notifications = [self notificationList];
     
+    AZWeakify(self);
     for (NSString *notification in notifications) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(save)
-                                                     name:notification
-                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserverForName:notification
+                                                          object:nil
+                                                           queue:nil
+                                                      usingBlock:^(NSNotification *note) {
+                                                          AZStrongify(self);
+                                                          NSLog(@"Received the notification!");
+                                                          [self save];
+                                                      }];
     }
 }
 
@@ -88,4 +94,5 @@ static NSString *AZPlistName = @"users.plist";
 - (NSArray *)notificationList {
     return @[@"UIApplicationDidEnterBackgroundNotification", @"UIApplicationWillTerminateNotification"];
 }
+
 @end

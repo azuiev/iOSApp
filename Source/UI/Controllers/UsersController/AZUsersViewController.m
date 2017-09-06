@@ -124,7 +124,7 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 #pragma mark AZModelObserver
 
 - (void)modelDidLoad:(AZModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue: ^ {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:NO];
         
         //[self.mainView.tableView reloadData];
@@ -132,13 +132,13 @@ AZBaseViewControllerWithProperty(AZUsersViewController, mainView, AZUsersView);
 }
 
 - (void)modelWillLoad:(AZModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue: ^ {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:YES];
     }];
 }
 
 - (void)modelDidUnload:(AZModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue: ^ {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:NO];
     }];
 }

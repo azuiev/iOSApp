@@ -37,7 +37,10 @@
 - (void)addLoadingView {
     if (!self.loadingView) {
         AZLoadingView *view = [UINib objectWithClass:[AZLoadingView class]];
-        [view addToSuperview:self];
+        view.frame = self.bounds;
+        
+        [self addSubview:view];
+        
         self.loadingView = view;
     }
 }

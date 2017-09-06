@@ -61,9 +61,7 @@
     }
     
     model.state = AZModelDidUnload;
-    
     [model load];
-    
 }
 
 - (void)setContentImageView:(UIImageView *)contentImageView {
@@ -72,7 +70,7 @@
         _contentImageView = contentImageView;
         
         [self addSubview:contentImageView];
-        [self sendSubviewToBack:contentImageView];
+        [self bringSubviewToFront:self.loadingView];
     }
 }
 

@@ -16,13 +16,6 @@ double AZMaxAlpha = 1.0;
 double AZMinAnimationDuration = 0.0;
 double AZMaxAnimationDuration = 1.5;
 
-
-@interface AZLoadingView ()
-
-- (void)addToSuperview:(UIView *)superview;
-
-@end
-
 @implementation AZLoadingView
 
 #pragma mark -
@@ -34,7 +27,8 @@ double AZMaxAnimationDuration = 1.5;
 
 - (instancetype)initWithSuperview:(UIView *)superview {
     if (self) {
-        [self addToSuperview:superview];
+        self.frame = superview.bounds;
+        [superview addSubview:self];
     }
     
     return self;
@@ -42,12 +36,6 @@ double AZMaxAnimationDuration = 1.5;
 
 #pragma mark -
 #pragma mark Public Methods
-
-- (void)addToSuperview:(UIView *)superview {
-    self.frame = superview.bounds;
-    
-    [superview addSubview:self];
-}
 
 - (void)setVisible:(BOOL)visible {
     [self setVisible:visible animated:YES completionHandler:nil];
