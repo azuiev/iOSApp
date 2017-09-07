@@ -10,10 +10,9 @@
 
 @interface AZContext : NSObject
 
++ (instancetype)contextWithModel:(NSObject *)model;
+
 - (void)execute;
 - (void)cancel;
-
-//method for children purposes. Do not call this method directly
-- (void)executeContext;
 
 @end

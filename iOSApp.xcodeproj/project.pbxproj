@@ -20,6 +20,12 @@
 		1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BD67E1F3124FA00641E23 /* UIWindow+AZExtension.m */; };
 		1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA3831F2B971800DA241D /* AZGCD.m */; };
 		1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FA38D1F2B9C4500DA241D /* AZImageView.m */; };
+		1D46F2241F61AA3100ABD230 /* AZFBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D46F2221F61AA3100ABD230 /* AZFBLoginViewController.m */; };
+		1D46F2251F61AA3100ABD230 /* AZFBLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D46F2231F61AA3100ABD230 /* AZFBLoginViewController.xib */; };
+		1D46F2271F61AE0000ABD230 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F2261F61AE0000ABD230 /* Bolts.framework */; };
+		1D46F2291F61AE0C00ABD230 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F2281F61AE0C00ABD230 /* FBSDKCoreKit.framework */; };
+		1D46F22B1F61AE1100ABD230 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F22A1F61AE1100ABD230 /* FBSDKLoginKit.framework */; };
+		1D46F22D1F61AE1700ABD230 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F22C1F61AE1700ABD230 /* FBSDKShareKit.framework */; };
 		1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */; };
 		1D58A0EB1F50DE6900204782 /* AZInternetImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */; };
 		1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */; };
@@ -41,7 +47,7 @@
 		1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */; };
 		1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */; };
 		1D6ACB641F59F4AD004C5167 /* AZContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6ACB631F59F4AD004C5167 /* AZContext.m */; };
-		1D6ACB681F59F762004C5167 /* AZContextDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6ACB671F59F762004C5167 /* AZContextDispatcher.m */; };
+		1D6ACB681F59F762004C5167 /* AZDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6ACB671F59F762004C5167 /* AZDispatcher.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
 		1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2191F21140A00305FB2 /* AZSquareView.m */; };
@@ -85,6 +91,13 @@
 		1D2FA3831F2B971800DA241D /* AZGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZGCD.m; sourceTree = "<group>"; };
 		1D2FA38C1F2B9C4500DA241D /* AZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageView.h; sourceTree = "<group>"; };
 		1D2FA38D1F2B9C4500DA241D /* AZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZImageView.m; sourceTree = "<group>"; };
+		1D46F2211F61AA3100ABD230 /* AZFBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBLoginViewController.h; sourceTree = "<group>"; };
+		1D46F2221F61AA3100ABD230 /* AZFBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBLoginViewController.m; sourceTree = "<group>"; };
+		1D46F2231F61AA3100ABD230 /* AZFBLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBLoginViewController.xib; sourceTree = "<group>"; };
+		1D46F2261F61AE0000ABD230 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		1D46F2281F61AE0C00ABD230 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1D46F22A1F61AE1100ABD230 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1D46F22C1F61AE1700ABD230 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		1D58A0E61F50DE4700204782 /* AZFileSystemImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFileSystemImageModel.h; sourceTree = "<group>"; };
 		1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFileSystemImageModel.m; sourceTree = "<group>"; };
 		1D58A0E91F50DE6900204782 /* AZInternetImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInternetImageModel.h; sourceTree = "<group>"; };
@@ -124,8 +137,8 @@
 		1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZLoadingView.m; sourceTree = "<group>"; };
 		1D6ACB621F59F4AD004C5167 /* AZContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZContext.h; sourceTree = "<group>"; };
 		1D6ACB631F59F4AD004C5167 /* AZContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZContext.m; sourceTree = "<group>"; };
-		1D6ACB661F59F762004C5167 /* AZContextDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZContextDispatcher.h; sourceTree = "<group>"; };
-		1D6ACB671F59F762004C5167 /* AZContextDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZContextDispatcher.m; sourceTree = "<group>"; };
+		1D6ACB661F59F762004C5167 /* AZDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZDispatcher.h; sourceTree = "<group>"; };
+		1D6ACB671F59F762004C5167 /* AZDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZDispatcher.m; sourceTree = "<group>"; };
 		1D70A08F1F325D7F00DBA6AD /* AZViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZViewConstants.h; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
 		1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRandomNumber.m; path = Utils/AZRandomNumber.m; sourceTree = "<group>"; };
@@ -161,6 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */,
+				1D46F2291F61AE0C00ABD230 /* FBSDKCoreKit.framework in Frameworks */,
+				1D46F22D1F61AE1700ABD230 /* FBSDKShareKit.framework in Frameworks */,
+				1D46F22B1F61AE1100ABD230 /* FBSDKLoginKit.framework in Frameworks */,
+				1D46F2271F61AE0000ABD230 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +301,17 @@
 			);
 			path = ImageView;
 			sourceTree = "<group>";
+		};
+		1D46F2201F61A9C800ABD230 /* FacebookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D46F2211F61AA3100ABD230 /* AZFBLoginViewController.h */,
+				1D46F2221F61AA3100ABD230 /* AZFBLoginViewController.m */,
+				1D46F2231F61AA3100ABD230 /* AZFBLoginViewController.xib */,
+			);
+			name = FacebookViewController;
+			path = Source/UI/Controllers/FacebookViewController;
+			sourceTree = SOURCE_ROOT;
 		};
 		1D583CEA1F100F07001B8732 /* Source */ = {
 			isa = PBXGroup;
@@ -475,18 +503,18 @@
 			children = (
 				1D6ACB621F59F4AD004C5167 /* AZContext.h */,
 				1D6ACB631F59F4AD004C5167 /* AZContext.m */,
-				1D6ACB651F59F762004C5167 /* ContextDispatcher */,
 			);
 			path = Context;
 			sourceTree = "<group>";
 		};
-		1D6ACB651F59F762004C5167 /* ContextDispatcher */ = {
+		1D6ACB651F59F762004C5167 /* Dispatcher */ = {
 			isa = PBXGroup;
 			children = (
-				1D6ACB661F59F762004C5167 /* AZContextDispatcher.h */,
-				1D6ACB671F59F762004C5167 /* AZContextDispatcher.m */,
+				1D6ACB661F59F762004C5167 /* AZDispatcher.h */,
+				1D6ACB671F59F762004C5167 /* AZDispatcher.m */,
 			);
-			path = ContextDispatcher;
+			name = Dispatcher;
+			path = ../../Models/Context/ContextDispatcher;
 			sourceTree = "<group>";
 		};
 		1D77AF491F1423EC0069E27F /* Utils */ = {
@@ -516,6 +544,7 @@
 		1D7BF2161F21140A00305FB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D46F2201F61A9C800ABD230 /* FacebookViewController */,
 				1D7BF2171F21140A00305FB2 /* SquareViewController */,
 				1D7BF21D1F21140A00305FB2 /* UsersViewController */,
 			);
@@ -574,6 +603,7 @@
 		1D96AC901F193BB900294A68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D6ACB651F59F762004C5167 /* Dispatcher */,
 				1D8B89BA1F47816D0079B3A5 /* ImageModelCache */,
 				1D2FA3811F2B971800DA241D /* GCD */,
 				1D1498471F1BD0B100906749 /* ReferenceWrapper */,
@@ -605,6 +635,10 @@
 		AD0B79ACAAC73831465A3A0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D46F22C1F61AE1700ABD230 /* FBSDKShareKit.framework */,
+				1D46F22A1F61AE1100ABD230 /* FBSDKLoginKit.framework */,
+				1D46F2281F61AE0C00ABD230 /* FBSDKCoreKit.framework */,
+				1D46F2261F61AE0000ABD230 /* Bolts.framework */,
 				83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */,
 			);
 			name = Frameworks;
@@ -674,6 +708,7 @@
 			files = (
 				1D7BF22A1F21140A00305FB2 /* AZSquareViewController.xib in Resources */,
 				1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */,
+				1D46F2251F61AA3100ABD230 /* AZFBLoginViewController.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
 				1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */,
 				1D7BF22C1F21140A00305FB2 /* AZUserCell.xib in Resources */,
@@ -747,7 +782,7 @@
 				1D8B89BD1F4781810079B3A5 /* AZImageModelCache.m in Sources */,
 				1D2BD6841F3124FA00641E23 /* UINib+AZExtension.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
-				1D6ACB681F59F762004C5167 /* AZContextDispatcher.m in Sources */,
+				1D6ACB681F59F762004C5167 /* AZDispatcher.m in Sources */,
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
 				1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */,
 				1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */,
@@ -777,6 +812,7 @@
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,
 				1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */,
 				1D7BF2291F21140A00305FB2 /* AZSquareViewController.m in Sources */,
+				1D46F2241F61AA3100ABD230 /* AZFBLoginViewController.m in Sources */,
 				1D2BD6831F3124FA00641E23 /* NSString+AZRandomString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -896,6 +932,11 @@
 			baseConfigurationReference = 4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
+					"~/Documents/FacebookSDK/**",
+				);
 				INFOPLIST_FILE = iOSApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -910,6 +951,11 @@
 			baseConfigurationReference = BD4E0CAB0C936997215356FC /* Pods-iOSApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
+					"~/Documents/FacebookSDK/**",
+				);
 				INFOPLIST_FILE = iOSApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

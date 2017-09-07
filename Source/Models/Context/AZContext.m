@@ -7,10 +7,9 @@
 //
 
 #import "AZContext.h"
-#import "AZContextDispatcher.h"
 
 @interface AZContext ()
-@property (nonatomic, strong) NSOperation *operation;
+@property (nonatomic, strong) NSObject *model;
 @end
 
 @implementation AZContext
@@ -18,36 +17,29 @@
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (void)dealloc {
-    [self.operation cancel];
-    self.operation = nil;
++ (instancetype)contextWithModel:(NSObject *)model {
+    return [[self alloc]initWithModel:model];
 }
 
-- (instancetype)init {
+- (void)dealloc {
+    self.model = nil;
+}
+
+- (instancetype)initWithModel:(NSObject *)model {
     self = [super init];
     if (self) {
-        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^ {
-            [self executeContext];
-        }];
-        
-        [[[AZContextDispatcher sharedDispatcher] queue] addOperation:operation];
+        self.model = model;
+        [self execute];
     }
     
     return self;
 }
+
 - (void)execute {
-    NSOperation *operation = self.operation;
-    if ([operation isReady] && ![operation isExecuting]) {
-        [self.operation start];
-    }
+
 }
 
 - (void)cancel {
-    [self.operation cancel];
-}
-
-//method for children purposes. Do not call this method directly
-- (void)executeContext {
     
 }
 

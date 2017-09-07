@@ -9,10 +9,13 @@
 #import "AZAppDelegate.h"
 #import "AZSquareViewController.h"
 #import "AZUsersViewController.h"
+#import "AZFBLoginViewController.h"
 #import "AZUsersModel.h"
 
 #import "UIWindow+AZExtension.h"
 #import "NSArray+AZExtension.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AZAppDelegate ()
 
@@ -21,28 +24,48 @@
 @implementation AZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    AZUsersViewController *controller = [AZUsersViewController new];
-    //AZSquareViewController *controller = [AZSquareViewController new];
-    AZUsersModel *users = [AZUsersModel new];
-    
-    controller.users = users;
+//    AZSquareViewController *controller = [AZSquareViewController new];
+//    AZUsersViewController *controller = [AZUsersViewController new];
+//    AZUsersModel *users = [AZUsersModel new];
+//    
+//    controller.users = users;
+    AZFBLoginViewController *controller = [AZFBLoginViewController new];
     
     window.rootViewController = controller;
     window.backgroundColor = [UIColor purpleColor];
     
     [window makeKeyAndVisible];
     
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    // Add any custom logic here.
+
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                  openURL:url
+                                                        sourceApplication:sourceApplication
+                                                               annotation:annotation];
+
+    return handled;
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application {
+
+}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
    

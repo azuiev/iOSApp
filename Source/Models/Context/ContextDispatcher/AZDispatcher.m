@@ -6,16 +6,16 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZContextDispatcher.h"
+#import "AZDispatcher.h"
 
-@interface AZContextDispatcher ()
+@interface AZDispatcher ()
 @property (nonatomic, strong) NSOperationQueue    *queue;
 
 - (void)initQueue;
 
 @end
 
-@implementation AZContextDispatcher
+@implementation AZDispatcher
 
 #pragma mark -
 #pragma mark Class methods
