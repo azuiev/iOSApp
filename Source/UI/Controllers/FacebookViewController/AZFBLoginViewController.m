@@ -27,9 +27,10 @@
     [self.view addSubview:loginButton];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)loginToFacebook:(id)sender {
+    NSLog(@"Test");
+    //[AZFBLoginContext execute];
 }
+
 
 @end
