@@ -10,7 +10,7 @@
 
 #import "AZUserCell.h"
 
-#import "UINib+AZExtension.h"+
+#import "UINib+AZExtension.h"
 
 @implementation AZUsersView
 

@@ -29,7 +29,6 @@
     self = [super init];
     if (self) {
         self.model = model;
-        [self execute];
     }
     
     return self;

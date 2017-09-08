@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AZContext : NSObject
+@property (nonatomic, readonly) NSObject    *model;
 
 + (instancetype)contextWithModel:(NSObject *)model;
 

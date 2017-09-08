@@ -6,10 +6,8 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-
 #import "AZFBLoginViewController.h"
+#import "AZFBLoginContext.h"
 
 @interface AZFBLoginViewController ()
 
@@ -20,17 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-
-    loginButton.center = self.view.center;
+    //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     
-    [self.view addSubview:loginButton];
+    //loginButton.center = self.view.center;
+    
+    //[self.view addSubview:loginButton];
 }
 
 - (IBAction)loginToFacebook:(id)sender {
     NSLog(@"Test");
-    //[AZFBLoginContext execute];
+    AZFBLoginContext *context = [AZFBLoginContext contextWithViewController:self];
+    
+    [context execute];
 }
-
 
 @end

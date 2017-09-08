@@ -10,4 +10,6 @@
 
 @interface AZFBLoginContext : AZContext
 
++ (instancetype)contextWithViewController:(UIViewController *)controller;
+
 @end
