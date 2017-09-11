@@ -52,7 +52,7 @@
     if (_loadingView != loadingView) {
         _loadingView = loadingView;
         
-        [_loadingView setVisible:YES];
+        [_loadingView setVisible:NO];
     }
 }
 

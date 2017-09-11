@@ -9,5 +9,10 @@
 #import "AZArrayModel.h"
 
 @interface AZUsersModel : AZArrayModel <AZSave>
+@property (nonatomic, readonly) NSString    *plistName;
+
+- (void)initPlist;
+
+- (NSString *)fullPlistName;
 
 @end

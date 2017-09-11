@@ -12,10 +12,14 @@
 
 #import "NSArray+AZExtension.h"
 
+@interface AZUsersModel ()
+@property (nonatomic, strong) NSString  *mutablePlistName;
 
-static NSString *AZPlistName = @"users.plist";
+@end
 
 @implementation AZUsersModel
+
+@dynamic plistName;
 
 #pragma mark -
 #pragma mark Initialization and deallocation
@@ -28,6 +32,7 @@ static NSString *AZPlistName = @"users.plist";
     self = [super init];
     if (self) {
         [self subscribeToNotification];
+        [self initPlist];
     }
     
     return self;
@@ -56,13 +61,17 @@ static NSString *AZPlistName = @"users.plist";
 #pragma mark -
 #pragma mark Private
 
-- (NSString *)plistName {
+- (NSString *)fullPlistName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *result = [paths firstObject];
     
-    result = [result stringByAppendingPathComponent:AZPlistName];
+    result = [result stringByAppendingPathComponent:self.plistName];
     
     return result;
+}
+
+- (NSString *)plistName {
+    return self.mutablePlistName;
 }
 
 - (void)subscribeToNotification {
@@ -95,4 +104,7 @@ static NSString *AZPlistName = @"users.plist";
     return @[@"UIApplicationDidEnterBackgroundNotification", @"UIApplicationWillTerminateNotification"];
 }
 
+- (void)initPlist {
+    self.mutablePlistName = @"users.plist";
+}
 @end

@@ -9,20 +9,21 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import "AZFBLoginViewController.h"
 #import "AZFBLoginContext.h"
 
 @interface AZFBLoginContext ()
-@property (nonatomic, strong) UIViewController *controller;
+@property (nonatomic, strong) AZFBLoginViewController *controller;
 
 @end
 
 @implementation AZFBLoginContext
 
-+ (instancetype)contextWithViewController:(UIViewController *)controller {
++ (instancetype)contextWithViewController:(AZFBLoginViewController *)controller {
     return [[self alloc] initWithController:controller];
 }
 
-- (instancetype)initWithController:(UIViewController *)controller {
+- (instancetype)initWithController:(AZFBLoginViewController *)controller {
     self = [super init];
     if (self) {
         self.controller = controller;
@@ -42,6 +43,7 @@
                                     NSLog(@"Cancelled");
                                 } else {
                                     NSLog(@"Logged in");
+                                    [self.controller presentChildController];
                                 }
                             }];
 }

@@ -59,6 +59,11 @@
 		1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2221F21140A00305FB2 /* AZUsersView.m */; };
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
+		1D7DFE2A1F66F463006EF563 /* AZFBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DFE281F66F463006EF563 /* AZFBFriendsViewController.m */; };
+		1D7DFE2B1F66F463006EF563 /* AZFBFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7DFE291F66F463006EF563 /* AZFBFriendsViewController.xib */; };
+		1D7DFE2F1F66F610006EF563 /* AZFBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DFE2E1F66F610006EF563 /* AZFBUserModel.m */; };
+		1D7DFE321F66F8F2006EF563 /* AZFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DFE311F66F8F2006EF563 /* AZFriendsView.m */; };
+		1D7DFE361F670B7D006EF563 /* AZFBUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DFE351F670B7D006EF563 /* AZFBUsersModel.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
 		1D8B89BD1F4781810079B3A5 /* AZImageModelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B89BC1F4781810079B3A5 /* AZImageModelCache.m */; };
 		1D96AC941F193C3600294A68 /* AZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D96AC931F193C3600294A68 /* AZTableViewCell.m */; };
@@ -160,6 +165,15 @@
 		1D7BF2231F21140A00305FB2 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
+		1D7DFE271F66F463006EF563 /* AZFBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBFriendsViewController.h; sourceTree = "<group>"; };
+		1D7DFE281F66F463006EF563 /* AZFBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBFriendsViewController.m; sourceTree = "<group>"; };
+		1D7DFE291F66F463006EF563 /* AZFBFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBFriendsViewController.xib; sourceTree = "<group>"; };
+		1D7DFE2D1F66F610006EF563 /* AZFBUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserModel.h; sourceTree = "<group>"; };
+		1D7DFE2E1F66F610006EF563 /* AZFBUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserModel.m; sourceTree = "<group>"; };
+		1D7DFE301F66F8F2006EF563 /* AZFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendsView.h; sourceTree = "<group>"; };
+		1D7DFE311F66F8F2006EF563 /* AZFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendsView.m; sourceTree = "<group>"; };
+		1D7DFE341F670B7D006EF563 /* AZFBUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUsersModel.h; sourceTree = "<group>"; };
+		1D7DFE351F670B7D006EF563 /* AZFBUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUsersModel.m; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
 		1D8B89BB1F4781810079B3A5 /* AZImageModelCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZImageModelCache.h; sourceTree = "<group>"; };
@@ -311,6 +325,11 @@
 				1D46F2211F61AA3100ABD230 /* AZFBLoginViewController.h */,
 				1D46F2221F61AA3100ABD230 /* AZFBLoginViewController.m */,
 				1D46F2231F61AA3100ABD230 /* AZFBLoginViewController.xib */,
+				1D7DFE301F66F8F2006EF563 /* AZFriendsView.h */,
+				1D7DFE311F66F8F2006EF563 /* AZFriendsView.m */,
+				1D7DFE271F66F463006EF563 /* AZFBFriendsViewController.h */,
+				1D7DFE281F66F463006EF563 /* AZFBFriendsViewController.m */,
+				1D7DFE291F66F463006EF563 /* AZFBFriendsViewController.xib */,
 			);
 			name = FacebookViewController;
 			path = Source/UI/Controllers/FacebookViewController;
@@ -339,7 +358,7 @@
 			children = (
 				1D77AF491F1423EC0069E27F /* Utils */,
 				1D5AEE4F1F44C7000035BC4F /* Models */,
-				1D7BF2151F21140A00305FB2 /* UI */,
+				1D7BF2151F21140A00305FB2 /* AZFr */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -436,6 +455,7 @@
 			children = (
 				1D5AEE6B1F44C7000035BC4F /* AZUserModel.h */,
 				1D5AEE6C1F44C7000035BC4F /* AZUserModel.m */,
+				1D7DFE2C1F66F5F3006EF563 /* FBUserModel */,
 			);
 			path = UserModel;
 			sourceTree = "<group>";
@@ -445,6 +465,7 @@
 			children = (
 				1D5AEE791F44C7760035BC4F /* AZUsersModel.h */,
 				1D5AEE7A1F44C7760035BC4F /* AZUsersModel.m */,
+				1D7DFE331F670B5E006EF563 /* FBUsersModel */,
 			);
 			path = UsersModel;
 			sourceTree = "<group>";
@@ -544,12 +565,13 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		1D7BF2151F21140A00305FB2 /* UI */ = {
+		1D7BF2151F21140A00305FB2 /* AZFr */ = {
 			isa = PBXGroup;
 			children = (
 				1D7BF2161F21140A00305FB2 /* Controllers */,
 				1D7BF2261F21140A00305FB2 /* Views */,
 			);
+			name = AZFr;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -600,6 +622,24 @@
 				1D2FA38B1F2B9C4500DA241D /* ImageView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1D7DFE2C1F66F5F3006EF563 /* FBUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D7DFE2D1F66F610006EF563 /* AZFBUserModel.h */,
+				1D7DFE2E1F66F610006EF563 /* AZFBUserModel.m */,
+			);
+			path = FBUserModel;
+			sourceTree = "<group>";
+		};
+		1D7DFE331F670B5E006EF563 /* FBUsersModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D7DFE341F670B7D006EF563 /* AZFBUsersModel.h */,
+				1D7DFE351F670B7D006EF563 /* AZFBUsersModel.m */,
+			);
+			path = FBUsersModel;
 			sourceTree = "<group>";
 		};
 		1D8B89BA1F47816D0079B3A5 /* ImageModelCache */ = {
@@ -725,6 +765,7 @@
 				1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */,
 				1D7BF22C1F21140A00305FB2 /* AZUserCell.xib in Resources */,
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
+				1D7DFE2B1F66F463006EF563 /* AZFBFriendsViewController.xib in Resources */,
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
 				1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */,
 			);
@@ -797,11 +838,13 @@
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
 				1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */,
 				1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */,
+				1D7DFE321F66F8F2006EF563 /* AZFriendsView.m in Sources */,
 				1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
 				1D46F2351F61B7B400ABD230 /* AZFBLoginContext.m in Sources */,
 				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
 				1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */,
+				1D7DFE2A1F66F463006EF563 /* AZFBFriendsViewController.m in Sources */,
 				1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */,
 				1D1498461F1BCFEA00906749 /* AZObservableObject.m in Sources */,
 				1D5AEE711F44C7000035BC4F /* AZArrayModelMoveChange.m in Sources */,
@@ -825,8 +868,10 @@
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,
 				1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */,
 				1D7BF2291F21140A00305FB2 /* AZSquareViewController.m in Sources */,
+				1D7DFE2F1F66F610006EF563 /* AZFBUserModel.m in Sources */,
 				1D46F2241F61AA3100ABD230 /* AZFBLoginViewController.m in Sources */,
 				1D2BD6831F3124FA00641E23 /* NSString+AZRandomString.m in Sources */,
+				1D7DFE361F670B7D006EF563 /* AZFBUsersModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

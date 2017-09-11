@@ -7,6 +7,7 @@
 //
 
 #import "AZFBLoginViewController.h"
+#import "AZFBFriendsViewController.h"
 #import "AZFBLoginContext.h"
 
 @interface AZFBLoginViewController ()
@@ -15,21 +16,17 @@
 
 @implementation AZFBLoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    
-    //loginButton.center = self.view.center;
-    
-    //[self.view addSubview:loginButton];
-}
-
 - (IBAction)loginToFacebook:(id)sender {
     NSLog(@"Test");
     AZFBLoginContext *context = [AZFBLoginContext contextWithViewController:self];
     
     [context execute];
+}
+
+- (void)presentChildController {
+    AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
+    controller.friends = nil;
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 @end
