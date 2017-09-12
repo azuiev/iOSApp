@@ -9,6 +9,5 @@
 #import "AZUsersModel.h"
 
 @interface AZFBUsersModel : AZUsersModel
-@property (nonatomic, readonly) NSString    *plistName;
 
 @end

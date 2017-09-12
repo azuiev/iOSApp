@@ -13,15 +13,21 @@
 #import "AZFBLoginContext.h"
 
 @interface AZFBLoginContext ()
-@property (nonatomic, strong) AZFBLoginViewController *controller;
+@property (nonatomic, strong) AZFBLoginViewController   *controller;
 
 @end
 
 @implementation AZFBLoginContext
 
+#pragma mark -
+#pragma mark Class methods
+
 + (instancetype)contextWithViewController:(AZFBLoginViewController *)controller {
     return [[self alloc] initWithController:controller];
 }
+
+#pragma mark -
+#pragma mark Initialization and Deallocation
 
 - (instancetype)initWithController:(AZFBLoginViewController *)controller {
     self = [super init];
@@ -31,6 +37,16 @@
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Public methods
+
+- (BOOL)alreadyLogged {
+    return [FBSDKAccessToken currentAccessToken];
+}
+
+#pragma mark -
+#pragma mark Overrided methods
 
 - (void)execute {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];

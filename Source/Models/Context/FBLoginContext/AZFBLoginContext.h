@@ -12,4 +12,6 @@
 
 + (instancetype)contextWithViewController:(UIViewController *)controller;
 
+- (BOOL)alreadyLogged;
+
 @end
