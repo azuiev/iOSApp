@@ -8,8 +8,9 @@
 
 #import "AZFBLoginViewController.h"
 #import "AZFBFriendsViewController.h"
-#import "AZFBLoginContext.h"
 
+#import "AZFBLoginContext.h"
+#import "AZFBDownloadFriendsContext.h"
 
 @interface AZFBLoginViewController ()
 @property (nonatomic, weak) AZFBLoginContext    *context;
@@ -20,17 +21,10 @@
 #pragma mark -
 #pragma mark Initialization and deallocation
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.context = [AZFBLoginContext contextWithViewController:self];
-    }
-    
-    return self;
-}
-
 - (void)viewDidAppear:(BOOL)animated {
-    if ([self.context alreadyLogged]) {
+    self.context = [AZFBLoginContext contextWithViewController:self];
+    
+    if (self.context.accessToken) {
         [self presentChildController];
     }
 }
@@ -47,6 +41,7 @@
     controller.friends = [AZFBUsersModel new];
     [self presentViewController:controller animated:YES completion:nil];
     
+    [[AZFBDownloadFriendsContext contextWithViewController:controller] execute];
 }
 
 @end

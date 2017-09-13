@@ -8,10 +8,11 @@
 
 #import "AZContext.h"
 
+@class FBSDKAccessToken;
+
 @interface AZFBLoginContext : AZContext
+@property (nonatomic, readonly) FBSDKAccessToken *accessToken;
 
-+ (instancetype)contextWithViewController:(UIViewController *)controller;
-
-- (BOOL)alreadyLogged;
++ (instancetype)contextWithViewController:(AZFBLoginViewController *)controller;
 
 @end

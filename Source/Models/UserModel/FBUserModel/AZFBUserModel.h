@@ -10,4 +10,6 @@
 
 @interface AZFBUserModel : AZUserModel
 
++ (instancetype)userWithFullName:(NSString *)fullName url:(NSURL *)url;
+
 @end

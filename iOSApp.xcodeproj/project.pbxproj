@@ -30,6 +30,7 @@
 		1D46F2351F61B7B400ABD230 /* AZFBLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D46F2341F61B7B400ABD230 /* AZFBLoginContext.m */; };
 		1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */; };
 		1D58A0EB1F50DE6900204782 /* AZInternetImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */; };
+		1D5A220B1F6995170013194D /* AZFBDownloadFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A220A1F6995170013194D /* AZFBDownloadFriendsContext.m */; };
 		1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */; };
 		1D5AEE6F1F44C7000035BC4F /* AZArrayModelAddChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */; };
 		1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */; };
@@ -112,6 +113,8 @@
 		1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFileSystemImageModel.m; sourceTree = "<group>"; };
 		1D58A0E91F50DE6900204782 /* AZInternetImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInternetImageModel.h; sourceTree = "<group>"; };
 		1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInternetImageModel.m; sourceTree = "<group>"; };
+		1D5A22091F6995170013194D /* AZFBDownloadFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBDownloadFriendsContext.h; sourceTree = "<group>"; };
+		1D5A220A1F6995170013194D /* AZFBDownloadFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBDownloadFriendsContext.m; sourceTree = "<group>"; };
 		1D5AEE521F44C7000035BC4F /* AZArrayModelChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelChange.h; sourceTree = "<group>"; };
 		1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelChange.m; sourceTree = "<group>"; };
 		1D5AEE551F44C7000035BC4F /* AZArrayModelAddChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelAddChange.h; sourceTree = "<group>"; };
@@ -381,6 +384,15 @@
 			path = Internet;
 			sourceTree = "<group>";
 		};
+		1D5A22081F6994ED0013194D /* FBDownloadFriendsCotext */ = {
+			isa = PBXGroup;
+			children = (
+				1D5A22091F6995170013194D /* AZFBDownloadFriendsContext.h */,
+				1D5A220A1F6995170013194D /* AZFBDownloadFriendsContext.m */,
+			);
+			path = FBDownloadFriendsCotext;
+			sourceTree = "<group>";
+		};
 		1D5AEE4F1F44C7000035BC4F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +558,7 @@
 				1D6ACB621F59F4AD004C5167 /* AZContext.h */,
 				1D6ACB631F59F4AD004C5167 /* AZContext.m */,
 				1D46F2321F61B7A000ABD230 /* FBLoginContext */,
+				1D5A22081F6994ED0013194D /* FBDownloadFriendsCotext */,
 			);
 			path = Context;
 			sourceTree = "<group>";
@@ -857,6 +870,7 @@
 				1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */,
 				1D5AEE751F44C7000035BC4F /* AZImageModel.m in Sources */,
 				1D2BD6821F3124FA00641E23 /* NSString+AZRandomName.m in Sources */,
+				1D5A220B1F6995170013194D /* AZFBDownloadFriendsContext.m in Sources */,
 				1D5AEE781F44C7000035BC4F /* AZUserModel.m in Sources */,
 				1D6ACB641F59F4AD004C5167 /* AZContext.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,

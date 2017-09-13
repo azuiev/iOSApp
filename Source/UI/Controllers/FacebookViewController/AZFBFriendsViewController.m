@@ -24,7 +24,7 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setFriends:(AZUsersModel *)friends {
+- (void)setFriends:(AZFBUsersModel *)friends {
     if  (_friends != friends) {
         [_friends removeObserver:self];
         

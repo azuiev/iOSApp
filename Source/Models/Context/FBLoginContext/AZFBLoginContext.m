@@ -22,6 +22,8 @@
 #pragma mark -
 #pragma mark Class methods
 
+@dynamic accessToken;
+
 + (instancetype)contextWithViewController:(AZFBLoginViewController *)controller {
     return [[self alloc] initWithController:controller];
 }
@@ -41,7 +43,7 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (BOOL)alreadyLogged {
+- (FBSDKAccessToken * )accessToken {
     return [FBSDKAccessToken currentAccessToken];
 }
 
@@ -50,7 +52,7 @@
 
 - (void)execute {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[@"public_profile"]
+    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
                  fromViewController:(UIViewController *)self.controller
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error) {
