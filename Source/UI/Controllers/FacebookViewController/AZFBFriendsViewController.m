@@ -7,9 +7,14 @@
 //
 
 #import "AZFBFriendsViewController.h"
+#import "AZFriendDetailViewController.h"
+
 #import "AZFriendsView.h"
+#import "AZFBUserModel.h"
 #import "AZUserCell.h"
 
+
+#import "AZGCD.h"
 #import "AZMacros.h"
 #import "UITableView+AZExtension.h"
 
@@ -20,6 +25,7 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 @end
 
 @implementation AZFBFriendsViewController
+
 
 #pragma mark -
 #pragma mark Accessors
@@ -58,6 +64,31 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 {
     [self.friends moveFromIndex:sourceIndexPath.row
                       toIndex:destinationIndexPath.row];
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AZUserCell *cell = (AZUserCell *)[tableView cellForRowAtIndexPath:indexPath];
+    AZFBUserModel *user = (AZFBUserModel *)cell.user;
+    
+    AZFriendDetailViewController *friendController = [[AZFriendDetailViewController alloc]initWithNibName:@"AZFriendDetailViewController"
+                                                                                                   bundle:nil];
+    friendController.friend = user;
+    
+    [self.navigationController pushViewController:friendController animated:YES];
+}
+
+#pragma mark -
+#pragma mark AZModelObserver
+
+- (void)modelDidLoad:(AZModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.mainView.loadingView setVisible:NO];
+        
+        [self.mainView.tableView reloadData];
+    }];
 }
 
 @end

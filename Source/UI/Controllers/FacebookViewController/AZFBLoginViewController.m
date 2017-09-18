@@ -38,8 +38,9 @@
 
 - (void)presentChildController {
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
-    controller.friends = [AZFBUsersModel new];
-    [self presentViewController:controller animated:YES completion:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    //controller.friends = [AZFBUsersModel new];
+    [self presentViewController:navigationController animated:YES completion:nil];
     
     [[AZFBDownloadFriendsContext contextWithViewController:controller] execute];
 }

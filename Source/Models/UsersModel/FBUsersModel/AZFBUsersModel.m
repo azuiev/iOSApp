@@ -30,11 +30,11 @@
 - (void)performLoading {
     NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:[self plistName]];
     
-    if (!array) {
-        array = [NSArray objectsWithCount:10 block:^ {
-            return [AZFBUserModel new];
-        }];
-    }
+//    if (!array) {
+//        array = [NSArray objectsWithCount:10 block:^ {
+//            return [AZFBUserModel new];
+//        }];
+//    }
     
     [self addObjects:array];
     self.state = array ? AZModelDidLoad : AZModelDidFailLoad;

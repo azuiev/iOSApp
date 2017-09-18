@@ -13,7 +13,7 @@
 #import "AZRandomNumber.h"
 
 static NSString   *kName        = @"kName";
-static NSString   *kSurName     = @"kSurName";
+static NSString   *kSurname     = @"kSurname";
 static NSString   *kImageModel  = @"kImageModel";
 
 static NSArray  *urls    = nil;
@@ -21,6 +21,8 @@ static NSArray  *urls    = nil;
 @interface AZUserModel ()
 @property (nonatomic, strong) AZImageModel  *imageModel;
 
+- (void)initializeURLs;
+    
 @end
 
 @implementation AZUserModel
@@ -31,21 +33,49 @@ static NSArray  *urls    = nil;
 #pragma mark Initialization and Deallocation
 
 - (instancetype)init {
+    [self initializeURLs];
+    
+    NSString *urlName = urls[AZRandomNumberWithMaxValue(urls.count - 1)];
+    NSString *name = [NSString randomName];
+    NSString *surname = [NSString randomName];
+    AZImageModel *imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
+    
+    return [self initUserModelWithName:name surname:surname imageModel:imageModel];
+}
+
+- (instancetype)initUserModelWithName:(NSString *)name
+                              surname:(NSString *)surname
+                           imageModel:(AZImageModel *)imageModel
+{
     self = [super init];
     if (self) {
-        [self initURLs];
-        
-        NSString *urlName = urls[AZRandomNumberWithMaxValue(urls.count - 1)];
-        
-        self.name = [NSString randomName];
-        self.surName = [NSString randomName];
-        self.imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
+       self.name = name;
+        self.surname = surname;
+        self.imageModel = imageModel;
     }
     
     return self;
 }
 
-- (void)initURLs {
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)fullName {
+    return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
+}
+
+- (void)setImageModel:(AZImageModel *)imageModel {
+    if (_imageModel != imageModel) {
+        _imageModel = imageModel;
+        
+        [imageModel load];
+    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)initializeURLs {
     if (!urls) {
         urls = @[@"https://upload.wikimedia.org/wikipedia/en/c/c6/NeoTheMatrix.jpg",
                  @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_j76ZNzoezj8xC6WZRZ8krhlRxZ6iopPQ1BvDd6hhDh4nu7C",
@@ -59,28 +89,13 @@ static NSArray  *urls    = nil;
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (NSString *)fullName {
-    return [NSString stringWithFormat:@"%@ %@", self.name, self.surName];
-}
-
-- (void)setImageModel:(AZImageModel *)imageModel {
-    if (_imageModel != imageModel) {
-        _imageModel = imageModel;
-        
-        [imageModel load];
-    }
-}
-
-#pragma mark -
 #pragma mark NSCoding
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
         self.name = [coder decodeObjectForKey:kName];
-        self.surName = [coder decodeObjectForKey:kSurName];
+        self.surname = [coder decodeObjectForKey:kSurname];
         self.imageModel = [coder decodeObjectForKey:kImageModel];
     }
     
@@ -89,7 +104,7 @@ static NSArray  *urls    = nil;
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.name forKey:kName];
-    [coder encodeObject:self.surName forKey:kSurName];
+    [coder encodeObject:self.surname forKey:kSurname];
     [coder encodeObject:self.imageModel forKey:kImageModel];
 }
 

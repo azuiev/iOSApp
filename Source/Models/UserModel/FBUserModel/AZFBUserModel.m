@@ -17,13 +17,16 @@
     return [[self alloc] initWithFullName:fullName url:url];
 }
 
+#pragma mark -
+#pragma mark Initialization
+
 - (instancetype)initWithFullName:(NSString *)fullName url:(NSURL *)url {
     NSArray *strings = [fullName componentsSeparatedByString:@" "];
     NSString *name = strings[0];
     NSString *surname = strings[1];
     AZImageModel *imageModel = [AZImageModel imageModelWithURL:url];
-    //TODO
-    return nil;
+    
+    return [self initUserModelWithName:name surname:surname imageModel:imageModel];
 }
 
 @end

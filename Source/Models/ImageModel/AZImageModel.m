@@ -17,7 +17,7 @@
 
 static NSString     *kImageURL          = @"kImageURL";
 static NSString     *AZImageDirectory   = @"Images";
-static double       AZLoadImageDelay    = 1.5;
+static double       AZLoadImageDelay    = 0.5;
 
 @interface AZImageModel ()
 

@@ -60,6 +60,9 @@
 		1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2221F21140A00305FB2 /* AZUsersView.m */; };
 		1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */; };
 		1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */; };
+		1D7DB8BB1F6F300A00FE0DAA /* AZFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DB8B91F6F300A00FE0DAA /* AZFriendDetailViewController.m */; };
+		1D7DB8BC1F6F300A00FE0DAA /* AZFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7DB8BA1F6F300A00FE0DAA /* AZFriendDetailViewController.xib */; };
+		1D7DB8BF1F6F3CE000FE0DAA /* AZFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DB8BE1F6F3CE000FE0DAA /* AZFriendView.m */; };
 		1D7DFE2A1F66F463006EF563 /* AZFBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DFE281F66F463006EF563 /* AZFBFriendsViewController.m */; };
 		1D7DFE2B1F66F463006EF563 /* AZFBFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7DFE291F66F463006EF563 /* AZFBFriendsViewController.xib */; };
 		1D7DFE2F1F66F610006EF563 /* AZFBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7DFE2E1F66F610006EF563 /* AZFBUserModel.m */; };
@@ -168,6 +171,11 @@
 		1D7BF2231F21140A00305FB2 /* AZUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUsersViewController.h; sourceTree = "<group>"; };
 		1D7BF2241F21140A00305FB2 /* AZUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUsersViewController.m; sourceTree = "<group>"; };
 		1D7BF2251F21140A00305FB2 /* AZUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZUsersViewController.xib; sourceTree = "<group>"; };
+		1D7DB8B81F6F300A00FE0DAA /* AZFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendDetailViewController.h; sourceTree = "<group>"; };
+		1D7DB8B91F6F300A00FE0DAA /* AZFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendDetailViewController.m; sourceTree = "<group>"; };
+		1D7DB8BA1F6F300A00FE0DAA /* AZFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFriendDetailViewController.xib; sourceTree = "<group>"; };
+		1D7DB8BD1F6F3CE000FE0DAA /* AZFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendView.h; sourceTree = "<group>"; };
+		1D7DB8BE1F6F3CE000FE0DAA /* AZFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendView.m; sourceTree = "<group>"; };
 		1D7DFE271F66F463006EF563 /* AZFBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBFriendsViewController.h; sourceTree = "<group>"; };
 		1D7DFE281F66F463006EF563 /* AZFBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBFriendsViewController.m; sourceTree = "<group>"; };
 		1D7DFE291F66F463006EF563 /* AZFBFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBFriendsViewController.xib; sourceTree = "<group>"; };
@@ -333,6 +341,11 @@
 				1D7DFE271F66F463006EF563 /* AZFBFriendsViewController.h */,
 				1D7DFE281F66F463006EF563 /* AZFBFriendsViewController.m */,
 				1D7DFE291F66F463006EF563 /* AZFBFriendsViewController.xib */,
+				1D7DB8B81F6F300A00FE0DAA /* AZFriendDetailViewController.h */,
+				1D7DB8B91F6F300A00FE0DAA /* AZFriendDetailViewController.m */,
+				1D7DB8BA1F6F300A00FE0DAA /* AZFriendDetailViewController.xib */,
+				1D7DB8BD1F6F3CE000FE0DAA /* AZFriendView.h */,
+				1D7DB8BE1F6F3CE000FE0DAA /* AZFriendView.m */,
 			);
 			name = FacebookViewController;
 			path = Source/UI/Controllers/FacebookViewController;
@@ -780,6 +793,7 @@
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
 				1D7DFE2B1F66F463006EF563 /* AZFBFriendsViewController.xib in Resources */,
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
+				1D7DB8BC1F6F300A00FE0DAA /* AZFriendDetailViewController.xib in Resources */,
 				1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,6 +861,7 @@
 				1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */,
 				1D8B89BD1F4781810079B3A5 /* AZImageModelCache.m in Sources */,
 				1D2BD6841F3124FA00641E23 /* UINib+AZExtension.m in Sources */,
+				1D7DB8BF1F6F3CE000FE0DAA /* AZFriendView.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D14984D1F1BD0B100906749 /* AZAssignRererenceWithSelector.m in Sources */,
 				1D5AEE731F44C7000035BC4F /* AZArrayModelRemoveChange.m in Sources */,
@@ -869,6 +884,7 @@
 				1D2FA38E1F2B9C4500DA241D /* AZImageView.m in Sources */,
 				1D7BF22E1F21140A00305FB2 /* AZUsersViewController.m in Sources */,
 				1D5AEE751F44C7000035BC4F /* AZImageModel.m in Sources */,
+				1D7DB8BB1F6F300A00FE0DAA /* AZFriendDetailViewController.m in Sources */,
 				1D2BD6821F3124FA00641E23 /* NSString+AZRandomName.m in Sources */,
 				1D5A220B1F6995170013194D /* AZFBDownloadFriendsContext.m in Sources */,
 				1D5AEE781F44C7000035BC4F /* AZUserModel.m in Sources */,

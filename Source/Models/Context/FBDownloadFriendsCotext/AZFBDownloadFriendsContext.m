@@ -12,6 +12,8 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
+#import "AZFBUserModel.h"
+
 @interface AZFBDownloadFriendsContext ()
 @property (nonatomic, strong) AZFBFriendsViewController   *controller;
 
@@ -50,15 +52,22 @@
      {
          NSArray *friends = [result objectForKey:@"data"];
          
-         NSLog(@"Found: %lu friends", friends.count);
+         NSMutableArray *fbFriends = [NSMutableArray arrayWithCapacity:friends.count];
+         
          for (NSDictionary *friend in friends) {
-             NSDictionary *dict = [friend valueForKey:@"picture"];
-             NSDictionary *dict2 = [dict valueForKey:@"data"];
-             NSURL  *url = [dict2 valueForKey:@"url"];
-             NSLog(@"I have a friend named %@ with id %@ url %@" , [friend valueForKey:@"name"],
-                   [friend valueForKey:@"id"],
-                   url);
+             NSDictionary *picture = [friend valueForKey:@"picture"];
+             NSString *fullName = [friend valueForKey:@"name"];
+             //NSString *userId = [friend valueForKey:@"id"];
+             
+             NSDictionary *data = [picture valueForKey:@"data"];
+             NSURL *url = [NSURL URLWithString:[data valueForKey:@"url"]];
+             
+             [fbFriends addObject:[AZFBUserModel userWithFullName:fullName url:url]];
          }
+         
+         AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbFriends];
+         self.controller.friends = usersModel;
+         self.controller.friends.state = AZModelDidLoad;
      }];
 }
 
