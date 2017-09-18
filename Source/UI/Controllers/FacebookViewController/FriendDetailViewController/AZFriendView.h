@@ -9,6 +9,6 @@
 #import "AZView.h"
 #import "AZImageView.h"
 
-@interface AZFriendView : AZView
+@interface AZFriendView : UIView
 
 @end

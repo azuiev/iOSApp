@@ -43,10 +43,13 @@
 - (void)execute {
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   //initWithGraphPath:@"me/taggable_friends"
-                                  initWithGraphPath:@"me/friends"
+                                  //initWithGraphPath:@"me/friends"
+                                  initWithGraphPath:@"/240815836441068/accounts/test-users"
                                   parameters:nil
+                                  tokenString:@"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc"
+                                  version:nil
                                   HTTPMethod:@"GET"];
-    
+
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           id result,
                                           NSError *error)
