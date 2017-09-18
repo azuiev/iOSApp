@@ -8,25 +8,35 @@
 
 #import "AZFBUserModel.h"
 
+@interface AZFBUserModel ()
+@property (nonatomic, strong) NSString *userID;
+
+@end
+
 @implementation AZFBUserModel
 
 #pragma mark -
 #pragma mark Class methods
 
-+ (instancetype)userWithFullName:(NSString *)fullName url:(NSURL *)url {
-    return [[self alloc] initWithFullName:fullName url:url];
++ (instancetype)userWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url {
+    return [[self alloc] initWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url];
 }
 
 #pragma mark -
 #pragma mark Initialization
 
-- (instancetype)initWithFullName:(NSString *)fullName url:(NSURL *)url {
+- (instancetype)initWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url {
     NSArray *strings = [fullName componentsSeparatedByString:@" "];
     NSString *name = strings[0];
     NSString *surname = strings[1];
     AZImageModel *imageModel = [AZImageModel imageModelWithURL:url];
     
-    return [self initUserModelWithName:name surname:surname imageModel:imageModel];
+    self = [super initUserModelWithName:name surname:surname imageModel:imageModel];
+    if (self) {
+        self.userID = userID;
+    }
+    
+    return self;
 }
 
 @end

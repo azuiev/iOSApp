@@ -42,7 +42,8 @@
 
 - (void)execute {
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:@"me/taggable_friends"
+                                  //initWithGraphPath:@"me/taggable_friends"
+                                  initWithGraphPath:@"me/friends"
                                   parameters:nil
                                   HTTPMethod:@"GET"];
     
@@ -57,12 +58,12 @@
          for (NSDictionary *friend in friends) {
              NSDictionary *picture = [friend valueForKey:@"picture"];
              NSString *fullName = [friend valueForKey:@"name"];
-             //NSString *userId = [friend valueForKey:@"id"];
+             NSString *userID = [friend valueForKey:@"id"];
              
              NSDictionary *data = [picture valueForKey:@"data"];
              NSURL *url = [NSURL URLWithString:[data valueForKey:@"url"]];
              
-             [fbFriends addObject:[AZFBUserModel userWithFullName:fullName url:url]];
+             [fbFriends addObject:[AZFBUserModel userWithID:userID fullName:fullName url:url]];
          }
          
          AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbFriends];

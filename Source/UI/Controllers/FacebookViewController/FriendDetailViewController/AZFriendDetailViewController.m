@@ -8,6 +8,8 @@
 
 #import "AZFriendDetailViewController.h"
 
+#import "AZDownloadFriendDetailsContext.h"
+
 #import "AZFriendView.h"
 #import "AZMacros.h"
 
@@ -18,9 +20,10 @@ AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFrien
 
 @implementation AZFriendDetailViewController
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [self fillWithModel:self.friend];
 }
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -29,13 +32,13 @@ AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFrien
         _friend = friend;
     }
     
+    [[AZDownloadFriendDetailsContext contextWithModel:friend] execute];
     [self fillWithModel:friend];
 }
 
 - (void)fillWithModel:(AZFBUserModel *)user {
     self.nameLabel.text = user.name;
     self.surnameLabel.text = user.surname;
-    
     self.friendImageView.model = user.imageModel;
 }
 

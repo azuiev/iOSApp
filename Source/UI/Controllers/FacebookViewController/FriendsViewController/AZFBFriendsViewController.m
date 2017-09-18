@@ -69,9 +69,8 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AZUserCell *cell = (AZUserCell *)[tableView cellForRowAtIndexPath:indexPath];
-    AZFBUserModel *user = (AZFBUserModel *)cell.user;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AZFBUserModel *user = self.friends[indexPath.row];
     
     AZFriendDetailViewController *friendController = [[AZFriendDetailViewController alloc]initWithNibName:@"AZFriendDetailViewController"
                                                                                                    bundle:nil];

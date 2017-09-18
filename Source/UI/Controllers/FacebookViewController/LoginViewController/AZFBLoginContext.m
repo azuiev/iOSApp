@@ -52,6 +52,7 @@
 
 - (void)execute {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logOut];
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
                  fromViewController:(UIViewController *)self.controller
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
