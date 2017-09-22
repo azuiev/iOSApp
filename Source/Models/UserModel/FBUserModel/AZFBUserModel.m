@@ -9,7 +9,11 @@
 #import "AZFBUserModel.h"
 
 @interface AZFBUserModel ()
-@property (nonatomic, strong) NSString *userID;
+@property (nonatomic, strong) NSString        *userID;
+@property (nonatomic, strong) NSString        *token;
+@property (nonatomic, strong) NSString        *email;
+@property (nonatomic, strong) NSDate          *birthday;
+@property (nonatomic, strong) AZImageModel    *largeUserPicture;
 
 @end
 
@@ -18,22 +22,18 @@
 #pragma mark -
 #pragma mark Class methods
 
-+ (instancetype)userWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url {
-    return [[self alloc] initWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url];
++ (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken {
+    return [[self alloc] initWithID:userID accessToken:accessToken];
 }
 
 #pragma mark -
 #pragma mark Initialization
 
-- (instancetype)initWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url {
-    NSArray *strings = [fullName componentsSeparatedByString:@" "];
-    NSString *name = strings[0];
-    NSString *surname = strings[1];
-    AZImageModel *imageModel = [AZImageModel imageModelWithURL:url];
-    
-    self = [super initUserModelWithName:name surname:surname imageModel:imageModel];
+- (instancetype)initWithID:(NSString *)userID accessToken:(NSString *)accessToken {
+    self = [super init];
     if (self) {
         self.userID = userID;
+        self.token = accessToken;
     }
     
     return self;

@@ -10,4 +10,5 @@
 
 @interface AZFBUsersModel : AZUsersModel
 
+
 @end

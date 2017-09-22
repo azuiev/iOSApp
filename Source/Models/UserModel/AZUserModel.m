@@ -19,10 +19,13 @@ static NSString   *kImageModel  = @"kImageModel";
 static NSArray  *urls    = nil;
 
 @interface AZUserModel ()
-@property (nonatomic, strong) AZImageModel  *imageModel;
+@property (nonatomic, strong) AZImageModel  *smallUserPicture;
 
 - (void)initializeURLs;
-    
+- (instancetype)initUserModelWithName:(NSString *)name
+                              surname:(NSString *)surname
+                          userPicture:(AZImageModel *)userPicture;
+
 @end
 
 @implementation AZUserModel
@@ -40,18 +43,18 @@ static NSArray  *urls    = nil;
     NSString *surname = [NSString randomName];
     AZImageModel *imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
     
-    return [self initUserModelWithName:name surname:surname imageModel:imageModel];
+    return [self initUserModelWithName:name surname:surname userPicture:imageModel];
 }
 
 - (instancetype)initUserModelWithName:(NSString *)name
                               surname:(NSString *)surname
-                           imageModel:(AZImageModel *)imageModel
+                        userPicture:(AZImageModel *)userPicture
 {
     self = [super init];
     if (self) {
-       self.name = name;
+        self.name = name;
         self.surname = surname;
-        self.imageModel = imageModel;
+        self.smallUserPicture = userPicture;
     }
     
     return self;
@@ -64,11 +67,11 @@ static NSArray  *urls    = nil;
     return [NSString stringWithFormat:@"%@ %@", self.name, self.surname];
 }
 
-- (void)setImageModel:(AZImageModel *)imageModel {
-    if (_imageModel != imageModel) {
-        _imageModel = imageModel;
+- (void)setSmallUserPicture:(AZImageModel *)smallUserPicture {
+    if (_smallUserPicture != smallUserPicture) {
+        _smallUserPicture = smallUserPicture;
         
-        [imageModel load];
+        [smallUserPicture load];
     }
 }
 
@@ -96,7 +99,7 @@ static NSArray  *urls    = nil;
     if (self) {
         self.name = [coder decodeObjectForKey:kName];
         self.surname = [coder decodeObjectForKey:kSurname];
-        self.imageModel = [coder decodeObjectForKey:kImageModel];
+        self.smallUserPicture = [coder decodeObjectForKey:kImageModel];
     }
     
     return self;
@@ -105,7 +108,7 @@ static NSArray  *urls    = nil;
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.name forKey:kName];
     [coder encodeObject:self.surname forKey:kSurname];
-    [coder encodeObject:self.imageModel forKey:kImageModel];
+    [coder encodeObject:self.smallUserPicture forKey:kImageModel];
 }
 
 @end

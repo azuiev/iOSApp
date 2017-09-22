@@ -68,7 +68,7 @@
     if (_contentImageView != contentImageView) {
         [_contentImageView removeFromSuperview];
         _contentImageView = contentImageView;
-        
+        [_contentImageView ]
         [self addSubview:contentImageView];
         [self bringSubviewToFront:self.loadingView];
     }

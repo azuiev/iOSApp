@@ -9,8 +9,12 @@
 #import "AZUserModel.h"
 
 @interface AZFBUserModel : AZUserModel
-@property (nonatomic, readonly) NSString *userID;
+@property (nonatomic, readonly) NSString        *userID;
+@property (nonatomic, readonly) NSString        *token;
+@property (nonatomic, readonly) NSString        *email;
+@property (nonatomic, readonly) NSDate          *birthday;
+@property (nonatomic, readonly) AZImageModel    *largeUserPicture;
 
-+ (instancetype)userWithID:(NSString *)userID fullName:(NSString *)fullName url:(NSURL *)url;
++ (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken;
 
 @end

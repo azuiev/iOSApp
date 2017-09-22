@@ -14,10 +14,6 @@
 @property (nonatomic, copy) NSString            *name;
 @property (nonatomic, copy) NSString            *surname;
 @property (nonatomic, readonly) NSString        *fullName;
-@property (nonatomic, readonly) AZImageModel    *imageModel;
-
-- (instancetype)initUserModelWithName:(NSString *)name
-                              surname:(NSString *)surname
-                           imageModel:(AZImageModel *)imageModel;
+@property (nonatomic, readonly) AZImageModel    *smallUserPicture;
 
 @end

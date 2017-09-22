@@ -12,8 +12,7 @@
 #import "AZView.h"
 
 @interface AZImageView : AZView
-@property (nonatomic, strong) UIImageView     *contentImageView;
-
+@property (nonatomic, strong) UIImageView   *contentImageView;
 @property (nonatomic, strong) AZImageModel  *model;
 
 @end

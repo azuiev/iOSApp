@@ -21,6 +21,8 @@ AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFrien
 @implementation AZFriendDetailViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.title =self.friend.fullName;
+    
     [self fillWithModel:self.friend];
 }
 
@@ -39,7 +41,7 @@ AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFrien
 - (void)fillWithModel:(AZFBUserModel *)user {
     self.nameLabel.text = user.name;
     self.surnameLabel.text = user.surname;
-    self.friendImageView.model = user.imageModel;
+    self.friendImageView.model = user.largeUserPicture;
 }
 
 @end

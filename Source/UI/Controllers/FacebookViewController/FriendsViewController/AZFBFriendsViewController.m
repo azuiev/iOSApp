@@ -26,6 +26,12 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 
 @implementation AZFBFriendsViewController
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.title = @"Friends";
+}
 
 #pragma mark -
 #pragma mark Accessors

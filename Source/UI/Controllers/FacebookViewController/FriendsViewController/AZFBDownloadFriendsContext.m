@@ -14,6 +14,8 @@
 
 #import "AZFBUserModel.h"
 
+NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
+
 @interface AZFBDownloadFriendsContext ()
 @property (nonatomic, strong) AZFBFriendsViewController   *controller;
 
@@ -44,59 +46,55 @@
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   //initWithGraphPath:@"me/taggable_friends"
                                   //initWithGraphPath:@"me/friends"
-                                  initWithGraphPath:@"/240815836441068/accounts/test-users?fields=id"
+                                  initWithGraphPath:@"/240815836441068/accounts/test-users?fields=id,access_token"
                                   parameters:nil
-                                  tokenString:@"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc"
+                                  tokenString:appKey
                                   version:nil
                                   HTTPMethod:@"GET"];
-
+    
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           id result,
                                           NSError *error)
      {
          NSArray *friends = [result objectForKey:@"data"];
          
-         NSMutableArray *fbFriends = [NSMutableArray arrayWithCapacity:friends.count];
-         __block NSString *fullName = nil;
-         __block NSURL *imageURL = nil;
+         __block NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:friends.count];
+         
+         NSString *userIDs = [NSString new];
          
          for (NSDictionary *friend in friends) {
              NSString *userID = [friend valueForKey:@"id"];
-             
-             FBSDKGraphRequest *nameRequest = [[FBSDKGraphRequest alloc]
-                                               initWithGraphPath:userID
-                                               parameters:nil
-                                               tokenString:@"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc"
-                                               version:nil
-                                               HTTPMethod:@"GET"];
-             
-             [nameRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                                       id result,
-                                                       NSError *error)
-              {
-                  fullName = [result valueForKey:@"name"];
-              }];
-             
-             FBSDKGraphRequest *imageURLRequest = [[FBSDKGraphRequest alloc]
-                                                   initWithGraphPath:[userID stringByAppendingString:@"/picture"]
-                                                   parameters:nil
-                                                   tokenString:@"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc"
-                                                   version:nil
-                                                   HTTPMethod:@"GET"];
-             
-             [imageURLRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                                           id result,
-                                                           NSError *error)
-              {
-                  imageURL = [NSURL URLWithString:[[result valueForKey:@"data"] valueForKey:@"url"]];
-              }];
-             
-             [fbFriends addObject:[AZFBUserModel userWithID:userID fullName:fullName url:imageURL]];
+             userIDs = [[userIDs stringByAppendingString:userID] stringByAppendingString:@","];
+             AZFBUserModel *userModel = [AZFBUserModel userWithID:userID accessToken:[friend valueForKey:@"access_token"]];
+             [fbUsers addObject:userModel];
          }
          
-         AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbFriends];
-         self.controller.friends = usersModel;
-         self.controller.friends.state = AZModelDidLoad;
+         userIDs = [userIDs substringToIndex:userIDs.length-(userIDs.length>0)];
+         NSString *request = [NSString stringWithFormat:@"%@%@%@",@"?ids=",userIDs,@"&fields=name,picture"];
+         
+         FBSDKGraphRequest *imageURLRequest = [[FBSDKGraphRequest alloc]
+                                               initWithGraphPath:request
+                                               parameters:nil
+                                               tokenString:appKey
+                                               version:nil
+                                               HTTPMethod:@"GET"];
+         
+         [imageURLRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                       id result,
+                                                       NSError *error)
+          {
+              for (AZFBUserModel *fbUser in fbUsers) {
+                  NSDictionary *user = [result valueForKey:fbUser.userID];
+                  NSURL *imageURL = [NSURL URLWithString:[[user valueForKey:@"data"] valueForKey:@"url"]];
+                  AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
+                  
+                  [fbUser setValue:[user valueForKey:@"name"] forKey:@"name"];
+              }
+              
+              AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbUsers];
+              self.controller.friends = usersModel;
+              self.controller.friends.state = AZModelDidLoad;
+          }];
      }];
 }
 
