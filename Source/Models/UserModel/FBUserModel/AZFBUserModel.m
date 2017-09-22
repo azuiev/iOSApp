@@ -12,7 +12,10 @@
 @property (nonatomic, strong) NSString        *userID;
 @property (nonatomic, strong) NSString        *token;
 @property (nonatomic, strong) NSString        *email;
+@property (nonatomic, strong) NSString        *fatherName;
+@property (nonatomic, strong) NSString        *gender;
 @property (nonatomic, strong) NSDate          *birthday;
+
 @property (nonatomic, strong) AZImageModel    *largeUserPicture;
 
 @end
@@ -37,6 +40,13 @@
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)fullName {
+    return [NSString stringWithFormat:@"%@ %@ %@", self.name, self.surname, self.fatherName];
 }
 
 @end

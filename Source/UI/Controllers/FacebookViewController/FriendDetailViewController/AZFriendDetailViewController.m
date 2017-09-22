@@ -8,10 +8,12 @@
 
 #import "AZFriendDetailViewController.h"
 
-#import "AZDownloadFriendDetailsContext.h"
+#import "AZFBDownloadFriendDetailsContext.h"
 
 #import "AZFriendView.h"
+
 #import "AZMacros.h"
+#import "AZGCD.h"
 
 AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFriendView)
 @interface AZFriendDetailViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -21,7 +23,7 @@ AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFrien
 @implementation AZFriendDetailViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.title =self.friend.fullName;
+    [self.navigationController setTitle:self.friend.name];
     
     [self fillWithModel:self.friend];
 }
@@ -31,17 +33,33 @@ AZBaseViewControllerWithProperty(AZFriendDetailViewController, mainView, AZFrien
 
 - (void)setFriend:(AZFBUserModel *)friend {
     if (_friend != friend) {
+        [_friend removeObserver:self];
+        
         _friend = friend;
+        [_friend addObserver:self];
     }
     
-    [[AZDownloadFriendDetailsContext contextWithModel:friend] execute];
     [self fillWithModel:friend];
+    [[AZFBDownloadFriendDetailsContext contextWithModel:friend] execute];
 }
 
 - (void)fillWithModel:(AZFBUserModel *)user {
     self.nameLabel.text = user.name;
     self.surnameLabel.text = user.surname;
+    self.fatherNameLabel.text = user.fatherName;
     self.friendImageView.model = user.largeUserPicture;
+    self.birthdayLabel.text = [NSString stringWithFormat:@"%@", user.birthday];
+    self.emailLabel.text = user.email;
+    self.genderLabel.text = user.gender;
+}
+
+#pragma mark -
+#pragma mark AZModelObserver
+
+- (void)modelDidLoad:(AZFBUserModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self fillWithModel:model];
+    }];
 }
 
 @end

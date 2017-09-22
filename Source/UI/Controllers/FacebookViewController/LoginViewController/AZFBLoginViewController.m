@@ -30,7 +30,6 @@
 }
 
 - (IBAction)loginToFacebook:(id)sender {
-    NSLog(@"Test");
     AZFBLoginContext *context = [AZFBLoginContext contextWithViewController:self];
     
     [context execute];

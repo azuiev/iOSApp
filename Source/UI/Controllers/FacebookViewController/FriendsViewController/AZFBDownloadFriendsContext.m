@@ -69,12 +69,12 @@ NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
              [fbUsers addObject:userModel];
          }
          
-         userIDs = [userIDs substringToIndex:userIDs.length-(userIDs.length>0)];
-         NSString *request = [NSString stringWithFormat:@"%@%@%@",@"?ids=",userIDs,@"&fields=name,picture"];
+         userIDs = [userIDs substringToIndex:userIDs.length - (userIDs.length > 0)];
+         NSString *request = [NSString stringWithFormat:@"%@%@",@"?ids=",userIDs];
          
          FBSDKGraphRequest *imageURLRequest = [[FBSDKGraphRequest alloc]
                                                initWithGraphPath:request
-                                               parameters:nil
+                                               parameters:@{@"fields":@"name,picture{url}"}
                                                tokenString:appKey
                                                version:nil
                                                HTTPMethod:@"GET"];
@@ -85,10 +85,14 @@ NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
           {
               for (AZFBUserModel *fbUser in fbUsers) {
                   NSDictionary *user = [result valueForKey:fbUser.userID];
-                  NSURL *imageURL = [NSURL URLWithString:[[user valueForKey:@"data"] valueForKey:@"url"]];
+                  NSURL *imageURL = [NSURL URLWithString:[[[user valueForKey:@"picture"] valueForKey:@"data"] valueForKey:@"url"]];
                   AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
+                  NSArray *names = [[user valueForKey:@"name"] componentsSeparatedByString:@" "];
                   
-                  [fbUser setValue:[user valueForKey:@"name"] forKey:@"name"];
+                  [fbUser setValue:names[0] forKey:@"name"];
+                  [fbUser setValue:names[1] forKey:@"surname"];
+                  [fbUser setValue:names[2] forKey:@"fatherName"];
+                  [fbUser setValue:imageModel forKey:@"smallUserPicture"];
               }
               
               AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbUsers];

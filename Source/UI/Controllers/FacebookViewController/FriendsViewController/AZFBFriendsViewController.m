@@ -9,13 +9,15 @@
 #import "AZFBFriendsViewController.h"
 #import "AZFriendDetailViewController.h"
 
-#import "AZFriendsView.h"
 #import "AZFBUserModel.h"
-#import "AZUserCell.h"
+#import "AZFBDownloadFriendDetailsContext.h"
 
+#import "AZFriendsView.h"
+#import "AZUserCell.h"
 
 #import "AZGCD.h"
 #import "AZMacros.h"
+
 #import "UITableView+AZExtension.h"
 
 
@@ -27,10 +29,10 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 @implementation AZFBFriendsViewController
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Initialization
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.title = @"Friends";
+    [self setTitle:@"Friends"];
 }
 
 #pragma mark -
@@ -81,7 +83,7 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
     AZFriendDetailViewController *friendController = [[AZFriendDetailViewController alloc]initWithNibName:@"AZFriendDetailViewController"
                                                                                                    bundle:nil];
     friendController.friend = user;
-    
+        
     [self.navigationController pushViewController:friendController animated:YES];
 }
 

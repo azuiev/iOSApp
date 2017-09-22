@@ -10,7 +10,7 @@
 
 #import "AZImageModel.h"
 
-@interface AZUserModel : NSObject
+@interface AZUserModel : AZModel
 @property (nonatomic, copy) NSString            *name;
 @property (nonatomic, copy) NSString            *surname;
 @property (nonatomic, readonly) NSString        *fullName;
