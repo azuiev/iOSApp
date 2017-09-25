@@ -14,6 +14,8 @@
 
 #import "AZFBUserModel.h"
 
+#import "AZRandomNumber.h"
+
 NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
 
 @interface AZFBDownloadFriendsContext ()
@@ -57,9 +59,7 @@ NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
                                           NSError *error)
      {
          NSArray *friends = [result objectForKey:@"data"];
-         
          __block NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:friends.count];
-         
          NSString *userIDs = [NSString new];
          
          for (NSDictionary *friend in friends) {
@@ -68,6 +68,54 @@ NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
              AZFBUserModel *userModel = [AZFBUserModel userWithID:userID accessToken:[friend valueForKey:@"access_token"]];
              [fbUsers addObject:userModel];
          }
+         
+         /*
+         NSUInteger count = friends.count - 1;
+         NSUInteger user1 = friends.count;
+         NSUInteger user2 = friends.count;
+         
+         for (NSUInteger index = 0; index < 150; index++) {
+             user1 = AZRandomNumberWithMaxValue(count);
+             user2 = AZRandomNumberWithMaxValue(count);
+             if (user1 == user2) {
+                 user2 = user2 + 1;
+                 user2 = user2 > count ? user2 - 2 : user2;
+             }
+             
+             NSString *request1 = [NSString stringWithFormat:@"%@%@%@",
+                                   [(AZFBUserModel *)fbUsers[user1] userID],
+                                   @"/friends/",
+                                   [(AZFBUserModel *)fbUsers[user2] userID]];
+             NSString *request2 = [NSString stringWithFormat:@"%@%@%@",
+                                   [(AZFBUserModel *)fbUsers[user2] userID],
+                                   @"/friends/",
+                                   [(AZFBUserModel *)fbUsers[user1] userID]];
+             FBSDKGraphRequest *requestq1 = [[FBSDKGraphRequest alloc]
+                                                   initWithGraphPath:request1
+                                                   parameters:nil
+                                                   tokenString:[(AZFBUserModel *)fbUsers[user1] token]
+                                                   version:nil
+                                                   HTTPMethod:@"POST"];
+             FBSDKGraphRequest *requestq2 = [[FBSDKGraphRequest alloc]
+                                            initWithGraphPath:request2
+                                            parameters:nil
+                                            tokenString:[(AZFBUserModel *)fbUsers[user2] token]
+                                            version:nil
+                                            HTTPMethod:@"POST"];
+             
+             [requestq1 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                           id result,
+                                                           NSError *error)
+              {
+                  [requestq2 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                         id result,
+                                                         NSError *error)
+                   {
+                       
+                   }];
+              }];
+         }
+         */
          
          userIDs = [userIDs substringToIndex:userIDs.length - (userIDs.length > 0)];
          NSString *request = [NSString stringWithFormat:@"%@%@",@"?ids=",userIDs];

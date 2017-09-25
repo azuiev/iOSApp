@@ -12,6 +12,4 @@
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 
-- (UIImage *)performLoadingWithBlock:(void(^)(NSURL *location, NSURLResponse *response, NSError *error))block;
-
 @end

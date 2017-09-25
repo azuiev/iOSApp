@@ -13,18 +13,19 @@
 @class AZFileSystemImageModel;
 @class AZInternetImageModel;
 
+typedef void (^AZCompletionBlock)(UIImage *image, NSError *error);
+
 @interface AZImageModel : AZModel 
-@property (nonatomic, strong) UIImage     *image;
-@property (nonatomic, strong) NSURL       *url;
+@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   NSURL       *url;
+@property (nonatomic, readonly) NSString    *imagePath;
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 
 - (instancetype)initWithURL:(NSURL *)url;
 
-- (NSString *)pathToImages;
-
 //Methods for children purposes. Do not call this methods directly
-- (UIImage *)loadImage;
+- (void)loadImageWithBlock:(AZCompletionBlock)block;
 - (void)cancel;
 
 @end

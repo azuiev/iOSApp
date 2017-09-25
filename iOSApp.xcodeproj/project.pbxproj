@@ -57,6 +57,7 @@
 		1D69C3DB1F3CEC8400DDBC63 /* AZLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D69C3DA1F3CEC8400DDBC63 /* AZLoadingView.xib */; };
 		1D69C3DE1F3CED2700DDBC63 /* AZLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D69C3DD1F3CED2700DDBC63 /* AZLoadingView.m */; };
 		1D6ACB641F59F4AD004C5167 /* AZContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6ACB631F59F4AD004C5167 /* AZContext.m */; };
+		1D74D98F1F7994E400849F19 /* NSString+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D74D98E1F7994E400849F19 /* NSString+AZExtension.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
 		1D7BF2281F21140A00305FB2 /* AZSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF2191F21140A00305FB2 /* AZSquareView.m */; };
@@ -167,6 +168,8 @@
 		1D6ACB621F59F4AD004C5167 /* AZContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZContext.h; sourceTree = "<group>"; };
 		1D6ACB631F59F4AD004C5167 /* AZContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZContext.m; sourceTree = "<group>"; };
 		1D70A08F1F325D7F00DBA6AD /* AZViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZViewConstants.h; sourceTree = "<group>"; };
+		1D74D98D1F7994E400849F19 /* NSString+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AZExtension.h"; sourceTree = "<group>"; };
+		1D74D98E1F7994E400849F19 /* NSString+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AZExtension.m"; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
 		1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRandomNumber.m; path = Utils/AZRandomNumber.m; sourceTree = "<group>"; };
 		1D77AF4F1F142BF70069E27F /* AZRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRange.h; path = Utils/AZRange.h; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				1D2BD6731F3124FA00641E23 /* NSString+AZRandomName.m */,
 				1D2BD6741F3124FA00641E23 /* NSString+AZRandomString.h */,
 				1D2BD6751F3124FA00641E23 /* NSString+AZRandomString.m */,
+				1D74D98D1F7994E400849F19 /* NSString+AZExtension.h */,
+				1D74D98E1F7994E400849F19 /* NSString+AZExtension.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -880,6 +885,7 @@
 				1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */,
 				1D58FE611F7024D200939739 /* AZFBLoginContext.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
+				1D74D98F1F7994E400849F19 /* NSString+AZExtension.m in Sources */,
 				1D2FA3841F2B971800DA241D /* AZGCD.m in Sources */,
 				1D58FE5C1F7024D200939739 /* AZFriendView.m in Sources */,
 				1D58FE601F7024D200939739 /* AZFriendsView.m in Sources */,

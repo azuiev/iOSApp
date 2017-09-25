@@ -26,16 +26,6 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (UIImage *)loadImage {
-    UIImage *image = [super loadImage];
-    
-    if (image) {
-        return image;
-    }
-    
-    return [self performLoadingWithBlock:nil];
-}
-
 - (void)cancel {
     NSURLSessionDownloadTask *downloadTask = self.downloadTask;
     switch (downloadTask.state) {
@@ -49,10 +39,9 @@
     }
 }
 
-#pragma mark -
-#pragma mark Private methods
 
-- (UIImage *)performLoadingWithBlock:(void(^)(NSURL *location, NSURLResponse *response, NSError *error))block {
+
+- (void)loadImageWithBlock:(AZCompletionBlock)block {
     NSURLSession *session = [NSURLSession sharedSession];
     __block UIImage *image = nil;
     NSURLSessionDownloadTask *task = self.downloadTask;
@@ -61,11 +50,9 @@
                           completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
                 {
                     [self saveTemporaryFile:location];
-                    if (block) {
-                        block(location, response, error);
-                    }
-                    
+                 
                     image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
+                    block(image, error);
                 }];
     }
     
@@ -73,20 +60,23 @@
         [task resume];
     }
     
-    return image;
+    
 }
+
+#pragma mark -
+#pragma mark Private methods
 
 - (void)saveTemporaryFile:(NSURL *)location {
     if (!location) {
         return;
     }
     
-    NSString *path = [self pathToImages];
+    NSString *path = [self imagePath];
     NSFileManager *manager = NSFileManager.defaultManager;
     NSError *error = nil;
     
     if (![manager fileExistsAtPath:path]) {
-        [manager createDirectoryAtPath:[self pathToImages]
+        [manager createDirectoryAtPath:path
            withIntermediateDirectories:YES
                             attributes:nil
                                  error:&error];

@@ -8,30 +8,30 @@
 
 #import "AZFileSystemImageModel.h"
 
+#import "NSString+AZExtension.h"
+
 @implementation AZFileSystemImageModel
 
-- (UIImage *)loadImage {
+- (void)loadImageWithBlock:(AZCompletionBlock)block {
     NSString *cacheFileName = [self nameInFileSystem];
+    UIImage *image = nil;
+    NSError *error = nil;
     
     if ([NSFileManager.defaultManager fileExistsAtPath:cacheFileName]) {
-        UIImage *image = [UIImage imageNamed:cacheFileName];
+        image = [UIImage imageNamed:cacheFileName];
         
         if (!image) {
-            NSError *error = nil;
             [NSFileManager.defaultManager removeItemAtPath:cacheFileName error:&error];
         }
-        
-        return image;
     }
     
-    return nil;
+    block(image, error);
 }
 
 - (NSString *)nameInFileSystem {
-    //TODO categorie
-    NSString *name = [self.url.path stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    NSString *name = [NSString removeIllegalSymbols:self.url.path];
     
-    return [[self pathToImages] stringByAppendingPathComponent:name];
+    return [[self imagePath] stringByAppendingPathComponent:name];
 }
 
 @end

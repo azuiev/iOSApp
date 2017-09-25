@@ -15,19 +15,20 @@
 #import "AZInternetImageModel.h"
 #import "AZFileSystemImageModel.h"
 
-static NSString     *kImageURL          = @"kImageURL";
+static NSString     *AZkImageURL        = @"kImageURL";
 static NSString     *AZImageDirectory   = @"Images";
 static double       AZLoadImageDelay    = 0.5;
 
 @interface AZImageModel ()
 
-- (NSString *)pathToImages;
 - (NSString *)nameOfCashedFile;
 - (UIImage *)imageFromCashe;
 
 @end
 
 @implementation AZImageModel
+
+@dynamic imagePath;
 
 #pragma mark -
 #pragma mark Class methods
@@ -36,15 +37,12 @@ static double       AZLoadImageDelay    = 0.5;
     AZImageModelCache *cache = [AZImageModelCache sharedCache];
     AZImageModel *model = [cache objectForKey:url];
     
-    if (model) {
-        //model.state = AZModelDidUnload;
-        return model;
+    if (!model) {
+        Class cls = [url isFileURL] ? [AZFileSystemImageModel class] : [AZInternetImageModel class];
+        model = [cls imageModelWithURL:url];
+        
+        [cache setObject:model forKey:url];
     }
-    
-    Class cls = [url isFileURL] ? [AZFileSystemImageModel class] : [AZInternetImageModel class];
-    model = [cls imageModelWithURL:url];
-    
-    [cache setObject:model forKey:url];
     
     return model;
 }
@@ -67,9 +65,9 @@ static double       AZLoadImageDelay    = 0.5;
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Accessors
 
-- (NSString *)pathToImages {
+- (NSString *)imagePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     
     return [[paths firstObject] stringByAppendingPathComponent:AZImageDirectory];
@@ -80,11 +78,12 @@ static double       AZLoadImageDelay    = 0.5;
 
 - (void)performLoading {
     [AZGCD dispatchAfterDelay:AZLoadImageDelay block:^ {
-        UIImage *image = [self loadImage];
-        self.image = image;
-        
-        [AZGCD dispatchAsyncOnMainQueue:^ {
-            self.state = image ? AZModelDidLoad : AZModelDidFailLoad;
+        [self loadImageWithBlock:^(UIImage *image, NSError *error) {
+            //if error todo
+            [AZGCD dispatchAsyncOnMainQueue:^ {
+                self.image = image;
+                self.state = image ? AZModelDidLoad : AZModelDidFailLoad;
+            }];
         }];
     }];
 }
@@ -93,13 +92,13 @@ static double       AZLoadImageDelay    = 0.5;
 #pragma mark NSCoding
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    NSURL *url = [coder decodeObjectForKey:kImageURL];
+    NSURL *url = [coder decodeObjectForKey:AZkImageURL];
     
     return [self initWithURL:url];
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.url forKey:kImageURL];
+    [coder encodeObject:self.url forKey:AZkImageURL];
 }
 
 @end
