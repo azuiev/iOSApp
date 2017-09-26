@@ -1,5 +1,5 @@
 //
-//  AZFBDownloadFriendDetailsContext.h
+//  AZFBDownloadUserDetailsContext.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 18/09/2017.
@@ -8,6 +8,6 @@
 
 #import "AZContext.h"
 
-@interface AZFBDownloadFriendDetailsContext : AZContext
+@interface AZFBDownloadUserDetailsContext : AZContext
 
 @end

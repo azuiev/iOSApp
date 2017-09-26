@@ -7,10 +7,10 @@
 //
 
 #import "AZFBFriendsViewController.h"
-#import "AZFriendDetailViewController.h"
+#import "AZFBUserViewController.h"
 
 #import "AZFBUserModel.h"
-#import "AZFBDownloadFriendDetailsContext.h"
+#import "AZFBDownloadUserDetailsContext.h"
 
 #import "AZFriendsView.h"
 #import "AZUserCell.h"
@@ -19,7 +19,6 @@
 #import "AZMacros.h"
 
 #import "UITableView+AZExtension.h"
-
 
 AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsView)
 @interface AZFBFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -80,9 +79,9 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AZFBUserModel *user = self.friends[indexPath.row];
     
-    AZFriendDetailViewController *friendController = [[AZFriendDetailViewController alloc]initWithNibName:@"AZFriendDetailViewController"
+    AZFBUserViewController *friendController = [[AZFBUserViewController alloc] initWithNibName:@"AZFBUserViewController"
                                                                                                    bundle:nil];
-    friendController.friend = user;
+    friendController.user = user;
         
     [self.navigationController pushViewController:friendController animated:YES];
 }
@@ -93,7 +92,6 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 - (void)modelDidLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:NO];
-        
         [self.mainView.tableView reloadData];
     }];
 }

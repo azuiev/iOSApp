@@ -6,41 +6,48 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "AZFBLoginViewController.h"
-#import "AZFBFriendsViewController.h"
+#import "AZFBUserViewController.h"
 
 #import "AZFBLoginContext.h"
-#import "AZFBDownloadFriendsContext.h"
 
 @interface AZFBLoginViewController ()
-@property (nonatomic, weak) AZFBLoginContext    *context;
+@property (nonatomic, strong) AZFBLoginContext    *context;
 @end
 
 @implementation AZFBLoginViewController
-
 #pragma mark -
 #pragma mark Initialization and deallocation
 
-- (void)viewDidAppear:(BOOL)animated {
-    self.context = [AZFBLoginContext contextWithViewController:self];
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.context = [AZFBLoginContext contextWithModel:self];
+    }
     
+    return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     if (self.context.accessToken) {
-        [self presentChildController];
+        //[self presentChildController];
     }
 }
 
 - (IBAction)loginToFacebook:(id)sender {
-    AZFBLoginContext *context = [AZFBLoginContext contextWithViewController:self];
-    
-    [context execute];
+    [self.context execute];
 }
 
 - (void)presentChildController {
-    AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
+    AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:navigationController animated:YES completion:nil];
     
-    [[AZFBDownloadFriendsContext contextWithViewController:controller] execute];
+    FBSDKAccessToken *appToken = self.context.accessToken;
+    controller.user = [AZFBUserModel userWithID:appToken.userID accessToken:appToken.tokenString];
 }
 
 @end

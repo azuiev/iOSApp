@@ -27,8 +27,8 @@
 		1D46F2311F61B77000ABD230 /* AZDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D46F2301F61B77000ABD230 /* AZDispatcher.m */; };
 		1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */; };
 		1D58A0EB1F50DE6900204782 /* AZInternetImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */; };
-		1D58FE5A1F7024D200939739 /* AZFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE481F7024D200939739 /* AZFriendDetailViewController.m */; };
-		1D58FE5B1F7024D200939739 /* AZFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D58FE491F7024D200939739 /* AZFriendDetailViewController.xib */; };
+		1D58FE5A1F7024D200939739 /* AZFBUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE481F7024D200939739 /* AZFBUserViewController.m */; };
+		1D58FE5B1F7024D200939739 /* AZFBUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D58FE491F7024D200939739 /* AZFBUserViewController.xib */; };
 		1D58FE5C1F7024D200939739 /* AZFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE4B1F7024D200939739 /* AZFriendView.m */; };
 		1D58FE5D1F7024D200939739 /* AZFBDownloadFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE4E1F7024D200939739 /* AZFBDownloadFriendsContext.m */; };
 		1D58FE5E1F7024D200939739 /* AZFBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE501F7024D200939739 /* AZFBFriendsViewController.m */; };
@@ -37,7 +37,7 @@
 		1D58FE611F7024D200939739 /* AZFBLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE561F7024D200939739 /* AZFBLoginContext.m */; };
 		1D58FE621F7024D200939739 /* AZFBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE581F7024D200939739 /* AZFBLoginViewController.m */; };
 		1D58FE631F7024D200939739 /* AZFBLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D58FE591F7024D200939739 /* AZFBLoginViewController.xib */; };
-		1D58FE661F70291A00939739 /* AZFBDownloadFriendDetailsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE651F70291A00939739 /* AZFBDownloadFriendDetailsContext.m */; };
+		1D58FE661F70291A00939739 /* AZFBDownloadUserDetailsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE651F70291A00939739 /* AZFBDownloadUserDetailsContext.m */; };
 		1D5AEE6E1F44C7000035BC4F /* AZArrayModelChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */; };
 		1D5AEE6F1F44C7000035BC4F /* AZArrayModelAddChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE561F44C7000035BC4F /* AZArrayModelAddChange.m */; };
 		1D5AEE701F44C7000035BC4F /* AZArrayModelEditChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AEE581F44C7000035BC4F /* AZArrayModelEditChange.m */; };
@@ -113,9 +113,9 @@
 		1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFileSystemImageModel.m; sourceTree = "<group>"; };
 		1D58A0E91F50DE6900204782 /* AZInternetImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInternetImageModel.h; sourceTree = "<group>"; };
 		1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZInternetImageModel.m; sourceTree = "<group>"; };
-		1D58FE471F7024D200939739 /* AZFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendDetailViewController.h; sourceTree = "<group>"; };
-		1D58FE481F7024D200939739 /* AZFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendDetailViewController.m; sourceTree = "<group>"; };
-		1D58FE491F7024D200939739 /* AZFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFriendDetailViewController.xib; sourceTree = "<group>"; };
+		1D58FE471F7024D200939739 /* AZFBUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserViewController.h; sourceTree = "<group>"; };
+		1D58FE481F7024D200939739 /* AZFBUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserViewController.m; sourceTree = "<group>"; };
+		1D58FE491F7024D200939739 /* AZFBUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBUserViewController.xib; sourceTree = "<group>"; };
 		1D58FE4A1F7024D200939739 /* AZFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendView.h; sourceTree = "<group>"; };
 		1D58FE4B1F7024D200939739 /* AZFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendView.m; sourceTree = "<group>"; };
 		1D58FE4D1F7024D200939739 /* AZFBDownloadFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBDownloadFriendsContext.h; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 		1D58FE571F7024D200939739 /* AZFBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBLoginViewController.h; sourceTree = "<group>"; };
 		1D58FE581F7024D200939739 /* AZFBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBLoginViewController.m; sourceTree = "<group>"; };
 		1D58FE591F7024D200939739 /* AZFBLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBLoginViewController.xib; sourceTree = "<group>"; };
-		1D58FE641F70291A00939739 /* AZFBDownloadFriendDetailsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBDownloadFriendDetailsContext.h; sourceTree = "<group>"; };
-		1D58FE651F70291A00939739 /* AZFBDownloadFriendDetailsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBDownloadFriendDetailsContext.m; sourceTree = "<group>"; };
+		1D58FE641F70291A00939739 /* AZFBDownloadUserDetailsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBDownloadUserDetailsContext.h; sourceTree = "<group>"; };
+		1D58FE651F70291A00939739 /* AZFBDownloadUserDetailsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBDownloadUserDetailsContext.m; sourceTree = "<group>"; };
 		1D5AEE521F44C7000035BC4F /* AZArrayModelChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelChange.h; sourceTree = "<group>"; };
 		1D5AEE531F44C7000035BC4F /* AZArrayModelChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArrayModelChange.m; sourceTree = "<group>"; };
 		1D5AEE551F44C7000035BC4F /* AZArrayModelAddChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArrayModelAddChange.h; sourceTree = "<group>"; };
@@ -379,8 +379,8 @@
 			isa = PBXGroup;
 			children = (
 				1D58FE541F7024D200939739 /* LoginViewController */,
-				1D58FE4C1F7024D200939739 /* FriendsViewController */,
 				1D58FE461F7024D200939739 /* FriendDetailViewController */,
+				1D58FE4C1F7024D200939739 /* FriendsViewController */,
 			);
 			path = FacebookViewController;
 			sourceTree = "<group>";
@@ -388,13 +388,13 @@
 		1D58FE461F7024D200939739 /* FriendDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1D58FE471F7024D200939739 /* AZFriendDetailViewController.h */,
-				1D58FE481F7024D200939739 /* AZFriendDetailViewController.m */,
-				1D58FE491F7024D200939739 /* AZFriendDetailViewController.xib */,
+				1D58FE471F7024D200939739 /* AZFBUserViewController.h */,
+				1D58FE481F7024D200939739 /* AZFBUserViewController.m */,
+				1D58FE491F7024D200939739 /* AZFBUserViewController.xib */,
 				1D58FE4A1F7024D200939739 /* AZFriendView.h */,
 				1D58FE4B1F7024D200939739 /* AZFriendView.m */,
-				1D58FE641F70291A00939739 /* AZFBDownloadFriendDetailsContext.h */,
-				1D58FE651F70291A00939739 /* AZFBDownloadFriendDetailsContext.m */,
+				1D58FE641F70291A00939739 /* AZFBDownloadUserDetailsContext.h */,
+				1D58FE651F70291A00939739 /* AZFBDownloadUserDetailsContext.m */,
 			);
 			path = FriendDetailViewController;
 			sourceTree = "<group>";
@@ -810,7 +810,7 @@
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
 				1D58FE5F1F7024D200939739 /* AZFBFriendsViewController.xib in Resources */,
 				1D7BF22F1F21140A00305FB2 /* AZUsersViewController.xib in Resources */,
-				1D58FE5B1F7024D200939739 /* AZFriendDetailViewController.xib in Resources */,
+				1D58FE5B1F7024D200939739 /* AZFBUserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,8 +910,8 @@
 				1D46F2311F61B77000ABD230 /* AZDispatcher.m in Sources */,
 				1D5B8A281F4CCA9400B77BA1 /* AZView.m in Sources */,
 				1D5AEE741F44C7000035BC4F /* AZArrayModel.m in Sources */,
-				1D58FE661F70291A00939739 /* AZFBDownloadFriendDetailsContext.m in Sources */,
-				1D58FE5A1F7024D200939739 /* AZFriendDetailViewController.m in Sources */,
+				1D58FE661F70291A00939739 /* AZFBDownloadUserDetailsContext.m in Sources */,
+				1D58FE5A1F7024D200939739 /* AZFBUserViewController.m in Sources */,
 				1D5AEE7B1F44C7760035BC4F /* AZUsersModel.m in Sources */,
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,
 				1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */,

@@ -11,5 +11,6 @@
 @interface NSString (AZExtension)
 
 + (NSString *)removeIllegalSymbols:(NSString *)string;
++ (NSString *)removeMultipleSpaces:(NSString *)string;
 
 @end

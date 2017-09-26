@@ -9,16 +9,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZFriendDetailViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZFBUserViewController">
             <connections>
                 <outlet property="birthdayLabel" destination="FWp-wB-AtZ" id="Vut-EC-oIG"/>
                 <outlet property="emailLabel" destination="BXa-16-Cdl" id="eSt-h1-FO1"/>
                 <outlet property="fatherNameLabel" destination="rFk-X7-UfB" id="2Xe-zi-SSq"/>
-                <outlet property="friendImageView" destination="bsd-LD-74G" id="thF-Yu-p3p"/>
+                <outlet property="friendsButton" destination="A0Y-jP-tjz" id="PR5-2j-V4V"/>
                 <outlet property="genderLabel" destination="AhL-rG-flT" id="GGX-St-Bcf"/>
+                <outlet property="largeImageView" destination="bsd-LD-74G" id="2AZ-SP-VKS"/>
                 <outlet property="nameLabel" destination="nju-nk-Vve" id="j6i-y9-Aqg"/>
-                <outlet property="surnameLabel" destination="ohx-Mr-VtU" id="Qei-XC-xV4"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="35G-Zz-i4k"/>
+                <outlet property="surnameLabel" destination="ohx-Mr-VtU" id="i2j-5n-YTs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="VMH-nf-eaB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -65,28 +66,28 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-0o-kcp">
-                    <rect key="frame" x="16" y="423" width="71" height="34"/>
+                    <rect key="frame" x="16" y="419" width="71" height="34"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhL-rG-flT">
-                    <rect key="frame" x="108" y="423" width="251" height="34"/>
+                    <rect key="frame" x="108" y="419" width="251" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birthday:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaK-L4-LVv">
-                    <rect key="frame" x="16" y="465" width="71" height="34"/>
+                    <rect key="frame" x="16" y="457" width="71" height="34"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birthday:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWp-wB-AtZ">
-                    <rect key="frame" x="108" y="465" width="251" height="34"/>
+                    <rect key="frame" x="108" y="457" width="251" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -99,6 +100,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0Y-jP-tjz">
+                    <rect key="frame" x="156" y="499" width="63" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Friends"/>
+                    <connections>
+                        <action selector="presentFriends:" destination="-1" eventType="touchUpInside" id="SBe-jg-tBh"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="26.5" y="51.5"/>

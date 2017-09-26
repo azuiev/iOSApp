@@ -12,33 +12,9 @@
 #import "AZFBLoginViewController.h"
 #import "AZFBLoginContext.h"
 
-@interface AZFBLoginContext ()
-@property (nonatomic, strong) AZFBLoginViewController   *controller;
-
-@end
-
 @implementation AZFBLoginContext
 
-#pragma mark -
-#pragma mark Class methods
-
 @dynamic accessToken;
-
-+ (instancetype)contextWithViewController:(AZFBLoginViewController *)controller {
-    return [[self alloc] initWithController:controller];
-}
-
-#pragma mark -
-#pragma mark Initialization and Deallocation
-
-- (instancetype)initWithController:(AZFBLoginViewController *)controller {
-    self = [super init];
-    if (self) {
-        self.controller = controller;
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Public methods
@@ -54,7 +30,7 @@
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logOut];
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
-                 fromViewController:(UIViewController *)self.controller
+                 fromViewController:(UIViewController *)self.model
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error) {
                                     NSLog(@"Process error");
@@ -62,7 +38,7 @@
                                     NSLog(@"Cancelled");
                                 } else {
                                     NSLog(@"Logged in");
-                                    [self.controller presentChildController];
+                                    [(AZFBLoginViewController *)self.model presentChildController];
                                 }
                             }];
 }

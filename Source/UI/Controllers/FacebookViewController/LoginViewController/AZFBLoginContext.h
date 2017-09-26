@@ -7,12 +7,11 @@
 //
 
 #import "AZContext.h"
+#import "AZFBUserModel.h"
 
 @class FBSDKAccessToken;
 
 @interface AZFBLoginContext : AZContext
-@property (nonatomic, readonly) FBSDKAccessToken *accessToken;
-
-+ (instancetype)contextWithViewController:(AZFBLoginViewController *)controller;
+@property (nonatomic, readonly) FBSDKAccessToken    *accessToken;
 
 @end

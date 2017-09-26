@@ -65,8 +65,8 @@ NSString *appKey = @"240815836441068|KYOIvMEMaTixlYL4SL4v09Hqoxc";
          for (NSDictionary *friend in friends) {
              NSString *userID = [friend valueForKey:@"id"];
              userIDs = [[userIDs stringByAppendingString:userID] stringByAppendingString:@","];
-             AZFBUserModel *userModel = [AZFBUserModel userWithID:userID accessToken:[friend valueForKey:@"access_token"]];
-             [fbUsers addObject:userModel];
+             //AZFBUserModel *userModel = [AZFBUserModel userWithID:userID accessToken:[friend valueForKey:@"access_token"]];
+             //[fbUsers addObject:userModel];
          }
          
          /*
