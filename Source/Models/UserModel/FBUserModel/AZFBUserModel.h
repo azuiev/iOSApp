@@ -19,5 +19,6 @@
 @property (nonatomic, readonly) AZImageModel    *largeUserPicture;
 
 + (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken;
++ (instancetype)userWithID:(NSString *)userID;
 
 @end

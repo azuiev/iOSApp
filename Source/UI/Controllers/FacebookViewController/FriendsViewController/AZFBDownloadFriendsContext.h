@@ -11,7 +11,6 @@
 #import "AZFBFriendsViewController.h"
 
 @interface AZFBDownloadFriendsContext : AZContext
-
-+ (instancetype)contextWithViewController:(AZFBFriendsViewController *)controller;
+@property (nonatomic, strong) AZFBFriendsViewController *controller;
 
 @end

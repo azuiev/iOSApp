@@ -25,6 +25,9 @@
 #pragma mark -
 #pragma mark Class methods
 
++ (instancetype)userWithID:(NSString *)userID {
+    return [self userWithID:userID accessToken:nil];
+}
 + (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken {
     return [[self alloc] initWithID:userID accessToken:accessToken];
 }

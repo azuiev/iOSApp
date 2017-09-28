@@ -51,7 +51,7 @@ NSUInteger AZMaxImageHight = 9999;
         [user setValue:imageModel forKey:@"largeUserPicture"];
         [user setValue:names[0] forKey:@"name"];
         [user setValue:names[1] forKey:@"surname"];
-        //[user setValue:names[2] forKey:@"fatherName"];
+        [user setValue:names[2] forKey:@"fatherName"];
         
         user.state = AZModelDidLoad;
     }];

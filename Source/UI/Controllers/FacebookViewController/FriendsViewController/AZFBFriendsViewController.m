@@ -10,7 +10,7 @@
 #import "AZFBUserViewController.h"
 
 #import "AZFBUserModel.h"
-#import "AZFBDownloadUserDetailsContext.h"
+#import "AZFBDownloadFriendsContext.h"
 
 #import "AZFriendsView.h"
 #import "AZUserCell.h"
@@ -22,7 +22,7 @@
 
 AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsView)
 @interface AZFBFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
-
+@property (nonatomic, strong) AZFBDownloadFriendsContext *context;
 @end
 
 @implementation AZFBFriendsViewController
@@ -45,6 +45,17 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
         [_friends addObserver:self];
         
         [_friends load];
+    }
+}
+
+- (void)setUser:(AZFBUserModel *)user {
+    if (_user != user) {
+        _user = user;
+        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:user];
+        context.controller = self;
+        self.context = context;
+        
+        [context execute];
     }
 }
 

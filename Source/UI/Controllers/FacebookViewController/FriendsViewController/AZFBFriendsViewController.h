@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "AZFBUserModel.h"
 #import "AZFBUsersModel.h"
 
 @interface AZFBFriendsViewController : UIViewController
-@property (nonatomic, strong) AZFBUsersModel  *friends;
+@property (nonatomic, strong) AZFBUsersModel    *friends;
+@property (nonatomic, strong) AZFBUserModel     *user;
+
 @end

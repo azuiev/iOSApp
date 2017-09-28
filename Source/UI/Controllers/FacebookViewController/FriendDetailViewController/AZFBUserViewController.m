@@ -66,10 +66,9 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 
 - (IBAction)presentFriends:(id)sender {
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    controller.user = self.user;
     
-    [[AZFBDownloadFriendsContext contextWithViewController:controller] execute];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -
