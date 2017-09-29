@@ -10,12 +10,17 @@
 #import "AZSquareViewController.h"
 #import "AZUsersViewController.h"
 #import "AZFBLoginViewController.h"
+
 #import "AZUsersModel.h"
+#import "AZFBUserModel.h"
 
 #import "UIWindow+AZExtension.h"
 #import "NSArray+AZExtension.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+NSString *appID = @"240815836441068";
+NSString *appSecret = @"KYOIvMEMaTixlYL4SL4v09Hqoxc";
 
 @interface AZAppDelegate ()
 
@@ -45,8 +50,30 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    // Add any custom logic here.
+    
+    //create users cache
+    
 
+    FBSDKGraphRequest *requestToken = [[FBSDKGraphRequest alloc]
+                                       initWithGraphPath:[NSString stringWithFormat:@"%@%@", appID, @"/accounts/test-users"]
+                                       parameters:@{@"fields":@"access_token"}
+                                       tokenString:[NSString stringWithFormat:@"%@%s%@", appID, "|", appSecret]
+                                       version:nil
+                                       HTTPMethod:@"GET"];
+    
+    [requestToken startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                               id result,
+                                               NSError *error)
+     {
+         NSDictionary *users = [result valueForKey:@"data"];
+         for (NSDictionary *user in users) {
+             NSString *userID = [user valueForKey:@"id"];
+             NSString *token = [user valueForKey:@"access_token"];
+             
+             AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID accessToken:token];
+         }
+     }];
+  
     return YES;
 }
 

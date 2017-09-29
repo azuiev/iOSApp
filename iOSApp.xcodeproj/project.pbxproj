@@ -25,6 +25,7 @@
 		1D46F22B1F61AE1100ABD230 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F22A1F61AE1100ABD230 /* FBSDKLoginKit.framework */; };
 		1D46F22D1F61AE1700ABD230 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F22C1F61AE1700ABD230 /* FBSDKShareKit.framework */; };
 		1D46F2311F61B77000ABD230 /* AZDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D46F2301F61B77000ABD230 /* AZDispatcher.m */; };
+		1D4AA4231F7EDD9000AC57E8 /* AZFBUserModelCashe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4AA4221F7EDD9000AC57E8 /* AZFBUserModelCashe.m */; };
 		1D58A0E81F50DE4700204782 /* AZFileSystemImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */; };
 		1D58A0EB1F50DE6900204782 /* AZInternetImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58A0EA1F50DE6900204782 /* AZInternetImageModel.m */; };
 		1D58FE5A1F7024D200939739 /* AZFBUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58FE481F7024D200939739 /* AZFBUserViewController.m */; };
@@ -109,6 +110,8 @@
 		1D46F22C1F61AE1700ABD230 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		1D46F22F1F61B77000ABD230 /* AZDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZDispatcher.h; sourceTree = "<group>"; };
 		1D46F2301F61B77000ABD230 /* AZDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZDispatcher.m; sourceTree = "<group>"; };
+		1D4AA4211F7EDD9000AC57E8 /* AZFBUserModelCashe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserModelCashe.h; sourceTree = "<group>"; };
+		1D4AA4221F7EDD9000AC57E8 /* AZFBUserModelCashe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserModelCashe.m; sourceTree = "<group>"; };
 		1D58A0E61F50DE4700204782 /* AZFileSystemImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFileSystemImageModel.h; sourceTree = "<group>"; };
 		1D58A0E71F50DE4700204782 /* AZFileSystemImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFileSystemImageModel.m; sourceTree = "<group>"; };
 		1D58A0E91F50DE6900204782 /* AZInternetImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZInternetImageModel.h; sourceTree = "<group>"; };
@@ -684,13 +687,15 @@
 			path = FBUsersModel;
 			sourceTree = "<group>";
 		};
-		1D8B89BA1F47816D0079B3A5 /* ImageModelCache */ = {
+		1D8B89BA1F47816D0079B3A5 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
 				1D8B89BB1F4781810079B3A5 /* AZImageModelCache.h */,
 				1D8B89BC1F4781810079B3A5 /* AZImageModelCache.m */,
+				1D4AA4211F7EDD9000AC57E8 /* AZFBUserModelCashe.h */,
+				1D4AA4221F7EDD9000AC57E8 /* AZFBUserModelCashe.m */,
 			);
-			name = ImageModelCache;
+			name = Cache;
 			path = Cashe;
 			sourceTree = "<group>";
 		};
@@ -698,7 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				1D46F22E1F61B77000ABD230 /* Dispatcher */,
-				1D8B89BA1F47816D0079B3A5 /* ImageModelCache */,
+				1D8B89BA1F47816D0079B3A5 /* Cache */,
 				1D2FA3811F2B971800DA241D /* GCD */,
 				1D1498471F1BD0B100906749 /* ReferenceWrapper */,
 				1D1498431F1BCFEA00906749 /* Observer */,
@@ -915,6 +920,7 @@
 				1D5AEE7B1F44C7760035BC4F /* AZUsersModel.m in Sources */,
 				1D7BF22D1F21140A00305FB2 /* AZUsersView.m in Sources */,
 				1D14984C1F1BD0B100906749 /* AZAssignReference.m in Sources */,
+				1D4AA4231F7EDD9000AC57E8 /* AZFBUserModelCashe.m in Sources */,
 				1D7BF2291F21140A00305FB2 /* AZSquareViewController.m in Sources */,
 				1D7DFE2F1F66F610006EF563 /* AZFBUserModel.m in Sources */,
 				1D58FE621F7024D200939739 /* AZFBLoginViewController.m in Sources */,

@@ -38,23 +38,23 @@ NSUInteger AZMaxImageHight = 9999;
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           id result,
                                           NSError *error)
-    {
-        AZStrongify(user);
-        NSURL *imageURL = [NSURL URLWithString:[[[result valueForKey:@"picture"] valueForKey:@"data"] valueForKey:@"url"]];
-        AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-        NSString *name = [result valueForKey:@"name"];
-        NSArray *names = [[NSString removeMultipleSpaces:name] componentsSeparatedByString:@" "];
-        
-        [user setValue:[result valueForKey:emailKey] forKey:emailKey];
-        [user setValue:[result valueForKey:genderKey] forKey:genderKey];
-        [user setValue:[result valueForKey:birthdayKey] forKey:birthdayKey];
-        [user setValue:imageModel forKey:@"largeUserPicture"];
-        [user setValue:names[0] forKey:@"name"];
-        [user setValue:names[1] forKey:@"surname"];
-        [user setValue:names[2] forKey:@"fatherName"];
-        
-        user.state = AZModelDidLoad;
-    }];
+     {
+         AZStrongify(user);
+         NSURL *imageURL = [NSURL URLWithString:[[[result valueForKey:@"picture"] valueForKey:@"data"] valueForKey:@"url"]];
+         AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
+         NSString *name = [result valueForKey:@"name"];
+         NSArray *names = [[NSString removeMultipleSpaces:name] componentsSeparatedByString:@" "];
+         
+         [user setValue:[result valueForKey:emailKey] forKey:emailKey];
+         [user setValue:[result valueForKey:genderKey] forKey:genderKey];
+         [user setValue:[result valueForKey:birthdayKey] forKey:birthdayKey];
+         [user setValue:imageModel forKey:@"largeUserPicture"];
+         [user setValue:names[0] forKey:@"name"];
+         [user setValue:names[1] forKey:@"surname"];
+         [user setValue:names[2] forKey:@"fatherName"];
+         
+         user.state = AZModelDidLoad;
+     }];
 }
 
 @end

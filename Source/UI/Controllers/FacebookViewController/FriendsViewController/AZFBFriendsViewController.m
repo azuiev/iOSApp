@@ -73,17 +73,6 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-      toIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    [self.friends moveFromIndex:sourceIndexPath.row
-                      toIndex:destinationIndexPath.row];
-}
-
 #pragma mark -
 #pragma mark UITableViewDelegate
 

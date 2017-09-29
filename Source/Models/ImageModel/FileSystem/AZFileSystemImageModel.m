@@ -12,6 +12,16 @@
 
 @implementation AZFileSystemImageModel
 
+#pragma mark -
+#pragma mark Class methods
+
++ (instancetype)imageModelWithURL:(NSURL *)url {
+    return [[self alloc] initWithURL:url];
+}
+
+#pragma mark -
+#pragma mark Public methods
+
 - (void)loadImageWithBlock:(AZCompletionBlock)block {
     NSString *cacheFileName = [self nameInFileSystem];
     UIImage *image = nil;

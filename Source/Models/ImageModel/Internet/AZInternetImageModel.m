@@ -39,8 +39,6 @@
     }
 }
 
-
-
 - (void)loadImageWithBlock:(AZCompletionBlock)block {
     NSURLSession *session = [NSURLSession sharedSession];
     __block UIImage *image = nil;

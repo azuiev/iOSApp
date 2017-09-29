@@ -7,6 +7,7 @@
 //
 
 #import "AZFBUserModel.h"
+#import "AZFBUserModelCashe.h"
 
 @interface AZFBUserModel ()
 @property (nonatomic, strong) NSString        *userID;
@@ -28,14 +29,25 @@
 + (instancetype)userWithID:(NSString *)userID {
     return [self userWithID:userID accessToken:nil];
 }
+
 + (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken {
-    return [[self alloc] initWithID:userID accessToken:accessToken];
+    AZFBUserModelCashe *cache = [AZFBUserModelCashe sharedCache];
+    AZFBUserModel *model = [cache objectForKey:userID];
+    
+    if (!model) {
+        model = [[self alloc] initWithID:userID accessToken:accessToken];
+        
+        [cache setObject:model forKey:userID];
+    }
+    
+    return model;
 }
 
 #pragma mark -
 #pragma mark Initialization
 
 - (instancetype)initWithID:(NSString *)userID accessToken:(NSString *)accessToken {
+   
     self = [super init];
     if (self) {
         self.userID = userID;

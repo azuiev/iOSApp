@@ -18,20 +18,20 @@
 #import "AZGCD.h"
 
 AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
-@interface AZFBUserViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface AZFBUserViewController ()
 @property (nonatomic, strong) AZFBDownloadUserDetailsContext *context;
 
 @end
 
 @implementation AZFBUserViewController
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
+- (void)viewWillAppear:(BOOL)animated {
+    if (self == [self.navigationController.viewControllers firstObject]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                                  style:UIBarButtonItemStyleDone
+                                                                                 target:self
+                                                                                 action:@selector(logout)];
     }
-    
-    return self;
 }
 
 #pragma mark -
@@ -62,13 +62,17 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Private methods
 
 - (IBAction)presentFriends:(id)sender {
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
     controller.user = self.user;
     
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)logout {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -
