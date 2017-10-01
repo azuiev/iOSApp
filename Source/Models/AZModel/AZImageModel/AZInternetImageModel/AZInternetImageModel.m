@@ -9,6 +9,7 @@
 #import "AZInternetImageModel.h"
 
 #import "AZMacros.h"
+#import "AZGCD.h"
 
 @interface AZInternetImageModel ()
 @property (nonatomic, strong) NSString                  *cacheName;
@@ -59,23 +60,33 @@
     }
 }
 
-- (void)loadImageWithCompletionHandler:(AZCompletionBlock)completionHandler {
-    [super loadImageWithCompletionHandler:completionHandler];
+- (void)loadImageWithCompletionHandler:(AZCompletionBlock)completionBlock {
+    [super loadImageWithCompletionHandler:^(UIImage *image, NSError *error) {
+        if (image) {
+            [AZGCD dispatchAsyncOnMainQueue:^ {
+                self.image = image;
+                self.state = AZModelDidLoad;
+            }];
+        };
+    }];
+    
     if (self.state != AZModelDidLoad) {
         NSURLSession *session = [NSURLSession sharedSession];
         __block UIImage *image = nil;
         NSURLSessionDownloadTask *task = self.downloadTask;
         
-        AZWeakify(completionHandler);
+        //AZWeakify(completionBlock);
         if (!task) {
             task = [session downloadTaskWithURL:self.url
                               completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
                     {
-                        AZStrongify(completionHandler);
+                        //AZStrongify(completionBlock);
                         [self saveTemporaryFile:location];
                         
                         image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
-                        completionHandler(image, error);
+                        if (completionBlock) {
+                            completionBlock(image, error);
+                        }
                     }];
             self.downloadTask = task;
         }

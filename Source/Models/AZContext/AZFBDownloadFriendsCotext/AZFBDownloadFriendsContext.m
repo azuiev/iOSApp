@@ -16,9 +16,9 @@
 
 #import "AZRandomNumber.h"
 
-NSString *AZGraphPath       = @"/me/friends";
-NSString *AZParametersKey   = @"fileds";
-NSString *AZParametersValue = @"id,name,picture{url}";
+NSString *AZFriendsGraphPath       = @"/me/friends";
+NSString *AZFriendsParametersKey   = @"fileds";
+NSString *AZFriendsParametersValue = @"id,name,picture{url}";
 
 @implementation AZFBDownloadFriendsContext
 
@@ -28,8 +28,8 @@ NSString *AZParametersValue = @"id,name,picture{url}";
 - (instancetype)initWithModel:(AZModel *)model {
     self = [super initWithModel:model];
     if (self) {
-        self.graphPath  = AZGraphPath;
-        self.parameters = @{AZParametersKey:AZParametersValue};
+        self.graphPath  = AZFriendsGraphPath;
+        self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};
     }
     
     return self;

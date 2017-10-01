@@ -753,8 +753,8 @@
 		1D7BF2151F21140A00305FB2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1D5D02AE1F813B5B00367A65 /* Views */,
 				1D5D024F1F813ACB00367A65 /* Controllers */,
+				1D5D02AE1F813B5B00367A65 /* Views */,
 			);
 			path = UI;
 			sourceTree = "<group>";

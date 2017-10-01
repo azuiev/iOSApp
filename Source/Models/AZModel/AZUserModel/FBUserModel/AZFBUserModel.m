@@ -60,6 +60,14 @@
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setLargeUserPicture:(AZImageModel *)largeUserPicture {
+    if (_largeUserPicture != largeUserPicture) {
+        _largeUserPicture = largeUserPicture;
+        
+        [largeUserPicture load];
+    }
+}
+
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@ %@", self.name, self.surname, self.fatherName];
 }

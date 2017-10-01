@@ -43,7 +43,8 @@ static NSArray  *urls    = nil;
     NSString *surname = [NSString randomName];
     AZImageModel *imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
     
-    return [self initUserModelWithName:name surname:surname userPicture:imageModel];
+    //return [self initUserModelWithName:name surname:surname userPicture:imageModel];
+    return [self initUserModelWithName:nil surname:nil userPicture:nil];
 }
 
 - (instancetype)initUserModelWithName:(NSString *)name

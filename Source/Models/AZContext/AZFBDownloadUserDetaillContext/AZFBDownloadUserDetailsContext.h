@@ -6,8 +6,8 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZContext.h"
+#import "AZGetContext.h"
 
-@interface AZFBDownloadUserDetailsContext : AZContext
+@interface AZFBDownloadUserDetailsContext : AZGetContext
 
 @end
