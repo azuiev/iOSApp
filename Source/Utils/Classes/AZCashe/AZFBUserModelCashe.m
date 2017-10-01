@@ -40,7 +40,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.cache = [NSMapTable strongToWeakObjectsMapTable];
+        self.cache = [NSMapTable strongToStrongObjectsMapTable];
     }
     
     return self;
