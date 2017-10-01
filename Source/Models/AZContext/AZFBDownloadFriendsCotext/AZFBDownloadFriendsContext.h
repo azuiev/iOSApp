@@ -6,11 +6,11 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZContext.h"
+#import "AZGetContext.h"
 
 #import "AZFBFriendsViewController.h"
 
-@interface AZFBDownloadFriendsContext : AZContext
+@interface AZFBDownloadFriendsContext : AZGetContext
 @property (nonatomic, strong) AZFBFriendsViewController *controller;
 
 @end

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AZContext : NSObject
-@property (nonatomic, readonly) NSObject    *model;
+#import "AZModel.h"
 
-+ (instancetype)contextWithModel:(NSObject *)model;
+@interface AZContext : AZModel
+@property (nonatomic, readonly) AZModel    *model;
 
++ (instancetype)contextWithModel:(AZModel *)model;
+- (instancetype)initWithModel:(AZModel *)model;
 - (void)execute;
 - (void)cancel;
 

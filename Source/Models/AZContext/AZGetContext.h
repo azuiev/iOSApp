@@ -9,5 +9,11 @@
 #import "AZContext.h"
 
 @interface AZGetContext : AZContext
+@property (nonatomic, strong) NSString      *graphPath;
+@property (nonatomic, strong) NSString      *token;
+@property (nonatomic, strong) NSDictionary  *parameters;
 
+//method for children purposes. Do not call this method directly
+- (void)parseResult:(id)result;
+- (NSString *)token;
 @end

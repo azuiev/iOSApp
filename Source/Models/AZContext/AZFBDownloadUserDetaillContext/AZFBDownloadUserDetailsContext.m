@@ -22,6 +22,9 @@ NSString *emailKey = @"email";
 
 NSUInteger AZMaxImageHight = 9999;
 
+NSString *AZParametersKey   = @"fileds";
+NSString *AZParametersValue = @"name,email,birthday,gender,picture.height(9999){url}";
+
 @implementation AZFBDownloadUserDetailsContext
 
 - (void)execute {

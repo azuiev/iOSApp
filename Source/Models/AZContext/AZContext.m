@@ -9,7 +9,8 @@
 #import "AZContext.h"
 
 @interface AZContext ()
-@property (nonatomic, strong) NSObject *model;
+@property (nonatomic, strong) AZModel   *model;
+
 @end
 
 @implementation AZContext
@@ -17,15 +18,15 @@
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-+ (instancetype)contextWithModel:(NSObject *)model {
-    return [[self alloc]initWithModel:model];
++ (instancetype)contextWithModel:(AZModel *)model {
+    return [[self alloc] initWithModel:model];
 }
 
 - (void)dealloc {
     self.model = nil;
 }
 
-- (instancetype)initWithModel:(NSObject *)model {
+- (instancetype)initWithModel:(AZModel *)model {
     self = [super init];
     if (self) {
         self.model = model;

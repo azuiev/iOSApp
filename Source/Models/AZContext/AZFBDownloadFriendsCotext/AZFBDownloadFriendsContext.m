@@ -16,43 +16,56 @@
 
 #import "AZRandomNumber.h"
 
+NSString *AZGraphPath       = @"/me/friends";
+NSString *AZParametersKey   = @"fileds";
+NSString *AZParametersValue = @"id,name,picture{url}";
+
 @implementation AZFBDownloadFriendsContext
 
-- (void)execute {
-    AZFBUserModel *user = (AZFBUserModel *)self.model;
-    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:@"/me/friends"
-                                  parameters:@{@"fields":@"id,name,picture{url}"}
-                                  tokenString:user.token
-                                  version:nil
-                                  HTTPMethod:@"GET"];
+#pragma mark -
+#pragma mark Initialization and Deallocation
+
+- (instancetype)initWithModel:(AZModel *)model {
+    self = [super initWithModel:model];
+    if (self) {
+        self.graphPath  = AZGraphPath;
+        self.parameters = @{AZParametersKey:AZParametersValue};
+    }
     
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                          id result,
-                                          NSError *error)
-     {
-         NSNumber *count = [result valueForKeyPath:@"summary.total_count"];
-         
-         NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:[count integerValue]];
-         NSDictionary *users = [result valueForKey:@"data"];
-         for (NSDictionary *user in users) {
-             NSString *userID = [user valueForKey:@"id"];
-             NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:@"picture.data.url"]];
-             AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-             NSArray *names = [[user valueForKey:@"name"] componentsSeparatedByString:@" "];
-             
-             AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID];
-             [fbUser setValue:names[0] forKey:@"name"];
-             [fbUser setValue:names[1] forKey:@"surname"];
-             [fbUser setValue:names[2] forKey:@"fatherName"];
-             [fbUser setValue:imageModel forKey:@"smallUserPicture"];
-             [fbUsers addObject:fbUser];
-         }
-         
-         AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbUsers];
-         self.controller.friends = usersModel;
-         self.controller.friends.state = AZModelDidLoad;
-     }];
+    return self;
+}
+
+#pragma mark -
+#pragma mark Overrided methods
+
+- (void)parseResult:(id)result {
+    NSNumber *count = [result valueForKeyPath:@"summary.total_count"];
+    
+    NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:[count integerValue]];
+    NSDictionary *users = [result valueForKey:@"data"];
+    for (NSDictionary *user in users) {
+        NSString *userID = [user valueForKey:@"id"];
+        NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:@"picture.data.url"]];
+        AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
+        NSArray *names = [[user valueForKey:@"name"] componentsSeparatedByString:@" "];
+        
+        AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID];
+        [fbUser setValue:names[0] forKey:@"name"];
+        [fbUser setValue:names[1] forKey:@"surname"];
+        [fbUser setValue:names[2] forKey:@"fatherName"];
+        [fbUser setValue:imageModel forKey:@"smallUserPicture"];
+        [fbUsers addObject:fbUser];
+    }
+    
+    AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbUsers];
+    self.controller.friends = usersModel;
+    self.controller.friends.state = AZModelDidLoad;
+}
+
+- (NSString *)token {
+    AZFBUserModel *user = (AZFBUserModel *)self.model;
+    
+    return user.token;
 }
 
 @end
