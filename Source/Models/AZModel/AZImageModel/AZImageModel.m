@@ -78,7 +78,7 @@ static double       AZLoadImageDelay    = 0.5;
 
 - (void)performLoading {
     [AZGCD dispatchAfterDelay:AZLoadImageDelay block:^ {
-        [self loadImageWithBlock:^(UIImage *image, NSError *error) {
+        [self loadImageWithCompletionHandler:^(UIImage *image, NSError *error) {
             //if error todo
             [AZGCD dispatchAsyncOnMainQueue:^ {
                 self.image = image;

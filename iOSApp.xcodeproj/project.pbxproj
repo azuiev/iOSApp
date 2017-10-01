@@ -70,6 +70,7 @@
 		1D5D02BA1F813B5B00367A65 /* AZLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02B41F813B5B00367A65 /* AZLoadingView.m */; };
 		1D5D02BB1F813B5B00367A65 /* AZLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D02B51F813B5B00367A65 /* AZLoadingView.xib */; };
 		1D5D02BC1F813B5B00367A65 /* AZView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02B81F813B5B00367A65 /* AZView.m */; };
+		1D5D02C11F813FF100367A65 /* NSURL+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02C01F813FF100367A65 /* NSURL+AZExtension.m */; };
 		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
 		1D74D98F1F7994E400849F19 /* NSString+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D74D98E1F7994E400849F19 /* NSString+AZExtension.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
@@ -193,6 +194,8 @@
 		1D5D02B71F813B5B00367A65 /* AZView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZView.h; sourceTree = "<group>"; };
 		1D5D02B81F813B5B00367A65 /* AZView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZView.m; sourceTree = "<group>"; };
 		1D5D02BD1F813BFE00367A65 /* AZViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AZViewConstants.h; path = Utils/AZViewConstants.h; sourceTree = "<group>"; };
+		1D5D02BF1F813FF100367A65 /* NSURL+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+AZExtension.h"; sourceTree = "<group>"; };
+		1D5D02C01F813FF100367A65 /* NSURL+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AZExtension.m"; sourceTree = "<group>"; };
 		1D5D49B21F1BA001003AEA36 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
 		1D74D98D1F7994E400849F19 /* NSString+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AZExtension.h"; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				1D2BD66B1F3124FA00641E23 /* NSBundle */,
 				1D2BD66E1F3124FA00641E23 /* NSMutableArray */,
 				1D2BD6711F3124FA00641E23 /* NSString */,
+				1D5D02BE1F813FD900367A65 /* NSURL */,
 				1D2BD6761F3124FA00641E23 /* UINib */,
 				1D2BD6791F3124FA00641E23 /* UITableView */,
 				1D2BD67C1F3124FA00641E23 /* UIWindow */,
@@ -714,6 +718,15 @@
 			path = AZView;
 			sourceTree = "<group>";
 		};
+		1D5D02BE1F813FD900367A65 /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				1D5D02BF1F813FF100367A65 /* NSURL+AZExtension.h */,
+				1D5D02C01F813FF100367A65 /* NSURL+AZExtension.m */,
+			);
+			path = NSURL;
+			sourceTree = "<group>";
+		};
 		1D5D49B11F1BA001003AEA36 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,6 +922,7 @@
 				1D2BD6841F3124FA00641E23 /* UINib+AZExtension.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D5D02AC1F813B1B00367A65 /* AZAssignRererenceWithSelector.m in Sources */,
+				1D5D02C11F813FF100367A65 /* NSURL+AZExtension.m in Sources */,
 				1D5D02411F813A0000367A65 /* AZArrayModel.m in Sources */,
 				1D5D02A81F813B1B00367A65 /* AZDispatcher.m in Sources */,
 				1D5D02A71F813B1B00367A65 /* AZImageModelCache.m in Sources */,

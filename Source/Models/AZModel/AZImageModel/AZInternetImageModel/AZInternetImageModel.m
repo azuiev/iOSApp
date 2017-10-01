@@ -8,9 +8,11 @@
 
 #import "AZInternetImageModel.h"
 
+#import "AZMacros.h"
+
 @interface AZInternetImageModel ()
-@property (nonatomic, strong) NSString  *cacheName;
-@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
+@property (nonatomic, strong) NSString                  *cacheName;
+@property (nonatomic, strong) NSURLSessionDownloadTask  *downloadTask;
 
 @end
 
@@ -21,6 +23,24 @@
 
 + (instancetype)imageModelWithURL:(NSURL *)url {
     return [[self alloc] initWithURL:url];
+}
+
+#pragma mark -
+#pragma mark Public Initialization and Deallocation
+
+- (void)dealloc {
+    self.downloadTask = nil;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
+    if (_downloadTask == downloadTask) {
+        [_downloadTask cancel];
+        
+        _downloadTask = downloadTask;
+    }
 }
 
 #pragma mark -
@@ -39,26 +59,29 @@
     }
 }
 
-- (void)loadImageWithBlock:(AZCompletionBlock)block {
-    NSURLSession *session = [NSURLSession sharedSession];
-    __block UIImage *image = nil;
-    NSURLSessionDownloadTask *task = self.downloadTask;
-    if (!task) {
-        task = [session downloadTaskWithURL:self.url
-                          completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
-                {
-                    [self saveTemporaryFile:location];
-                 
-                    image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
-                    block(image, error);
-                }];
-    }
-    
-    if (task.state == NSURLSessionTaskStateSuspended) {
+- (void)loadImageWithCompletionHandler:(AZCompletionBlock)completionHandler {
+    [super loadImageWithCompletionHandler:completionHandler];
+    if (self.state != AZModelDidLoad) {
+        NSURLSession *session = [NSURLSession sharedSession];
+        __block UIImage *image = nil;
+        NSURLSessionDownloadTask *task = self.downloadTask;
+        
+        AZWeakify(completionHandler);
+        if (!task) {
+            task = [session downloadTaskWithURL:self.url
+                              completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
+                    {
+                        AZStrongify(completionHandler);
+                        [self saveTemporaryFile:location];
+                        
+                        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
+                        completionHandler(image, error);
+                    }];
+            self.downloadTask = task;
+        }
+        
         [task resume];
     }
-    
-    
 }
 
 #pragma mark -

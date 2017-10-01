@@ -8,7 +8,7 @@
 
 #import "AZFileSystemImageModel.h"
 
-#import "NSString+AZExtension.h"
+#import "NSURL+AZExtension.h"
 
 @implementation AZFileSystemImageModel
 
@@ -22,7 +22,7 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (void)loadImageWithBlock:(AZCompletionBlock)block {
+- (void)loadImageWithcompletionHandler:(AZCompletionBlock)completionHandler {
     NSString *cacheFileName = [self nameInFileSystem];
     UIImage *image = nil;
     NSError *error = nil;
@@ -35,13 +35,11 @@
         }
     }
     
-    block(image, error);
+    completionHandler(image, error);
 }
 
 - (NSString *)nameInFileSystem {
-    NSString *name = [NSString removeIllegalSymbols:self.url.path];
-    
-    return [[self imagePath] stringByAppendingPathComponent:name];
+    return [[self imagePath] stringByAppendingPathComponent:[self.url pathWithRemovingIllegalSymbols]];
 }
 
 @end

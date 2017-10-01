@@ -25,7 +25,7 @@ typedef void (^AZCompletionBlock)(UIImage *image, NSError *error);
 - (instancetype)initWithURL:(NSURL *)url;
 
 //Methods for children purposes. Do not call this methods directly
-- (void)loadImageWithBlock:(AZCompletionBlock)block;
+- (void)loadImageWithCompletionHandler:(AZCompletionBlock)CompletionHandler;
 - (void)cancel;
 
 @end
