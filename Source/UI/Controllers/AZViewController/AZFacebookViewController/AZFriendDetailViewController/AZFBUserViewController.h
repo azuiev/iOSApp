@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AZViewController.h"
+
 #import "AZFBUserModel.h"
 
 #import "AZImageView.h"
 
-@interface AZFBUserViewController : UIViewController
+@interface AZFBUserViewController : AZViewController
 @property (nonatomic, strong) AZFBUserModel     *user;
 
 @property (nonatomic, strong) IBOutlet UILabel      *nameLabel;

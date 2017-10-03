@@ -16,11 +16,21 @@
 
 #import "AZRandomNumber.h"
 
-NSString *AZFriendsGraphPath       = @"/me/friends";
-NSString *AZFriendsParametersKey   = @"fileds";
-NSString *AZFriendsParametersValue = @"id,name,picture{url}";
+NSString *AZFriendsGraphPath            = @"/me/friends";
+NSString *AZFriendsParametersKey        = @"fields";
+NSString *AZFriendsParametersValue      = @"id,name,picture{url}";
+NSString *AZFriendsNameKey              = @"name";
+NSString *AZFriendsSurnameKey           = @"surname";
+NSString *AZFriendsFatherNameKey        = @"fatherName";
+NSString *AZFriendsDataKey              = @"data";
+NSString *AZFriendsIDKey                = @"id";
+NSString *AZFriendsTotalCountKey        = @"summary.total_count";
+NSString *AZFriendsPictureURLKey        = @"picture.data.url";
+NSString *AZFriendsPictureKey           = @"smallUserPicture";
 
 @implementation AZFBDownloadFriendsContext
+
+@dynamic token;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -38,22 +48,22 @@ NSString *AZFriendsParametersValue = @"id,name,picture{url}";
 #pragma mark -
 #pragma mark Overrided methods
 
-- (void)parseResult:(id)result {
-    NSNumber *count = [result valueForKeyPath:@"summary.total_count"];
+- (void)fillModelWithResponse:(id)result {
+    NSNumber *count = [result valueForKeyPath:AZFriendsTotalCountKey];
     
     NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:[count integerValue]];
-    NSDictionary *users = [result valueForKey:@"data"];
+    NSDictionary *users = [result valueForKey:AZFriendsDataKey];
     for (NSDictionary *user in users) {
-        NSString *userID = [user valueForKey:@"id"];
-        NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:@"picture.data.url"]];
+        NSString *userID = [user valueForKey:AZFriendsIDKey];
+        NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:AZFriendsPictureURLKey]];
         AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-        NSArray *names = [[user valueForKey:@"name"] componentsSeparatedByString:@" "];
+        NSArray *names = [[user valueForKey:AZFriendsNameKey] componentsSeparatedByString:@" "];
         
         AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID];
-        [fbUser setValue:names[0] forKey:@"name"];
-        [fbUser setValue:names[1] forKey:@"surname"];
-        [fbUser setValue:names[2] forKey:@"fatherName"];
-        [fbUser setValue:imageModel forKey:@"smallUserPicture"];
+        [fbUser setValue:names[0] forKey:AZFriendsNameKey];
+        [fbUser setValue:names[1] forKey:AZFriendsSurnameKey];
+        [fbUser setValue:names[2] forKey:AZFriendsFatherNameKey];
+        [fbUser setValue:imageModel forKey:AZFriendsPictureKey];
         [fbUsers addObject:fbUser];
     }
     

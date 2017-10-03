@@ -38,12 +38,12 @@ static NSArray  *urls    = nil;
 - (instancetype)init {
     [self initializeURLs];
     
-    NSString *urlName = urls[AZRandomNumberWithMaxValue(urls.count - 1)];
-    NSString *name = [NSString randomName];
-    NSString *surname = [NSString randomName];
-    AZImageModel *imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
+//    NSString *urlName = urls[AZRandomNumberWithMaxValue(urls.count - 1)];
+//    NSString *name = [NSString randomName];
+//    NSString *surname = [NSString randomName];
+//    AZImageModel *imageModel = [AZImageModel imageModelWithURL:[NSURL URLWithString:urlName]];
     
-    //return [self initUserModelWithName:name surname:surname userPicture:imageModel];
+//    return [self initUserModelWithName:name surname:surname userPicture:imageModel];
     return [self initUserModelWithName:nil surname:nil userPicture:nil];
 }
 

@@ -12,8 +12,6 @@
 
 + (instancetype)imageModelWithURL:(NSURL *)url;
 
-- (instancetype)initWithURL:(NSURL *)url;
-
 - (NSString *)nameInFileSystem;
 
 @end

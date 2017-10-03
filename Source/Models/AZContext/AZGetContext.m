@@ -13,6 +13,8 @@
 #import "AZGetContext.h"
 #import "AZMacros.h"
 
+NSString *AZRequestMethod = @"GET";
+
 @implementation AZGetContext
 
 -(void)execute {
@@ -20,20 +22,20 @@
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:self.graphPath
                                   parameters:self.parameters
-                                  tokenString:[self token]
+                                  tokenString:self.token
                                   version:nil
-                                  HTTPMethod:@"GET"];
+                                  HTTPMethod:AZRequestMethod];
     
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           id result,
                                           NSError *error)
      {
          AZStrongify(self);
-         [self parseResult:result];
+         [self fillModelWithResponse:result];
      }];
 }
 
-- (void)parseResult:(id)result {
+- (void)fillModelWithResponse:(id)result {
     
 }
 

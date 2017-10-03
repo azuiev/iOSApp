@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSDictionary  *parameters;
 
 //method for children purposes. Do not call this method directly
-- (void)parseResult:(id)result;
+- (void)fillModelWithResponse:(id)response;
 - (NSString *)token;
+
 @end

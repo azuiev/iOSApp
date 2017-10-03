@@ -25,15 +25,6 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 
 @implementation AZFBUserViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    if (self == [self.navigationController.viewControllers firstObject]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
-                                                                                  style:UIBarButtonItemStyleDone
-                                                                                 target:self
-                                                                                 action:@selector(logout)];
-    }
-}
-
 #pragma mark -
 #pragma mark Accessors
 
@@ -59,6 +50,13 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
     self.birthdayLabel.text = [NSString stringWithFormat:@"%@", user.birthday];
     self.emailLabel.text = user.email;
     self.genderLabel.text = user.gender;
+}
+
+- (void)prepareNavigationBar {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                              style:UIBarButtonItemStyleDone
+                                                                             target:self
+                                                                             action:@selector(logout)];
 }
 
 #pragma mark -

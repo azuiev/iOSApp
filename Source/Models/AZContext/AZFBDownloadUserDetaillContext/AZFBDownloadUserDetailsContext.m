@@ -16,14 +16,20 @@
 #import "AZMacros.h"
 #import "NSString+AZExtension.h"
 
-NSString *genderKey = @"gender";
-NSString *birthdayKey = @"birthday";
-NSString *emailKey = @"email";
-
-NSString *AZUserParametersKey   = @"fields";
-NSString *AZUserParametersValue = @"name,email,birthday,gender,picture.height(9999){url}";
+NSString *AZUserParametersKey       = @"fields";
+NSString *AZUserParametersValue     = @"name,email,birthday,gender,picture.height(9999){url}";
+NSString *AZUserNameKey             = @"name";
+NSString *AZUserSurnameKey          = @"surname";
+NSString *AZUserFatherNameKey       = @"fatherName";
+NSString *AZUserGenderKey           = @"gender";
+NSString *AZUserBirthdayKey         = @"birthday";
+NSString *AZUserEmailKey            = @"email";
+NSString *AZUserPictureURLKey       = @"picture.data.url";
+NSString *AZUserPictureKey          = @"largeUserPicture";
 
 @implementation AZFBDownloadUserDetailsContext
+
+@dynamic token;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -41,20 +47,20 @@ NSString *AZUserParametersValue = @"name,email,birthday,gender,picture.height(99
 #pragma mark -
 #pragma mark Overrided methods
 
-- (void)parseResult:(id)result {
+- (void)fillModelWithResponse:(id)result {
     AZFBUserModel *user = (AZFBUserModel *)self.model;
-    NSURL *imageURL = [NSURL URLWithString:[result valueForKeyPath:@"picture.data.url"]];
+    NSURL *imageURL = [NSURL URLWithString:[result valueForKeyPath:AZUserPictureURLKey]];
     AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-    NSString *name = [result valueForKey:@"name"];
+    NSString *name = [result valueForKey:AZUserNameKey];
     NSArray *names = [[NSString removeMultipleSpaces:name] componentsSeparatedByString:@" "];
     
-    [user setValue:[result valueForKey:emailKey] forKey:emailKey];
-    [user setValue:[result valueForKey:genderKey] forKey:genderKey];
-    [user setValue:[result valueForKey:birthdayKey] forKey:birthdayKey];
-    [user setValue:imageModel forKey:@"largeUserPicture"];
-    [user setValue:names[0] forKey:@"name"];
-    [user setValue:names[1] forKey:@"surname"];
-    [user setValue:names[2] forKey:@"fatherName"];
+    [user setValue:[result valueForKey:AZUserEmailKey] forKey:AZUserEmailKey];
+    [user setValue:[result valueForKey:AZUserGenderKey] forKey:AZUserGenderKey];
+    [user setValue:[result valueForKey:AZUserBirthdayKey] forKey:AZUserBirthdayKey];
+    [user setValue:imageModel forKey:AZUserPictureKey];
+    [user setValue:names[0] forKey:AZUserNameKey];
+    [user setValue:names[1] forKey:AZUserSurnameKey];
+    [user setValue:names[2] forKey:AZUserFatherNameKey];
     
     self.model.state = AZModelDidLoad;
 }

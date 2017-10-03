@@ -52,7 +52,4 @@ typedef NS_ENUM(NSUInteger, AZArrayModelState) {
 - (void)moveFromIndex:(NSUInteger)sourceIndex
               toIndex:(NSUInteger)destinationIndex;
 
-- (void)performBlockWithNotification:(void(^)())block;
-- (void)performBlockWithoutNotification:(void(^)())block;
-
 @end

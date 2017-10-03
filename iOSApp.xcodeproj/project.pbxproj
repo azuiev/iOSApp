@@ -42,14 +42,6 @@
 		1D5D024C1F813A0000367A65 /* AZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D023A1F813A0000367A65 /* AZModel.m */; };
 		1D5D024D1F813A0000367A65 /* AZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D023D1F813A0000367A65 /* AZUserModel.m */; };
 		1D5D024E1F813A0000367A65 /* AZFBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02401F813A0000367A65 /* AZFBUserModel.m */; };
-		1D5D02701F813ACB00367A65 /* AZFBUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02531F813ACB00367A65 /* AZFBUserViewController.m */; };
-		1D5D02711F813ACB00367A65 /* AZFBUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D02541F813ACB00367A65 /* AZFBUserViewController.xib */; };
-		1D5D02721F813ACB00367A65 /* AZFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02561F813ACB00367A65 /* AZFriendView.m */; };
-		1D5D02731F813ACB00367A65 /* AZFBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02591F813ACB00367A65 /* AZFBFriendsViewController.m */; };
-		1D5D02741F813ACB00367A65 /* AZFBFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D025A1F813ACB00367A65 /* AZFBFriendsViewController.xib */; };
-		1D5D02751F813ACB00367A65 /* AZFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D025C1F813ACB00367A65 /* AZFriendsView.m */; };
-		1D5D02761F813ACB00367A65 /* AZFBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D025F1F813ACB00367A65 /* AZFBLoginViewController.m */; };
-		1D5D02771F813ACB00367A65 /* AZFBLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D02601F813ACB00367A65 /* AZFBLoginViewController.xib */; };
 		1D5D02781F813ACB00367A65 /* AZSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02631F813ACB00367A65 /* AZSquareView.m */; };
 		1D5D02791F813ACB00367A65 /* AZSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02651F813ACB00367A65 /* AZSquareViewController.m */; };
 		1D5D027A1F813ACB00367A65 /* AZSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D02661F813ACB00367A65 /* AZSquareViewController.xib */; };
@@ -76,6 +68,15 @@
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
 		1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8307081F0C30A200409B09 /* AZAppDelegate.m */; };
+		1D83E01C1F8413E2009DF71E /* AZFBUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83E00E1F8413E2009DF71E /* AZFBUserViewController.m */; };
+		1D83E01D1F8413E2009DF71E /* AZFBUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D83E00F1F8413E2009DF71E /* AZFBUserViewController.xib */; };
+		1D83E01E1F8413E2009DF71E /* AZFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83E0111F8413E2009DF71E /* AZFriendView.m */; };
+		1D83E01F1F8413E2009DF71E /* AZFBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83E0141F8413E2009DF71E /* AZFBFriendsViewController.m */; };
+		1D83E0201F8413E2009DF71E /* AZFBFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D83E0151F8413E2009DF71E /* AZFBFriendsViewController.xib */; };
+		1D83E0211F8413E2009DF71E /* AZFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83E0171F8413E2009DF71E /* AZFriendsView.m */; };
+		1D83E0221F8413E2009DF71E /* AZFBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83E01A1F8413E2009DF71E /* AZFBLoginViewController.m */; };
+		1D83E0231F8413E2009DF71E /* AZFBLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D83E01B1F8413E2009DF71E /* AZFBLoginViewController.xib */; };
+		1D83E0261F84143E009DF71E /* AZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D83E0251F84143E009DF71E /* AZViewController.m */; };
 		6A4B335B65A85E03B213499A /* libPods-iOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */; };
 /* End PBXBuildFile section */
 
@@ -144,19 +145,6 @@
 		1D5D023D1F813A0000367A65 /* AZUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUserModel.m; sourceTree = "<group>"; };
 		1D5D023F1F813A0000367A65 /* AZFBUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserModel.h; sourceTree = "<group>"; };
 		1D5D02401F813A0000367A65 /* AZFBUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserModel.m; sourceTree = "<group>"; };
-		1D5D02521F813ACB00367A65 /* AZFBUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserViewController.h; sourceTree = "<group>"; };
-		1D5D02531F813ACB00367A65 /* AZFBUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserViewController.m; sourceTree = "<group>"; };
-		1D5D02541F813ACB00367A65 /* AZFBUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBUserViewController.xib; sourceTree = "<group>"; };
-		1D5D02551F813ACB00367A65 /* AZFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendView.h; sourceTree = "<group>"; };
-		1D5D02561F813ACB00367A65 /* AZFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendView.m; sourceTree = "<group>"; };
-		1D5D02581F813ACB00367A65 /* AZFBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBFriendsViewController.h; sourceTree = "<group>"; };
-		1D5D02591F813ACB00367A65 /* AZFBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBFriendsViewController.m; sourceTree = "<group>"; };
-		1D5D025A1F813ACB00367A65 /* AZFBFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBFriendsViewController.xib; sourceTree = "<group>"; };
-		1D5D025B1F813ACB00367A65 /* AZFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendsView.h; sourceTree = "<group>"; };
-		1D5D025C1F813ACB00367A65 /* AZFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendsView.m; sourceTree = "<group>"; };
-		1D5D025E1F813ACB00367A65 /* AZFBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBLoginViewController.h; sourceTree = "<group>"; };
-		1D5D025F1F813ACB00367A65 /* AZFBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBLoginViewController.m; sourceTree = "<group>"; };
-		1D5D02601F813ACB00367A65 /* AZFBLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBLoginViewController.xib; sourceTree = "<group>"; };
 		1D5D02621F813ACB00367A65 /* AZSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZSquareView.h; sourceTree = "<group>"; };
 		1D5D02631F813ACB00367A65 /* AZSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZSquareView.m; sourceTree = "<group>"; };
 		1D5D02641F813ACB00367A65 /* AZSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZSquareViewController.h; sourceTree = "<group>"; };
@@ -206,6 +194,21 @@
 		1D77AF501F142BF70069E27F /* AZRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZRange.m; path = Utils/AZRange.m; sourceTree = "<group>"; };
 		1D8307071F0C30A200409B09 /* AZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAppDelegate.h; sourceTree = "<group>"; };
 		1D8307081F0C30A200409B09 /* AZAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAppDelegate.m; sourceTree = "<group>"; };
+		1D83E00D1F8413E2009DF71E /* AZFBUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserViewController.h; sourceTree = "<group>"; };
+		1D83E00E1F8413E2009DF71E /* AZFBUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserViewController.m; sourceTree = "<group>"; };
+		1D83E00F1F8413E2009DF71E /* AZFBUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBUserViewController.xib; sourceTree = "<group>"; };
+		1D83E0101F8413E2009DF71E /* AZFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendView.h; sourceTree = "<group>"; };
+		1D83E0111F8413E2009DF71E /* AZFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendView.m; sourceTree = "<group>"; };
+		1D83E0131F8413E2009DF71E /* AZFBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBFriendsViewController.h; sourceTree = "<group>"; };
+		1D83E0141F8413E2009DF71E /* AZFBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBFriendsViewController.m; sourceTree = "<group>"; };
+		1D83E0151F8413E2009DF71E /* AZFBFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBFriendsViewController.xib; sourceTree = "<group>"; };
+		1D83E0161F8413E2009DF71E /* AZFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendsView.h; sourceTree = "<group>"; };
+		1D83E0171F8413E2009DF71E /* AZFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendsView.m; sourceTree = "<group>"; };
+		1D83E0191F8413E2009DF71E /* AZFBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBLoginViewController.h; sourceTree = "<group>"; };
+		1D83E01A1F8413E2009DF71E /* AZFBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBLoginViewController.m; sourceTree = "<group>"; };
+		1D83E01B1F8413E2009DF71E /* AZFBLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBLoginViewController.xib; sourceTree = "<group>"; };
+		1D83E0241F84143E009DF71E /* AZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZViewController.h; sourceTree = "<group>"; };
+		1D83E0251F84143E009DF71E /* AZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZViewController.m; sourceTree = "<group>"; };
 		4C0A4B828E3B838C82DF99A2 /* Pods-iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		83E3D191EACADFB6A1F9187A /* libPods-iOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4E0CAB0C936997215356FC /* Pods-iOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSApp/Pods-iOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -530,55 +533,11 @@
 		1D5D024F1F813ACB00367A65 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1D5D02501F813ACB00367A65 /* AZFacebookViewController */,
+				1D83E00A1F8413E2009DF71E /* AZViewController */,
 				1D5D02611F813ACB00367A65 /* AZSquareController */,
 				1D5D02671F813ACB00367A65 /* AZUsersController */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		1D5D02501F813ACB00367A65 /* AZFacebookViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1D5D02511F813ACB00367A65 /* AZFriendDetailViewController */,
-				1D5D02571F813ACB00367A65 /* AZFriendsViewController */,
-				1D5D025D1F813ACB00367A65 /* AZLoginViewController */,
-			);
-			path = AZFacebookViewController;
-			sourceTree = "<group>";
-		};
-		1D5D02511F813ACB00367A65 /* AZFriendDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1D5D02521F813ACB00367A65 /* AZFBUserViewController.h */,
-				1D5D02531F813ACB00367A65 /* AZFBUserViewController.m */,
-				1D5D02541F813ACB00367A65 /* AZFBUserViewController.xib */,
-				1D5D02551F813ACB00367A65 /* AZFriendView.h */,
-				1D5D02561F813ACB00367A65 /* AZFriendView.m */,
-			);
-			path = AZFriendDetailViewController;
-			sourceTree = "<group>";
-		};
-		1D5D02571F813ACB00367A65 /* AZFriendsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1D5D02581F813ACB00367A65 /* AZFBFriendsViewController.h */,
-				1D5D02591F813ACB00367A65 /* AZFBFriendsViewController.m */,
-				1D5D025A1F813ACB00367A65 /* AZFBFriendsViewController.xib */,
-				1D5D025B1F813ACB00367A65 /* AZFriendsView.h */,
-				1D5D025C1F813ACB00367A65 /* AZFriendsView.m */,
-			);
-			path = AZFriendsViewController;
-			sourceTree = "<group>";
-		};
-		1D5D025D1F813ACB00367A65 /* AZLoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1D5D025E1F813ACB00367A65 /* AZFBLoginViewController.h */,
-				1D5D025F1F813ACB00367A65 /* AZFBLoginViewController.m */,
-				1D5D02601F813ACB00367A65 /* AZFBLoginViewController.xib */,
-			);
-			path = AZLoginViewController;
 			sourceTree = "<group>";
 		};
 		1D5D02611F813ACB00367A65 /* AZSquareController */ = {
@@ -759,6 +718,60 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		1D83E00A1F8413E2009DF71E /* AZViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D83E0241F84143E009DF71E /* AZViewController.h */,
+				1D83E0251F84143E009DF71E /* AZViewController.m */,
+				1D83E00B1F8413E2009DF71E /* AZFacebookViewController */,
+			);
+			path = AZViewController;
+			sourceTree = "<group>";
+		};
+		1D83E00B1F8413E2009DF71E /* AZFacebookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D83E00C1F8413E2009DF71E /* AZFriendDetailViewController */,
+				1D83E0121F8413E2009DF71E /* AZFriendsViewController */,
+				1D83E0181F8413E2009DF71E /* AZLoginViewController */,
+			);
+			path = AZFacebookViewController;
+			sourceTree = "<group>";
+		};
+		1D83E00C1F8413E2009DF71E /* AZFriendDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D83E00D1F8413E2009DF71E /* AZFBUserViewController.h */,
+				1D83E00E1F8413E2009DF71E /* AZFBUserViewController.m */,
+				1D83E00F1F8413E2009DF71E /* AZFBUserViewController.xib */,
+				1D83E0101F8413E2009DF71E /* AZFriendView.h */,
+				1D83E0111F8413E2009DF71E /* AZFriendView.m */,
+			);
+			path = AZFriendDetailViewController;
+			sourceTree = "<group>";
+		};
+		1D83E0121F8413E2009DF71E /* AZFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D83E0131F8413E2009DF71E /* AZFBFriendsViewController.h */,
+				1D83E0141F8413E2009DF71E /* AZFBFriendsViewController.m */,
+				1D83E0151F8413E2009DF71E /* AZFBFriendsViewController.xib */,
+				1D83E0161F8413E2009DF71E /* AZFriendsView.h */,
+				1D83E0171F8413E2009DF71E /* AZFriendsView.m */,
+			);
+			path = AZFriendsViewController;
+			sourceTree = "<group>";
+		};
+		1D83E0181F8413E2009DF71E /* AZLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D83E0191F8413E2009DF71E /* AZFBLoginViewController.h */,
+				1D83E01A1F8413E2009DF71E /* AZFBLoginViewController.m */,
+				1D83E01B1F8413E2009DF71E /* AZFBLoginViewController.xib */,
+			);
+			path = AZLoginViewController;
+			sourceTree = "<group>";
+		};
 		6FF4CD2DD1003B7DA0220BA6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,13 +858,13 @@
 				1D5D027F1F813ACB00367A65 /* AZUsersViewController.xib in Resources */,
 				1D5D027C1F813ACB00367A65 /* AZUserCell.xib in Resources */,
 				1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */,
-				1D5D02771F813ACB00367A65 /* AZFBLoginViewController.xib in Resources */,
 				1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */,
+				1D83E0231F8413E2009DF71E /* AZFBLoginViewController.xib in Resources */,
 				1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */,
 				1D5D02BB1F813B5B00367A65 /* AZLoadingView.xib in Resources */,
-				1D5D02741F813ACB00367A65 /* AZFBFriendsViewController.xib in Resources */,
-				1D5D02711F813ACB00367A65 /* AZFBUserViewController.xib in Resources */,
 				1D5D027A1F813ACB00367A65 /* AZSquareViewController.xib in Resources */,
+				1D83E0201F8413E2009DF71E /* AZFBFriendsViewController.xib in Resources */,
+				1D83E01D1F8413E2009DF71E /* AZFBUserViewController.xib in Resources */,
 				1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,29 +926,29 @@
 			files = (
 				1D2BD6851F3124FA00641E23 /* UITableView+AZExtension.m in Sources */,
 				1D5D027B1F813ACB00367A65 /* AZUserCell.m in Sources */,
-				1D5D02721F813ACB00367A65 /* AZFriendView.m in Sources */,
 				1D5D02781F813ACB00367A65 /* AZSquareView.m in Sources */,
-				1D5D02751F813ACB00367A65 /* AZFriendsView.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
 				1D5D02461F813A0000367A65 /* AZArrayModelRemoveChange.m in Sources */,
 				1D2BD67F1F3124FA00641E23 /* NSArray+AZExtension.m in Sources */,
 				1D2BD6841F3124FA00641E23 /* UINib+AZExtension.m in Sources */,
 				1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */,
 				1D5D02AC1F813B1B00367A65 /* AZAssignRererenceWithSelector.m in Sources */,
+				1D83E0261F84143E009DF71E /* AZViewController.m in Sources */,
 				1D5D02C11F813FF100367A65 /* NSURL+AZExtension.m in Sources */,
 				1D5D02411F813A0000367A65 /* AZArrayModel.m in Sources */,
 				1D5D02A81F813B1B00367A65 /* AZDispatcher.m in Sources */,
 				1D5D02A71F813B1B00367A65 /* AZImageModelCache.m in Sources */,
+				1D83E0221F8413E2009DF71E /* AZFBLoginViewController.m in Sources */,
 				1D5D02BC1F813B5B00367A65 /* AZView.m in Sources */,
 				1D5D027D1F813ACB00367A65 /* AZUsersView.m in Sources */,
 				1D5D02421F813A0000367A65 /* AZArrayModelChange.m in Sources */,
 				1D2BD6861F3124FA00641E23 /* UIWindow+AZExtension.m in Sources */,
 				1D74D98F1F7994E400849F19 /* NSString+AZExtension.m in Sources */,
 				1D5D027E1F813ACB00367A65 /* AZUsersViewController.m in Sources */,
+				1D83E01F1F8413E2009DF71E /* AZFBFriendsViewController.m in Sources */,
 				1D5D02A91F813B1B00367A65 /* AZGCD.m in Sources */,
 				1D5D024E1F813A0000367A65 /* AZFBUserModel.m in Sources */,
 				1D5D02451F813A0000367A65 /* AZArrayModelMoveChange.m in Sources */,
-				1D5D02731F813ACB00367A65 /* AZFBFriendsViewController.m in Sources */,
 				1D5D024D1F813A0000367A65 /* AZUserModel.m in Sources */,
 				1D5D02BA1F813B5B00367A65 /* AZLoadingView.m in Sources */,
 				1D2BD6801F3124FA00641E23 /* NSBundle+AZExtension.m in Sources */,
@@ -947,15 +960,15 @@
 				1D2BD6821F3124FA00641E23 /* NSString+AZRandomName.m in Sources */,
 				1D77AF511F142BF70069E27F /* AZRange.m in Sources */,
 				1D5D024A1F813A0000367A65 /* AZImageModel.m in Sources */,
-				1D5D02701F813ACB00367A65 /* AZFBUserViewController.m in Sources */,
 				1D5D02B91F813B5B00367A65 /* AZImageView.m in Sources */,
-				1D5D02761F813ACB00367A65 /* AZFBLoginViewController.m in Sources */,
 				1D5D02491F813A0000367A65 /* AZFileSystemImageModel.m in Sources */,
 				1D5D024C1F813A0000367A65 /* AZModel.m in Sources */,
 				1D5D01F31F81368800367A65 /* AZFBDownloadFriendsContext.m in Sources */,
 				1D5D01F81F8136A400367A65 /* AZGetContext.m in Sources */,
 				1D5D02431F813A0000367A65 /* AZArrayModelAddChange.m in Sources */,
 				1D5D02A61F813B1B00367A65 /* AZFBUserModelCashe.m in Sources */,
+				1D83E01C1F8413E2009DF71E /* AZFBUserViewController.m in Sources */,
+				1D83E0211F8413E2009DF71E /* AZFriendsView.m in Sources */,
 				1D5D02791F813ACB00367A65 /* AZSquareViewController.m in Sources */,
 				1D5D02AB1F813B1B00367A65 /* AZAssignReference.m in Sources */,
 				1D5D02481F813A0000367A65 /* AZUsersModel.m in Sources */,
@@ -964,6 +977,7 @@
 				1D2BD6831F3124FA00641E23 /* NSString+AZRandomString.m in Sources */,
 				1D5D02AD1F813B1B00367A65 /* AZTableViewCell.m in Sources */,
 				1D5D02471F813A0000367A65 /* AZFBUsersModel.m in Sources */,
+				1D83E01E1F8413E2009DF71E /* AZFriendView.m in Sources */,
 				1D5D01F21F81368800367A65 /* AZContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -70,7 +70,7 @@ NSString *appSecret = @"KYOIvMEMaTixlYL4SL4v09Hqoxc";
              NSString *userID = [user valueForKey:@"id"];
              NSString *token = [user valueForKey:@"access_token"];
              
-             AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID accessToken:token];
+             [AZFBUserModel userWithID:userID accessToken:token];
          }
      }];
   

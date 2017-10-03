@@ -19,13 +19,6 @@ static NSString     *AZkImageURL        = @"kImageURL";
 static NSString     *AZImageDirectory   = @"Images";
 static double       AZLoadImageDelay    = 0.5;
 
-@interface AZImageModel ()
-
-- (NSString *)nameOfCashedFile;
-- (UIImage *)imageFromCashe;
-
-@end
-
 @implementation AZImageModel
 
 @dynamic imagePath;
@@ -86,6 +79,17 @@ static double       AZLoadImageDelay    = 0.5;
             }];
         }];
     }];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)loadImageWithCompletionHandler:(AZCompletionBlock)CompletionHandler {
+    
+}
+
+- (void)cancel {
+    
 }
 
 #pragma mark -
