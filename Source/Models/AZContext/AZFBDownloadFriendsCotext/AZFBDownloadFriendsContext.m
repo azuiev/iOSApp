@@ -38,6 +38,7 @@ NSString *AZFriendsPictureKey           = @"smallUserPicture";
 - (instancetype)initWithModel:(AZModel *)model {
     self = [super initWithModel:model];
     if (self) {
+        self.friends = [AZFBUsersModel new];
         self.graphPath  = AZFriendsGraphPath;
         self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};
     }
@@ -67,9 +68,9 @@ NSString *AZFriendsPictureKey           = @"smallUserPicture";
         [fbUsers addObject:fbUser];
     }
     
-    AZFBUsersModel *usersModel = [AZFBUsersModel arrayModelWithArray:fbUsers];
-    self.controller.friends = usersModel;
-    self.controller.friends.state = AZModelDidLoad;
+    [self.friends addObjects:fbUsers];
+    
+    self.friends.state = AZModelDidLoad;
 }
 
 - (NSString *)token {

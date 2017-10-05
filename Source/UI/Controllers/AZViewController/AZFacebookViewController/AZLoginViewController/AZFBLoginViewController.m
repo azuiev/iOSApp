@@ -13,41 +13,64 @@
 #import "AZFBUserViewController.h"
 
 #import "AZFBLoginContext.h"
+#import "AZFBDownloadUserDetailsContext.h"
 
 @interface AZFBLoginViewController ()
-@property (nonatomic, strong) AZFBLoginContext    *context;
+@property (nonatomic, strong) AZFBLoginContext                      *loginContext;
+@property (nonatomic, strong) AZFBDownloadUserDetailsContext        *userContext;
+@property (nonatomic, strong) AZFBUserModel                         *user;
+
 @end
 
 @implementation AZFBLoginViewController
+
 #pragma mark -
 #pragma mark Initialization and deallocation
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.context = [AZFBLoginContext contextWithModel:self];
+        AZFBUserModel *user = [AZFBUserModel new];
+        self.user = user;
+        self.loginContext = [AZFBLoginContext contextWithModel:user];
+        self.userContext = [AZFBDownloadUserDetailsContext contextWithModel:user];
     }
     
     return self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (self.context.accessToken) {
+    if (self.loginContext.accessToken) {
         //[self presentChildController];
     }
 }
 
-- (IBAction)loginToFacebook:(id)sender {
-    [self.context execute];
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(AZFBUserModel *)user {
+    if (_user != user) {
+        [_user removeObserver:self];
+        
+        _user = user;
+        [_user addObserver:self];
+    }
 }
 
-- (void)presentChildController {
+- (IBAction)loginToFacebook:(id)sender {
+    [self.loginContext execute];
+}
+
+#pragma mark -
+#pragma mark Observer
+
+- (void)modelWillLoad:(AZModel *)model {
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:navigationController animated:YES completion:nil];
     
-    FBSDKAccessToken *appToken = self.context.accessToken;
-    controller.user = [AZFBUserModel userWithID:appToken.userID accessToken:appToken.tokenString];
+    controller.user = self.user;
+    [self.userContext execute];
 }
 
 @end

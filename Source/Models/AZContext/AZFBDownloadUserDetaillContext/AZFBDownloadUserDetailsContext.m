@@ -30,6 +30,7 @@ NSString *AZUserPictureKey          = @"largeUserPicture";
 @implementation AZFBDownloadUserDetailsContext
 
 @dynamic token;
+@dynamic graphPath;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -37,7 +38,6 @@ NSString *AZUserPictureKey          = @"largeUserPicture";
 - (instancetype)initWithModel:(AZModel *)model {
     self = [super initWithModel:model];
     if (self) {
-        self.graphPath  = [(AZFBUserModel *)self.model userID];
         self.parameters = @{AZUserParametersKey:AZUserParametersValue};
     }
     
@@ -63,6 +63,10 @@ NSString *AZUserPictureKey          = @"largeUserPicture";
     [user setValue:names[2] forKey:AZUserFatherNameKey];
     
     self.model.state = AZModelDidLoad;
+}
+
+- (NSString *)graphPath {
+    return [(AZFBUserModel *)self.model userID];
 }
 
 - (NSString *)token {

@@ -8,7 +8,7 @@
 
 #import "AZFBUserViewController.h"
 
-#import "AZFBDownloadUserDetailsContext.h"
+#import "AZFBDownloadFriendsContext.h"
 #import "AZFBFriendsViewController.h"
 #import "AZFBDownloadFriendsContext.h"
 
@@ -19,7 +19,7 @@
 
 AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 @interface AZFBUserViewController ()
-@property (nonatomic, strong) AZFBDownloadUserDetailsContext *context;
+@property (nonatomic, strong) AZFBDownloadFriendsContext *context;
 
 @end
 
@@ -35,10 +35,9 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
         _user = user;
         [_user addObserver:self];
         
-        AZFBDownloadUserDetailsContext *context = [AZFBDownloadUserDetailsContext contextWithModel:user];
-        self.context = context;
+        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:_user];
         
-        [context execute];
+        self.context = context;
     }
 }
 
@@ -63,10 +62,15 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 #pragma mark Private methods
 
 - (IBAction)presentFriends:(id)sender {
+    AZFBUserModel *user = self.user;
+    
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
-    controller.user = self.user;
+    controller.user = user;
+    controller.friends = self.context.friends;
     
     [self.navigationController pushViewController:controller animated:YES];
+    
+    [self.context execute];
 }
 
 - (void)logout {

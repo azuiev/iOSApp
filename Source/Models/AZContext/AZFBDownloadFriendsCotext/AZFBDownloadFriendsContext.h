@@ -7,10 +7,11 @@
 //
 
 #import "AZGetContext.h"
-
-#import "AZFBFriendsViewController.h"
+#import "AZFBUserModel.h"
+#import "AZFBUsersModel.h"
 
 @interface AZFBDownloadFriendsContext : AZGetContext
-@property (nonatomic, strong) AZFBFriendsViewController *controller;
+@property (nonatomic, strong) AZFBUserModel     *user;
+@property (nonatomic, strong) AZFBUsersModel    *friends;
 
 @end

@@ -12,6 +12,9 @@
 #import "AZFBLoginViewController.h"
 #import "AZFBLoginContext.h"
 
+NSString *AZTokenStringPath     = @"token.tokenString";
+NSString *AZUserIDStringPath    = @"token.userID";
+
 @implementation AZFBLoginContext
 
 @dynamic accessToken;
@@ -30,7 +33,7 @@
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logOut];
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
-                 fromViewController:(UIViewController *)self.model
+                 fromViewController:nil
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error) {
                                     NSLog(@"Process error");
@@ -38,7 +41,14 @@
                                     NSLog(@"Cancelled");
                                 } else {
                                     NSLog(@"Logged in");
-                                    [(AZFBLoginViewController *)self.model presentChildController];
+                                    AZFBUserModel *user = (AZFBUserModel *)self.model;
+                                    NSString *token = [result valueForKeyPath:AZTokenStringPath];
+                                    NSString *userID = [result valueForKeyPath:AZUserIDStringPath];
+                                    
+                                    [user setValue:token forKey:@"token"];
+                                    [user setValue:userID forKey:@"userID"];
+                                    
+                                    user.state = AZModelWillLoad;
                                 }
                             }];
 }

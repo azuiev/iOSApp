@@ -10,7 +10,7 @@
 #import "AZFBUserViewController.h"
 
 #import "AZFBUserModel.h"
-#import "AZFBDownloadFriendsContext.h"
+#import "AZFBDownloadUserDetailsContext.h"
 
 #import "AZFriendsView.h"
 #import "AZUserCell.h"
@@ -22,7 +22,8 @@
 
 AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsView)
 @interface AZFBFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) AZFBDownloadFriendsContext *context;
+@property (nonatomic, strong) AZFBDownloadUserDetailsContext *context;
+
 @end
 
 @implementation AZFBFriendsViewController
@@ -48,17 +49,6 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
     }
 }
 
-- (void)setUser:(AZFBUserModel *)user {
-    if (_user != user) {
-        _user = user;
-        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:user];
-        context.controller = self;
-        self.context = context;
-        
-        [context execute];
-    }
-}
-
 #pragma mark -
 #pragma mark UITableViewDataSource
 
@@ -78,12 +68,17 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AZFBUserModel *user = self.friends[indexPath.row];
-    
     AZFBUserViewController *friendController = [[AZFBUserViewController alloc] initWithNibName:@"AZFBUserViewController"
-                                                                                                   bundle:nil];
+                                                                                        bundle:nil];
     friendController.user = user;
         
     [self.navigationController pushViewController:friendController animated:YES];
+    
+    AZFBDownloadUserDetailsContext *context = [AZFBDownloadUserDetailsContext contextWithModel:user];
+    self.context = context;
+    
+    [context execute];
+    
 }
 
 #pragma mark -
