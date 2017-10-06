@@ -15,4 +15,6 @@
 @interface AZView : UIView <AZModelObserver>
 @property (nonatomic, strong) AZLoadingView *loadingView;
 
+- (void)fillWithModel:(AZModel *)model;
+
 @end

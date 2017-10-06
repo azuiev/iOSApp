@@ -84,6 +84,12 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 #pragma mark -
 #pragma mark AZModelObserver
 
+- (void)modelWillLoad:(AZModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.mainView.loadingView setVisible:YES];
+    }];
+}
+
 - (void)modelDidLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:NO];

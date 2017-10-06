@@ -35,10 +35,9 @@ NSString *AZFriendsPictureKey           = @"smallUserPicture";
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (instancetype)initWithModel:(AZModel *)model {
-    self = [super initWithModel:model];
+- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state {
+    self = [super initWithModel:model completionState:state];
     if (self) {
-        self.friends = [AZFBUsersModel new];
         self.graphPath  = AZFriendsGraphPath;
         self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};
     }
@@ -68,13 +67,12 @@ NSString *AZFriendsPictureKey           = @"smallUserPicture";
         [fbUsers addObject:fbUser];
     }
     
-    [self.friends addObjects:fbUsers];
-    
-    self.friends.state = AZModelDidLoad;
+    AZFBUsersModel *fbUsersModel = (AZFBUsersModel *)self.model;
+    [fbUsersModel addObjects:fbUsers];
 }
 
 - (NSString *)token {
-    AZFBUserModel *user = (AZFBUserModel *)self.model;
+    AZFBUserModel *user = (AZFBUserModel *)self.user;
     
     return user.token;
 }

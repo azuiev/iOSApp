@@ -33,7 +33,7 @@
         AZFBUserModel *user = [AZFBUserModel new];
         self.user = user;
         self.loginContext = [AZFBLoginContext contextWithModel:user];
-        self.userContext = [AZFBDownloadUserDetailsContext contextWithModel:user];
+        self.userContext = [AZFBDownloadUserDetailsContext contextWithModel:user completionState:AZModelDidLoad];
     }
     
     return self;
@@ -70,6 +70,7 @@
     [self presentViewController:navigationController animated:YES completion:nil];
     
     controller.user = self.user;
+    
     [self.userContext execute];
 }
 

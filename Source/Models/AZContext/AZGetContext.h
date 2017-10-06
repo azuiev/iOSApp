@@ -13,6 +13,10 @@
 @property (nonatomic, strong) NSString      *token;
 @property (nonatomic, strong) NSDictionary  *parameters;
 
++ (instancetype)contextWithModel:(AZModel *)model completionState:(AZModelState)state;
+
+- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state;
+
 //method for children purposes. Do not call this method directly
 - (void)fillModelWithResponse:(id)response;
 

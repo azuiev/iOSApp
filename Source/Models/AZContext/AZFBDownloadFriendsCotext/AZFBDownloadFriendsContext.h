@@ -12,6 +12,5 @@
 
 @interface AZFBDownloadFriendsContext : AZGetContext
 @property (nonatomic, strong) AZFBUserModel     *user;
-@property (nonatomic, strong) AZFBUsersModel    *friends;
 
 @end

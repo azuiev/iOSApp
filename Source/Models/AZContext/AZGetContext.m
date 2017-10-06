@@ -15,9 +15,38 @@
 
 NSString *AZRequestMethod = @"GET";
 
+@interface AZGetContext ()
+@property (nonatomic, assign) AZModelState modelState;
+
+- (void)finishLoadingWithResponse:(id)result;
+
+@end
+
 @implementation AZGetContext
 
--(void)execute {
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)contextWithModel:(AZModel *)model completionState:(AZModelState)state {
+    return [[self alloc ] initWithModel:model completionState:state];
+}
+
+#pragma mark -
+#pragma mark Initialization and deallocation
+
+- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state {
+    self = [super initWithModel:model];
+    if (self) {
+        self.modelState = state;
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Public methods
+
+- (void)execute {
     AZWeakify(self);
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:self.graphPath
@@ -31,12 +60,21 @@ NSString *AZRequestMethod = @"GET";
                                           NSError *error)
      {
          AZStrongify(self);
-         [self fillModelWithResponse:result];
+         [self finishLoadingWithResponse:result];
      }];
 }
 
 - (void)fillModelWithResponse:(id)result {
     
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)finishLoadingWithResponse:(id)result {
+    [self fillModelWithResponse:result];
+    
+    self.model.state = self.modelState;
 }
 
 @end

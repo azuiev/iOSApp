@@ -11,14 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AZFBUserViewController">
             <connections>
-                <outlet property="birthdayLabel" destination="FWp-wB-AtZ" id="Vut-EC-oIG"/>
-                <outlet property="emailLabel" destination="BXa-16-Cdl" id="eSt-h1-FO1"/>
-                <outlet property="fatherNameLabel" destination="rFk-X7-UfB" id="2Xe-zi-SSq"/>
-                <outlet property="friendsButton" destination="A0Y-jP-tjz" id="PR5-2j-V4V"/>
-                <outlet property="genderLabel" destination="AhL-rG-flT" id="GGX-St-Bcf"/>
-                <outlet property="largeImageView" destination="bsd-LD-74G" id="2AZ-SP-VKS"/>
-                <outlet property="nameLabel" destination="nju-nk-Vve" id="j6i-y9-Aqg"/>
-                <outlet property="surnameLabel" destination="ohx-Mr-VtU" id="i2j-5n-YTs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="VMH-nf-eaB"/>
             </connections>
         </placeholder>
@@ -111,6 +103,16 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="birthdayLabel" destination="FWp-wB-AtZ" id="IYh-F3-g7e"/>
+                <outlet property="emailLabel" destination="BXa-16-Cdl" id="2AQ-Z7-yw4"/>
+                <outlet property="fatherNameLabel" destination="rFk-X7-UfB" id="z0W-5S-q9X"/>
+                <outlet property="friendsButton" destination="A0Y-jP-tjz" id="Bk8-Ti-O5s"/>
+                <outlet property="genderLabel" destination="AhL-rG-flT" id="uKV-jn-ePs"/>
+                <outlet property="largeImageView" destination="bsd-LD-74G" id="5Wg-7O-HQK"/>
+                <outlet property="nameLabel" destination="nju-nk-Vve" id="azt-ei-hl6"/>
+                <outlet property="surnameLabel" destination="ohx-Mr-VtU" id="wr9-Cs-bU8"/>
+            </connections>
             <point key="canvasLocation" x="26.5" y="51.5"/>
         </view>
     </objects>

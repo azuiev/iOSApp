@@ -35,20 +35,12 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
         _user = user;
         [_user addObserver:self];
         
-        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:_user];
+        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:[AZFBUsersModel new]
+                                                                           completionState:AZModelDidLoad];
+        context.user = _user;
         
         self.context = context;
     }
-}
-
-- (void)fillWithModel:(AZFBUserModel *)user {
-    self.nameLabel.text = user.name;
-    self.surnameLabel.text = user.surname;
-    self.fatherNameLabel.text = user.fatherName;
-    self.largeImageView.model = user.largeUserPicture;
-    self.birthdayLabel.text = [NSString stringWithFormat:@"%@", user.birthday];
-    self.emailLabel.text = user.email;
-    self.genderLabel.text = user.gender;
 }
 
 - (void)prepareNavigationBar {
@@ -66,7 +58,7 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
     
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
     controller.user = user;
-    controller.friends = self.context.friends;
+    controller.friends = (AZFBUsersModel *)self.context.model;
     
     [self.navigationController pushViewController:controller animated:YES];
     
@@ -82,9 +74,10 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 
 - (void)modelDidLoad:(AZFBUserModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self fillWithModel:model];
+        [self.mainView fillWithModel:model];
     }];
 }
+
 
 
 @end

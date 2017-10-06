@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) AZModel    *model;
 
 + (instancetype)contextWithModel:(AZModel *)model;
+
 - (instancetype)initWithModel:(AZModel *)model;
 - (void)execute;
 - (void)cancel;

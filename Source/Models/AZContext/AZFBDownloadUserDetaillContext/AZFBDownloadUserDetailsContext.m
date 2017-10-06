@@ -35,8 +35,8 @@ NSString *AZUserPictureKey          = @"largeUserPicture";
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (instancetype)initWithModel:(AZModel *)model {
-    self = [super initWithModel:model];
+- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state {
+    self = [super initWithModel:model completionState:state];
     if (self) {
         self.parameters = @{AZUserParametersKey:AZUserParametersValue};
     }
@@ -61,8 +61,6 @@ NSString *AZUserPictureKey          = @"largeUserPicture";
     [user setValue:names[0] forKey:AZUserNameKey];
     [user setValue:names[1] forKey:AZUserSurnameKey];
     [user setValue:names[2] forKey:AZUserFatherNameKey];
-    
-    self.model.state = AZModelDidLoad;
 }
 
 - (NSString *)graphPath {
