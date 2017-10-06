@@ -47,7 +47,7 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
-                                                                             action:@selector(logout)];
+                                                                             action:@selector(onLogout)];
 }
 
 #pragma mark -
@@ -65,8 +65,11 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
     [self.context execute];
 }
 
-- (void)logout {
+- (void)onLogout {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    //Todo
+    UIPresentationController *controller = self.presentationController;
 }
 
 #pragma mark -

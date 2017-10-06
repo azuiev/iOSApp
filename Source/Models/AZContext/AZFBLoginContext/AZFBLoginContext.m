@@ -26,11 +26,15 @@ NSString *AZUserIDStringPath    = @"token.userID";
     return [FBSDKAccessToken currentAccessToken];
 }
 
+- (void)logout {
+    [[FBSDKLoginManager new] logOut];
+}
+
 #pragma mark -
 #pragma mark Overrided methods
 
 - (void)execute {
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    FBSDKLoginManager *login = [FBSDKLoginManager new];
     [login logOut];
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
                  fromViewController:nil

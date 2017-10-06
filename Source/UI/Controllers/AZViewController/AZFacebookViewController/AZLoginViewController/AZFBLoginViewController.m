@@ -62,6 +62,13 @@
 }
 
 #pragma mark -
+#pragma mark Public Methods 
+
+- (void)logout {
+    [self.loginContext logout];
+}
+
+#pragma mark -
 #pragma mark Observer
 
 - (void)modelWillLoad:(AZModel *)model {

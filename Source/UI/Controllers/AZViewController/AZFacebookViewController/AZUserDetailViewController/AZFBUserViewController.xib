@@ -98,7 +98,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Friends"/>
                     <connections>
-                        <action selector="presentFriends:" destination="-1" eventType="touchUpInside" id="SBe-jg-tBh"/>
+                        <action selector="presentFriends:" destination="-1" eventType="touchUpInside" id="phf-7j-PKa"/>
                     </connections>
                 </button>
             </subviews>

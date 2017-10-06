@@ -11,6 +11,8 @@
 @interface AZFBLoginViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UIButton *loginButton;
 
+- (void)logout;
+
 - (void)presentChildController;
 
 @end
