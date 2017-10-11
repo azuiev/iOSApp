@@ -43,8 +43,7 @@
     NSString *string = [NSString removeIllegalSymbols:self.url.path];
     NSLog(@"%@", string);
     
-    return [[self imagePath] stringByAppendingString:string];
-    //return [[self imagePath] stringByAppendingPathComponent:[self.url pathWithRemovingIllegalSymbols]];
+    return [[self imagePath] stringByAppendingPathComponent:[self.url pathWithRemovingIllegalSymbols]];
 }
 
 @end

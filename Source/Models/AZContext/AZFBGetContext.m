@@ -1,5 +1,5 @@
 //
-//  AZGetContext.m
+//  AZFBGetContext.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 01/10/2017.
@@ -10,38 +10,19 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
-#import "AZGetContext.h"
+#import "AZFBGetContext.h"
 #import "AZMacros.h"
 
 NSString *AZRequestMethod = @"GET";
 
-@interface AZGetContext ()
+@interface AZFBGetContext ()
 @property (nonatomic, assign) AZModelState modelState;
 
 - (void)finishLoadingWithResponse:(id)result;
 
 @end
 
-@implementation AZGetContext
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)contextWithModel:(AZModel *)model completionState:(AZModelState)state {
-    return [[self alloc ] initWithModel:model completionState:state];
-}
-
-#pragma mark -
-#pragma mark Initialization and deallocation
-
-- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state {
-    self = [super initWithModel:model];
-    if (self) {
-        self.modelState = state;
-    }
-    
-    return self;
-}
+@implementation AZFBGetContext
 
 #pragma mark -
 #pragma mark Public methods
@@ -74,7 +55,13 @@ NSString *AZRequestMethod = @"GET";
 - (void)finishLoadingWithResponse:(id)result {
     [self fillModelWithResponse:result];
     
-    self.model.state = self.modelState;
+    self.model.state = AZModelDidLoad;
 }
 
+
+- (void)executeWithSettingState {
+    [self executeWithCompletionHandler:^ {
+        self.model.state = self.model ? AZModelDidLoad : AZModelDidFailLoad;
+    }];
+}
 @end

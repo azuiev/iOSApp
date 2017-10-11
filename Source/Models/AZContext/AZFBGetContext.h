@@ -1,5 +1,5 @@
 //
-//  AZGetContext.h
+//  AZFBGetContext.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 01/10/2017.
@@ -8,16 +8,13 @@
 
 #import "AZContext.h"
 
-@interface AZGetContext : AZContext
+@interface AZFBGetContext : AZContext
 @property (nonatomic, strong) NSString      *graphPath;
 @property (nonatomic, strong) NSString      *token;
 @property (nonatomic, strong) NSDictionary  *parameters;
 
-+ (instancetype)contextWithModel:(AZModel *)model completionState:(AZModelState)state;
-
-- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state;
-
 //method for children purposes. Do not call this method directly
 - (void)fillModelWithResponse:(id)response;
 
+- (void)executeWithSettingState;
 @end

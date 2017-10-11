@@ -11,6 +11,8 @@
 #import "AZMacros.h"
 #import "AZGCD.h"
 
+#import "NSFileManager+AZExtension.h"
+
 @interface AZInternetImageModel ()
 @property (nonatomic, strong) NSString                  *cacheName;
 @property (nonatomic, strong) NSURLSessionDownloadTask  *downloadTask;
@@ -67,61 +69,41 @@
                 self.image = image;
                 self.state = AZModelDidLoad;
             }];
-        };
-    }];
-    
-    if (self.state != AZModelDidLoad) {
-        NSURLSession *session = [NSURLSession sharedSession];
-        __block UIImage *image = nil;
-        NSURLSessionDownloadTask *task = self.downloadTask;
-        
-        //AZWeakify(completionBlock);
-        if (!task) {
-            task = [session downloadTaskWithURL:self.url
-                              completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
-                    {
-                        //AZStrongify(completionBlock);
-                        [self saveTemporaryFile:location];
-                        
-                        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
-                        if (completionBlock) {
-                            completionBlock(image, error);
-                        }
-                    }];
-            self.downloadTask = task;
+        } else {
+            NSURLSession *session = [NSURLSession sharedSession];
+            __block UIImage *image = nil;
+            NSURLSessionDownloadTask *task = self.downloadTask;
+            
+            //AZWeakify(completionBlock);
+            if (!task) {
+                task = [session downloadTaskWithURL:self.url
+                                  completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
+                        {
+                            //AZStrongify(completionBlock);
+                            [self saveTemporaryFile:location];
+                            
+                            image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];
+                            if (completionBlock) {
+                                completionBlock(image, error);
+                            }
+                        }];
+                self.downloadTask = task;
+            }
+            
+            [task resume];
         }
-        
-        [task resume];
-    }
+    }];
 }
 
 #pragma mark -
 #pragma mark Private methods
 
 - (void)saveTemporaryFile:(NSURL *)location {
-    if (!location) {
-        return;
-    }
+    NSURL *url = [self fileSystemURL];
+    BOOL saved = [NSFileManager.defaultManager moveItemAtURL:location toURL:url];
     
-    NSString *path = [self imagePath];
-    NSFileManager *manager = NSFileManager.defaultManager;
-    NSError *error = nil;
-    
-    if (![manager fileExistsAtPath:path]) {
-        [manager createDirectoryAtPath:path
-           withIntermediateDirectories:YES
-                            attributes:nil
-                                 error:&error];
-    }
-    
-    if (!error) {
-        NSURL *url = [self fileSystemURL];
-        BOOL saved = [manager copyItemAtURL:location toURL:url error:&error];
-        if (!saved) {
-            NSLog(@"Unable to save image to filesystem");
-        } else {
-            NSLog(@"saved !!!");
-        }
+    if (!saved) {
+        NSLog(@"Failed to save %@ to %@", location.path, url.path);
     }
 }
 

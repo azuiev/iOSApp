@@ -10,10 +10,17 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "AZFBLoginViewController.h"
+#import "AZFBUserViewController.h"
 #import "AZFBLoginContext.h"
+#import "AZFBDownloadUserDetailsContext.h"
 
 NSString *AZTokenStringPath     = @"token.tokenString";
 NSString *AZUserIDStringPath    = @"token.userID";
+
+@interface AZFBLoginContext ()
+@property (nonatomic, strong) AZFBDownloadUserDetailsContext    *userContext;
+
+@end
 
 @implementation AZFBLoginContext
 
@@ -28,6 +35,18 @@ NSString *AZUserIDStringPath    = @"token.userID";
 
 - (void)logout {
     [[FBSDKLoginManager new] logOut];
+}
+
+#pragma mark -
+#pragma mark Accessors 
+
+- (void)setUserContext:(AZFBDownloadUserDetailsContext *)userContext {
+    if (_userContext != userContext) {
+        [_userContext cancel];
+        
+        _userContext = userContext;
+        [_userContext executeWithSettingState];
+    }
 }
 
 #pragma mark -
@@ -52,7 +71,9 @@ NSString *AZUserIDStringPath    = @"token.userID";
                                     [user setValue:token forKey:@"token"];
                                     [user setValue:userID forKey:@"userID"];
                                     
-                                    user.state = AZModelWillLoad;
+                                    self.model.state = AZModelDidLoad;
+                                    
+                                    self.userContext = [AZFBDownloadUserDetailsContext contextWithModel:user];
                                 }
                             }];
 }

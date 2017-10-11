@@ -35,8 +35,8 @@ NSString *AZFriendsPictureKey           = @"smallUserPicture";
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state {
-    self = [super initWithModel:model completionState:state];
+- (instancetype)initWithModel:(AZModel *)model {
+    self = [super initWithModel:model];
     if (self) {
         self.graphPath  = AZFriendsGraphPath;
         self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};

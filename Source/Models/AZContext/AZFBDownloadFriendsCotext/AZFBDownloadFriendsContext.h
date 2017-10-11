@@ -6,11 +6,11 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZGetContext.h"
+#import "AZFBGetContext.h"
 #import "AZFBUserModel.h"
 #import "AZFBUsersModel.h"
 
-@interface AZFBDownloadFriendsContext : AZGetContext
+@interface AZFBDownloadFriendsContext : AZFBGetContext
 @property (nonatomic, strong) AZFBUserModel     *user;
 
 @end

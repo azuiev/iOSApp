@@ -35,8 +35,7 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
         _user = user;
         [_user addObserver:self];
         
-        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:[AZFBUsersModel new]
-                                                                           completionState:AZModelDidLoad];
+        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:[AZFBUsersModel new]];
         context.user = _user;
         
         self.context = context;

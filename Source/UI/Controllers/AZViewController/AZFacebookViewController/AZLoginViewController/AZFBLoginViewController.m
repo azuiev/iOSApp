@@ -16,28 +16,14 @@
 #import "AZFBDownloadUserDetailsContext.h"
 
 @interface AZFBLoginViewController ()
-@property (nonatomic, strong) AZFBLoginContext                      *loginContext;
-@property (nonatomic, strong) AZFBDownloadUserDetailsContext        *userContext;
-@property (nonatomic, strong) AZFBUserModel                         *user;
-
+@property (nonatomic, strong) AZFBLoginContext      *loginContext;
+@property (nonatomic, strong) AZFBUserModel         *user;
 @end
 
 @implementation AZFBLoginViewController
 
 #pragma mark -
 #pragma mark Initialization and deallocation
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        AZFBUserModel *user = [AZFBUserModel new];
-        self.user = user;
-        self.loginContext = [AZFBLoginContext contextWithModel:user];
-        self.userContext = [AZFBDownloadUserDetailsContext contextWithModel:user completionState:AZModelDidLoad];
-    }
-    
-    return self;
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     if (self.loginContext.accessToken) {
@@ -47,6 +33,15 @@
 
 #pragma mark -
 #pragma mark Accessors
+
+- (void)setLoginContext:(AZFBLoginContext *)loginContext {
+    if (_loginContext != loginContext) {
+        [_loginContext cancel];
+        
+        _loginContext = loginContext;
+        [loginContext execute];
+     }
+}
 
 - (void)setUser:(AZFBUserModel *)user {
     if (_user != user) {
@@ -58,7 +53,9 @@
 }
 
 - (IBAction)loginToFacebook:(id)sender {
-    [self.loginContext execute];
+    AZFBUserModel *fbUser = [AZFBUserModel new];
+    self.user = fbUser;
+    self.loginContext = [AZFBLoginContext contextWithModel:fbUser];
 }
 
 #pragma mark -
@@ -69,16 +66,15 @@
 }
 
 #pragma mark -
-#pragma mark Observer
+#pragma mark Observer 
 
-- (void)modelWillLoad:(AZModel *)model {
+- (void)modelDidLoad:(AZModel *)model {
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navigationController animated:YES completion:nil];
-    
     controller.user = self.user;
+    self.user = nil;
     
-    [self.userContext execute];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

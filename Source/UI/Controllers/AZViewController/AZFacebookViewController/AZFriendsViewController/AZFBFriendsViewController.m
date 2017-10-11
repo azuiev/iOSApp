@@ -73,8 +73,7 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AZFBUserModel *user = self.friends[indexPath.row];
-    AZFBUserViewController *friendController = [[AZFBUserViewController alloc] initWithNibName:@"AZFBUserViewController"
-                                                                                        bundle:nil];
+    AZFBUserViewController *friendController = [AZFBUserViewController new];
     friendController.user = user;
         
     [self.navigationController pushViewController:friendController animated:YES];

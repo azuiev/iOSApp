@@ -16,16 +16,16 @@
 #import "AZMacros.h"
 #import "NSString+AZExtension.h"
 
-NSString *AZUserParametersKey       = @"fields";
-NSString *AZUserParametersValue     = @"name,email,birthday,gender,picture.height(9999){url}";
-NSString *AZUserNameKey             = @"name";
-NSString *AZUserSurnameKey          = @"surname";
-NSString *AZUserFatherNameKey       = @"fatherName";
-NSString *AZUserGenderKey           = @"gender";
-NSString *AZUserBirthdayKey         = @"birthday";
-NSString *AZUserEmailKey            = @"email";
-NSString *AZUserPictureURLKey       = @"picture.data.url";
-NSString *AZUserPictureKey          = @"largeUserPicture";
+static NSString *AZUserParametersKey       = @"fields";
+static NSString *AZUserParametersValue     = @"name,email,birthday,gender,picture.height(9999){url}";
+static NSString *AZUserNameKey             = @"name";
+static NSString *AZUserSurnameKey          = @"surname";
+static NSString *AZUserFatherNameKey       = @"fatherName";
+static NSString *AZUserGenderKey           = @"gender";
+static NSString *AZUserBirthdayKey         = @"birthday";
+static NSString *AZUserEmailKey            = @"email";
+static NSString *AZUserPictureURLKey       = @"picture.data.url";
+static NSString *AZUserPictureKey          = @"largeUserPicture";
 
 @implementation AZFBDownloadUserDetailsContext
 
@@ -35,8 +35,8 @@ NSString *AZUserPictureKey          = @"largeUserPicture";
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (instancetype)initWithModel:(AZModel *)model completionState:(AZModelState)state {
-    self = [super initWithModel:model completionState:state];
+- (instancetype)initWithModel:(AZModel *)model {
+    self = [super initWithModel:model];
     if (self) {
         self.parameters = @{AZUserParametersKey:AZUserParametersValue};
     }

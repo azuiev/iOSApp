@@ -39,6 +39,14 @@
 
 }
 
+- (void)executeWithCompletionHandler:(void(^)())completionHandler {
+    [self execute];
+    
+    if (completionHandler) {
+        completionHandler();
+    }
+}
+
 - (void)cancel {
     
 }

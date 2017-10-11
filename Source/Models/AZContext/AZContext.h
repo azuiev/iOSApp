@@ -17,6 +17,9 @@
 
 - (instancetype)initWithModel:(AZModel *)model;
 - (void)execute;
+
+//method forchildren purposes
+- (void)executeWithCompletionHandler:(void(^)())completionHandler;
 - (void)cancel;
 
 @end
