@@ -25,6 +25,7 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 
 @implementation AZFBUserViewController
 
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -42,13 +43,6 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
     }
 }
 
-- (void)prepareNavigationBar {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
-                                                                              style:UIBarButtonItemStyleDone
-                                                                             target:self
-                                                                             action:@selector(onLogout)];
-}
-
 #pragma mark -
 #pragma mark Private methods
 
@@ -64,13 +58,6 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
     [self.context execute];
 }
 
-- (void)onLogout {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    //Todo
-    UIPresentationController *controller = self.presentationController;
-}
-
 #pragma mark -
 #pragma mark AZModelObserver
 
@@ -79,7 +66,5 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
         [self.mainView fillWithModel:model];
     }];
 }
-
-
 
 @end

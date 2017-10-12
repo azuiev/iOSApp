@@ -19,7 +19,7 @@
 - (void)execute;
 
 //method forchildren purposes
-- (void)executeWithCompletionHandler:(void(^)())completionHandler;
+- (void)executeWithCompletionHandler:(void(^)(AZModelState state))completionHandler;
 - (void)cancel;
 
 @end

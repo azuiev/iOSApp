@@ -11,9 +11,19 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
 #import "AZFBGetContext.h"
+
+#import "AZFBUserModel.h"
+
 #import "AZMacros.h"
 
-NSString *AZRequestMethod = @"GET";
+#import "NSString+AZExtension.h"
+
+static NSString *AZRequestMethod           = @"GET";
+static NSString *AZUserNameKey             = @"name";
+static NSString *AZUserSurnameKey          = @"surname";
+static NSString *AZUserFatherNameKey       = @"fatherName";
+
+
 
 @interface AZFBGetContext ()
 @property (nonatomic, assign) AZModelState modelState;
@@ -27,7 +37,7 @@ NSString *AZRequestMethod = @"GET";
 #pragma mark -
 #pragma mark Public methods
 
-- (void)execute {
+- (void)executeWithCompletionHandler:(void (^)(AZModelState))completionHandler {
     AZWeakify(self);
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:self.graphPath
@@ -40,28 +50,32 @@ NSString *AZRequestMethod = @"GET";
                                           id result,
                                           NSError *error)
      {
-         AZStrongify(self);
-         [self finishLoadingWithResponse:result];
+         if (error) {
+             completionHandler(AZModelDidFailLoad);
+         } else {
+             AZStrongify(self);
+             
+             [self finishLoadingWithResponse:result];
+             
+             completionHandler(AZModelDidLoad);
+         }
      }];
 }
 
-- (void)fillModelWithResponse:(id)result {
-    
-}
-
 #pragma mark -
-#pragma mark Private methods
+#pragma mark Public methods
 
 - (void)finishLoadingWithResponse:(id)result {
-    [self fillModelWithResponse:result];
     
-    self.model.state = AZModelDidLoad;
 }
 
+- (void)fillModel:(AZFBUserModel *)model withResponse:(id)result {
+    NSString *name = [result valueForKey:AZUserNameKey];
+    NSArray *names = [[NSString removeMultipleSpaces:name] componentsSeparatedByString:@" "];
 
-- (void)executeWithSettingState {
-    [self executeWithCompletionHandler:^ {
-        self.model.state = self.model ? AZModelDidLoad : AZModelDidFailLoad;
-    }];
+    [model setValue:names[0] forKey:AZUserNameKey];
+    [model setValue:names[1] forKey:AZUserSurnameKey];
+    [model setValue:names[2] forKey:AZUserFatherNameKey];
 }
+
 @end

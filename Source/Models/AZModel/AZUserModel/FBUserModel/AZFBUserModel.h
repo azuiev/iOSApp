@@ -21,4 +21,6 @@
 + (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken;
 + (instancetype)userWithID:(NSString *)userID;
 
+- (BOOL)isLogged;
+
 @end

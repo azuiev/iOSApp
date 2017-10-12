@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AZViewController.h"
+#import "AZFBViewController.h"
 
 #import "AZFBUserModel.h"
 
 #import "AZImageView.h"
 
-@interface AZFBUserViewController : AZViewController
+@interface AZFBUserViewController : AZFBViewController
 @property (nonatomic, strong) AZFBUserModel     *user;
 
 @end

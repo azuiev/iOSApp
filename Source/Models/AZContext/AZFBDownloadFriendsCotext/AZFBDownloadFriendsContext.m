@@ -16,17 +16,14 @@
 
 #import "AZRandomNumber.h"
 
-NSString *AZFriendsGraphPath            = @"/me/friends";
-NSString *AZFriendsParametersKey        = @"fields";
-NSString *AZFriendsParametersValue      = @"id,name,picture{url}";
-NSString *AZFriendsNameKey              = @"name";
-NSString *AZFriendsSurnameKey           = @"surname";
-NSString *AZFriendsFatherNameKey        = @"fatherName";
-NSString *AZFriendsDataKey              = @"data";
-NSString *AZFriendsIDKey                = @"id";
-NSString *AZFriendsTotalCountKey        = @"summary.total_count";
-NSString *AZFriendsPictureURLKey        = @"picture.data.url";
-NSString *AZFriendsPictureKey           = @"smallUserPicture";
+static NSString *AZFriendsGraphPath            = @"/me/friends";
+static NSString *AZFriendsParametersKey        = @"fields";
+static NSString *AZFriendsParametersValue      = @"id,name,picture{url}";
+static NSString *AZFriendsDataKey              = @"data";
+static NSString *AZFriendsIDKey                = @"id";
+static NSString *AZFriendsTotalCountKey        = @"summary.total_count";
+static NSString *AZUserSmallPictureURLKey      = @"picture.data.url";
+static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
 
 @implementation AZFBDownloadFriendsContext
 
@@ -48,22 +45,21 @@ NSString *AZFriendsPictureKey           = @"smallUserPicture";
 #pragma mark -
 #pragma mark Overrided methods
 
-- (void)fillModelWithResponse:(id)result {
+- (void)finishLoadingWithResponse:(id)result {
     NSNumber *count = [result valueForKeyPath:AZFriendsTotalCountKey];
     
     NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:[count integerValue]];
     NSDictionary *users = [result valueForKey:AZFriendsDataKey];
     for (NSDictionary *user in users) {
         NSString *userID = [user valueForKey:AZFriendsIDKey];
-        NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:AZFriendsPictureURLKey]];
+        NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:AZUserSmallPictureURLKey]];
         AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-        NSArray *names = [[user valueForKey:AZFriendsNameKey] componentsSeparatedByString:@" "];
+       
         
         AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID];
-        [fbUser setValue:names[0] forKey:AZFriendsNameKey];
-        [fbUser setValue:names[1] forKey:AZFriendsSurnameKey];
-        [fbUser setValue:names[2] forKey:AZFriendsFatherNameKey];
-        [fbUser setValue:imageModel forKey:AZFriendsPictureKey];
+        [self fillModel:fbUser withResponse:user];
+
+        [fbUser setValue:imageModel forKey:AZUserSmallPictureKey];
         [fbUsers addObject:fbUser];
     }
     

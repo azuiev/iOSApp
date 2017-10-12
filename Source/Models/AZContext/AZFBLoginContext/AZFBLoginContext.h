@@ -12,8 +12,5 @@
 @class FBSDKAccessToken;
 
 @interface AZFBLoginContext : AZContext
-@property (nonatomic, readonly) FBSDKAccessToken    *accessToken;
-
-- (void)logout;
 
 @end

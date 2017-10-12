@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AZFBViewController.h"
+
 #import "AZFBUserModel.h"
 #import "AZFBUsersModel.h"
 
-@interface AZFBFriendsViewController : UIViewController
+@interface AZFBFriendsViewController : AZFBViewController
 @property (nonatomic, strong) AZFBUsersModel    *friends;
 @property (nonatomic, strong) AZFBUserModel     *user;
 

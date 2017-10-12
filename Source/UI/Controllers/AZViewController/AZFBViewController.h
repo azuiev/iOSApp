@@ -1,5 +1,5 @@
 //
-//  AZViewController.h
+//  AZFBViewController.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 03/10/2017.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZViewController : UIViewController
+@interface AZFBViewController : UIViewController
 
 - (void)prepareNavigationBar;
 

@@ -36,15 +36,13 @@
 }
 
 - (void)execute {
-
+    [self executeWithCompletionHandler:^ (AZModelState state) {
+        self.model.state = state;
+    }];
 }
 
-- (void)executeWithCompletionHandler:(void(^)())completionHandler {
-    [self execute];
+- (void)executeWithCompletionHandler:(void(^)(AZModelState state))completionHandler {
     
-    if (completionHandler) {
-        completionHandler();
-    }
 }
 
 - (void)cancel {

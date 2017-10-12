@@ -15,21 +15,14 @@
 #import "AZFBLoginContext.h"
 #import "AZFBDownloadUserDetailsContext.h"
 
+#import "AZGCD.h"
+
 @interface AZFBLoginViewController ()
 @property (nonatomic, strong) AZFBLoginContext      *loginContext;
 @property (nonatomic, strong) AZFBUserModel         *user;
 @end
 
 @implementation AZFBLoginViewController
-
-#pragma mark -
-#pragma mark Initialization and deallocation
-
-- (void)viewDidAppear:(BOOL)animated {
-    if (self.loginContext.accessToken) {
-        //[self presentChildController];
-    }
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -52,29 +45,33 @@
     }
 }
 
-- (IBAction)loginToFacebook:(id)sender {
-    AZFBUserModel *fbUser = [AZFBUserModel new];
-    self.user = fbUser;
-    self.loginContext = [AZFBLoginContext contextWithModel:fbUser];
+#pragma mark -
+#pragma mark UI Actions
+
+- (IBAction)onLoginButton:(id)sender {
+    AZFBUserModel *user = [AZFBUserModel new];
+    self.user = user;
+    self.loginContext = [AZFBLoginContext contextWithModel:user];
 }
 
 #pragma mark -
-#pragma mark Public Methods 
+#pragma mark Private Methods
 
-- (void)logout {
-    [self.loginContext logout];
-}
-
-#pragma mark -
-#pragma mark Observer 
-
-- (void)modelDidLoad:(AZModel *)model {
+- (void)presentChildController {
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     controller.user = self.user;
-    self.user = nil;
     
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+#pragma mark -
+#pragma mark Observer
+
+- (void)modelWillLoad:(AZModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self presentChildController];
+    }];
 }
 
 @end

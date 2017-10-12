@@ -14,18 +14,14 @@
 #import "AZFBUserModel.h"
 
 #import "AZMacros.h"
-#import "NSString+AZExtension.h"
 
 static NSString *AZUserParametersKey       = @"fields";
 static NSString *AZUserParametersValue     = @"name,email,birthday,gender,picture.height(9999){url}";
-static NSString *AZUserNameKey             = @"name";
-static NSString *AZUserSurnameKey          = @"surname";
-static NSString *AZUserFatherNameKey       = @"fatherName";
 static NSString *AZUserGenderKey           = @"gender";
 static NSString *AZUserBirthdayKey         = @"birthday";
 static NSString *AZUserEmailKey            = @"email";
-static NSString *AZUserPictureURLKey       = @"picture.data.url";
-static NSString *AZUserPictureKey          = @"largeUserPicture";
+static NSString *AZUserLargePictureURLKey  = @"picture.data.url";
+static NSString *AZUserLargePictureKey     = @"largeUserPicture";
 
 @implementation AZFBDownloadUserDetailsContext
 
@@ -47,20 +43,22 @@ static NSString *AZUserPictureKey          = @"largeUserPicture";
 #pragma mark -
 #pragma mark Overrided methods
 
-- (void)fillModelWithResponse:(id)result {
-    AZFBUserModel *user = (AZFBUserModel *)self.model;
-    NSURL *imageURL = [NSURL URLWithString:[result valueForKeyPath:AZUserPictureURLKey]];
+- (void)fillModel:(AZFBUserModel *)user withResponse:(id)result {
+    [super fillModel:user withResponse:result];
+    
+    NSURL *imageURL = [NSURL URLWithString:[result valueForKeyPath:AZUserLargePictureURLKey]];
     AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-    NSString *name = [result valueForKey:AZUserNameKey];
-    NSArray *names = [[NSString removeMultipleSpaces:name] componentsSeparatedByString:@" "];
+    [user setValue:imageModel forKey:AZUserLargePictureKey];
     
     [user setValue:[result valueForKey:AZUserEmailKey] forKey:AZUserEmailKey];
     [user setValue:[result valueForKey:AZUserGenderKey] forKey:AZUserGenderKey];
     [user setValue:[result valueForKey:AZUserBirthdayKey] forKey:AZUserBirthdayKey];
-    [user setValue:imageModel forKey:AZUserPictureKey];
-    [user setValue:names[0] forKey:AZUserNameKey];
-    [user setValue:names[1] forKey:AZUserSurnameKey];
-    [user setValue:names[2] forKey:AZUserFatherNameKey];
+}
+
+- (void)finishLoadingWithResponse:(id)result {
+    AZFBUserModel *user = (AZFBUserModel *)self.model;
+    
+    [self fillModel:user withResponse:result];
 }
 
 - (NSString *)graphPath {

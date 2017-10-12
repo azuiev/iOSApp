@@ -6,6 +6,9 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "AZFBUserModel.h"
 #import "AZFBUserModelCashe.h"
 
@@ -70,6 +73,15 @@
 
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@ %@", self.name, self.surname, self.fatherName];
+}
+
+#pragma mark -
+#pragma mark Public methods
+
+- (BOOL)isLogged {
+    FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+    
+    return ([self.userID isEqualToString:accessToken.userID] && [self.token isEqualToString:accessToken.tokenString]);
 }
 
 @end

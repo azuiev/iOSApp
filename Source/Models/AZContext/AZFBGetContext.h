@@ -8,13 +8,15 @@
 
 #import "AZContext.h"
 
+@class AZFBUserModel;
+
 @interface AZFBGetContext : AZContext
 @property (nonatomic, strong) NSString      *graphPath;
 @property (nonatomic, strong) NSString      *token;
 @property (nonatomic, strong) NSDictionary  *parameters;
 
 //method for children purposes. Do not call this method directly
-- (void)fillModelWithResponse:(id)response;
+- (void)finishLoadingWithResponse:(id)result;
+- (void)fillModel:(AZFBUserModel *)model withResponse:(id)result;
 
-- (void)executeWithSettingState;
 @end

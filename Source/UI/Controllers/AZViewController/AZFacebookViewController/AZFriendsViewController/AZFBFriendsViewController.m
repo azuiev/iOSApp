@@ -32,10 +32,14 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 #pragma mark Initialization
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [self setTitle:@"Friends"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
     self.user = nil;
     self.friends = nil;
 }
