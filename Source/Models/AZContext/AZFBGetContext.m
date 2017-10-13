@@ -25,16 +25,33 @@ static NSString *AZUserName                 = @"name";
 static NSString *AZUserSurname              = @"surname";
 
 @interface AZFBGetContext ()
-@property (nonatomic, assign) AZModelState modelState;
+@property (nonatomic, assign) AZModelState  modelState;
+@property (nonatomic, readonly) NSString    *plistName;
 
 - (void)finishLoadingWithResponse:(id)result;
+- (void)saveResponse;
+- (id)loadSavedResponse;
 
 @end
 
 @implementation AZFBGetContext
 
+@dynamic plistName;
+
 #pragma mark -
 #pragma mark Public methods
+
+- (void)finishLoadingWithResponse:(id)result {
+    
+}
+
+- (void)fillModel:(AZFBUserModel *)model withResponse:(id)result {
+    [model setValue:[result valueForKey:AZUserFirstNameKey] forKey:AZUserName];
+    [model setValue:[result valueForKey:AZUserLastNameKey] forKey:AZUserSurname];
+}
+
+#pragma mark -
+#pragma mark Override methods
 
 - (void)executeWithCompletionHandler:(void (^)(AZModelState))completionHandler {
     AZWeakify(self);
@@ -49,11 +66,19 @@ static NSString *AZUserSurname              = @"surname";
                                           id result,
                                           NSError *error)
      {
+         AZStrongify(self);
          if (error) {
-             completionHandler(AZModelDidFailLoad);
+             id loadResult = [self loadSavedResponse];
+             if (loadResult) {
+                 NSLog(@"Loading from cache");
+                 [self finishLoadingWithResponse:loadResult];
+                 
+                 completionHandler(AZModelDidLoad);
+             } else {
+                 completionHandler(AZModelDidFailLoad);
+             }
          } else {
-             AZStrongify(self);
-             
+             [self saveResponse:result];
              [self finishLoadingWithResponse:result];
              
              completionHandler(AZModelDidLoad);
@@ -62,15 +87,21 @@ static NSString *AZUserSurname              = @"surname";
 }
 
 #pragma mark -
-#pragma mark Public methods
+#pragma mark Private methods
 
-- (void)finishLoadingWithResponse:(id)result {
-    
+- (void)saveResponse:(id)result {
+    [NSKeyedArchiver archiveRootObject:result toFile:self.plistName];
 }
 
-- (void)fillModel:(AZFBUserModel *)model withResponse:(id)result {
-    [model setValue:[result valueForKey:AZUserFirstNameKey] forKey:AZUserName];
-    [model setValue:[result valueForKey:AZUserLastNameKey] forKey:AZUserSurname];
+- (id)loadSavedResponse {
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:self.plistName];
+}
+
+- (NSString *)plistName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *result = [paths firstObject];
+    
+    return [NSString stringWithFormat:@"%@/%@.plist", result, [NSString removeIllegalSymbols:self.graphPath]];
 }
 
 @end

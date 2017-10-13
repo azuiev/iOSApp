@@ -16,7 +16,6 @@
 
 #import "AZRandomNumber.h"
 
-static NSString *AZFriendsGraphPath            = @"/me/friends";
 static NSString *AZFriendsParametersKey        = @"fields";
 static NSString *AZFriendsParametersValue      = @"id,first_name,last_name,picture{url}";
 static NSString *AZFriendsDataKey              = @"data";
@@ -28,6 +27,7 @@ static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
 @implementation AZFBFriendsContext
 
 @dynamic token;
+@dynamic graphPath;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -35,7 +35,6 @@ static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
 - (instancetype)initWithModel:(AZModel *)model {
     self = [super initWithModel:model];
     if (self) {
-        self.graphPath  = AZFriendsGraphPath;
         self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};
     }
     
@@ -65,6 +64,10 @@ static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
     
     AZFBUsersModel *fbUsersModel = (AZFBUsersModel *)self.model;
     [fbUsersModel addObjects:fbUsers];
+}
+
+- (NSString *)graphPath {
+    return [self.user.userID stringByAppendingString:@"/friends/"];
 }
 
 - (NSString *)token {
