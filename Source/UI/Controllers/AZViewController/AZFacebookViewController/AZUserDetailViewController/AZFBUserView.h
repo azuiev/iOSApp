@@ -1,5 +1,5 @@
 //
-//  AZFriendView.h
+//  AZFBUserView.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 18/09/2017.
@@ -9,10 +9,10 @@
 #import "AZView.h"
 #import "AZImageView.h"
 
-@interface AZFriendView : AZView
+@interface AZFBUserView : AZView
 @property (nonatomic, strong) IBOutlet UILabel      *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *surnameLabel;
-@property (nonatomic, strong) IBOutlet UILabel      *fatherNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel      *middleNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *emailLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *genderLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *birthdayLabel;

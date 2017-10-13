@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString        *userID;
 @property (nonatomic, strong) NSString        *token;
 @property (nonatomic, strong) NSString        *email;
-@property (nonatomic, strong) NSString        *fatherName;
+@property (nonatomic, strong) NSString        *middleName;
 @property (nonatomic, strong) NSString        *gender;
 @property (nonatomic, strong) NSDate          *birthday;
 
@@ -71,8 +71,8 @@
     }
 }
 
-- (NSString *)fullName {
-    return [NSString stringWithFormat:@"%@ %@ %@", self.name, self.surname, self.fatherName];
+- (NSString *)fullNameWithMiddleName {
+    return [NSString stringWithFormat:@"%@ %@ %@", self.name, self.middleName, self.surname];
 }
 
 #pragma mark -

@@ -18,6 +18,7 @@
 
 - (void)execute {
     FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    
     [loginManager logOut];
 }
 

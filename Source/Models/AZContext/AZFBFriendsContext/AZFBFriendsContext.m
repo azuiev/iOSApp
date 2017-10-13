@@ -1,12 +1,12 @@
 //
-//  AZFBDownloadFriendsContext.m
+//  AZFBFriendsContext.m
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 13/09/2017.
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import "AZFBDownloadFriendsContext.h"
+#import "AZFBFriendsContext.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -18,14 +18,14 @@
 
 static NSString *AZFriendsGraphPath            = @"/me/friends";
 static NSString *AZFriendsParametersKey        = @"fields";
-static NSString *AZFriendsParametersValue      = @"id,name,picture{url}";
+static NSString *AZFriendsParametersValue      = @"id,first_name,last_name,picture{url}";
 static NSString *AZFriendsDataKey              = @"data";
 static NSString *AZFriendsIDKey                = @"id";
 static NSString *AZFriendsTotalCountKey        = @"summary.total_count";
 static NSString *AZUserSmallPictureURLKey      = @"picture.data.url";
 static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
 
-@implementation AZFBDownloadFriendsContext
+@implementation AZFBFriendsContext
 
 @dynamic token;
 

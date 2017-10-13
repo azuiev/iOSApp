@@ -8,23 +8,22 @@
 
 #import "AZFBUserViewController.h"
 
-#import "AZFBDownloadFriendsContext.h"
+#import "AZFBFriendsContext.h"
 #import "AZFBFriendsViewController.h"
-#import "AZFBDownloadFriendsContext.h"
+#import "AZFBFriendsContext.h"
 
-#import "AZFriendView.h"
+#import "AZFBUserView.h"
 
 #import "AZMacros.h"
 #import "AZGCD.h"
 
-AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
+AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 @interface AZFBUserViewController ()
-@property (nonatomic, strong) AZFBDownloadFriendsContext *context;
+@property (nonatomic, strong) AZFBFriendsContext *context;
 
 @end
 
 @implementation AZFBUserViewController
-
 
 #pragma mark -
 #pragma mark Accessors
@@ -35,11 +34,16 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
         
         _user = user;
         [_user addObserver:self];
+    }
+}
+
+- (void)setContext:(AZFBFriendsContext *)context {
+    if (_context != context) {
+        [_context cancel];
         
-        AZFBDownloadFriendsContext *context = [AZFBDownloadFriendsContext contextWithModel:[AZFBUsersModel new]];
-        context.user = _user;
-        
-        self.context = context;
+        _context = context;
+        _context.user = self.user;
+        [_context execute];
     }
 }
 
@@ -47,24 +51,14 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFriendView)
 #pragma mark Private methods
 
 - (IBAction)presentFriends:(id)sender {
-    AZFBUserModel *user = self.user;
-    
+    AZFBUsersModel *friends = [AZFBUsersModel new];
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
-    controller.user = user;
-    controller.friends = (AZFBUsersModel *)self.context.model;
+    controller.friends = friends;
+    
+    self.context = [AZFBFriendsContext contextWithModel:friends];
     
     [self.navigationController pushViewController:controller animated:YES];
     
-    [self.context execute];
-}
-
-#pragma mark -
-#pragma mark AZModelObserver
-
-- (void)modelDidLoad:(AZFBUserModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.mainView fillWithModel:model];
-    }];
 }
 
 @end

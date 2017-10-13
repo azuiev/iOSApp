@@ -21,15 +21,15 @@
 		1D46F22D1F61AE1700ABD230 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D46F22C1F61AE1700ABD230 /* FBSDKShareKit.framework */; };
 		1D505D8A1F87DE0A0001EBEF /* AZFBUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505D861F87DE0A0001EBEF /* AZFBUserViewController.m */; };
 		1D505D8B1F87DE0A0001EBEF /* AZFBUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D505D871F87DE0A0001EBEF /* AZFBUserViewController.xib */; };
-		1D505D8C1F87DE0A0001EBEF /* AZFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505D891F87DE0A0001EBEF /* AZFriendView.m */; };
+		1D505D8C1F87DE0A0001EBEF /* AZFBUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505D891F87DE0A0001EBEF /* AZFBUserView.m */; };
+		1D528E361F9126550068049A /* AZFBUserDetailsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D528E351F9126550068049A /* AZFBUserDetailsContext.m */; };
+		1D528E3E1F9126AE0068049A /* AZFBFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D528E3D1F9126AE0068049A /* AZFBFriendsContext.m */; };
 		1D52DD741F8FCF410051AD10 /* AZFBLogoutContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D52DD731F8FCF410051AD10 /* AZFBLogoutContext.m */; };
 		1D5B4A631F05B0D700E14BEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5B4A611F05B0D700E14BEA /* main.m */; };
 		1D5B4A6A1F05B0E200E14BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A651F05B0E200E14BEA /* Assets.xcassets */; };
 		1D5B4A6B1F05B0E200E14BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A661F05B0E200E14BEA /* LaunchScreen.storyboard */; };
 		1D5B4A6C1F05B0E200E14BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5B4A681F05B0E200E14BEA /* Main.storyboard */; };
 		1D5D01F21F81368800367A65 /* AZContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D01E81F81368800367A65 /* AZContext.m */; };
-		1D5D01F31F81368800367A65 /* AZFBDownloadFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D01EB1F81368800367A65 /* AZFBDownloadFriendsContext.m */; };
-		1D5D01F41F81368800367A65 /* AZFBDownloadUserDetailsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D01EE1F81368800367A65 /* AZFBDownloadUserDetailsContext.m */; };
 		1D5D01F51F81368800367A65 /* AZFBLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D01F11F81368800367A65 /* AZFBLoginContext.m */; };
 		1D5D01F81F8136A400367A65 /* AZFBGetContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D01F71F8136A400367A65 /* AZFBGetContext.m */; };
 		1D5D02411F813A0000367A65 /* AZArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D021D1F813A0000367A65 /* AZArrayModel.m */; };
@@ -106,8 +106,12 @@
 		1D505D851F87DE0A0001EBEF /* AZFBUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserViewController.h; sourceTree = "<group>"; };
 		1D505D861F87DE0A0001EBEF /* AZFBUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserViewController.m; sourceTree = "<group>"; };
 		1D505D871F87DE0A0001EBEF /* AZFBUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZFBUserViewController.xib; sourceTree = "<group>"; };
-		1D505D881F87DE0A0001EBEF /* AZFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFriendView.h; sourceTree = "<group>"; };
-		1D505D891F87DE0A0001EBEF /* AZFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFriendView.m; sourceTree = "<group>"; };
+		1D505D881F87DE0A0001EBEF /* AZFBUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserView.h; sourceTree = "<group>"; };
+		1D505D891F87DE0A0001EBEF /* AZFBUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserView.m; sourceTree = "<group>"; };
+		1D528E341F9126550068049A /* AZFBUserDetailsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBUserDetailsContext.h; sourceTree = "<group>"; };
+		1D528E351F9126550068049A /* AZFBUserDetailsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBUserDetailsContext.m; sourceTree = "<group>"; };
+		1D528E3C1F9126AE0068049A /* AZFBFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBFriendsContext.h; sourceTree = "<group>"; };
+		1D528E3D1F9126AE0068049A /* AZFBFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBFriendsContext.m; sourceTree = "<group>"; };
 		1D52DD721F8FCF410051AD10 /* AZFBLogoutContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBLogoutContext.h; sourceTree = "<group>"; };
 		1D52DD731F8FCF410051AD10 /* AZFBLogoutContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBLogoutContext.m; sourceTree = "<group>"; };
 		1D5B4A421F05A93800E14BEA /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,10 +122,6 @@
 		1D5B4A691F05B0E200E14BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D5D01E71F81368800367A65 /* AZContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZContext.h; sourceTree = "<group>"; };
 		1D5D01E81F81368800367A65 /* AZContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZContext.m; sourceTree = "<group>"; };
-		1D5D01EA1F81368800367A65 /* AZFBDownloadFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBDownloadFriendsContext.h; sourceTree = "<group>"; };
-		1D5D01EB1F81368800367A65 /* AZFBDownloadFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBDownloadFriendsContext.m; sourceTree = "<group>"; };
-		1D5D01ED1F81368800367A65 /* AZFBDownloadUserDetailsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBDownloadUserDetailsContext.h; sourceTree = "<group>"; };
-		1D5D01EE1F81368800367A65 /* AZFBDownloadUserDetailsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBDownloadUserDetailsContext.m; sourceTree = "<group>"; };
 		1D5D01F01F81368800367A65 /* AZFBLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBLoginContext.h; sourceTree = "<group>"; };
 		1D5D01F11F81368800367A65 /* AZFBLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBLoginContext.m; sourceTree = "<group>"; };
 		1D5D01F61F8136A400367A65 /* AZFBGetContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBGetContext.h; sourceTree = "<group>"; };
@@ -326,10 +326,28 @@
 				1D505D851F87DE0A0001EBEF /* AZFBUserViewController.h */,
 				1D505D861F87DE0A0001EBEF /* AZFBUserViewController.m */,
 				1D505D871F87DE0A0001EBEF /* AZFBUserViewController.xib */,
-				1D505D881F87DE0A0001EBEF /* AZFriendView.h */,
-				1D505D891F87DE0A0001EBEF /* AZFriendView.m */,
+				1D505D881F87DE0A0001EBEF /* AZFBUserView.h */,
+				1D505D891F87DE0A0001EBEF /* AZFBUserView.m */,
 			);
 			path = AZUserDetailViewController;
+			sourceTree = "<group>";
+		};
+		1D528E331F9126550068049A /* AZFBUserDetaillContext */ = {
+			isa = PBXGroup;
+			children = (
+				1D528E341F9126550068049A /* AZFBUserDetailsContext.h */,
+				1D528E351F9126550068049A /* AZFBUserDetailsContext.m */,
+			);
+			path = AZFBUserDetaillContext;
+			sourceTree = "<group>";
+		};
+		1D528E3B1F9126AE0068049A /* AZFBFriendsContext */ = {
+			isa = PBXGroup;
+			children = (
+				1D528E3C1F9126AE0068049A /* AZFBFriendsContext.h */,
+				1D528E3D1F9126AE0068049A /* AZFBFriendsContext.m */,
+			);
+			path = AZFBFriendsContext;
 			sourceTree = "<group>";
 		};
 		1D52DD711F8FCF130051AD10 /* AZFBLogoutContext */ = {
@@ -409,30 +427,12 @@
 				1D5D01E81F81368800367A65 /* AZContext.m */,
 				1D5D01F61F8136A400367A65 /* AZFBGetContext.h */,
 				1D5D01F71F8136A400367A65 /* AZFBGetContext.m */,
-				1D5D01EC1F81368800367A65 /* AZFBDownloadUserDetaillContext */,
-				1D5D01E91F81368800367A65 /* AZFBDownloadFriendsCotext */,
+				1D528E331F9126550068049A /* AZFBUserDetaillContext */,
+				1D528E3B1F9126AE0068049A /* AZFBFriendsContext */,
 				1D5D01EF1F81368800367A65 /* AZFBLoginContext */,
 				1D52DD711F8FCF130051AD10 /* AZFBLogoutContext */,
 			);
 			path = AZContext;
-			sourceTree = "<group>";
-		};
-		1D5D01E91F81368800367A65 /* AZFBDownloadFriendsCotext */ = {
-			isa = PBXGroup;
-			children = (
-				1D5D01EA1F81368800367A65 /* AZFBDownloadFriendsContext.h */,
-				1D5D01EB1F81368800367A65 /* AZFBDownloadFriendsContext.m */,
-			);
-			path = AZFBDownloadFriendsCotext;
-			sourceTree = "<group>";
-		};
-		1D5D01EC1F81368800367A65 /* AZFBDownloadUserDetaillContext */ = {
-			isa = PBXGroup;
-			children = (
-				1D5D01ED1F81368800367A65 /* AZFBDownloadUserDetailsContext.h */,
-				1D5D01EE1F81368800367A65 /* AZFBDownloadUserDetailsContext.m */,
-			);
-			path = AZFBDownloadUserDetaillContext;
 			sourceTree = "<group>";
 		};
 		1D5D01EF1F81368800367A65 /* AZFBLoginContext */ = {
@@ -950,11 +950,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D528E361F9126550068049A /* AZFBUserDetailsContext.m in Sources */,
 				1D2BD6851F3124FA00641E23 /* UITableView+AZExtension.m in Sources */,
 				1D5D027B1F813ACB00367A65 /* AZUserCell.m in Sources */,
 				1D5D02781F813ACB00367A65 /* AZSquareView.m in Sources */,
+				1D528E3E1F9126AE0068049A /* AZFBFriendsContext.m in Sources */,
 				1D8307091F0C30A200409B09 /* AZAppDelegate.m in Sources */,
-				1D505D8C1F87DE0A0001EBEF /* AZFriendView.m in Sources */,
+				1D505D8C1F87DE0A0001EBEF /* AZFBUserView.m in Sources */,
 				1DA93EBE1F8E9965009CD2F4 /* NSFileManager+AZExtension.m in Sources */,
 				1D5D02461F813A0000367A65 /* AZArrayModelRemoveChange.m in Sources */,
 				1D2BD67F1F3124FA00641E23 /* NSArray+AZExtension.m in Sources */,
@@ -993,7 +995,6 @@
 				1D5D02B91F813B5B00367A65 /* AZImageView.m in Sources */,
 				1D5D02491F813A0000367A65 /* AZFileSystemImageModel.m in Sources */,
 				1D5D024C1F813A0000367A65 /* AZModel.m in Sources */,
-				1D5D01F31F81368800367A65 /* AZFBDownloadFriendsContext.m in Sources */,
 				1D5D01F81F8136A400367A65 /* AZFBGetContext.m in Sources */,
 				1D5D02431F813A0000367A65 /* AZArrayModelAddChange.m in Sources */,
 				1D5D02A61F813B1B00367A65 /* AZFBUserModelCashe.m in Sources */,
@@ -1001,7 +1002,6 @@
 				1D5D02791F813ACB00367A65 /* AZSquareViewController.m in Sources */,
 				1D5D02AB1F813B1B00367A65 /* AZAssignReference.m in Sources */,
 				1D5D02481F813A0000367A65 /* AZUsersModel.m in Sources */,
-				1D5D01F41F81368800367A65 /* AZFBDownloadUserDetailsContext.m in Sources */,
 				1D5D01F51F81368800367A65 /* AZFBLoginContext.m in Sources */,
 				1D2BD6831F3124FA00641E23 /* NSString+AZRandomString.m in Sources */,
 				1D5D02AD1F813B1B00367A65 /* AZTableViewCell.m in Sources */,

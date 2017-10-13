@@ -12,11 +12,13 @@
 @property (nonatomic, readonly) NSString        *userID;
 @property (nonatomic, readonly) NSString        *token;
 @property (nonatomic, readonly) NSString        *email;
-@property (nonatomic, readonly) NSString        *fatherName;
+@property (nonatomic, readonly) NSString        *middleName;
 @property (nonatomic, readonly) NSString        *gender;
 @property (nonatomic, readonly) NSDate          *birthday;
 
 @property (nonatomic, readonly) AZImageModel    *largeUserPicture;
+
+@property (nonatomic, readonly) NSString        *fullNameWithMiddleName;
 
 + (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken;
 + (instancetype)userWithID:(NSString *)userID;

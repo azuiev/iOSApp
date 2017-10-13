@@ -18,12 +18,11 @@
 
 #import "NSString+AZExtension.h"
 
-static NSString *AZRequestMethod           = @"GET";
-static NSString *AZUserNameKey             = @"name";
-static NSString *AZUserSurnameKey          = @"surname";
-static NSString *AZUserFatherNameKey       = @"fatherName";
-
-
+static NSString *AZRequestMethod            = @"GET";
+static NSString *AZUserFirstNameKey         = @"first_name";
+static NSString *AZUserLastNameKey          = @"last_name";
+static NSString *AZUserName                 = @"name";
+static NSString *AZUserSurname              = @"surname";
 
 @interface AZFBGetContext ()
 @property (nonatomic, assign) AZModelState modelState;
@@ -70,12 +69,8 @@ static NSString *AZUserFatherNameKey       = @"fatherName";
 }
 
 - (void)fillModel:(AZFBUserModel *)model withResponse:(id)result {
-    NSString *name = [result valueForKey:AZUserNameKey];
-    NSArray *names = [[NSString removeMultipleSpaces:name] componentsSeparatedByString:@" "];
-
-    [model setValue:names[0] forKey:AZUserNameKey];
-    [model setValue:names[1] forKey:AZUserSurnameKey];
-    [model setValue:names[2] forKey:AZUserFatherNameKey];
+    [model setValue:[result valueForKey:AZUserFirstNameKey] forKey:AZUserName];
+    [model setValue:[result valueForKey:AZUserLastNameKey] forKey:AZUserSurname];
 }
 
 @end

@@ -12,7 +12,7 @@
 #import "AZFBLoginViewController.h"
 #import "AZFBUserViewController.h"
 #import "AZFBLoginContext.h"
-#import "AZFBDownloadUserDetailsContext.h"
+#import "AZFBUserDetailsContext.h"
 
 static NSString *AZTokenStringPath     = @"token.tokenString";
 static NSString *AZUserIDStringPath    = @"token.userID";
@@ -21,7 +21,7 @@ static NSString *AZTokenString         = @"token";
 
 @interface AZFBLoginContext ()
 @property (nonatomic, strong) AZFBLoginViewController           *loginController;
-@property (nonatomic, strong) AZFBDownloadUserDetailsContext    *userContext;
+@property (nonatomic, strong) AZFBUserDetailsContext            *userContext;
 @property (nonatomic, readonly) AZFBUserModel                   *user;
 
 @end
@@ -33,7 +33,7 @@ static NSString *AZTokenString         = @"token";
 #pragma mark -
 #pragma mark Accessors 
 
-- (void)setUserContext:(AZFBDownloadUserDetailsContext *)userContext {
+- (void)setUserContext:(AZFBUserDetailsContext *)userContext {
     if (_userContext != userContext) {
         [_userContext cancel];
         
@@ -52,7 +52,7 @@ static NSString *AZTokenString         = @"token";
 - (void)loadUserDetailInfo {
     AZFBUserModel *user = self.user;
     
-    self.userContext = [AZFBDownloadUserDetailsContext contextWithModel:user];
+    self.userContext = [AZFBUserDetailsContext contextWithModel:user];
 }
 
 - (void)fillUserWithResponse:(id)result {

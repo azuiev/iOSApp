@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZFBViewController : UIViewController
+#import "AZView.h"
 
+@interface AZFBViewController : UIViewController
+@property (nonatomic, readonly) AZView    *mainView;
 - (void)prepareNavigationBar;
 
 @end

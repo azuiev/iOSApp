@@ -10,7 +10,7 @@
 #import "AZFBUserViewController.h"
 
 #import "AZFBUserModel.h"
-#import "AZFBDownloadUserDetailsContext.h"
+#import "AZFBUserDetailsContext.h"
 
 #import "AZFriendsView.h"
 #import "AZUserCell.h"
@@ -22,7 +22,7 @@
 
 AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsView)
 @interface AZFBFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) AZFBDownloadUserDetailsContext *context;
+@property (nonatomic, strong) AZFBUserDetailsContext *context;
 
 @end
 
@@ -40,7 +40,6 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    self.user = nil;
     self.friends = nil;
 }
 
@@ -82,23 +81,16 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
         
     [self.navigationController pushViewController:friendController animated:YES];
     
-    AZFBDownloadUserDetailsContext *context = [AZFBDownloadUserDetailsContext contextWithModel:user];
+    AZFBUserDetailsContext *context = [AZFBUserDetailsContext contextWithModel:user];
     self.context = context;
     
     [context execute];
-    
 }
 
 #pragma mark -
 #pragma mark AZModelObserver
 
-- (void)modelWillLoad:(AZModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.mainView.loadingView setVisible:YES];
-    }];
-}
-
-- (void)modelDidLoad:(AZModel *)model {
+- (void)modelDidLoad:(AZFBUserModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:NO];
         [self.mainView.tableView reloadData];

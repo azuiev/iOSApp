@@ -13,7 +13,7 @@
 #import "AZFBUserViewController.h"
 
 #import "AZFBLoginContext.h"
-#import "AZFBDownloadUserDetailsContext.h"
+#import "AZFBUserDetailsContext.h"
 
 #import "AZGCD.h"
 

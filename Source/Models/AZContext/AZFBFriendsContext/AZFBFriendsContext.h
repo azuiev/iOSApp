@@ -1,5 +1,5 @@
 //
-//  AZFBDownloadFriendsContext.h
+//  AZFBFriendsContext.h
 //  iOSApp
 //
 //  Created by Aleksey Zuiev on 13/09/2017.
@@ -10,7 +10,7 @@
 #import "AZFBUserModel.h"
 #import "AZFBUsersModel.h"
 
-@interface AZFBDownloadFriendsContext : AZFBGetContext
+@interface AZFBFriendsContext : AZFBGetContext
 @property (nonatomic, strong) AZFBUserModel     *user;
 
 @end

@@ -56,4 +56,11 @@
     }
 }
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)fillWithModel:(AZModel *)model {
+
+}
+
 @end
