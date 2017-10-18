@@ -13,9 +13,7 @@
 @implementation NSURL (AZExtension)
 
 - (NSString *)pathWithRemovingIllegalSymbols {
-    NSString * result = [self.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
-    
-    return result;
+    return [self.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 }
 
 @end

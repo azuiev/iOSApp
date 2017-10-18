@@ -29,7 +29,7 @@ static NSString *AZUserSurname              = @"surname";
 @property (nonatomic, readonly) NSString    *plistName;
 
 - (void)finishLoadingWithResponse:(id)result;
-- (void)saveResponse;
+- (void)saveResponse:(id)result;
 - (id)loadSavedResponse;
 
 @end
@@ -54,14 +54,14 @@ static NSString *AZUserSurname              = @"surname";
 #pragma mark Override methods
 
 - (void)executeWithCompletionHandler:(void (^)(AZModelState))completionHandler {
-    AZWeakify(self);
+
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:self.graphPath
                                   parameters:self.parameters
                                   tokenString:self.token
                                   version:nil
                                   HTTPMethod:AZRequestMethod];
-    
+    AZWeakify(self);
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                           id result,
                                           NSError *error)

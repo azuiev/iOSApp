@@ -11,5 +11,6 @@
 @interface NSFileManager (AZExtension)
 
 - (BOOL)moveItemAtURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL;
+- (BOOL)saveItemFromURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL;
 
 @end

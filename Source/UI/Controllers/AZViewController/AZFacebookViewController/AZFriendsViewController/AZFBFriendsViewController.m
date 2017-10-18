@@ -37,12 +37,6 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
     [self setTitle:@"Friends"];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    self.friends = nil;
-}
-
 #pragma mark -
 #pragma mark Accessors
 
