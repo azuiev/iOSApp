@@ -11,9 +11,10 @@
 @class AZFBUserModel;
 
 @interface AZFBGetContext : AZContext
-@property (nonatomic, strong) NSString      *graphPath;
-@property (nonatomic, strong) NSString      *token;
-@property (nonatomic, strong) NSDictionary  *parameters;
+@property (nonatomic, strong)   NSString        *graphPath;
+@property (nonatomic, strong)   NSString        *token;
+@property (nonatomic, strong)   NSDictionary    *parameters;
+@property (nonatomic, strong)   AZFBUserModel   *user;
 
 //method for children purposes. Do not call this method directly
 - (void)finishLoadingWithResponse:(id)result;

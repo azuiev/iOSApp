@@ -17,13 +17,6 @@
 
 static NSString *AZUserParametersKey       = @"fields";
 static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,email,birthday,gender,picture.height(9999){url}";
-static NSString *AZUserGenderKey           = @"gender";
-static NSString *AZUserBirthdayKey         = @"birthday";
-static NSString *AZUserEmailKey            = @"email";
-static NSString *AZUserLargePictureURLKey  = @"picture.data.url";
-static NSString *AZUserLargePictureKey     = @"largeUserPicture";
-static NSString *AZUserMiddleName          = @"middleName";
-static NSString *AZUserMiddleNameKey       = @"middle_name";
 
 @implementation AZFBUserDetailsContext
 
@@ -45,33 +38,16 @@ static NSString *AZUserMiddleNameKey       = @"middle_name";
 #pragma mark -
 #pragma mark Overrided methods
 
-- (void)fillModel:(AZFBUserModel *)user withResponse:(id)result {
-    [super fillModel:user withResponse:result];
-    
-    NSURL *imageURL = [NSURL URLWithString:[result valueForKeyPath:AZUserLargePictureURLKey]];
-    AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-    
-    [user setValue:imageModel forKey:AZUserLargePictureKey];
-    [user setValue:[result valueForKey:AZUserEmailKey] forKey:AZUserEmailKey];
-    [user setValue:[result valueForKey:AZUserGenderKey] forKey:AZUserGenderKey];
-    [user setValue:[result valueForKey:AZUserBirthdayKey] forKey:AZUserBirthdayKey];
-    [user setValue:[result valueForKey:AZUserMiddleNameKey] forKey:AZUserMiddleName];
-}
-
 - (void)finishLoadingWithResponse:(id)result {
-    AZFBUserModel *user = (AZFBUserModel *)self.model;
-    
-    [self fillModel:user withResponse:result];
+    [self fillModel:self.user withResponse:result];
 }
 
 - (NSString *)graphPath {
-    return [(AZFBUserModel *)self.model userID];
+    return self.user.userID;
 }
 
 - (NSString *)token {
-    AZFBUserModel *user = (AZFBUserModel *)self.model;
-    
-    return user.token;
+    return self.user.token;
 }
 
 @end

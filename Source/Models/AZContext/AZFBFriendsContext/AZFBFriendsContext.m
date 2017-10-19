@@ -13,16 +13,20 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
 #import "AZFBUserModel.h"
+#import "AZFBUserParser.h"
 
 #import "AZRandomNumber.h"
 
 static NSString *AZFriendsParametersKey        = @"fields";
 static NSString *AZFriendsParametersValue      = @"id,first_name,last_name,picture{url}";
 static NSString *AZFriendsDataKey              = @"data";
-static NSString *AZFriendsIDKey                = @"id";
 static NSString *AZFriendsTotalCountKey        = @"summary.total_count";
-static NSString *AZUserSmallPictureURLKey      = @"picture.data.url";
-static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
+static NSString *AZFriendsExtensionString      = @"/friends/";
+
+@interface AZFBFriendsContext ()
+@property (nonatomic, strong) AZFBUserModel     *privateUser;
+
+@end
 
 @implementation AZFBFriendsContext
 
@@ -31,6 +35,10 @@ static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
+
+- (void)dealloc {
+    self.privateUser = nil;
+}
 
 - (instancetype)initWithModel:(AZModel *)model {
     self = [super initWithModel:model];
@@ -42,38 +50,41 @@ static NSString *AZUserSmallPictureKey         = @"smallUserPicture";
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (AZFBUserModel *)user {
+    return self.privateUser;
+}
+
+- (void)setUser:(AZFBUserModel *)user {
+    self.privateUser = user;
+}
+
+- (AZFBUsersModel *)friends {
+    return (AZFBUsersModel *)self.model;
+}
+
+#pragma mark -
 #pragma mark Overrided methods
 
 - (void)finishLoadingWithResponse:(id)result {
     NSNumber *count = [result valueForKeyPath:AZFriendsTotalCountKey];
     
     NSMutableArray *fbUsers = [NSMutableArray arrayWithCapacity:[count integerValue]];
-    NSDictionary *users = [result valueForKey:AZFriendsDataKey];
-    for (NSDictionary *user in users) {
-        NSString *userID = [user valueForKey:AZFriendsIDKey];
-        NSURL *imageURL = [NSURL URLWithString:[user valueForKeyPath:AZUserSmallPictureURLKey]];
-        AZImageModel *imageModel = [AZImageModel imageModelWithURL:imageURL];
-       
-        
-        AZFBUserModel *fbUser = [AZFBUserModel userWithID:userID];
-        [self fillModel:fbUser withResponse:user];
-
-        [fbUser setValue:imageModel forKey:AZUserSmallPictureKey];
-        [fbUsers addObject:fbUser];
+    NSDictionary *response = [result valueForKey:AZFriendsDataKey];
+    for (NSDictionary *userResponse in response) {
+        [fbUsers addObject:[AZFBUserParser userWithObject:userResponse]];
     }
     
-    AZFBUsersModel *fbUsersModel = (AZFBUsersModel *)self.model;
-    [fbUsersModel addObjects:fbUsers];
+    [self.friends addObjects:fbUsers];
 }
 
 - (NSString *)graphPath {
-    return [self.user.userID stringByAppendingString:@"/friends/"];
+    return [self.user.userID stringByAppendingString:AZFriendsExtensionString];
 }
 
 - (NSString *)token {
-    AZFBUserModel *user = (AZFBUserModel *)self.user;
-    
-    return user.token;
+    return self.user.token;
 }
 
 @end

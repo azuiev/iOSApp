@@ -16,11 +16,14 @@
 @implementation AZContext
 
 #pragma mark -
-#pragma mark Initialization and Deallocation
+#pragma mark Class Methods
 
 + (instancetype)contextWithModel:(AZModel *)model {
     return [[self alloc] initWithModel:model];
 }
+
+#pragma mark -
+#pragma mark Initialization and Deallocation
 
 - (void)dealloc {
     self.model = nil;
@@ -34,6 +37,9 @@
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (void)execute {
     [self executeWithCompletionHandler:^ (AZModelState state) {

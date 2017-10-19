@@ -7,10 +7,9 @@
 //
 
 #import "AZFBGetContext.h"
-#import "AZFBUserModel.h"
 #import "AZFBUsersModel.h"
 
 @interface AZFBFriendsContext : AZFBGetContext
-@property (nonatomic, strong) AZFBUserModel     *user;
+@property (nonatomic, readonly) AZFBUsersModel  *friends;
 
 @end

@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class AZFBViewController;
+#import "AZFBViewController.h"
 
-@interface AZFBLoginViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UIButton *loginButton;
+@interface AZFBLoginViewController : AZFBViewController
 
 @end

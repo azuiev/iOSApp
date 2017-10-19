@@ -11,15 +11,19 @@
 
 #import "AZFBLoginViewController.h"
 #import "AZFBUserViewController.h"
+#import "AZFBLoginView.h"
 
 #import "AZFBLoginContext.h"
 #import "AZFBUserDetailsContext.h"
 
 #import "AZGCD.h"
+#import "AZMacros.h"
 
+AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginView)
 @interface AZFBLoginViewController ()
 @property (nonatomic, strong) AZFBLoginContext      *loginContext;
 @property (nonatomic, strong) AZFBUserModel         *user;
+
 @end
 
 @implementation AZFBLoginViewController
@@ -46,7 +50,7 @@
 }
 
 #pragma mark -
-#pragma mark UI Actions
+#pragma mark Interface Handling
 
 - (IBAction)onLoginButton:(id)sender {
     AZFBUserModel *user = [AZFBUserModel new];
@@ -55,22 +59,18 @@
 }
 
 #pragma mark -
-#pragma mark Private Methods
+#pragma mark Override Methods
 
-- (void)presentChildController {
-    AZFBUserViewController *controller = [AZFBUserViewController new];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    controller.user = self.user;
+- (void)prepareNavigationBar {
     
-    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
-#pragma mark -
-#pragma mark Observer
-
-- (void)modelWillLoad:(AZModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self presentChildController];
+- (void)showViewController {
+    AZFBUserViewController *controller = [AZFBUserViewController new];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    AZFBUserModel *user = self.user;
+    [self presentViewController:navigationController animated:YES completion:^ {
+        controller.user = user;
     }];
 }
 

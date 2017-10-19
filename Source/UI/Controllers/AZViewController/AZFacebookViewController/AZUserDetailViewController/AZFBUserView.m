@@ -16,7 +16,7 @@
     self.nameLabel.text = user.name;
     self.surnameLabel.text = user.surname;
     self.middleNameLabel.text = user.middleName;
-    self.largeImageView.model = user.largeUserPicture;
+    self.largeImageView.model = user.userPicture;
     self.birthdayLabel.text = [NSString stringWithFormat:@"%@", user.birthday];
     self.emailLabel.text = user.email;
     self.genderLabel.text = user.gender;

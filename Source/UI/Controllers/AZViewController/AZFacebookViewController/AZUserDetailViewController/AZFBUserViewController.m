@@ -25,40 +25,41 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 
 @implementation AZFBUserViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.mainView fillWithModel:self.user];
+}
+
 #pragma mark -
 #pragma mark Accessors
 
 - (void)setUser:(AZFBUserModel *)user {
     if (_user != user) {
-        [_user removeObserver:self];
-        
         _user = user;
-        [_user addObserver:self];
-    }
-}
-
-- (void)setContext:(AZFBFriendsContext *)context {
-    if (_context != context) {
-        [_context cancel];
         
-        _context = context;
-        _context.user = self.user;
-        [_context execute];
+        [self.mainView fillWithModel:user];
     }
 }
 
 #pragma mark -
 #pragma mark Private methods
 
-- (IBAction)presentFriends:(id)sender {
+- (IBAction)onFriends {
     AZFBUsersModel *friends = [AZFBUsersModel new];
+    [friends addObserver:self];
+    AZFBFriendsContext *context = [AZFBFriendsContext contextWithModel:friends];
+    context.user = self.user;
+    self.context = context;
+}
+
+#pragma mark -
+#pragma mark Override Methods
+
+- (void)showViewController {
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
-    controller.friends = friends;
-    
-    self.context = [AZFBFriendsContext contextWithModel:friends];
-    
     [self.navigationController pushViewController:controller animated:YES];
-    
+    controller.friends = self.context.friends;
 }
 
 @end

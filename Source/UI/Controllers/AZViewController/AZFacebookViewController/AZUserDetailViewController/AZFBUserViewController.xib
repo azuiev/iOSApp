@@ -91,7 +91,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Friends"/>
                     <connections>
-                        <action selector="presentFriends:" destination="-1" eventType="touchUpInside" id="FzO-dD-Enz"/>
+                        <action selector="onFriends" destination="-1" eventType="touchUpInside" id="M0w-06-rbS"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MiddleName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFk-X7-UfB">

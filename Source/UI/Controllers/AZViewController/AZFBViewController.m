@@ -23,8 +23,8 @@
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     [self prepareNavigationBar];
 }
@@ -37,7 +37,26 @@
 }
 
 #pragma mark -
-#pragma mark UI Actions
+#pragma mark Accessors
+
+- (void)setContext:(AZContext *)context {
+    if (_context != context) {
+        [_context cancel];
+        
+        _context = context;
+        [_context execute];
+    }
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)showViewController {
+
+}
+
+#pragma mark -
+#pragma mark Interface Handling
 
 - (void)onLogout {
     [[AZFBLogoutContext contextWithModel:nil] execute];
@@ -50,8 +69,9 @@
 
 - (void)modelDidLoad:(AZFBUserModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.mainView.loadingView setVisible:NO];
-        [self.mainView fillWithModel:model];
+        [self showViewController];
+       //[self.mainView.loadingView setVisible:NO];
+
     }];
 }
 

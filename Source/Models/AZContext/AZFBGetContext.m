@@ -13,47 +13,56 @@
 #import "AZFBGetContext.h"
 
 #import "AZFBUserModel.h"
+#import "AZFBUserParser.h"
 
 #import "AZMacros.h"
 
 #import "NSString+AZExtension.h"
 
 static NSString *AZRequestMethod            = @"GET";
-static NSString *AZUserFirstNameKey         = @"first_name";
-static NSString *AZUserLastNameKey          = @"last_name";
-static NSString *AZUserName                 = @"name";
-static NSString *AZUserSurname              = @"surname";
 
 @interface AZFBGetContext ()
-@property (nonatomic, assign) AZModelState  modelState;
-@property (nonatomic, readonly) NSString    *plistName;
+@property (nonatomic, assign)   AZModelState    modelState;
+@property (nonatomic, readonly) NSString        *plistName;
 
 - (void)finishLoadingWithResponse:(id)result;
 - (void)saveResponse:(id)result;
 - (id)loadSavedResponse;
+- (NSString *)plistName;
 
 @end
 
 @implementation AZFBGetContext
 
+@dynamic user;
 @dynamic plistName;
 
 #pragma mark -
 #pragma mark Public methods
 
 - (void)finishLoadingWithResponse:(id)result {
-    
+
 }
 
 - (void)fillModel:(AZFBUserModel *)model withResponse:(id)result {
-    [model setValue:[result valueForKey:AZUserFirstNameKey] forKey:AZUserName];
-    [model setValue:[result valueForKey:AZUserLastNameKey] forKey:AZUserSurname];
+    [AZFBUserParser updateUser:model withObject:result];
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (AZFBUserModel *)user {
+    return (AZFBUserModel *)self.model;
+}
+
+- (void)setUser:(AZFBUserModel *)user {
+    
 }
 
 #pragma mark -
 #pragma mark Override methods
 
-- (void)executeWithCompletionHandler:(void (^)(AZModelState))completionHandler {
+- (void)executeWithCompletionHandler:(void(^)(AZModelState))completionHandler {
 
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:self.graphPath

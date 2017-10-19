@@ -42,12 +42,9 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 
 - (void)setFriends:(AZFBUsersModel *)friends {
     if  (_friends != friends) {
-        [_friends removeObserver:self];
         
         _friends = friends;
-        [_friends addObserver:self];
-        
-        [_friends load];
+        [self.mainView.tableView reloadData];
     }
 }
 
@@ -70,25 +67,16 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AZFBUserModel *user = self.friends[indexPath.row];
-    AZFBUserViewController *friendController = [AZFBUserViewController new];
-    friendController.user = user;
-        
-    [self.navigationController pushViewController:friendController animated:YES];
+    [user addObserver:self];
     
     AZFBUserDetailsContext *context = [AZFBUserDetailsContext contextWithModel:user];
     self.context = context;
-    
-    [context execute];
 }
 
-#pragma mark -
-#pragma mark AZModelObserver
-
-- (void)modelDidLoad:(AZFBUserModel *)model {
-    [AZGCD dispatchAsyncOnMainQueue:^ {
-        [self.mainView.loadingView setVisible:NO];
-        [self.mainView.tableView reloadData];
-    }];
+- (void)showViewController {
+    AZFBUserViewController *friendController = [AZFBUserViewController new];
+    friendController.user = self.context.user;
+    [self.navigationController pushViewController:friendController animated:YES];
 }
 
 @end

@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "AZView.h"
+#import "AZContext.h"
 
 @interface AZFBViewController : UIViewController
-@property (nonatomic, readonly) AZView    *mainView;
+@property (nonatomic, readonly) AZView      *mainView;
+@property (nonatomic, readonly) AZContext   *context;
+
 - (void)prepareNavigationBar;
+//method for children purposes. Do not call this method directly
+- (void)showViewController;
 
 @end

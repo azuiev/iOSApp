@@ -16,8 +16,6 @@
 @property (nonatomic, readonly) NSString        *gender;
 @property (nonatomic, readonly) NSDate          *birthday;
 
-@property (nonatomic, readonly) AZImageModel    *largeUserPicture;
-
 @property (nonatomic, readonly) NSString        *fullNameWithMiddleName;
 
 + (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken;
