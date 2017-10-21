@@ -20,8 +20,6 @@
 @property (nonatomic, strong) NSString        *gender;
 @property (nonatomic, strong) NSDate          *birthday;
 
-@property (nonatomic, strong) AZImageModel    *largeUserPicture;
-
 @end
 
 @implementation AZFBUserModel
@@ -74,6 +72,10 @@
     FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
     
     return ([self.userID isEqualToString:accessToken.userID] && [self.token isEqualToString:accessToken.tokenString]);
+}
+
+- (void)clearToken {
+    self.token = nil;
 }
 
 @end

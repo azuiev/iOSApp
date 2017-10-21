@@ -22,5 +22,6 @@
 + (instancetype)userWithID:(NSString *)userID;
 
 - (BOOL)isLogged;
+- (void)clearToken;
 
 @end

@@ -6,6 +6,9 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "AZFBViewController.h"
 
 #import "AZFBUserModel.h"
@@ -59,25 +62,36 @@
 #pragma mark Interface Handling
 
 - (void)onLogout {
-    [[AZFBLogoutContext contextWithModel:nil] execute];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self logout];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)logout {
+    self.context = [AZFBLogoutContext contextWithModel:self.user];
 }
 
 #pragma mark -
 #pragma mark AZModelObserver
 
-- (void)modelDidLoad:(AZFBUserModel *)model {
+- (void)modelDidLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.mainView.loadingView setVisible:NO];
         [self showViewController];
-       //[self.mainView.loadingView setVisible:NO];
-
     }];
 }
 
 - (void)modelWillLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:YES];
+    }];
+}
+
+- (void)modelDidUnload:(AZFBUserModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [model clearToken];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 

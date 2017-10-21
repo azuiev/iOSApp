@@ -19,11 +19,26 @@
 
 AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 @interface AZFBUserViewController ()
-@property (nonatomic, strong) AZFBFriendsContext *context;
-
+@property (nonatomic, strong) AZFBFriendsContext    *context;
+@property (nonatomic, strong) AZFBUsersModel        *friends;
 @end
 
 @implementation AZFBUserViewController
+
+@synthesize user = _user;
+
+#pragma mark -
+#pragma mark Initialization and Deallocation
+
+- (void)dealloc {
+    self.friends = nil;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.friends = [AZFBUsersModel new];
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -42,13 +57,27 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
     }
 }
 
+- (void)setFriends:(AZFBUsersModel *)friends {
+    if (_friends != friends) {
+        [_friends removeObserver:self];
+        
+        _friends = friends;
+        [_friends addObserver:self];
+    }
+}
+
+#pragma mark -
+#pragma mark Interface handling
+
+- (IBAction)onFriends {
+    [self startLoadingFriends];
+}
+
 #pragma mark -
 #pragma mark Private methods
 
-- (IBAction)onFriends {
-    AZFBUsersModel *friends = [AZFBUsersModel new];
-    [friends addObserver:self];
-    AZFBFriendsContext *context = [AZFBFriendsContext contextWithModel:friends];
+- (void)startLoadingFriends {
+    AZFBFriendsContext *context = [AZFBFriendsContext contextWithModel:self.friends];
     context.user = self.user;
     self.context = context;
 }

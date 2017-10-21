@@ -22,7 +22,7 @@
 
 AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsView)
 @interface AZFBFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) AZFBUserDetailsContext *context;
+@property (nonatomic, strong) AZFBUserDetailsContext    *context;
 
 @end
 

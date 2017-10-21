@@ -24,7 +24,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Facebook"/>
                     <connections>
-                        <action selector="onLoginButton:" destination="-1" eventType="touchUpInside" id="wYQ-xJ-v1z"/>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="DxF-E9-L2O"/>
                     </connections>
                 </button>
             </subviews>

@@ -10,16 +10,19 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "AZFBLogoutContext.h"
+#import "AZFBUserModel.h"
 
 @implementation AZFBLogoutContext
 
 #pragma mark -
 #pragma mark Overrided methods
 
-- (void)execute {
+- (void)executeWithCompletionHandler:(void (^)(AZModelState))completionHandler {
     FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     
     [loginManager logOut];
+    
+    completionHandler(AZModelDidUnload);
 }
 
 @end

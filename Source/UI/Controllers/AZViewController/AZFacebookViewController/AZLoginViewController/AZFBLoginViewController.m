@@ -21,24 +21,29 @@
 
 AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginView)
 @interface AZFBLoginViewController ()
-@property (nonatomic, strong) AZFBLoginContext      *loginContext;
-@property (nonatomic, strong) AZFBUserModel         *user;
+@property (nonatomic, strong) AZFBLoginContext      *context;
 
 @end
 
 @implementation AZFBLoginViewController
 
+@synthesize user = _user;
+
+#pragma mark -
+#pragma mark Initialization and deallocation
+
+- (void)dealloc {
+    self.user =  nil;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.user = [AZFBUserModel new];
+}
+
 #pragma mark -
 #pragma mark Accessors
-
-- (void)setLoginContext:(AZFBLoginContext *)loginContext {
-    if (_loginContext != loginContext) {
-        [_loginContext cancel];
-        
-        _loginContext = loginContext;
-        [loginContext execute];
-     }
-}
 
 - (void)setUser:(AZFBUserModel *)user {
     if (_user != user) {
@@ -52,10 +57,8 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
 #pragma mark -
 #pragma mark Interface Handling
 
-- (IBAction)onLoginButton:(id)sender {
-    AZFBUserModel *user = [AZFBUserModel new];
-    self.user = user;
-    self.loginContext = [AZFBLoginContext contextWithModel:user];
+- (IBAction)onLogin:(id)sender {
+    self.context = [AZFBLoginContext contextWithModel:self.user];
 }
 
 #pragma mark -
@@ -66,9 +69,10 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
 }
 
 - (void)showViewController {
+    AZFBUserModel *user = self.user;
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    AZFBUserModel *user = self.user;
+    
     [self presentViewController:navigationController animated:YES completion:^ {
         controller.user = user;
     }];

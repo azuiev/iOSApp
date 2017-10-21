@@ -11,9 +11,12 @@
 #import "AZView.h"
 #import "AZContext.h"
 
+#import "AZFBUserModel.h"
+
 @interface AZFBViewController : UIViewController
-@property (nonatomic, readonly) AZView      *mainView;
-@property (nonatomic, readonly) AZContext   *context;
+@property (nonatomic, readonly) AZView          *mainView;
+@property (nonatomic, readonly) AZContext       *context;
+@property (nonatomic, strong)   AZFBUserModel   *user;
 
 - (void)prepareNavigationBar;
 //method for children purposes. Do not call this method directly
