@@ -15,8 +15,9 @@
 
 @interface AZFBViewController : UIViewController
 @property (nonatomic, readonly) AZView          *mainView;
-@property (nonatomic, readonly) AZContext       *context;
-@property (nonatomic, strong)   AZFBUserModel   *user;
+@property (nonatomic, strong)   AZContext       *context;
+@property (nonatomic, strong)   AZModel         *model;
+@property (nonatomic, strong)   AZFBUserModel   *currentUser;
 
 - (void)prepareNavigationBar;
 //method for children purposes. Do not call this method directly

@@ -10,6 +10,7 @@
 #import "AZFBUsersModel.h"
 
 @interface AZFBFriendsContext : AZFBGetContext
-@property (nonatomic, readonly) AZFBUsersModel  *friends;
+
++ (instancetype)contextWithModel:(AZModel *)model user:(AZFBUserModel *)user;
 
 @end

@@ -14,43 +14,49 @@
 #import "AZFBLoginView.h"
 
 #import "AZFBLoginContext.h"
-#import "AZFBUserDetailsContext.h"
 
 #import "AZGCD.h"
 #import "AZMacros.h"
 
 AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginView)
 @interface AZFBLoginViewController ()
-@property (nonatomic, strong) AZFBLoginContext      *context;
+@property (nonatomic, strong) AZFBLoginContext      *loginContext;
+
+- (void)showUserController;
 
 @end
 
 @implementation AZFBLoginViewController
 
-@synthesize user = _user;
+@synthesize currentUser = _currentUser;
+@dynamic loginContext;
 
 #pragma mark -
 #pragma mark Initialization and deallocation
 
-- (void)dealloc {
-    self.user =  nil;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.user = [AZFBUserModel new];
+    self.currentUser = [AZFBUserModel new];
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUser:(AZFBUserModel *)user {
-    if (_user != user) {
-        [_user removeObserver:self];
+- (AZFBLoginContext *)loginContext {
+    return (AZFBLoginContext *)self.context;
+}
+
+- (void)setLoginContext:(AZFBLoginContext *)loginContext {
+    self.context = loginContext;
+}
+
+- (void)setCurrentUser:(AZFBUserModel *)currentUser {
+    if (_currentUser != currentUser) {
+        [_currentUser removeObserver:self];
         
-        _user = user;
-        [_user addObserver:self];
+        _currentUser = currentUser;
+        [_currentUser addObserver:self];
     }
 }
 
@@ -58,7 +64,7 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
 #pragma mark Interface Handling
 
 - (IBAction)onLogin:(id)sender {
-    self.context = [AZFBLoginContext contextWithModel:self.user];
+    self.loginContext = [AZFBLoginContext contextWithModel:self.currentUser];
 }
 
 #pragma mark -
@@ -68,13 +74,19 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
     
 }
 
-- (void)showViewController {
-    AZFBUserModel *user = self.user;
+- (void)showUserController {
+    AZFBUserModel *user = self.currentUser;
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    controller.user = user;
+    controller.currentUser = user;
     
-    [self presentViewController:navigationController animated:YES completion:^ {
-        controller.user = user;
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)modelDidLoad:(AZModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self showUserController];
     }];
 }
 

@@ -26,6 +26,13 @@
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
+- (void)dealloc {
+    self.mainView = nil;
+    self.context = nil;
+    self.model = nil;
+    self.currentUser = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,6 +58,15 @@
     }
 }
 
+- (void)setModel:(AZModel *)model {
+    if (_model != model) {
+        [_model removeObserver:self];
+        
+        _model = model;
+        [_model addObserver:self];
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -69,7 +85,7 @@
 #pragma mark Private Methods
 
 - (void)logout {
-    self.context = [AZFBLogoutContext contextWithModel:self.user];
+    self.context = [AZFBLogoutContext contextWithModel:self.currentUser];
 }
 
 #pragma mark -
@@ -78,7 +94,7 @@
 - (void)modelDidLoad:(AZModel *)model {
     [AZGCD dispatchAsyncOnMainQueue:^ {
         [self.mainView.loadingView setVisible:NO];
-        [self showViewController];
+        [self.mainView fillWithModel:model];
     }];
 }
 

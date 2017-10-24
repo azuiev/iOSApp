@@ -20,9 +20,7 @@ static NSString *AZUserIDString        = @"userID";
 static NSString *AZTokenString         = @"token";
 
 @interface AZFBLoginContext ()
-@property (nonatomic, strong) AZFBLoginViewController           *loginController;
-@property (nonatomic, strong) AZFBUserDetailsContext            *userContext;
-@property (nonatomic, readonly) AZFBUserModel                   *user;
+@property (nonatomic, readonly) AZFBUserModel   *user;
 
 @end
 
@@ -33,15 +31,6 @@ static NSString *AZTokenString         = @"token";
 #pragma mark -
 #pragma mark Accessors 
 
-- (void)setUserContext:(AZFBUserDetailsContext *)userContext {
-    if (_userContext != userContext) {
-        [_userContext cancel];
-        
-        _userContext = userContext;
-        [_userContext execute];
-    }
-}
-
 - (AZFBUserModel *)user {
     return (AZFBUserModel *)self.model;
 }
@@ -49,20 +38,12 @@ static NSString *AZTokenString         = @"token";
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)loadUserDetailInfo {
-    AZFBUserModel *user = self.user;
-    
-    self.userContext = [AZFBUserDetailsContext contextWithModel:user];
-}
-
 - (void)fillUserWithResponse:(id)result {
     AZFBUserModel *user = self.user;
     NSString *token = [result valueForKeyPath:AZTokenStringPath];
     NSString *userID = [result valueForKeyPath:AZUserIDStringPath];
     [user setValue:token forKey:AZTokenString];
     [user setValue:userID forKey:AZUserIDString];
-   
-    [self loadUserDetailInfo];
 }
 
 #pragma mark -
@@ -80,9 +61,9 @@ static NSString *AZTokenString         = @"token";
                                 } else {
                                     NSLog(@"Logged in");
                                     
-                                    completionHandler(AZModelWillLoad);
-                                    
                                     [self fillUserWithResponse:result];
+                                    
+                                    completionHandler(AZModelDidLoad);
                                 }
                             }];
 }

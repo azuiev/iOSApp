@@ -10,7 +10,7 @@
 #import "AZFBUserViewController.h"
 
 #import "AZFBUserModel.h"
-#import "AZFBUserDetailsContext.h"
+#import "AZFBFriendsContext.h"
 
 #import "AZFriendsView.h"
 #import "AZUserCell.h"
@@ -22,30 +22,47 @@
 
 AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsView)
 @interface AZFBFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) AZFBUserDetailsContext    *context;
+@property (nonatomic, strong)   AZFBFriendsContext  *friendsContext;
 
 @end
 
 @implementation AZFBFriendsViewController
 
-#pragma mark -
-#pragma mark Initialization
+@dynamic friendsContext;
+@dynamic friends;
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+#pragma mark -
+#pragma mark Initialization and Deallocation
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     [self setTitle:@"Friends"];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.friendsContext = [AZFBFriendsContext contextWithModel:self.friends user:self.user];
 }
 
 #pragma mark -
 #pragma mark Accessors
 
+- (AZFBUsersModel *)friends {
+    return (AZFBUsersModel *)self.model;
+}
+
 - (void)setFriends:(AZFBUsersModel *)friends {
-    if  (_friends != friends) {
-        
-        _friends = friends;
-        [self.mainView.tableView reloadData];
-    }
+    self.model = friends;
+}
+
+- (AZFBFriendsContext *)friendsContext {
+    return (AZFBFriendsContext *)self.context;
+}
+
+- (void)setFriendsContext:(AZFBFriendsContext *)friendsContext {
+    self.context = friendsContext;
 }
 
 #pragma mark -
@@ -66,17 +83,21 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AZFBUserModel *user = self.friends[indexPath.row];
-    [user addObserver:self];
+    AZFBUserViewController *controller = [AZFBUserViewController new];
+    controller.currentUser = self.currentUser;
+    controller.user = self.friends[indexPath.row];
     
-    AZFBUserDetailsContext *context = [AZFBUserDetailsContext contextWithModel:user];
-    self.context = context;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
-- (void)showViewController {
-    AZFBUserViewController *friendController = [AZFBUserViewController new];
-    friendController.user = self.context.user;
-    [self.navigationController pushViewController:friendController animated:YES];
+#pragma mark -
+#pragma mark Model Observer
+
+- (void)modelDidLoad:(AZModel *)model {
+    [AZGCD dispatchAsyncOnMainQueue:^ {
+        [self.mainView.loadingView setVisible:NO];
+        [self.mainView.tableView reloadData];
+    }];
 }
 
 @end

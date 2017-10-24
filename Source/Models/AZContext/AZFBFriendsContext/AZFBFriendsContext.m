@@ -24,7 +24,8 @@ static NSString *AZFriendsTotalCountKey        = @"summary.total_count";
 static NSString *AZFriendsExtensionString      = @"/friends/";
 
 @interface AZFBFriendsContext ()
-@property (nonatomic, strong) AZFBUserModel     *privateUser;
+@property (nonatomic, readonly) AZFBUsersModel      *friends;
+@property (nonatomic, strong)   AZFBUserModel       *privateUser;
 
 @end
 
@@ -32,17 +33,26 @@ static NSString *AZFriendsExtensionString      = @"/friends/";
 
 @dynamic token;
 @dynamic graphPath;
+@dynamic friends;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)contextWithModel:(AZModel *)model user:(AZFBUserModel *)user {
+    return [[self alloc] initWithModel:model user:user];
+}
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
 - (void)dealloc {
-    self.privateUser = nil;
+    self.user = nil;
 }
 
-- (instancetype)initWithModel:(AZModel *)model {
+- (instancetype)initWithModel:(AZModel *)model user:(AZFBUserModel *)user {
     self = [super initWithModel:model];
     if (self) {
+        self.privateUser = user;
         self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};
     }
     
@@ -52,16 +62,16 @@ static NSString *AZFriendsExtensionString      = @"/friends/";
 #pragma mark -
 #pragma mark Accessors
 
+- (AZFBUsersModel *)friends {
+    return (AZFBUsersModel *)self.model;
+}
+
 - (AZFBUserModel *)user {
     return self.privateUser;
 }
 
 - (void)setUser:(AZFBUserModel *)user {
     self.privateUser = user;
-}
-
-- (AZFBUsersModel *)friends {
-    return (AZFBUsersModel *)self.model;
 }
 
 #pragma mark -

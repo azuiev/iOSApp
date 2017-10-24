@@ -15,5 +15,6 @@
 
 @interface AZFBFriendsViewController : AZFBViewController
 @property (nonatomic, strong) AZFBUsersModel    *friends;
+@property (nonatomic, strong) AZFBUserModel     *user;
 
 @end

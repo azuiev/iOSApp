@@ -8,9 +8,8 @@
 
 #import "AZFBUserViewController.h"
 
-#import "AZFBFriendsContext.h"
 #import "AZFBFriendsViewController.h"
-#import "AZFBFriendsContext.h"
+#import "AZFBUserDetailsContext.h"
 
 #import "AZFBUserView.h"
 
@@ -19,76 +18,60 @@
 
 AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 @interface AZFBUserViewController ()
-@property (nonatomic, strong) AZFBFriendsContext    *context;
-@property (nonatomic, strong) AZFBUsersModel        *friends;
+@property (nonatomic, strong)   AZFBUserDetailsContext      *userContext;
+- (void)showFriendsController;
+
 @end
 
 @implementation AZFBUserViewController
 
-@synthesize user = _user;
+@dynamic userContext;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (void)dealloc {
-    self.friends = nil;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.friends = [AZFBUsersModel new];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self.mainView fillWithModel:self.user];
+    self.userContext = [AZFBUserDetailsContext contextWithModel:self.model];
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUser:(AZFBUserModel *)user {
-    if (_user != user) {
-        _user = user;
-        
-        [self.mainView fillWithModel:user];
-    }
+- (AZFBUserModel *)user {
+    return (AZFBUserModel *)self.model;
 }
 
-- (void)setFriends:(AZFBUsersModel *)friends {
-    if (_friends != friends) {
-        [_friends removeObserver:self];
-        
-        _friends = friends;
-        [_friends addObserver:self];
-    }
+- (void)setUser:(AZFBUserModel *)user {
+    self.model = user;
+}
+
+- (AZFBUserDetailsContext *)userContext {
+    return (AZFBUserDetailsContext *)self.context;
+}
+
+- (void)setUserContext:(AZFBUserDetailsContext *)userContext {
+    self.context = userContext;
 }
 
 #pragma mark -
 #pragma mark Interface handling
 
 - (IBAction)onFriends {
-    [self startLoadingFriends];
+    [self showFriendsController];
 }
 
 #pragma mark -
-#pragma mark Private methods
+#pragma mark Private Methods
 
-- (void)startLoadingFriends {
-    AZFBFriendsContext *context = [AZFBFriendsContext contextWithModel:self.friends];
-    context.user = self.user;
-    self.context = context;
-}
-
-#pragma mark -
-#pragma mark Override Methods
-
-- (void)showViewController {
+- (void)showFriendsController {
     AZFBFriendsViewController *controller = [AZFBFriendsViewController new];
+    controller.currentUser = self.currentUser;
+    controller.friends = [AZFBUsersModel new];
+    controller.user = self.user;
+    
     [self.navigationController pushViewController:controller animated:YES];
-    controller.friends = self.context.friends;
 }
 
 @end
