@@ -55,10 +55,6 @@ static NSString *AZRequestMethod            = @"GET";
     return (AZFBUserModel *)self.model;
 }
 
-- (void)setUser:(AZFBUserModel *)user {
-    
-}
-
 #pragma mark -
 #pragma mark Override methods
 

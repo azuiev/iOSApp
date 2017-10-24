@@ -22,6 +22,7 @@ static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,
 
 @dynamic token;
 @dynamic graphPath;
+@dynamic user;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -36,6 +37,13 @@ static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (AZFBUserModel *)user {
+    return (AZFBUserModel *)self.model;
+}
+
+#pragma mark -
 #pragma mark Overrided methods
 
 - (void)finishLoadingWithResponse:(id)result {
@@ -47,7 +55,7 @@ static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,
 }
 
 - (NSString *)token {
-    return self.user.token;
+    return self.currentUser.token;
 }
 
 @end

@@ -54,6 +54,7 @@
         [_context cancel];
         
         _context = context;
+        _context.currentUser = self.currentUser;
         [_context execute];
     }
 }
