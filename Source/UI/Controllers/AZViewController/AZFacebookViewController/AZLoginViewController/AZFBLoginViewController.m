@@ -37,7 +37,7 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentUser = [AZFBUserModel new];
+    self.currentUser = [AZFBCurrentUser new];
 }
 
 #pragma mark -
@@ -51,7 +51,7 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
     self.context = loginContext;
 }
 
-- (void)setCurrentUser:(AZFBUserModel *)currentUser {
+- (void)setCurrentUser:(AZFBCurrentUser *)currentUser {
     if (_currentUser != currentUser) {
         [_currentUser removeObserver:self];
         
@@ -75,7 +75,7 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
 }
 
 - (void)showUserController {
-    AZFBUserModel *user = self.currentUser;
+    AZFBCurrentUser *user = self.currentUser;
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     controller.user = user;

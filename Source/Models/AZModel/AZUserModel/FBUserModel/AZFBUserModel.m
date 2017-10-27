@@ -6,16 +6,11 @@
 //  Copyright © 2017 Aleksey Zuiev. All rights reserved.
 //
 
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-
 #import "AZFBUserModel.h"
 #import "AZFBUserModelCashe.h"
 
 @interface AZFBUserModel ()
 @property (nonatomic, strong) NSString        *userID;
-@property (nonatomic, strong) NSString        *token;
-@property (nonatomic, strong) NSString        *email;
 @property (nonatomic, strong) NSString        *middleName;
 @property (nonatomic, strong) NSString        *gender;
 @property (nonatomic, strong) NSDate          *birthday;
@@ -28,15 +23,11 @@
 #pragma mark Class methods
 
 + (instancetype)userWithID:(NSString *)userID {
-    return [self userWithID:userID accessToken:nil];
-}
-
-+ (instancetype)userWithID:(NSString *)userID accessToken:(NSString *)accessToken {
     AZFBUserModelCashe *cache = [AZFBUserModelCashe sharedCache];
     AZFBUserModel *model = [cache objectForKey:userID];
     
     if (!model) {
-        model = [[self alloc] initWithID:userID accessToken:accessToken];
+        model = [[self alloc] initWithID:userID];
         
         [cache setObject:model forKey:userID];
     }
@@ -45,14 +36,12 @@
 }
 
 #pragma mark -
-#pragma mark Initialization
+#pragma mark Initialization and deallocation
 
-- (instancetype)initWithID:(NSString *)userID accessToken:(NSString *)accessToken {
-   
+- (instancetype)initWithID:(NSString *)userID {
     self = [super init];
     if (self) {
         self.userID = userID;
-        self.token = accessToken;
     }
     
     return self;
@@ -65,17 +54,5 @@
     return [NSString stringWithFormat:@"%@ %@ %@", self.name, self.middleName, self.surname];
 }
 
-#pragma mark -
-#pragma mark Public methods
-
-- (BOOL)isLogged {
-    FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
-    
-    return ([self.userID isEqualToString:accessToken.userID] && [self.token isEqualToString:accessToken.tokenString]);
-}
-
-- (void)clearToken {
-    self.token = nil;
-}
 
 @end

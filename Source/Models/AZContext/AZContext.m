@@ -15,6 +15,8 @@
 
 @implementation AZContext
 
+@dynamic token;
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -36,6 +38,13 @@
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)token {
+    return self.currentUser.token;
 }
 
 #pragma mark -

@@ -93,8 +93,4 @@ static NSString *AZFriendsExtensionString      = @"/friends/";
     return [self.user.userID stringByAppendingString:AZFriendsExtensionString];
 }
 
-- (NSString *)token {
-    return self.user.token;
-}
-
 @end

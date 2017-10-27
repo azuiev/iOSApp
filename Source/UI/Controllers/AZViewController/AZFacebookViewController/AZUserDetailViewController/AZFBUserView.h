@@ -13,7 +13,6 @@
 @property (nonatomic, strong) IBOutlet UILabel      *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *surnameLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *middleNameLabel;
-@property (nonatomic, strong) IBOutlet UILabel      *emailLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *genderLabel;
 @property (nonatomic, strong) IBOutlet UILabel      *birthdayLabel;
 @property (nonatomic, strong) IBOutlet AZImageView  *largeImageView;

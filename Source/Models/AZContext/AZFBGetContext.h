@@ -12,7 +12,6 @@
 
 @interface AZFBGetContext : AZContext
 @property (nonatomic, strong)   NSString        *graphPath;
-@property (nonatomic, strong)   NSString        *token;
 @property (nonatomic, strong)   NSDictionary    *parameters;
 @property (nonatomic, readonly) AZFBUserModel   *user;
 

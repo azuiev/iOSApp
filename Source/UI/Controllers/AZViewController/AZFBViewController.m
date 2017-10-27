@@ -15,6 +15,7 @@
 #import "AZFBLogoutContext.h"
 
 #import "AZGCD.h"
+#import "AZMacros.h"
 
 @interface AZFBViewController ()
 @property (nonatomic, strong) AZView    *mainView;
@@ -93,21 +94,27 @@
 #pragma mark AZModelObserver
 
 - (void)modelDidLoad:(AZModel *)model {
+    AZWeakify(self);
     [AZGCD dispatchAsyncOnMainQueue:^ {
+        AZStrongify(self);
         [self.mainView.loadingView setVisible:NO];
         [self.mainView fillWithModel:model];
     }];
 }
 
 - (void)modelWillLoad:(AZModel *)model {
+    AZWeakify(self);
     [AZGCD dispatchAsyncOnMainQueue:^ {
+        AZStrongify(self);
         [self.mainView.loadingView setVisible:YES];
     }];
 }
 
 - (void)modelDidUnload:(AZFBUserModel *)model {
+    AZWeakify(self);
     [AZGCD dispatchAsyncOnMainQueue:^ {
-        [model clearToken];
+        AZStrongify(self);
+        [self.currentUser clearToken];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

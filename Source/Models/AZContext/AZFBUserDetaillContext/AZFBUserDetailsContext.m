@@ -16,7 +16,7 @@
 #import "AZMacros.h"
 
 static NSString *AZUserParametersKey       = @"fields";
-static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,email,birthday,gender,picture.height(9999){url}";
+static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,birthday,gender,picture.height(9999){url}";
 
 @implementation AZFBUserDetailsContext
 
@@ -52,10 +52,6 @@ static NSString *AZUserParametersValue     = @"first_name,last_name,middle_name,
 
 - (NSString *)graphPath {
     return self.user.userID;
-}
-
-- (NSString *)token {
-    return self.currentUser.token;
 }
 
 @end

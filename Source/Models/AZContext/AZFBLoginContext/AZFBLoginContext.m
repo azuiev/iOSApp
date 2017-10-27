@@ -18,30 +18,19 @@ static NSString *AZTokenStringPath     = @"token.tokenString";
 static NSString *AZUserIDStringPath    = @"token.userID";
 static NSString *AZUserIDString        = @"userID";
 static NSString *AZTokenString         = @"token";
-
-@interface AZFBLoginContext ()
-@property (nonatomic, readonly) AZFBUserModel   *user;
-
-@end
+static NSString *AZPublicProfileKey    = @"public_profile";
+static NSString *AZUserFriendsKey      = @"user_friends";
 
 @implementation AZFBLoginContext
-
-@dynamic user;
-
-#pragma mark -
-#pragma mark Accessors 
-
-- (AZFBUserModel *)user {
-    return (AZFBUserModel *)self.model;
-}
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)fillUserWithResponse:(id)result {
-    AZFBUserModel *user = self.user;
+    AZFBCurrentUser *user = self.currentUser;
     NSString *token = [result valueForKeyPath:AZTokenStringPath];
     NSString *userID = [result valueForKeyPath:AZUserIDStringPath];
+    
     [user setValue:token forKey:AZTokenString];
     [user setValue:userID forKey:AZUserIDString];
 }
@@ -50,22 +39,24 @@ static NSString *AZTokenString         = @"token";
 #pragma mark Overrided methods
 
 - (void)executeWithCompletionHandler:(void (^)(AZModelState))completionHandler {
-    FBSDKLoginManager *login = [FBSDKLoginManager new];
-    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
-                 fromViewController:nil
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-                                if (error) {
-                                    NSLog(@"Process error");
-                                } else if (result.isCancelled) {
-                                    NSLog(@"Cancelled");
-                                } else {
-                                    NSLog(@"Logged in");
-                                    
-                                    [self fillUserWithResponse:result];
-                                    
-                                    completionHandler(AZModelDidLoad);
-                                }
-                            }];
+    if (![self.currentUser isLogged]) {
+        FBSDKLoginManager *login = [FBSDKLoginManager new];
+        [login logInWithReadPermissions:@[AZPublicProfileKey, AZUserFriendsKey]
+                     fromViewController:nil
+                                handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                    if (error) {
+                                        NSLog(@"Process error");
+                                    } else if (result.isCancelled) {
+                                        NSLog(@"Cancelled");
+                                    } else {
+                                        [self fillUserWithResponse:result];
+                                        
+                                        completionHandler(AZModelDidLoad);
+                                    }
+                                }];
+    } else {
+        completionHandler(AZModelDidLoad);
+    }
 }
 
 @end

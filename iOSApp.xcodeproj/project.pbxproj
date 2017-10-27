@@ -70,6 +70,7 @@
 		1D5D02BC1F813B5B00367A65 /* AZView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02B81F813B5B00367A65 /* AZView.m */; };
 		1D5D02C11F813FF100367A65 /* NSURL+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5D02C01F813FF100367A65 /* NSURL+AZExtension.m */; };
 		1D5D49B31F1BA001003AEA36 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D49B21F1BA001003AEA36 /* Image.jpg */; };
+		1D6769301FA3D38700891427 /* AZFBCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D67692F1FA3D38700891427 /* AZFBCurrentUser.m */; };
 		1D74D98F1F7994E400849F19 /* NSString+AZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D74D98E1F7994E400849F19 /* NSString+AZExtension.m */; };
 		1D77AF4C1F1423F90069E27F /* AZRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF4B1F1423F90069E27F /* AZRandomNumber.m */; };
 		1D77AF511F142BF70069E27F /* AZRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D77AF501F142BF70069E27F /* AZRange.m */; };
@@ -201,6 +202,8 @@
 		1D5D02C01F813FF100367A65 /* NSURL+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AZExtension.m"; sourceTree = "<group>"; };
 		1D5D49B21F1BA001003AEA36 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 		1D63569F1F154C3800EFDA40 /* AZMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZMacros.h; path = Utils/AZMacros.h; sourceTree = "<group>"; };
+		1D67692E1FA3D38700891427 /* AZFBCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZFBCurrentUser.h; sourceTree = "<group>"; };
+		1D67692F1FA3D38700891427 /* AZFBCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZFBCurrentUser.m; sourceTree = "<group>"; };
 		1D74D98D1F7994E400849F19 /* NSString+AZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AZExtension.h"; sourceTree = "<group>"; };
 		1D74D98E1F7994E400849F19 /* NSString+AZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AZExtension.m"; sourceTree = "<group>"; };
 		1D77AF4A1F1423F90069E27F /* AZRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZRandomNumber.h; path = Utils/AZRandomNumber.h; sourceTree = "<group>"; };
@@ -570,6 +573,8 @@
 			children = (
 				1D5D023F1F813A0000367A65 /* AZFBUserModel.h */,
 				1D5D02401F813A0000367A65 /* AZFBUserModel.m */,
+				1D67692E1FA3D38700891427 /* AZFBCurrentUser.h */,
+				1D67692F1FA3D38700891427 /* AZFBCurrentUser.m */,
 			);
 			path = FBUserModel;
 			sourceTree = "<group>";
@@ -997,6 +1002,7 @@
 				1D5D027E1F813ACB00367A65 /* AZUsersViewController.m in Sources */,
 				1D83E01F1F8413E2009DF71E /* AZFBFriendsViewController.m in Sources */,
 				1D5D02A91F813B1B00367A65 /* AZGCD.m in Sources */,
+				1D6769301FA3D38700891427 /* AZFBCurrentUser.m in Sources */,
 				1D5D024E1F813A0000367A65 /* AZFBUserModel.m in Sources */,
 				1D5D02451F813A0000367A65 /* AZArrayModelMoveChange.m in Sources */,
 				1D5D024D1F813A0000367A65 /* AZUserModel.m in Sources */,

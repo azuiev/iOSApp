@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "AZModel.h"
-#import "AZFBUserModel.h"
+#import "AZFBCurrentUser.h"
 
 @interface AZContext : AZModel
 @property (nonatomic, readonly) AZModel         *model;
-@property (nonatomic, strong)   AZFBUserModel   *currentUser;
+@property (nonatomic, readonly) NSString        *token;
+@property (nonatomic, strong)   AZFBCurrentUser *currentUser;
 
 + (instancetype)contextWithModel:(AZModel *)model;
 
