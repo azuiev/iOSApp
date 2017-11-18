@@ -22,6 +22,7 @@
     
     [loginManager logOut];
     
+    self.currentUser.token = nil;
     completionHandler(AZModelDidUnload);
 }
 

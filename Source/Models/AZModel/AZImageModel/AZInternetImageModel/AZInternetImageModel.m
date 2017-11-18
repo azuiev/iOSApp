@@ -74,12 +74,12 @@
             __block UIImage *image = nil;
             NSURLSessionDownloadTask *task = self.downloadTask;
             
-            //AZWeakify(completionBlock);
+            AZWeakify(completionBlock);
             if (!task) {
                 task = [session downloadTaskWithURL:self.url
                                   completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
                         {
-                            //AZStrongify(completionBlock);
+                            AZStrongify(completionBlock);
                             [self saveTemporaryFile:location];
                             
                             image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[self fileSystemURL]]];

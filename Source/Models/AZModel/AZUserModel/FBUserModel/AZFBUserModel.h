@@ -16,7 +16,6 @@
 
 @property (nonatomic, readonly) NSString        *fullNameWithMiddleName;
 
-
 + (instancetype)userWithID:(NSString *)userID;
 
 - (instancetype)initWithID:(NSString *)userID;

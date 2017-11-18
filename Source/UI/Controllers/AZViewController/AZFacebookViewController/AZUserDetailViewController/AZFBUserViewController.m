@@ -30,8 +30,8 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     self.userContext = [AZFBUserDetailsContext contextWithModel:self.model];
 }

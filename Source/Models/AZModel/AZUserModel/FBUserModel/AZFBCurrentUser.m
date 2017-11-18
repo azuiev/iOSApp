@@ -32,7 +32,6 @@
     return self;
 }
 
-
 #pragma mark -
 #pragma mark Public methods
 

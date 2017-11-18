@@ -114,7 +114,6 @@
     AZWeakify(self);
     [AZGCD dispatchAsyncOnMainQueue:^ {
         AZStrongify(self);
-        [self.currentUser clearToken];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
