@@ -26,6 +26,7 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 @implementation AZFBUserViewController
 
 @dynamic userContext;
+@dynamic user;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -41,10 +42,6 @@ AZBaseViewControllerWithProperty(AZFBUserViewController, mainView, AZFBUserView)
 
 - (AZFBUserModel *)user {
     return (AZFBUserModel *)self.model;
-}
-
-- (void)setUser:(AZFBUserModel *)user {
-    self.model = user;
 }
 
 - (AZFBUserDetailsContext *)userContext {

@@ -55,6 +55,7 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 
 - (void)setFriends:(AZFBUsersModel *)friends {
     self.model = friends;
+    self.model.state = AZModelWillLoad;
 }
 
 - (AZFBFriendsContext *)friendsContext {
@@ -85,7 +86,7 @@ AZBaseViewControllerWithProperty(AZFBFriendsViewController, mainView, AZFriendsV
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AZFBUserViewController *controller = [AZFBUserViewController new];
     controller.currentUser = self.currentUser;
-    controller.user = self.friends[indexPath.row];
+    controller.model = self.friends[indexPath.row];
     
     [self.navigationController pushViewController:controller animated:YES];
 }

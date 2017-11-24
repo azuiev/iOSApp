@@ -78,7 +78,7 @@ AZBaseViewControllerWithProperty(AZFBLoginViewController, mainView, AZFBLoginVie
     AZFBCurrentUser *user = self.currentUser;
     AZFBUserViewController *controller = [AZFBUserViewController new];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    controller.user = user;
+    controller.model = user;
     controller.currentUser = user;
     
     [self presentViewController:navigationController animated:YES completion:nil];

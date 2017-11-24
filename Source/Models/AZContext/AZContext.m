@@ -7,6 +7,7 @@
 //
 
 #import "AZContext.h"
+#import "AZMacros.h"
 
 @interface AZContext ()
 @property (nonatomic, strong) AZModel   *model;
@@ -51,7 +52,10 @@
 #pragma mark Public Methods
 
 - (void)execute {
+    AZWeakify(self);
     [self executeWithCompletionHandler:^ (AZModelState state) {
+        AZStrongify(self)
+        
         self.model.state = state;
     }];
 }

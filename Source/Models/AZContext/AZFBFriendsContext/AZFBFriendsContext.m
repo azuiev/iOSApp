@@ -25,13 +25,13 @@ static NSString *AZFriendsExtensionString      = @"/friends/";
 
 @interface AZFBFriendsContext ()
 @property (nonatomic, readonly) AZFBUsersModel      *friends;
-@property (nonatomic, strong)   AZFBUserModel       *privateUser;
 
 @end
 
 @implementation AZFBFriendsContext
 
-@dynamic token;
+@synthesize user;
+
 @dynamic graphPath;
 @dynamic friends;
 
@@ -52,7 +52,7 @@ static NSString *AZFriendsExtensionString      = @"/friends/";
 - (instancetype)initWithModel:(AZModel *)model user:(AZFBUserModel *)user {
     self = [super initWithModel:model];
     if (self) {
-        self.privateUser = user;
+        self.user = user;
         self.parameters = @{AZFriendsParametersKey:AZFriendsParametersValue};
     }
     
@@ -64,14 +64,6 @@ static NSString *AZFriendsExtensionString      = @"/friends/";
 
 - (AZFBUsersModel *)friends {
     return (AZFBUsersModel *)self.model;
-}
-
-- (AZFBUserModel *)user {
-    return self.privateUser;
-}
-
-- (void)setUser:(AZFBUserModel *)user {
-    self.privateUser = user;
 }
 
 #pragma mark -

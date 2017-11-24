@@ -34,8 +34,8 @@ static NSString *AZRequestMethod            = @"GET";
 
 @implementation AZFBGetContext
 
-@dynamic user;
 @dynamic plistName;
+@dynamic user;
 
 #pragma mark -
 #pragma mark Public methods
